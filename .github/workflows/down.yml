@@ -3,13 +3,14 @@ name: Download and Extract File
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write   # نیاز برای push کردن تغییرات به مخزن
+
 jobs:
   download-extract:
     runs-on: ubuntu-latest
     env:
-      # آدرس فایل مورد نظر خود را اینجا قرار دهید
       FILE_URL: "https://uploadkon.ir/uploads/6f1b02_26146.zip"
-      # نام فایلی که دانلود می‌شود (با پسوند)
       FILE_NAME: "downloaded_file.zip"
 
     steps:
@@ -35,9 +36,19 @@ jobs:
 
       - name: Remove Archive File
         run: |
-          # در صورت نیاز به حذف فایل فشرده پس از استخراج، این خط را نگه دارید
-          # اگر می‌خواهید فایل zip/tar.gz هم بماند، این مرحله را حذف کنید
           rm -f "$FILE_NAME"
+
+      - name: Commit and Push Extracted Files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Add extracted files from $FILE_URL"
+            git push
+          fi
 
       - name: List Files in Root
         run: |
