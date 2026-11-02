@@ -1,14 +1,14 @@
 name: Download and Extract File
 
 on:
-  workflow_dispatch: # این گزینه به شما اجازه می‌دهد تا اسکریپت را به صورت دستی اجرا کنید
+  workflow_dispatch:
 
 jobs:
   download-extract:
     runs-on: ubuntu-latest
     env:
       # آدرس فایل مورد نظر خود را اینجا قرار دهید
-      FILE_URL: "https://uploadkon.ir/uploads/6f1b02_26146.zip" 
+      FILE_URL: "https://uploadkon.ir/uploads/6f1b02_26146.zip"
       # نام فایلی که دانلود می‌شود (با پسوند)
       FILE_NAME: "downloaded_file.zip"
 
@@ -21,23 +21,25 @@ jobs:
           echo "Downloading from: $FILE_URL"
           curl -L -o "$FILE_NAME" "$FILE_URL"
 
-      - name: Extract File
+      - name: Extract File in Root
         run: |
-          # بررسی پسوند فایل و استخراج مناسب
           if [[ "$FILE_NAME" == *.zip ]]; then
-            echo "Extracting ZIP file..."
-            unzip -o "$FILE_NAME" -d extracted_content
+            echo "Extracting ZIP file to root..."
+            unzip -o "$FILE_NAME" -d .
           elif [[ "$FILE_NAME" == *.tar.gz ]] || [[ "$FILE_NAME" == *.tgz ]]; then
-            echo "Extracting TAR.GZ file..."
-            mkdir -p extracted_content
-            tar -xzf "$FILE_NAME" -C extracted_content
+            echo "Extracting TAR.GZ file to root..."
+            tar -xzf "$FILE_NAME" -C .
           else
-            echo "Unsupported file format or no extraction needed."
-            mkdir -p extracted_content
-            mv "$FILE_NAME" extracted_content/
+            echo "Unsupported file format. File kept as-is in root."
           fi
 
-      - name: List Extracted Files
+      - name: Remove Archive File
         run: |
-          echo "Files in extracted_content:"
-          ls -R extracted_content
+          # در صورت نیاز به حذف فایل فشرده پس از استخراج، این خط را نگه دارید
+          # اگر می‌خواهید فایل zip/tar.gz هم بماند، این مرحله را حذف کنید
+          rm -f "$FILE_NAME"
+
+      - name: List Files in Root
+        run: |
+          echo "Files in repository root:"
+          ls -la
