@@ -1,0 +1,53 @@
+name: Binwalk Extract Root Files
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  binwalk-extract:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Binwalk
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y binwalk
+
+      - name: Find and Extract Files with Binwalk
+        run: |
+          # پیدا کردن فایل‌های موجود در ریشه (به جز فایل‌های مخفی و پوشه‌ها)
+          # و اجرای binwalk روی هر کدام
+          for file in *; do
+            if [ -f "$file" ]; then
+              echo "========================================"
+              echo "Processing: $file"
+              echo "========================================"
+              # -e برای استخراج خودکار
+              # -C برای تعیین پوشه خروجی (نام پوشه بر اساس نام فایل)
+              # -M برای استخراج بازگشتی (اختیاری، اگر داخل فایل‌ها فایل فشرده دیگری هست)
+              binwalk -e -M -C "extracted_$file" "$file" || true
+            fi
+          done
+
+      - name: List Extracted Contents
+        run: |
+          echo "Listing extracted directories:"
+          ls -la
+
+      - name: Commit and Push Extracted Files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Extract files using binwalk"
+            git push
+          fi
