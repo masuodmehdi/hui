@@ -1,0 +1,43 @@
+name: Download and Extract File
+
+on:
+  workflow_dispatch: # این گزینه به شما اجازه می‌دهد تا اسکریپت را به صورت دستی اجرا کنید
+
+jobs:
+  download-extract:
+    runs-on: ubuntu-latest
+    env:
+      # آدرس فایل مورد نظر خود را اینجا قرار دهید
+      FILE_URL: "https://uploadkon.ir/uploads/6f1b02_26146.zip" 
+      # نام فایلی که دانلود می‌شود (با پسوند)
+      FILE_NAME: "downloaded_file.zip"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download File
+        run: |
+          echo "Downloading from: $FILE_URL"
+          curl -L -o "$FILE_NAME" "$FILE_URL"
+
+      - name: Extract File
+        run: |
+          # بررسی پسوند فایل و استخراج مناسب
+          if [[ "$FILE_NAME" == *.zip ]]; then
+            echo "Extracting ZIP file..."
+            unzip -o "$FILE_NAME" -d extracted_content
+          elif [[ "$FILE_NAME" == *.tar.gz ]] || [[ "$FILE_NAME" == *.tgz ]]; then
+            echo "Extracting TAR.GZ file..."
+            mkdir -p extracted_content
+            tar -xzf "$FILE_NAME" -C extracted_content
+          else
+            echo "Unsupported file format or no extraction needed."
+            mkdir -p extracted_content
+            mv "$FILE_NAME" extracted_content/
+          fi
+
+      - name: List Extracted Files
+        run: |
+          echo "Files in extracted_content:"
+          ls -R extracted_content
