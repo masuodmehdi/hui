@@ -10,7 +10,7 @@ jobs:
   download-extract:
     runs-on: ubuntu-latest
     env:
-      FILE_URL: "https://uploadkon.ir/uploads/6f1b02_26146.zip"
+      FILE_URL: "https://uploadkon.ir/uploads/358302_26144.zip"
       FILE_NAME: "downloaded_file.zip"
 
     steps:
