@@ -33,7 +33,7 @@ jobs:
           binwalk 144.bin | head -80
           echo "=== End of binwalk scan ==="
 
-            - name: Extract JFFS2 from known offset
+      - name: Carve and extract JFFS2
         run: |
           mkdir -p output
           OFFSET=402412
@@ -62,7 +62,6 @@ jobs:
           name: extracted-jffs2
           path: |
             output/
-            jefferson_direct.log
             jefferson_carved.log
             carved.jffs2
           if-no-files-found: warn
