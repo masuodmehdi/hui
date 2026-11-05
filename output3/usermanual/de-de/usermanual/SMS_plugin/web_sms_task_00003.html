@@ -1,0 +1,78 @@
+[settings]
+functionname=0xF7002004;
+attributenum=7;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       			type<uint>  range<0x0,0xFFFFFFFF>  	default<0x00000206>; /*全局模块*/
+attribute=alias<em_current_key>       	type<int>   range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<em_fec_en>       		type<int>   range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<em_key_exchange_en>     type<int>   range<0x0,0x01> 		default<0x00000000>;
+attribute=alias<em_prbs_sync>       	type<int>   range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<em_los_status>       	type<int>   range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<em_lof_status>       	type<int>   range<0x0,0x01>  		default<0x00000000>;
+
+[help]
+typedef struct
+{      
+    HI_DP_GPON_DN_KEY_E em_current_key;   /* 指示当前使用的是密钥A还是密钥B */
+    HI_BOOL_E em_fec_en;                  /* 下行帧FEC（Forward Error Correction）解码开关 */
+    HI_BOOL_E em_key_exchange_en;         /* 下行密钥切换使能,注意CPU不能清0,硬件切换后会自动清0 */
+    HI_BOOL_E em_prbs_sync;               /* PRBS的同步状态 */
+    HI_DP_ALARM_STATE_E em_los_status;/* c00133939 ADD 20100604 */
+    HI_DP_ALARM_STATE_E em_lof_status;/* c00133939 ADD 20100625 */
+} hi_dp_gpon_dn_sta_s;
+tle>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_sms_task_00003"></a><a name="web_sms_task_00003"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Rechtliche Hinweise</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Nachrichten verwalten</h1>
+
+
+<div class="taskbody"><p>Sie k&ouml;nnen sich empfangene und gesendete Nachrichten und Entw&uuml;rfe ansehen.</p>
+
+<a name="web_sms_task_00003__1.3.1"></a><a name="1.3.1"></a><h4 class="sectiontitle">Kontext</h4>
+<div class="p"><ul><li><span class="uicontrol"><b><script>dw(sms_label_inbox);</script></b></span>: speichert erhaltene Nachrichten.</li><li><span class="uicontrol"><b><script>dw(sms_label_sent);</script></b></span>: speichert gesendete Nachrichten, inklusive der Nachrichten, die erfolgreich versendet wurden und deren Versand fehlgeschlagen ist.</li><li><span class="uicontrol"><b><script>dw(sms_label_drafts);</script></b></span>: speichert Entw&uuml;rfe.</li></ul>
+</div>
+
+<a name="web_sms_task_00003__1.3.2"></a><a name="1.3.2"></a><div><h4 class="sectiontitle">Vorgehensweise</h4><a class="dropdownAllButtonexpand" onclick="ExpandorCollapseAllNodes(this,'Alle einblenden','Alle ausblenden')" title="expand">Alle einblenden</a>
+<ol>
+<li><span>W&auml;hlen Sie <span class="menucascade"><b><span class="uicontrol"><script>dw(sms_lable_sms);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(sms_label_inbox);</script></span></b></span>/<span class="uicontrol"><b><script>dw(sms_label_sent);</script></b></span>/<span class="uicontrol"><b><script>dw(sms_label_drafts);</script></b></span>.</span></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Von der angezeigten Seite aus k&ouml;nnen Sie</span></span></a></div><div class="dropdowncontext"><span><p><ul><li>Umbl&auml;ttern und Nachrichten lesen.</li><li>Den Speicherstatus aktualisieren.</li><li>Nachrichten markieren oder Markierungen entfernen.</li><li>Markierte Nachrichten l&ouml;schen.</li></ul>
+</p></span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Klicken Sie auf eine Nachricht, um die Nachrichtendetails zu &ouml;ffnen. Anschlie&szlig;end k&ouml;nnen Sie: </span></span></a></div><div class="dropdowncontext"><span><p><ul><li>Die Nachricht beantworten.</li><li>Die Nachricht weiterleiten.</li><li>Die Nachricht l&ouml;schen.</li></ul>
+</p></span></div></div></li>
+</ol></div>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html" title="">SMS</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

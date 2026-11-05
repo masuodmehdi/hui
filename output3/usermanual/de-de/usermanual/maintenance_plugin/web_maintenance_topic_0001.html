@@ -1,0 +1,81 @@
+[settings]
+functionname=0xF7002004;
+attributenum=9;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       	type<uint>     range<0x0,0xFFFFFFFF>  default<0x00000704>; /*全局模块*/
+attribute=alias<ui_index>       type<uint>     range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<mac>             			type<mac>   	  			default<00:00:00:12:34:56>;
+attribute=alias<uc_reserved>    type<binary>   range<0,2>  			  default<0x00000000>;
+attribute=alias<ui_vlan>       	type<uint>     range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_fid>       	type<uint>     range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<u_egr>       	type<uint>     range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<em_age_en>      type<int>      range<0x0,0x01>  	  default<0x00000000>;
+attribute=alias<em_valid>       type<int>      range<0x0,0x01>  	  default<0x00000000>;
+
+[help]
+typedef struct 
+{
+    uint    ui_index;    
+
+    uchar   uc_mac[6];
+    uchar   uc_reserved[2];   
+    uint    ui_vlan;
+    uint    ui_fid;                 /* FID，用来查找VLAN ACTION表  */
+    hi_dp_port_u    u_egr;          /* 对于组播报文,表示组播复制索引,即组播ID */
+    HI_BOOL_E   em_age_en;
+    
+    HI_BOOL_E  em_valid;
+    
+}hi_dp_l2_mac_table_item_s; 
+="text/javascript" src="../../../public_sys-resources/ExpandCollapse.js"></script><script type="text/javascript" src="../../../../language/lang_de_de.js"></script>
+<title>Wartung</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_maintenance_topic_0001"></a><a name="web_maintenance_topic_0001"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Rechtliche Hinweise</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Wartung</h1>
+
+<div>
+<ul class="ullinks">
+<li class="ulchildlink"><strong><a href="../../usermanual/maintenance_plugin/web_maintenance_task_0002.html">Protokollansicht</a></strong><br>
+Sie k&ouml;nnen die Protokolldatei anzeigen, um den Arbeitsstatus des <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> zu analysieren. Dies hilft Ihnen bei der Lokalisierung von Netzwerkfehlern.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/maintenance_plugin/web_maintenance_task_0004.html">Einstellungen sichern und wiederherstellen</a></strong><br>
+Die Sicherungsfunktion wird verwendet, um die aktuellen Einstellungen des <span class="uicontrol"><b>
+<script>dw(common_3g_wireless_modem);</script>
+</b></span> zu exportieren und als Konfigurationsdatei zu speichern. Um die aktuellen Einstellungen zu aktualisieren, verwenden Sie die Wiederherstellungsfunktion zum Import der Konfigurationsdatei in das <span class="uicontrol"><b>
+<script>dw(common_3g_wireless_modem);</script>
+</b></span>.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/maintenance_plugin/web_maintenance_task_0005.html">Online-Aktualisierung</a></strong><br>
+  Nachdem Ihr <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> mit dem Internet verbunden ist, k&ouml;nnen Sie diese Funktion verwenden, um das Upgradepaket vom Huawei Cloud-Server herunterzuladen, um Ihr <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> aufzur&uuml;sten.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/web_content_concept_00001.html">Online-Hilfe</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

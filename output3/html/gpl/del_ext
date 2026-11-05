@@ -1,0 +1,17 @@
+[settings]
+functionname = hi_wancmd_del_ext;
+attributenum = 2;
+attributeflag= 1;
+
+[parameter]
+attribute=alias<vifname>             type<string>   range<0,32>           default<bcm-ssid0>;
+attribute=alias<devname>             type<string>   range<0,32>           default<wl0>;
+
+[help]
+#define HI_KERNEL_EXT_DEVNAME_LEN     32
+typedef struct
+{
+    hi_uchar8 uc_vifname[HI_WANCMD_MAX_DEV_NAME_LEN]; 
+    hi_uchar8 uc_devname[HI_WANCMD_MAX_DEV_NAME_LEN]; 
+}hi_wancmd_ext_info_s; 
+

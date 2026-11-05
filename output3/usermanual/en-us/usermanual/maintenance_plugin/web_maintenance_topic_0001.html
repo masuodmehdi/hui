@@ -1,0 +1,88 @@
+[settings]
+functionname = hi_kernel_dp_l2_act_table_item_set_cmd;
+attributenum = 13;
+attributeflag= 1;
+
+[parameter]
+attribute=alias<fid>           type<uint>    range<0x0,0xFFFFFFFF>      default<0>;
+attribute=alias<cvlan_act>     type<uint>    range<0x0,0xFFFFFFFF>      default<0>;
+attribute=alias<cvlan_value>   type<uint>    range<0x0,0xFFFFFFFF>      default<0>;
+attribute=alias<svlan_act>     type<uint>    range<0x0,0xFFFFFFFF>      default<0>;
+attribute=alias<svlan_value>   type<uint>    range<0x0,0xFFFFFFFF>      default<0>;
+attribute=alias<cpri_act>      type<uint>    range<0x0,0xFFFFFFFF>      default<0>;
+attribute=alias<cpri_value>    type<uint>    range<0x0,0xFFFFFFFF>      default<0>;
+attribute=alias<spri_act>      type<uint>    range<0x0,0xFFFFFFFF>      default<0>;
+attribute=alias<spri_value>    type<uint>    range<0x0,0xFFFFFFFF>      default<0>;
+attribute=alias<tag_act>       type<uint>    range<0x0,0xFFFFFFFF>      default<0>;
+attribute=alias<ctpid_act>     type<uint>    range<0x0,0xFFFFFFFF>      default<0>;
+attribute=alias<stpid_act>     type<uint>    range<0x0,0xFFFFFFFF>      default<0>;
+attribute=alias<valid>         type<uint>    range<0x0,0xFFFFFFFF>      default<0>;
+
+
+[help]
+typedef struct 
+{
+    uint   ui_fid;
+
+    HI_DP_VALN_ACT_E    em_cvlan_act;
+    uint    ui_cvlan_value;         
+
+    HI_DP_VALN_ACT_E    em_svlan_act;
+    uint    ui_svlan_value;         
+
+    HI_DP_8021P_ACT_E   em_c8021p_act;
+    uint    ui_c8021p_value;
+
+    HI_DP_8021P_ACT_E   em_s8021p_act;
+    uint    ui_s8021p_value;
+
+    HI_DP_TAG_ACT_E em_tag_act;
+
+    /* 5115 add */
+    HI_DP_TPID_REP_MODE_E   em_ctpid_act;
+    HI_DP_TPID_REP_MODE_E   em_stpid_act;
+    
+    HI_BOOL_E   em_valid; 
+    
+}hi_dp_l2_act_table_item_s;
+
+
+
+
+Overview</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Quick Setup</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Connection</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Dial-up Settings</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN Settings</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN Management</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Security Settings</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">System Management</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP Settings</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Advanced Settings</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Maintenance</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Acronyms and Abbreviations</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Maintenance</h1>
+
+<div>
+<ul class="ullinks">
+<li class="ulchildlink"><strong><a href="../../usermanual/maintenance_plugin/web_maintenance_task_0002.html">Log view</a></strong><br>
+You can view the log file to analyze the working status of the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>, which helps you locate network faults.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/maintenance_plugin/web_maintenance_task_0004.html">Backing Up and Restoring Settings</a></strong><br>
+The backup function is used to export the current settings of the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> and save them as a configuration file. To update the current settings, use the restore function to import the configuration file to the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/maintenance_plugin/web_maintenance_task_0005.html">Online Update</a></strong><br>
+After your <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> is connected to the Internet, you can use this function to download the upgrade package from Huawei's cloud server and upgrade the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="../../usermanual/web_content_concept_00001.html">OnlineHelp</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

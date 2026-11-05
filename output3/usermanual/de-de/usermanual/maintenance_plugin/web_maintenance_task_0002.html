@@ -1,0 +1,92 @@
+[settings]
+functionname=0xF7002004;
+attributenum=8;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       type<uint>     range<0x0,0xFFFFFFFF>  default<0x00000712>; /*全局模块*/
+attribute=alias<mac>             			type<mac>   	  			default<00:00:00:12:34:56>;
+attribute=alias<us_arg>       type<ushort>   range<0x0,0x0000FFFF>  default<0x00000000>;
+attribute=alias<ui_vlan>      type<uint>   	 range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_fid>       type<uint>     range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<u_egr>        type<uint>     range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<em_age_en>    type<int>      range<0x0,0x01>     	default<0x00000000>;
+attribute=alias<em_valid>     type<int>      range<0x0,0x01>  		default<0x00000000>;
+
+[help]
+typedef struct 
+{
+    uchar   uc_mac[6];
+    ushort  us_arg;  
+    uint    ui_vlan;
+
+    uint    ui_fid;                 /* FID，用来查找VLAN ACTION表  */
+    hi_dp_port_u    u_egr;
+    HI_BOOL_E   em_age_en;
+    
+    HI_BOOL_E  em_valid;
+    
+}hi_dp_l2_mac_s;    entifier" content="web_maintenance_task_0002">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../../public_sys-resources/ExpandCollapse.js"></script><script type="text/javascript" src="../../../../language/lang_de_de.js"></script>
+<title>Protokollansicht</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_maintenance_task_0002"></a><a name="web_maintenance_task_0002"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Rechtliche Hinweise</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Protokollansicht</h1>
+
+
+<div class="taskbody"><p>Sie k&ouml;nnen die Protokolldatei anzeigen, um den Arbeitsstatus des <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> zu analysieren. Dies hilft Ihnen bei der Lokalisierung von Netzwerkfehlern.</p>
+
+<a name="web_maintenance_task_0002__1.3.1"></a><a name="1.3.1"></a><h4 class="sectiontitle">Vorgehensweise</h4>
+<ol>
+<li><span>W&auml;hlen Sie <span class="menucascade"><b><span class="uicontrol"><script>dw(advanced_label_maintenance);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(advanced_label_logview);</script></span></b></span>.</span></li>
+<li><span>W&auml;hlen Sie <span class="uicontrol"><b><script>dw(common_enable);</script></b></span>, um den Dienst zu aktivieren.</span></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Konfigurieren Sie die Parameter wie folgt:</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(log_level);</script></b></span>: Sie k&ouml;nnen w&auml;hlen zwischen <span class="uicontrol"><b><script>dw(log_view_level_Error);</script></b></span>  <span class="uicontrol"><b><script>dw(log_view_level_Warning);</script></b></span> oder <span class="uicontrol"><b><script>dw(log_view_level_Notice);</script></b></span> wie erforderlich.<ul><li id="web_maintenance_task_0002__ul2_li1"><a name="web_maintenance_task_0002__ul2_li1"></a><a name="ul2_li1"></a><span class="uicontrol"><b><script>dw(log_view_level_Notice);</script></b></span>: <p>Protokollinformationen der Ebene <span class="uicontrol"><b><script>dw(log_view_level_Notice);</script></b></span>, <span class="uicontrol"><b><script>dw(log_view_level_Warning);</script></b></span> und <span class="uicontrol"><b><script>dw(log_view_level_Error);</script></b></span> erfassen.</p>
+</li><li id="web_maintenance_task_0002__ul2_li2"><a name="web_maintenance_task_0002__ul2_li2"></a><a name="ul2_li2"></a><span class="uicontrol"><b><script>dw(log_view_level_Warning);</script></b></span>: <p>Protokollinformationen der Ebene <span class="uicontrol"><b><script>dw(log_view_level_Warning);</script></b></span> und <span class="uicontrol"><b><script>dw(log_view_level_Error);</script></b></span> erfassen.</p>
+</li><li id="web_maintenance_task_0002__ul2_li3"><a name="web_maintenance_task_0002__ul2_li3"></a><a name="ul2_li3"></a><span class="uicontrol"><b><script>dw(log_view_level_Error);</script></b></span>: <p>Protokollinformationen der Ebene <span class="uicontrol"><b><script>dw(log_view_level_Error);</script></b></span> erfassen.</p>
+</li></ul>
+</li>
+</ul>
+<ul>
+<li><span class="uicontrol"><b><script>dw(log_display_level);</script></b></span>: <p>Sie k&ouml;nnen die Protokolldatei anzeigen, um den Arbeitsstatus des <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</p>
+</li>
+</ul>
+</span></div></div></li>
+<li><span>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_apply);</script></b></span> , damit die PROTOKOLL-Informationen angezeigt werden.</span></li>
+</ol>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

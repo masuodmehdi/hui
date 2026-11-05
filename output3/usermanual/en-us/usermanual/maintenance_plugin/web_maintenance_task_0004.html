@@ -1,0 +1,108 @@
+[settings]
+functionname = hi_kernel_dp_glb_attr_set_cmd;
+attributenum = 15;
+attributeflag= 1;
+
+[parameter]
+attribute=alias<mtu>                   type<uint>    range<0x0,0xFFFFFFFF>   default<0x7d4>;
+attribute=alias<up_mode>               type<uint>    range<0x0,0xFFFFFFFF>   default<2>;
+attribute=alias<lsw_mode>              type<uint>    range<0x0,0xFFFFFFFF>   default<2>;
+attribute=alias<up_pri_mode>           type<uint>    range<0x0,0xFFFFFFFF>   default<0>;
+attribute=alias<dn_pri_mode>           type<uint>    range<0x0,0xFFFFFFFF>   default<0>;
+attribute=alias<up_sfc_vlan_mode>      type<uint>    range<0x0,0xFFFFFFFF>   default<0>;
+attribute=alias<dn_sfc_vlan_mode>      type<uint>    range<0x0,0xFFFFFFFF>   default<0>;
+attribute=alias<up_uc_fwd_vlan_mode>   type<uint>    range<0x0,0xFFFFFFFF>   default<0>;
+attribute=alias<dn_uc_fwd_vlan_mode>   type<uint>    range<0x0,0xFFFFFFFF>   default<0>;
+attribute=alias<up_mc_fwd_vlan_mode>   type<uint>    range<0x0,0xFFFFFFFF>   default<0>;
+attribute=alias<dn_mc_fwd_vlan_mode>   type<uint>    range<0x0,0xFFFFFFFF>   default<0>;
+attribute=alias<tpid>                  type<binary>  range<0,6>              default<"0x00 0x81 0xa8 0x88 0x 00 0x91">;
+attribute=alias<reserved>              type<binary>  range<0,2>              default<"0x00 0x00">;
+attribute=alias<default_cfi>           type<uint>    range<0x0,0xFFFFFFFF>   default<0>;
+attribute=alias<pritag_en>             type<uint>    range<0,0xFFFFFFFF>     default<0>;
+
+
+[help]
+/* 全局配置参数 */
+typedef struct  
+{
+    uint ui_mtu;    /* Added by w00180499, 2011/5/30 */
+    HI_DP_UP_MODE_E         em_up_mode;     /* 上行模式 */    
+    HI_DP_GLB_SW_MODE_E     em_sw_mode;     /* LSW接入模式 */
+
+    HI_DP_PRI_MODE_E        em_up_pri_mode;
+    HI_DP_PRI_MODE_E        em_dn_pri_mode;    
+
+    HI_DP_VLAN_MODE_E       em_up_sfc_vlan_mode;    
+    HI_DP_VLAN_MODE_E       em_dn_sfc_vlan_mode;    
+    HI_DP_VLAN_MODE_E       em_up_uc_fwd_vlan_mode;    
+    HI_DP_VLAN_MODE_E       em_dn_uc_fwd_vlan_mode;    
+    HI_DP_VLAN_MODE_E       em_up_mc_fwd_vlan_mode;    
+    HI_DP_VLAN_MODE_E       em_dn_mc_fwd_vlan_mode;    
+
+    //HI_BOOL_E em_sds_clk_sw_en;               /* Serdes时钟切换使能 */
+
+    ushort  us_tpid[HI_DP_TPID_NUM];          /* 入口TPID识别；出口TPID添加 */ 
+
+    HI_DP_ENDIAN_E  em_default_cfi;         /* 缺省CFI: 芯片各端口报文添加缺省TAG时的CFI域配置 */
+
+    HI_BOOL_E   em_pritag_en;      /*5115 add;是否识别pri_tag报文；否则按tag报文处理*/
+
+#ifdef HI_SDK_DEBUG
+    HI_BOOL_E    em_sdk_debug_print_en;
+#endif
+}hi_dp_glb_attr_s;
+
+an_topic_00001.html">WLAN Settings</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN Management</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Security Settings</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">System Management</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP Settings</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Advanced Settings</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Maintenance</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Acronyms and Abbreviations</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Backing Up and Restoring Settings</h1>
+
+
+<div class="taskbody"><p>The backup function is used to export the current settings
+of the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> and save
+them as a configuration file. To update the current settings, use
+the restore function to import the configuration file to the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</p>
+
+<a name="web_maintenance_task_0004__1.3.1"></a><a name="1.3.1"></a><h4 class="sectiontitle">Procedure</h4>
+<ol>
+<li><span>Choose <span class="menucascade"><b><span class="uicontrol"><script>dw(advanced_label_maintenance);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(system_label_configuration);</script></span></b></span>.</span></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Back up or restore the settings of the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</span></span></a></div><div class="dropdowncontext"><span>
+<table border="1" cellpadding="4" cellspacing="0" summary="" class="choicetableborder">
+<thead><tr><th valign="bottom" id="mcps1.3.1.2.2-option" align="left">Option</th>
+<th valign="bottom" id="mcps1.3.1.2.2-desc" align="left">Description</th></tr></thead>
+<tbody>
+<tr><td valign="top" headers="mcps1.3.1.2.2-option" id="d3e41"><strong>Back up the settings of the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span></strong></td>
+<td valign="top" headers="mcps1.3.1.2.2-desc mcps1.3.1.2.2.1.1">Click <span class="uicontrol"><b><script>dw(system_label_backup);</script></b></span>. Export the settings of the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> and save them as a configuration file.</td>
+</tr>
+
+<tr><td valign="top" headers="mcps1.3.1.2.2-option" id="d3e55"><strong>Restore the settings of the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span></strong></td>
+<td valign="top" headers="mcps1.3.1.2.2-desc mcps1.3.1.2.2.2.1"><ol type="a"><li>Click <span class="uicontrol"><b><script>dw(common_browse);</script></b></span> and select a configuration
+file.</li><li>Click <span class="uicontrol"><b><script>dw(common_restore);</script></b></span> to restore the
+settings of the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</li></ol>
+</td>
+</tr>
+
+</tbody></table>
+</span></div></div></li>
+</ol>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Maintenance</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

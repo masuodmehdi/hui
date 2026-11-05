@@ -1,0 +1,1 @@
+busyboxapi/modem_1/cpincheck"E5element="SimState|PinOptState|SimPinTimes|SimPukTimes"

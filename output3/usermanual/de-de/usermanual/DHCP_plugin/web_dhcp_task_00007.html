@@ -1,0 +1,81 @@
+[settings]
+functionname=0xF7002004;
+attributenum=8;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000102>; /*全局模块*/
+attribute=alias<year>         type<uint>   range<0x0,0xFFFFFFFF>  default<0>;            
+attribute=alias<month>        type<uint>   range<0x0,0xFFFFFFFF>  default<0>;
+attribute=alias<day>          type<uint>   range<0x0,0xFFFFFFFF>  default<0>;        
+attribute=alias<chip_id>      type<uint>   range<0x0,0xFFFFFFFF>  default<0>;         
+attribute=alias<base_line>    type<uint>   range<0x0,0xFFFFFFFF>  default<0>;       
+attribute=alias<sub_version>  type<uint>   range<0x0,0xFFFFFFFF>  default<0>;
+attribute=alias<vendor_id>    type<uint>   range<0x0,0xFFFFFFFF>  default<0>;       
+
+[help]
+typedef struct
+{
+    uint    ui_year;               /* DATE */
+    uint    ui_month;
+    uint    ui_day;
+
+    uint    ui_chip_id;            /* 32'h51130100 */
+    uint    ui_base_line;          /* 基线版本号 */
+    uint    ui_sub_version;        /* 子版本号 */
+
+    uint    ui_vendor_id;          /* 厂商ID */
+
+}hi_dp_glb_sta_s;vascript" type="text/javascript" src="../../../public_sys-resources/ExpandCollapse.js"></script><script type="text/javascript" src="../../../../language/lang_de_de.js"></script>
+<title>Konfigurieren von SLAAC</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_dhcp_task_00007"></a><a name="web_dhcp_task_00007"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Rechtliche Hinweise</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Konfigurieren von SLAAC</h1>
+
+
+<div class="taskbody"><p>Sie k&ouml;nnen die Stateless Address Autoconfiguration (SLAAC) konfigurieren, wenn der IPv6 DHCP-Server aktiviert ist.</p>
+
+<a name="web_dhcp_task_00007__1.3.1"></a><a name="1.3.1"></a><h4 class="sectiontitle">Vorgehensweise</h4>
+<ol>
+<li><span>W&auml;hlen Sie <span class="menucascade"><b><span class="uicontrol"><script>dw(common_settings);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(dhcp_label_dhcp);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(slaac_label_slaac);</script></span></b></span>.</span></li>
+<li><span>W&auml;hlen Sie <span class="uicontrol"><b><script>dw(common_enable);</script></b></span> , um SLAAC zu aktivieren.</span></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>W&auml;hlen Sie einen Konfigurationsmodus aus dem Dropdown-Listenfeld <span class="uicontrol"><b><script>dw(dhcp_ipv6_mode);</script></b></span>.</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(dhcp_ipv6_label_useallocatesubnet);</script></b></span>: Die Clients erhalten automatisch das Pr&auml;fix der IPv6-Adresse und die Pr&auml;fixl&auml;nge aus dem Router-Advertisement.</li>
+</ul>
+</span></div></div></li>
+<li><span>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_apply);</script></b></span>.</span></li>
+</ol>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

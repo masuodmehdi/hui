@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<scpd xmlns="urn:schemas-upnp-org:service-1-0">
+	<specVersion>
+		<major>1</major>
+		<minor>0</minor>
+	</specVersion>
+<actionList>
+	<action>
+	<name>GetEthernetLinkStatus</name>
+		<argumentList>
+			<argument>
+				<name>NewEthernetLinkStatus</name>
+				<direction>out</direction>
+				<relatedStateVariable>EthernetLinkStatus</relatedStateVariable>
+			</argument>
+		</argumentList>
+	</action>
+<!-- Declarations for other actions added by UPnP vendor (if any) go here -->
+</actionList>
+<serviceStateTable>
+	<stateVariable sendEvents="yes">
+		<name>EthernetLinkStatus</name>
+		<dataType>string</dataType>
+		<allowedValueList>
+			<allowedValue>Up</allowedValue>
+			<allowedValue>Down</allowedValue>
+			<allowedValue>Unavailable</allowedValue>
+		</allowedValueList>
+	</stateVariable>
+</serviceStateTable>
+</scpd>
+
+    </script>
+    <title></title>
+</head>
+<body>
+    <div id="all_content" class="body_bg_settings">
+        <input type="text" id="focus_hidden" style="display:none" value="focus">
+                      <div class="maintitle">
+                          <h1 id="title_label_aclsettings"><script type="text/javascript">dw(acl_label_acl); </script></h1>
+                      </div>                          
+                      <div class="main_content">
+                        <table class="acl_table">
+                            <tr height="1">
+                                <th width="150"></th>
+                                <th width="60"></th>
+                                <th width="90"></th>
+                            </tr>
+                            <tr class="acl_tr">
+                                <td class="acl_td"><script type="text/javascript">dw(acl_service); </script></td>
+                                <td class="acl_td"><script type="text/javascript">dw(acl_lan); </script></td>
+                                <td class="acl_td"><script type="text/javascript">dw(acl_wan); </script> </td>
+                            </tr>
+                            <tr class="acl_tr">
+                                <td class="acl_td"><script type="text/javascript">dw(acl_http); </script> </td>
+                                <td class="acl_td"><input id="httplan" type="checkbox"/></td>
+                                <td class="acl_td"><input id="httpwan"  type="checkbox" disabled="disabled" /></td>
+                            </tr>
+                            <tr class="acl_tr">
+                                <td class="acl_td"><script type="text/javascript">dw(acl_ssl); </script> </td>
+                                <td class="acl_td"><input id="ssllan" type="checkbox"/></td>
+                                <td class="acl_td"><input id="sslwan"  type="checkbox"/></td>
+                            </tr>
+                            <tr class="acl_tr">
+                                <td class="acl_td"><script type="text/javascript">dw(acl_ftp); </script></td>
+                                <td class="acl_td"><input id="ftplan" type="checkbox"/></td>
+                                <td class="acl_td"><input id="ftpwan" type="checkbox"/></td>
+                            </tr>
+                        </table>
+                      <div class="apply_button">
+                         <script type="text/javascript">create_button(common_apply,"apply");</script>
+                     </div> 
+    </div>
+</body>
+</html>

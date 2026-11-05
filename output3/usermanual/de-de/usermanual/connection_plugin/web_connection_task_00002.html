@@ -1,0 +1,80 @@
+[settings]
+functionname=0xF7002004;
+attributenum=8;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       		type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000B0a>; /*全局模块*/
+attribute=alias<ui_index>       	type<uint>   range<0x0,0x7F>  		default<0x00000000>;
+attribute=alias<ui_gemport>       	type<uint>   range<0,4095>  		default<0x00000000>;
+attribute=alias<em_valid>       	type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ul_up_frm_cnt>      type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ul_up_byte_cnt>     type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ul_dn_frm_cnt>      type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ul_dn_byte_cnt>     type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+
+[help]
+
+typedef struct
+{
+    uint ui_index;           /* 0~127,芯片仅支持128个GEMPORT的统计 */
+    uint ui_gemport;         /* 指定查找的gemport_id */
+    HI_BOOL_E em_valid;
+    
+    ulong ul_up_frm_cnt;      /* 指定gemport，上行帧数 */
+    ulong ul_up_byte_cnt;     /* 指定gemport，上行byte数 */
+
+    ulong ul_dn_frm_cnt;      /* 指定gemport，下行帧数 */
+    ulong ul_dn_byte_cnt;     /* 指定gemport，下行byte数 */
+
+
+}hi_dp_gpon_up_gemport_cnt_table_item_s;
+dding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_connection_task_00002"></a><a name="web_connection_task_00002"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Rechtliche Hinweise</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Konfigurieren der Verbindung</h1>
+
+
+<div class="taskbody"><p>Konfigurieren Sie die Parameter f&uuml;r die Netzwerkverbindung.</p>
+
+<a name="web_connection_task_00002__1.3.1"></a><a name="1.3.1"></a><h4 class="sectiontitle">Kontext</h4>
+<div class="p">Das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> kann &uuml;ber 3G/4G eine Verbindung zum Internet herstellen.</div>
+
+<a name="web_connection_task_00002__1.3.2"></a><a name="1.3.2"></a><h4 class="sectiontitle">Vorgehensweise</h4>
+<ol>
+<li><span>Klicken Sie auf <span class="menucascade"><b><span class="uicontrol"><script>dw(dialup_label_connection);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(dialup_label_connection_status);</script></span></b></span>.</span></li>
+<li><span>Unter <span class="uicontrol"><b><script>dw(dialup_label_profile_list);</script></b></span> w&auml;hlen Sie aus der Liste ein konfiguriertes Profil aus.</span></li>
+<li><span>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_apply);</script></b></span>.</span></li>
+</ol>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

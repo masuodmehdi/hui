@@ -1,0 +1,1897 @@
+[settings]
+functionname = hi_adapter_cli_lsw_mac_set_limitcount;
+attributenum = 3;
+attributeflag= 1;
+
+[parameter]
+attribute=alias<port>              type<uint>       range<0x0,0x7>                default<0>;
+attribute=alias<count>             type<ushort>     range<0x0,0x0400>             default<0>;
+attribute=alias<res>               type<ushort>     range<0x0,0x0>                default<0>;
+
+[help]
+typedef struct
+{
+    hi_lsw_port_e em_port;
+    hi_ushort16   us_count;
+    hi_ushort16   us_res;
+}hi_lsw_mac_limitcount_s;
+
+/*�˿ںŶ���*/
+typedef enum
+{
+    HI_LSW_PORT_GE0_E   = 0,
+    HI_LSW_PORT_FE1_E   = 1,
+    HI_LSW_PORT_FE2_E   = 2,
+    HI_LSW_PORT_FE3_E   = 3,
+    HI_LSW_PORT_FE4_E   = 4,
+    HI_LSW_PORT_PON_E   = 5,
+    HI_LSW_PORT_CPU_E   = 6,
+    HI_LSW_PORT_MAX_E,
+}hi_lsw_port_e;0px;
+padding: 0px;
+}
+.container-1 {
+background-color: white;
+margin: 0px auto;
+max-width: 960px;
+}
+.current-page h1 {
+color: black;
+float: left;
+font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+font-size: 18px;
+font-weight: normal;
+}
+.current-page {
+height: 30px;
+padding: 0px 0px 6px;
+}
+.clearfix {
+display: block;
+}
+.pr {
+position: relative;
+}
+.container{
+border-left: 0,1px,1px,1px solid #EBEBEB;
+color: #333;
+}
+.terms-of-use {
+color: #333;
+padding: 10px 50px;
+}
+.terms-of-use h2 {
+color: #333;
+font-size: 14px;
+font-weight: bold;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+display: block;
+margin: 0px;
+padding: 0px;
+}
+a {
+color: #959595;
+cursor: pointer;
+text-decoration: none;
+}
+a:hover{text-decoration: none; color: #df1000;}
+</style> 
+</head>
+<body class="gray-bgcolor">
+      <article class="article-bg-2">
+      <div class="container">
+      <div style="text-align:center;"><div class="container-1">
+            <div class="current-page pr clearfix" style="padding-left:20px; padding-top:15px; height:auto;">
+                  <div style="font-size:medium; font-weight: bold">OPEN SOURCE SOFTWARE NOTICE</div>
+            </div>
+      </div></div>
+      <div class="container-1">
+            <hr style="margin-left:20px;margin-right:20px;border:1px solid #EBEBEB;"/>
+            <div class="terms-of-use">
+      <P>This document contains open source software notice for this product. And this document is confidential information of copyright holder. Recipient shall protect it in due care and shall not disseminate it without permission. </P>
+
+      <BR><P><B>Warranty Disclaimer</B></P>
+      <P>
+      This document is provided “as is” without any warranty whatsoever, including the accuracy or comprehensiveness. Copyright holder of this document may change the contents of this document at any time without prior notice, and copyright holder disclaims any liability in relation to recipient’s use of this document.
+      <BR><BR>The open source software in this product is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the applicable licenses for more details.
+      </P>
+
+      <BR><BR><B>Software:</B> ACCEL-PPTP 0.8.5
+      <BR><B>Copyright notice: </B>
+      <BR>Copyright 1991 by the Massachusetts Institute of Technology
+      <BR>Copyright 1989, 1991, 1996, 1997, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
+      <BR>Copyright (c) 1984-2000 Carnegie Mellon University.
+      <BR>Copyright (C) 1990, RSA Data Security, Inc.
+      <BR>Copyright (c) 1994-2003 Paul Mackerras.
+      <BR>Copyright (c) 1995, 1996, 1997 Francis.Dupont@inria.fr, INRIA Rocquencourt
+      <BR>Copyright (c) 1995 Eric Rosenquist.
+      <BR>Copyright (c) 1998, 1999 Francis.Dupont@inria.fr, GIE DYADE
+      <BR>Copyright (c) 1999 Tommi Komulainen.
+      <BR>Copyright (c) 2001 by Sun Microsystems, Inc.
+      <BR>Copyright (c) 2002 Google, Inc.
+      <BR>Copyright (C) 2006 by Kozlov D.
+      <BR>Copyright (C) Andrew Tridgell 1999-2004
+      <BR><B>License: </B>The GPL 2.0 License
+      <BR>The GNU General Public License (GPL-2.0)
+      <BR>Version 2, June 1991 Copyright (C) 1989, 1991 Free Software Foundation, Inc. 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+          Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
+      <BR><B>Preamble</B>
+      <BR>The licenses for most software are designed to take away your freedom to share and change it. By contrast, the GNU General Public License is intended to guarantee your freedom to share and change free software--to make sure the software is free for all its users. This General Public License applies to most of the Free Software Foundation's software and to any other program whose authors commit to using it. (Some other Free Software Foundation software is covered by the GNU Library General Public License instead.) You can apply it to your programs, too.<BR>
+      When we speak of free software, we are referring to freedom, not price. Our General Public Licenses are designed to make sure that you have the freedom to distribute copies of free software (and charge for this service if you wish), that you receive source code or can get it if you want it, that you can change the software or use pieces of it in new free programs; and that you know you can do these things.
+      <BR>To protect your rights, we need to make restrictions that forbid anyone to deny you these rights or to ask you to surrender the rights. These restrictions translate to certain responsibilities for you if you distribute copies of the software, or if you modify it.<BR>
+      For example, if you distribute copies of such a program, whether gratis or for a fee, you must give the recipients all the rights that you have. You must make sure that they, too, receive or can get the source code. And you must show them these terms so they know their rights.<BR>
+      We protect your rights with two steps: (1) copyright the software, and (2) offer you this license which gives you legal permission to copy, distribute and/or modify the software.<BR>
+      Also, for each author's protection and ours, we want to make certain that everyone understands that there is no warranty for this free software. If the software is modified by someone else and passed on, we want its recipients to know that what they have is not the original, so that any problems introduced by others will not reflect on the original authors' reputations.<BR>
+      Finally, any free program is threatened constantly by software patents. We wish to avoid the danger that redistributors of a free program will individually obtain patent licenses, in effect making the program proprietary. To prevent this, we have made it clear that any patent must be licensed for everyone's free use or not licensed at all.<BR>
+      The precise terms and conditions for copying, distribution and modification follow.<BR>
+      <B>TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION</B><BR>
+      <B>0.</B> This License applies to any program or other work which contains a notice placed by the copyright holder saying it may be distributed under the terms of this General Public License. The "Program", below, refers to any such program or work, and a "work based on the Program" means either the Program or any derivative work under copyright law: that is to say, a work containing the Program or a portion of it, either verbatim or with modifications and/or translated into another language. (Hereinafter, translation is included without limitation in the term "modification".) Each licensee is addressed as "you".<BR>
+      Activities other than copying, distribution and modification are not covered by this License; they are outside its scope. The act of running the Program is not restricted, and the output from the Program is covered only if its contents constitute a work based on the Program (independent of having been made by running the Program). Whether that is true depends on what the Program does.<BR>
+      <B>1.</B>You may copy and distribute verbatim copies of the Program's source code as you receive it, in any medium, provided that you conspicuously and appropriately publish on each copy an appropriate copyright notice and disclaimer of warranty; keep intact all the notices that refer to this License and to the absence of any warranty; and give any other recipients of the Program a copy of this License along with the Program.<BR>
+      You may charge a fee for the physical act of transferring a copy, and you may at your option offer warranty protection in exchange for a fee.<BR>
+      <B>2.</B>You may modify your copy or copies of the Program or any portion of it, thus forming a work based on the Program, and copy and distribute such modifications or work under the terms of Section 1 above, provided that you also meet all of these conditions:
+      <BR>a) You must cause the modified files to carry prominent notices stating that you changed the files and the date of any change.
+      <BR>b) You must cause any work that you distribute or publish, that in whole or in part contains or is derived from the Program or any part thereof, to be licensed as a whole at no charge to all third parties under the terms of this License.
+      <BR>c) If the modified program normally reads commands interactively when run, you must cause it, when started running for such interactive use in the most ordinary way, to print or display an announcement including an appropriate copyright notice and a notice that there is no warranty (or else, saying that you provide a warranty) and that users may redistribute the program under these conditions, and telling the user how to view a copy of this License. (Exception: if the Program itself is interactive but does not normally print such an announcement, your work based on the Program is not required to print an announcement.) 
+      <BR>These requirements apply to the modified work as a whole. If identifiable sections of that work are not derived from the Program, and can be reasonably considered independent and separate works in themselves, then this License, and its terms, do not apply to those sections when you distribute them as separate works. But when you distribute the same sections as part of a whole which is a work based on the Program, the distribution of the whole must be on the terms of this License, whose permissions for other licensees extend to the entire whole, and thus to each and every part regardless of who wrote it.
+      <BR>Thus, it is not the intent of this section to claim rights or contest your rights to work written entirely by you; rather, the intent is to exercise the right to control the distribution of derivative or collective works based on the Program.
+      <BR>In addition, mere aggregation of another work not based on the Program with the Program (or with a work based on the Program) on a volume of a storage or distribution medium does not bring the other work under the scope of this License.
+      <BR><B>3.</B>You may copy and distribute the Program (or a work based on it, under Section 2) in object code or executable form under the terms of Sections 1 and 2 above provided that you also do one of the following:
+      <BR>a) Accompany it with the complete corresponding machine-readable source code, which must be distributed under the terms of Sections 1 and 2 above on a medium customarily used for software interchange; or,
+      <BR>b) Accompany it with a written offer, valid for at least three years, to give any third party, for a charge no more than your cost of physically performing source distribution, a complete machine-readable copy of the corresponding source code, to be distributed under the terms of Sections 1 and 2 above on a medium customarily used for software interchange; or,
+      <BR>c) Accompany it with the information you received as to the offer to distribute corresponding source code. (This alternative is allowed only for noncommercial distribution and only if you received the program in object code or executable form with such an offer, in accord with Subsection b above.)
+      <BR>The source code for a work means the preferred form of the work for making modifications to it. For an executable work, complete source code means all the source code for all modules it contains, plus any associated interface definition files, plus the scripts used to control compilation and installation of the executable. However, as a special exception, the source code distributed need not include anything that is normally distributed (in either source or binary form) with the major components (compiler, kernel, and so on) of the operating system on which the executable runs, unless that component itself accompanies the executable.
+      <BR>If distribution of executable or object code is made by offering access to copy from a designated place, then offering equivalent access to copy the source code from the same place counts as distribution of the source code, even though third parties are not compelled to copy the source along with the object code.
+      <BR><B>4.</B>You may not copy, modify, sublicense, or distribute the Program except as expressly provided under this License. Any attempt otherwise to copy, modify, sublicense or distribute the Program is void, and will automatically terminate your rights under this License. However, parties who have received copies, or rights, from you under this License will not have their licenses terminated so long as such parties remain in full compliance.
+      <BR><B>5.</B>You are not required to accept this License, since you have not signed it. However, nothing else grants you permission to modify or distribute the Program or its derivative works. These actions are prohibited by law if you do not accept this License. Therefore, by modifying or distributing the Program (or any work based on the Program), you indicate your acceptance of this License to do so, and all its terms and conditions for copying, distributing or modifying the Program or works based on it.
+      <BR><B>6.</B>Each time you redistribute the Program (or any work based on the Program), the recipient automatically receives a license from the original licensor to copy, distribute or modify the Program subject to these terms and conditions. You may not impose any further restrictions on the recipients' exercise of the rights granted herein. You are not responsible for enforcing compliance by third parties to this License.
+      <BR><B>7.</B>If, as a consequence of a court judgment or allegation of patent infringement or for any other reason (not limited to patent issues), conditions are imposed on you (whether by court order, agreement or otherwise) that contradict the conditions of this License, they do not excuse you from the conditions of this License. If you cannot distribute so as to satisfy simultaneously your obligations under this License and any other pertinent obligations, then as a consequence you may not distribute the Program at all. For example, if a patent license would not permit royalty-free redistribution of the Program by all those who receive copies directly or indirectly through you, then the only way you could satisfy both it and this License would be to refrain entirely from distribution of the Program.
+      <BR>If any portion of this section is held invalid or unenforceable under any particular circumstance, the balance of the section is intended to apply and the section as a whole is intended to apply in other circumstances.
+      <BR>It is not the purpose of this section to induce you to infringe any patents or other property right claims or to contest validity of any such claims; this section has the sole purpose of protecting the integrity of the free software distribution system, which is implemented by public license practices. Many people have made generous contributions to the wide range of software distributed through that system in reliance on consistent application of that system; it is up to the author/donor to decide if he or she is willing to distribute software through any other system and a licensee cannot impose that choice.
+      <BR>This section is intended to make thoroughly clear what is believed to be a consequence of the rest of this License.
+      <BR><B>8.</B> If the distribution and/or use of the Program is restricted in certain countries either by patents or by copyrighted interfaces, the original copyright holder who places the Program under this License may add an explicit geographical distribution limitation excluding those countries, so that distribution is permitted only in or among countries not thus excluded. In such case, this License incorporates the limitation as if written in the body of this License.
+      <BR><B>9.</B>The Free Software Foundation may publish revised and/or new versions of the General Public License from time to time. Such new versions will be similar in spirit to the present version, but may differ in detail to address new problems or concerns.
+      <BR>Each version is given a distinguishing version number. If the Program specifies a version number of this License which applies to it and "any later version", you have the option of following the terms and conditions either of that version or of any later version published by the Free Software Foundation. If the Program does not specify a version number of this License, you may choose any version ever published by the Free Software Foundation.
+      <BR><B>10.</B>If you wish to incorporate parts of the Program into other free programs whose distribution conditions are different, write to the author to ask for permission. For software which is copyrighted by the Free Software Foundation, write to the Free Software Foundation; we sometimes make exceptions for this. Our decision will be guided by the two goals of preserving the free status of all derivatives of our free software and of promoting the sharing and reuse of software generally.
+      <BR><B>NO WARRANTY</B>
+      <BR><B>11.</B> BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+      <BR><B>12.</B>IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+      <BR>END OF TERMS AND CONDITIONS
+      <BR><B>How to Apply These Terms to Your New Programs</B>
+      <BR>If you develop a new program, and you want it to be of the greatest possible use to the public, the best way to achieve this is to make it free software which everyone can redistribute and change under these terms.
+      <BR>To do so, attach the following notices to the program. It is safest to attach them to the start of each source file to most effectively convey the exclusion of warranty; and each file should have at least the "copyright" line and a pointer to where the full notice is found.
+      <BR>One line to give the program's name and a brief idea of what it does.
+      <BR>Copyright (C) &lt;year&gt; &lt;name of author&gt;
+      <BR>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+      <BR>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+      <BR>You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+      <BR>Also add information on how to contact you by electronic and paper mail.
+      <BR>If the program is interactive, make it output a short notice like this when it starts in an interactive mode:
+      <BR>Gnomovision version 69, Copyright (C) year name of author Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show w'. This is free software, and you are welcome to redistribute it under certain conditions; type `show c' for details.
+      <BR>The hypothetical commands `show w' and `show c' should show the appropriate parts of the General Public License. Of course, the commands you use may be called something other than `show w' and `show c'; they could even be mouse-clicks or menu items--whatever suits your program.
+      <BR>You should also get your employer (if you work as a programmer) or your school, if any, to sign a "copyright disclaimer" for the program, if necessary. Here is a sample; alter the names:
+      <BR>Yoyodyne, Inc., hereby disclaims all copyright interest in the program `Gnomovision' (which makes passes at compilers) written by James Hacker.
+      <BR>signature of Ty Coon, 1 April 1989
+      <BR>Ty Coon, President of Vice
+      <BR>This General Public License does not permit incorporating your program into proprietary programs. If your program is a subroutine library, you may consider it more useful to permit linking proprietary applications with the library. If this is what you want to do, use the GNU Library General Public License instead of this License.
+
+      <BR><BR><B>Software:</B> bftpd 1.6
+      <BR><B>Copyright notice:</B>
+      <BR>Copyright (C) 1991 by the Massachusetts Institute of Technology
+      <BR>Copyright (C) 1989, 1991-6 Free Software Foundation, Inc.
+      <BR>Copyright (C) 1991-2, RSA Data Security, Inc. Created 1991.
+      <BR>Copyright (C) 1999-2003 Max-Wilhelm Bruker
+      <BR><B>License:</B> The BSD License
+      <BR>The BSD 2-Clause License
+      <BR>The following is a BSD 2-Clause license template. To generate your own license, change the values of OWNER and YEAR from their original values as given here, and substitute your own.
+      <BR>This prelude is not part of the license.
+      <BR>&lt;OWNER&gt; = Regents of the University of California
+      <BR>&lt;YEAR&gt; = 1998
+      <BR>In the original BSD license, both occurrences of the phrase "COPYRIGHT HOLDERS AND CONTRIBUTORS" in the disclaimer read "REGENTS AND CONTRIBUTORS".
+      <BR>Here is the license template:
+      <BR>Copyright (c) &lt;YEAR&gt;, &lt;OWNER&gt;
+      <BR>All rights reserved.
+      <BR>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+      <BR><B>1.</B> Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+      <BR><B>2.</B> Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+      <BR>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+      <BR><BR><B>Software:</B> Bootstrap 2.1.1
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright 2011, Dave Gamache
+      <BR>Copyright 2011，2012 Twitter, Inc.
+      <BR>Copyright (c) 2008 Ariel Flesler – &lt;aflesler@gmail.com&gt;
+      <BR>Copyright (c) 2012 John Resig, Jörn Zaefferer
+      <BR><B>License: The Apache License.</B>
+      <BR><BR><center>Apache License</center>
+      <center>Version 2.0, January 2004</center>
+      <center>http://www.apache.org/licenses/</center>
+      <center>TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION</center>
+
+      <BR>1. Definitions.
+
+      <BR><BR>"License" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.
+
+      <BR><BR>"Licensor" shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.
+
+      <BR><BR>"Legal Entity" shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, "control" means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.
+
+      <BR><BR>"You" (or "Your") shall mean an individual or Legal Entity exercising permissions granted by this License.
+
+      <BR><BR>"Source" form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files.
+
+      <BR><BR>"Object" form shall mean any form resulting from mechanical transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation, and conversions to other media types.
+
+      <BR><BR>"Work" shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a copyright notice that is included in or attached to the work (an example is provided in the Appendix below).
+
+      <BR><BR>"Derivative Works" shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.
+
+      <BR><BR>"Contribution" shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, "submitted" means any form of electronic, verbal, or written communication sent to the Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as "Not a Contribution."
+
+      <BR><BR>"Contributor" shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.
+
+      <BR><BR>2.Grant of Copyright License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.
+
+      <BR><BR>3. Grant of Patent License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.
+
+      <BR><BR>4. Redistribution. You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:
+
+      <BR><BR>(a) You must give any other recipients of the Work or Derivative Works a copy of this License; and
+
+      <BR><BR>(b) You must cause any modified files to carry prominent notices stating that You changed the files; and
+
+      <BR><BR>(c) You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and
+      attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and
+
+      <BR><BR>(d) If the Work includes a "NOTICE" text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License.
+
+      <BR><BR>You may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.
+
+      <BR><BR>5. Submission of Contributions. Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.
+
+      <BR><BR>6. Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
+
+      <BR><BR>7. Disclaimer of Warranty. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.
+
+      <BR><BR>8. Limitation of Liability. In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.
+
+      <BR><BR>9. Accepting Warranty or Additional Liability. While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.
+
+      <BR><BR>END OF TERMS AND CONDITIONS
+
+      <BR><BR>APPENDIX: How to apply the Apache License to your work.
+
+      <BR><BR>To apply the Apache License to your work, attach the following boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier identification within third-party archives.
+
+      <BR><BR>Copyright [yyyy] [name of copyright owner]
+
+      <BR><BR>Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+      <BR><BR><center>http://www.apache.org/licenses/LICENSE-2.0</center>
+
+      <BR>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+      <BR>See the License for the specific language governing permissions and limitations under the License.
+
+      <BR><BR><B>Software:</B> bridge-utils 1.0.4
+      <BR><B>Copyright notice:</B>
+      <BR>Copyright 1991 by the Massachusetts Institute of Technology
+      <BR>Copyright (C) 2000 Lennert Buytenhek
+      <BR>Copyright (C) 1989, 1991, 1996, 1997, 1999, 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+      <BR><B>License: </B>The GPL 2.0 License.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> buildroot 08-rc1-2011
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright, 1988-1992, Russell Nelson, Crynwr Software
+      <BR>Copyright 1991 by the Massachusetts Institute of Technology
+      <BR>Copyright 1994 David C. Davies
+      <BR>Copyright 1995  Digital Equipment Corporation.
+      <BR>Copyright 1999-2001 by Donald Becker.
+      <BR>Copyright 1999 LightSys Technology Services, Inc.
+      <BR>Copyright 1999 Steve Smith
+      <BR>Copyright 2001 by Falk Hueffner &lt;falk@debian.org&gt;
+      <BR>Copyright 2003-2006 Atmel Corporation.
+      <BR>Copyright 2003 Key Research, Inc.
+      <BR>Copyright (C) 1989-2010 Free Software Foundation, Inc.
+      <BR>Copyright (C) 1991, 1992 Linus Torvalds,
+      <BR>Copyright (c) 1993,1994 Herb Peyerl (hpeyerl@novatel.ca).
+      <BR>Copyright (C) 1994 by PJD Weichmann & SWS Bern, Switzerland
+      <BR>Copyright (C) 1995, 96, 97, 98, 99, 2000 by Ralf Baechle
+      <BR>Copyright (C) 1995 Adrian M. Rodriguez (adrian@remus.rutgers.edu)
+      <BR>Copyright (C) 1995 David S. Miller (davem@caip.rutgers.edu)
+      <BR>Copyright (C) 1996, 1999, 2001 David S. Miller (davem@redhat.com)
+      <BR>Copyright (C) 1996 by ACN S.A
+      <BR>Copyright (C) 1996 by Erik Stahlman &lt;eric@vt.edu&gt;
+      <BR>Copyright (C) 1998 Daniel Engstr &lt;daniel.engstrom@riksnett.no&gt;
+      <BR>Copyright (C) 1998 Kenneth Albanowski &lt;kjahds@kjahds.com&gt;
+      <BR>Copyright (C) 1999, 2000 Silicon Graphics, Inc.
+      <BR>Copyright (c) 1999-2000 Vojtech Pavlik
+      <BR>Copyright(c) 1999 - 2003 Intel Corporation.
+      <BR>Copyright (c) 1999-2005 by Erik Andersen, 2006-2011 The Buildroot
+      <BR>Copyright (C) 1999-2005 by Erik Andersen &lt;andersen@codepoet.org&gt;
+      <BR>Copyright (C) 1999 LightSys Technology Services, Inc.
+      <BR>Copyright (C) 1999 Steve Smith.
+      <BR>Copyright (c) 2000 Alfred Perlstein &lt;alfred@freebsd.org&gt;
+      <BR>Copyright (c) 2000 Angelos D. Keromytis
+      <BR>Copyright (c) 2000 John Baldwin &lt;jhb@freebsd.org&gt;
+      <BR>Copyright (C) 2000, Lineo. &lt;davidm@lineo.com&gt;
+      <BR>Copyright (c) 2000 Paul Saab &lt;ps@freebsd.org&gt;
+      <BR>Copyright (C) 2001, 2002 David S. Miller (davem@redhat.com)
+      <BR>Copyright (C) 2001, 2002 Jeff Garzik (jgarzik@mandrakesoft.com)
+      <BR>Copyright (C) 2001-2003 by Erik Andersen &lt;andersen@codepoet.org&gt;
+      <BR>Copyright (C) 2001-2003 SnapGear Inc, &lt;davidm@snapgear.com&gt;
+      <BR>Copyright (C) 2001-2003, SnapGear (www.snapgear.com)
+      <BR>Copyright (C) 2001-2005 by Erik Andersen &lt;andersen@codepoet.org&gt;
+      <BR>Copyright (c) 2001 Arndt Schoenewald
+      <BR>Copyright (C) 2001 Erik Andersen vandersen@codepoet.org&gt;
+      <BR>Copyright (C) 2001 Inprimis Technologies, Inc.
+      <BR>Copyright (C) 2001 Jeff Garzik (jgarzik@mandrakesoft.com)
+      <BR>Copyright (C) 2001 Lineo, &lt;davidm@lineo.com&gt;
+      <BR>Copyright (c) 2001 Theo de Raadt
+      <BR>Copyright (C) 2002,2003 David McCullough &lt;davidm@snapgear.com&gt;
+      <BR>Copyright (C) 2002-2003 Erik Andersen &lt;andersen@uclibc.org&gt;
+      <BR>Copyright (C) 2002-2003 Romain Lievin &lt;roms@tilp.info>
+      <BR>Copyright (C) 2002-2005  David McCullough &lt;davidm@snapgear.com&gt;
+      <BR>Copyright (C) 2002-2005 Roman Zippel&lt;zippel@linux-m68k.org&gt;
+      <BR>Copyright (C) 2002-2005 Sam Ravnborg &lt;sam@ravnborg.org&gt;
+      <BR>Copyright (c) 2002-2006 Sam Leffler, Errno Consulting
+      <BR>Copyright (C) 2002 by Ken Restivo &lt;ken@246gt.com&gt;
+      <BR>Copyright (C) 2002 by Tim Riker &lt;Tim@Rikers.org&gt;
+      <BR>Copyright (c) 2002 Romain Lievin &lt;roms@lpg.ticalc.org&gt;.
+      <BR>Copyright (C) 2002 Roman Zippel &lt;zippel@linux-m68k.org&gt;.
+      <BR>Copyright (c) 2003-2009 by Tensilica Inc.
+      <BR>Copyright (C) 2003 Eric Biederman (ebiederman@lnxi.com)
+      <BR>Copyright (C) 2004-2005 Intel Corporation.
+      <BR>Copyright (C) 2004 Manuel Novoa III &lt;mjn3@uclibc.org&gt;
+      <BR>Copyright (C) 2005 Felix Fietkau &lt;nbd@openwrt.org&gt;
+      <BR>Copyright (C) 2006-2010 David McCullough
+      <BR>Copyright (C) 2006-2011 by the Buildroot developers &lt;buildroot@uclibc.org&gt;
+      <BR>Copyright (C) 2006 Ekiert sp z o.o.
+      <BR>Copyright (C) 2006 The T2 SDE Project
+      <BR>Copyright (C) 2007 Atmel Corporation
+      <BR>Copyright (C) 2008 Nir Tzachar &lt;nir.tzachar@gmail.com&gt;
+      <BR>Copyright (C) 2008 Tensilica, Inc.
+      <BR>Copyright (C) 2009-2010, International Business Machines
+      <BR>Copyright (C) 2009 by Thomas Petazzoni &lt;thomas.petazzoni@free-electrons.com&gt;
+      <BR>Copyright (C) 2009, International Business Machines
+      <BR>Copyright (C) 2010 Thomas Petazzoni &lt;thomas.petazzoni@free-electrons.com&gt;
+      <BR>Copyright (C) Archway Digital Solutions.
+      <BR>Copyright (c) Ken Yap 1998
+      <BR>Copyright (C) Linux Networx.
+      <BR>Copyright (C) Martin Schlemmer &lt;azarah@nosferatu.za.org&gt;
+      <BR>Copyright (C) 1999-2005 Erik Andersen,
+      <BR>Copyrights (c) 1996 by Jan-Pascal van Best (jvbest@wi.leidenuniv.nl)
+      <BR><B>License:</B> The GPL 2.0 License
+      <BR>See above
+
+      <BR><BR><B>Software:</B> BusyBox 1.9.1 
+      <BR><B>Copyright notice:</B>
+      <BR>Copyright© 1999-2004 busybox project. 
+      <BR>Copyright (c) 2001 David Schleef &lt;ds@schleef.org&gt;
+      <BR>Copyright (c) 2001 Stuart Hughes &lt;seh@zee2.com&gt;
+      <BR>Copyright (c) 2002 Steven J. Hill &lt;shill@broadcom.com&gt;
+      <BR>Copyright (c) 2006 Freescale Semiconductor, Inc &lt;stuarth@freescale.com&gt;
+      <BR>Copyright (C) 1993, 1994  Remy Card &lt;card@masi.ibp.fr&gt;
+      <BR>Copyright (C) 1999-2005 by Erik Andersen &lt;andersen@codepoet.org&gt;
+      <BR>Copyright (C) 1999 by Andries Brouwer
+      <BR>Copyright (C) 2000,2001 by Andreas Dilger
+      <BR>Copyright (C) 2001, 2003 Theodore Y. Ts'o
+      <BR>Copyright (C) Andries Brouwer
+    <BR>Copyright (C) 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004,2005 by Theodore Ts'o. &lt;tytso@mit.edu&gt;
+      <BR>Copyright (C) 2006 Garrett Kajmowicz
+      <BR>Copyright (C) 1997 Kaz Kylheku &lt;kaz@ashi.footprints.net&gt;
+      <BR>Copyright (C) 1999-2000 Red Hat Software
+      <BR>Copyright (C) 1997 Kaz Kylheku &lt;kaz@ashi.footprints.net&gt;
+      <BR>Copyright (C) 2000 Stephen C. Tweedie
+      <BR>Copyright 1998-2000 Red Hat, Inc
+      <BR>Copyright (C) 2003 VMware, Inc.
+      <BR>Copyright (c) 2001  Daniel Phillips
+      <BR>Copyright (C) 2001 Andreas Gruenbacher, &lt;a.gruenbacher@computer.org&gt;
+      <BR>Copyright (C) 1991, 1992  Linus Torvalds
+      <BR>Copyright (C) 2006 - 2007 by KaiGai Kohei &lt;kaigai@kaigai.gr.jp&gt;
+      <BR>Copyright (C) KaiGai Kohei &lt;kaigai@ak.jp.nec.com&gt;
+      <BR>Copyright (c) 1999 by David I. Bell
+      <BR>Copyright (C) 1991, 1992, 1995, 1996, 1997, 1998, 1999, 2001 Free Software Foundation, Inc.
+      <BR>Copyright (C) 2003, 2005 Manuel Novoa III &lt;mjn3@codepoet.org&gt;
+      <BR>Copyright 2005-2007, Bernhard Fischer
+      <BR>Copyright (C) 1999,2000,2001 by Lineo, inc.
+      <BR>Copyright (C) 2000-2003 by Glenn McGrath
+      <BR>Copyright (C) 2005 by Mike Frysinger &lt;vapier@gentoo.org&gt;
+      <BR>Copyright (C) 2004-2006 by Rob Landley &lt;rob@landley.net&gt;
+      <BR>Copyright (C) 2000, 2001 by Matt Kraai &lt;kraai@alumni.carnegiemellon.edu&gt;
+      <BR>Copyright (C) 2006 by Yoshinori Sato &lt;ysato@users.sourceforge.jp&gt;
+      <BR>Copyright (c) 1990 The Regents of the University of California.
+      <BR>Copyright (C) 1986, 1989, 1991-2006 Free Software Foundation, Inc.
+      <BR>Copyright (c) 2000, 2002 Edward Betts &lt;edward@debian.org&gt;.
+      <BR>Copyright (C) 2001-2005 Vladimir Oleynik.
+      <BR>Copyright (C) 1999,2000,2001 by Lineo, inc. and John Beppu
+      <BR>Copyright (C) 1999,2000,2001 by John Beppu &lt;beppu@codepoet.org&gt;
+      <BR>Copyright (C) 1999, 2000 by Randolph Chung &lt;tausq@debian.org&gt;
+      <BR>Copyright (C) 2006 by Rob Sullivan, with ideas from code by Walter Harms
+      <BR>Copyright (C) 1996 Brian Candler &lt;B.Candler@pobox.com&gt;
+      <BR>Copyright (C) 2003 Glenn L. McGrath
+      <BR>Copyright (C) 1995, 1996 by Bruce Perens &lt;bruce@pixar.com&gt;
+      <BR>Copyright (c) 1987,1997, Prentice Hall All rights reserved.
+      <BR>Copyright (c) Michiel Huisjes
+      <BR>Copyright 1997 by Peter Hanecak &lt;hanecak@megaloman.sk&gt;.
+      <BR>Copyright (C) 2005 by Robert Sullivan &lt;cogito.ergo.cogito@gmail.com&gt;
+      <BR>Copyright (c) 2002 AYR Networks, Inc.
+      <BR>Copyright (c) 2001-2006, Gerrit Pape
+      <BR>Copyright 1993 MicroWalt Corporation
+      <BR>Copyright 1994-1996 Donald Becker
+      <BR>Copyright (c) 1989 The Regents of the University of California.
+      <BR>Copyright (C) 2002 Jeff Angielski, The PTR Group &lt;jeff@theptrgroup.com&gt;
+      <BR>Copyright (C) 2001 Magnus Damm &lt;damm@opensource.se&gt;
+      <BR>Copyright (C) 2000 Jean-Pierre Lefebvre &lt;helix@step.polymtl.ca&gt;
+      <BR>Copyright (C) 1999 Uwe Ohse &lt;uwe@ohse.de&gt;
+      <BR>Copyright (C) 2007 Denys Vlasenko &lt;vda.linux@googlemail.com&gt;
+      <BR>Copyright (C) 2000 by Karl M. Hegbloom &lt;karlheg@debian.org&gt;
+      <BR>Copyright (C) 2000, 2001 by Gennady Feldman &lt;gfeldman@gena01.com&gt;
+      <BR>Copyright 1996, 1997 by Paul Mackerras Linux International
+      <BR>Copyright 1996, 1997 Linux International.
+      <BR>Copyright (c) 2002 by Robert Griebl, &lt;griebl@gmx.de&gt;
+      <BR>Copyright (c) 2003 by Andrew Dennison, &lt;andrew.dennison@motec.com.au&gt;
+      <BR>Copyright (c) 2005 by Jim Bauer, &lt;jfbauer@nfr.com&gt;
+      <BR>Copyright (c) 2005 by Yann E. MORIN, &lt;yann.morin.1998@anciens.enib.fr&gt;
+      <BR>Copyright (C) 2001, 2002 by Laurence Anderson
+      <BR>Copyright (C) 2004 by Ed Clark
+      <BR>Copyright (C) 1992-1993 Jean-loup Gailly.
+      <BR>Copyright (C) 2006 Aurelien Jacobs &lt;aurel@gnuage.org&gt;
+      <BR>Copyright (C) 1999-2005 Igor Pavlov
+      <BR>Copyright (C) 1996-2006 Julian Seward &lt;jseward@bzip.org&gt;
+      <BR>Copyright (C) 1992-1993 Jean-loup Gailly
+      <BR>Copyright (C) 2006, 2007 Denis Vlasenko
+      <BR>Copyright (C) 2003 Bastian Blank &lt;waldi@tuxbox.org&gt;
+      <BR>Copyright 1989 - 1991, Julianne Frances Haugh &lt;jockgrrl@austin.rr.com&gt;
+      <BR>Copyright (C) 2005, 2006 Tito Ragusa &lt;farmatito@tiscali.it&gt;
+      <BR>Copyright 1997, 2000, 2001 Larry Doolittle &lt;LRDoolittle@lbl.gov&gt;
+      <BR>Copyright (C) 2002 Dr Brian Gladman &lt;brg@gladman.me.uk&gt;, Worcester, UK.
+      <BR>Copyright (C) 2006 Gabriel Somlo &lt;somlo at cmu.edu&gt;
+      <BR>Copyright (C) 2007 by Stephane Billiart &lt;stephane.billiart@gmail.com&gt;
+      <BR>Copyright (c) 1986-2003 may safely be consumed by a BSD or GPL license.
+      <BR>Copyright 1998 by Albert Cahalan.
+      <BR>Copyright (C) 2003 Russ Dill &lt;Russ.Dill@asu.edu&gt;
+      <BR>Copyright (C) 2003 by Arthur van Hoff (avh@strangeberry.com)
+      <BR>Copyright (C) 2004 by David Brownell
+      <BR>Copyright (C) 2005 Roberto A. Foglietta (me@roberto.foglietta.name)
+      <BR>Copyright (C) 2005 Odd Arild Olsen (oao at fibula dot no)
+      <BR>Copyright (C) 2003 Paul Sheer
+      <BR>Copyright (C) 2002,2003 Glenn Engel &lt;glenne@engel.org&gt;
+      <BR>Copyright (C) The Internet Society (1998).
+      <BR>Copyright (C) 1998, 1999  Charles P. Wright
+      <BR>Copyright (C) 1998  Dave Cinege
+      <BR>Copyright (C) 2002 by Bart Visscher &lt;magick@linux-fan.com&gt;
+      <BR>Copyright (C) 2001 Steven Carr &lt;Steven_Carr@yahoo.com&gt;
+      <BR>Copyright (C) 1994-2000 by Tomi Ollila
+      <BR>Copyright (C) 2006 Jesse Dutton &lt;jessedutton@gmail.com&gt;
+      <BR>Copyright (C) 2002 Mario Strasser &lt;mast@gmx.net&gt;
+      <BR>Copyright (C) 1999 Matthew Ramsay &lt;matthewr@moreton.com.au&gt;
+      <BR>Copyright (C) 2000, Axis Communications AB, LUND, SWEDEN
+      <BR>Copyright (c) 1999 Anthony Towns &lt;aj@azure.humbug.org.au&gt;
+      <BR>Copyright 1999-2003 Donald Becker and Scyld Computing Corporation.
+      <BR>Copyright (C) 1992 A. V. Le Blanc (LeBlanc@mcc.ac.uk)
+      <BR>Copyright (C) 1993 Rick Sladkey &lt;jrs@world.std.com&gt;
+      <BR>Copyright (C) Andreas Neuper, Sep 1998.
+      <BR>Copyright (C) 1994,1996 Alessandro Rubini (rubini@ipvvis.unipv.it)
+      <BR>Copyright 2002 Andi Kleen, SuSE Labs.
+      <BR>Copyright (c) 1997, 1998, 1999, 2000 Frodo Looijaard &lt;frodol@dds.nl&gt;
+      <BR>Copyright (C) 2000 and written by Emanuele Caratti &lt;wiz@iol.it&gt;
+      <BR>Copyright 2005 Frank Sorenson &lt;frank@tuxrocks.com&gt;
+      <BR>Copyright (C) 1993, Code adapted from e2fsck
+      <BR>Copyright (C) 2001, Hewlett-Packard Company
+      <BR>Copyright (C) 2006 Michael Opdenacker &lt;michael@free-electrons.com&gt;
+      <BR>Copyright (C) 2003  Paul Mundt &lt;lethal@linux-sh.org&gt;
+      <BR>Copyright (C) 2004  Peter Willis &lt;psyphreak@phreaker.netv
+      <BR>Copyright (C) 2000 Arcom Control System Ltd
+      <BR>Copyright (C) 2005 by Rob Sullivan &lt;cogito.ergo.cogito@gmail.com&gt;
+      <BR>Copyright (C) [2003] by [Matteo Croce] &lt;3297627799@wind.it&gt;
+      <BR>Copyright (C) 1998-2002 Richard Gooch
+      <BR>Copyright (C) 2007 by Vladimir Dronnikov&lt;dronnikov@gmail.ru&gt;
+      <BR>Copyright 1991-1997 Miquel van Smoorenburg.
+      <BR>Copyright 1994 Matthew Dillon (dillon@apollo.west.oic.com)
+      <BR>Copyright (C) 2004,2005  Enrik Berkhan &lt;Enrik.Berkhan@inka.de&gt;
+      <BR>Copyright (C) 1994-1998 Andries E. Brouwer &lt;aeb@cwi.nl&gt;
+      <BR>Copyright (C) 1998 Enrique Zanardi &lt;ezanardi@ull.es&gt;
+      <BR>Copyright (C) 2007 Loïc Grenié &lt;loic.grenie@gmail.com&gt;
+      <BR>Copyright (C) Arne Bernin &lt;arne@matrix.loopback.org&gt;
+      <BR>Copyright (C) 2006 by Jan Kiszka &lt;jan.kiszka@web.de&gt;
+      <BR>Copyright (C) 1999,2000,2001 by Lineo, inc. and Mark Whitley
+      <BR>Copyright (C) 1999,2000,2001 by Mark Whitley &lt;markw@codepoet.org&gt;
+      <BR>Copyright 2004 Matt Mackall &lt;mpm@selenic.com&gt;
+      <BR>Copyright 2002 by Kai Germaschewski  vkai.germaschewski@gmx.de&gt;
+      <BR>Copyright abandoned, Michael Chastain, &lt;mailto:mec@shout.net&gt;.
+      <BR>Copyright Joern Engel &lt;joern@wh.fh-wedel.de&gt;
+      <BR>Copyright (C) 2002 Khalid Aziz &lt;khalid_aziz at hp.com&gt;
+      <BR>Copyright (C) 2002 Randy Dunlap &lt;rddunlap at osdl.org&gt;
+      <BR>Copyright (C) 2002 Al Stone &lt;ahs3 at fc.hp.com&gt;
+      <BR>Copyright (C) 2002-2005 Roman Zippel &lt;zippel@linux-m68k.org&gt;
+      <BR>Copyright (C) 2002-2003 Romain Lievin &lt;roms@tilp.info&gt;
+      <BR>Copyright (C) 2002-2005 Sam Ravnborg &lt;sam@ravnborg.org&gt;
+      <BR><B>License: </B>The GPL 2.0 License. 
+      <BR>See above
+
+      <BR><BR><B>Software:</B> Cadaver 0.23.3
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (C) 1999-2007, Joe Orton
+      <BR>Copyright 1991 by the Massachusetts Institute of Technology
+      <BR>Copyright (C) 1989-2007 Free Software Foundation, Inc.
+      <BR>Copyright (c) 1998, 1999 James Clark.
+      <BR>Copyright (C) 1998-2009, Joe Orton &lt;joe@manyfish.co.uk&gt;
+      <BR>Copyright (C) 2001, Arun Garg &lt;arung@pspl.co.in&gt;
+      <BR>Copyright (C) 2002-2003, Arun Garg, UCSC &lt;grase@cse.ucsc.edu&gt;, 
+      <BR>Copyright (C) 2002, GRASE Lab, UCSC &lt;grase@cse.ucsc.edu&gt;, 
+      <BR>Copyright (C) 2003, Daniel Stenberg &lt;daniel@haxx.se&gt;
+      <BR>Copyright (C) 2004-2005, Vladimir Berezniker @ http://public.xdi.org/=vmpn
+      <BR>Copyright (C) 2004 Aleix Conchillo Flaque &lt;aleix@member.fsf.org&gt;
+      <BR>Copyright (C) 2004 Jiang Lei &lt;tristone@deluxe.ocn.ne.jp&gt;
+      <BR>Copyright (C) 2007 Henrik Holst &lt;henrik.holst2@gmail.com&gt;
+      <BR>Copyright (C) 2007, Yves Martin  &lt;ymartin59@free.fr&gt;
+      <BR>Copyright (C) 2009, Kai Sommerfeld &lt;kso@openoffice.org&gt;
+      <BR><B>License:</B> The GPL 2.0 License.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> CUPS 1.6.1
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright© 2007-2012 by Apple Inc. 
+      <BR>Copyright 1989, 1991, 2010 Free Software Foundation, Inc.
+      <BR>Copyright 1991 by the Massachusetts Institute of Technology
+      <BR>Copyright 1992, 1993, 1994, 1997 Henry Spencer.
+      <BR>Copyright 1993-2007 by Easy Software Products.
+      <BR>Copyright 1996-2011 Glyph & Cog, LLC
+      <BR>Copyright 1999-2007 by Easy Software Products, all rights reserved.
+      <BR>Copyright 1999 Aladdin Enterprises.
+      <BR>Copyright 2005-2012 Apple Inc.
+      <BR>Copyright 2006 by Jelmer
+      <BR>Copyright 2007-2012 d'Apple
+      <BR>Copyright 2007 by Foo Industries.
+      <BR>Copyright 2008 by Foo Enterprises
+      <BR>Copyright (C) 2007 Tim Waugh &lt;twaugh@redhat.com&gt;
+      <BR>Copyright (C) 2011 Red Hat, Inc.
+      <BR><B>License:</B> The GPL 2.0 License.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> DD_belatedPNG 0.0.8a
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (c) 2009 Drew Diller
+      <BR><B>License:</B> MIT license.
+      <BR>The MIT License (MIT)
+      <BR>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+      <BR>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+      <BR>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+      <BR>IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+      <BR>FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+      <BR>AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+      <BR>LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+      <BR>OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+      <BR>THE SOFTWARE.
+
+
+      <BR><BR><B>Software:</B>  Dropbear SSH server and client 0.50
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (c) 2002-2004 Matt Johnston
+      <BR>Copyright 1991 by the Massachusetts Institute of Technology
+      <BR>Copyright 1997-2003 Simon Tatham.
+      <BR>Copyright 2003 Matt Johnston
+      <BR>Copyright (c) 1995,1999 Theo de Raadt.
+      <BR>Copyright (c) 1995 Tatu Ylonen &lt;ylo@cs.hut.fi&gt;, Espoo, Finland
+      <BR>Copyright (c) 1996 Jason Downs
+      <BR>Copyright (c) 1996 Theo de Raadt
+      <BR>Copyright (C) 1998 Michael J. Fromberger, All Rights Reserved
+      <BR>Copyright (c) 1998 Todd C. Miller &lt;Todd.Miller@courtesan.com&gt;
+      <BR>Copyright (c) 1999 Aaron Campbell.
+      <BR>Copyright (c) 1999 Theo de Raadt.
+      <BR>Copyright (C) 1999 WIDE Project.
+      <BR>Copyright (C) 2000-2003 Damien Miller.
+      <BR>Copyright (c) 2000 Andre Lucas.
+      <BR>Copyright (c) 2000 Markus Friedl.
+      <BR>Copyright (c) 2002-2006 Matt Johnston
+      <BR>Copyright (c) 2002, 2003 Nils Nordman.
+      <BR>Copyright (C) 2003, 2004 Free Software Foundation, Inc.
+      <BR>Copyright (c) 2004 by Mihnea Stoenescu
+      <BR>Copyright (c) 2004 Martin Carlsson
+      <BR>Copyright (c) 2004 Mihnea Stoenescu
+      <BR>Copyright (c) 2005 Matt Johnston 
+      <BR><B>License:</B>  MIT License
+      <BR>See above
+
+      <BR><BR><B>Software:</B> ember.js 1.0.pre
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright: ©2011-2012 Tilde Inc. and contributors
+      <BR><B>License:</B>  MIT License
+      <BR>See above
+
+      <BR><BR><B>Software:</B> ember-i18n 1.5.0
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright 2011 James A. Rosen
+      <BR><B>License:</B> The Apache License.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> Ethernet bridge tables - ebtables 2-0-6 
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (C) 2000-2004 ebtables project. 
+      <BR>Copyright (C) 1989, 1991 Free Software Foundation, Inc.
+      <BR>Copyright (C) 1996, 1997, 1998 Free Software Foundation, Inc.
+      <BR>Copyright (C) 1999 Paul `Rusty' Russell & Michael J. Neuling
+      <BR>Copyright (C) 2001-2002 Bart De Schuymer
+      <BR><B>License:</B> The GPL 2.0 License.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> Ext2 Filesystems Utilities 1.42
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (c) 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011 * Phillip Lougher 
+      <BR>Copyright (c) 1982, 1986 Regents of the University of California.
+      <BR>Copyright (C) 1984, 1989, 1990, 2000, 2001, 2002 Free Software
+      <BR>Copyright (C) 1985, 1986, 1988 Richard M. Stallman
+      <BR>Copyright (C) 1985-2005 by the Massachusetts Institute of Technology.
+      <BR>Copyright (C) 1986 Richard M. Stallman"; and include
+      <BR>Copyright (C) 1987, 1988 Student Information Processing Board of the
+      <BR>Copyright (c) 1988 Massachusetts Institute of Technology.
+      <BR>Copyright (c) 1988 Regents of the University of California.
+      <BR>Copyright (C) 1991, 1992 Linus Torvalds
+      <BR>Copyright (C) 1992, 1993, 1994 Remy Card &lt;card@masi.ibp.fr&gt;
+      <BR>Copyright (C) 1993, 1994 Theodore Ts'o. 
+      <BR>Copyright (C) 1993 Remy Card (card@masi.ibp.fr) 
+      <BR>Copyright (C) 1993, 1994 Theodore Ts'o. 
+      <BR>Copyright (C) 1995, 1996, 1997 Theodore Ts'o &lt;tytso@mit.edu&gt; 
+      <BR>Copyright (c) 1995-1996 Michael Nonweiler &lt;mrn20@cam.ac.uk&gt; 
+      <BR>Copyright (C) 1995-1997, 2000-2004 by Ulrich Drepper &lt;drepper@gnu.ai.mit.edu&gt; 
+      <BR>Copyright (C) 1995, 2000-2003 Software Foundation, Inc.
+      <BR>Copyright (C) 1995 Gadi Oxman
+      <BR>Copyright (C) 1996 Theodore Tso (msgids) 
+      <BR>Copyright (c) 1997-2003 Yann Dirson &lt;dirson@debian.org&gt;
+      <BR>Copyright (C) 1997 Kaz Kylheku &lt;kaz@ashi.footprints.net&gt; 
+      <BR>Copyright (c) 1997 Klee Dienes 
+      <BR>Copyright (c) 1997 Mark Habersack 
+      <BR>Copyright (C) 1997 Theodore Ts'o. 
+      <BR>Copyright (C) 1998 Andrey Shedel (andreys@ns.cr.cyco.com) 
+      <BR>Copyright (C) 1999, 2000 by Theosore Ts'o 
+      <BR>Copyright (C) 1999, 2001 by Andries Brouwer 
+      <BR>Copyright (C) 1999, Andreas Dilger and Theodore Ts'o 
+      <BR>Copyright (C) 1999 by Andries Brouwer 
+      <BR>Copyright (C) 1999 Red Hat Software 
+      <BR>Copyright (C) 1999 Theodore Ts'o &lt;tytso@mit.edu&gt; 
+      <BR>Copyright (C) 2000 Andreas Dilger 
+      <BR>Copyright (C) 2000 Stephen C. Tweedie 
+      <BR>Copyright (C) 2001, 2003 Theodore Y. Ts'o 
+      <BR>Copyright (c) 2001 Alcove &lt;http://www.alcove.com/&gt; 
+      <BR>Copyright (C) 2001 Andreas Dilger 
+      <BR>Copyright (C) 2001 Andreas Gruenbacher, &lt;a.gruenbacher@computer.org&gt; 
+      <BR>Copyright (C) 2001 by Andreas Dilger 
+      <BR>Copyright (c) 2001 Daniel Phillips 
+      <BR>Copyright (C) 2001 Red Hat, Inc. 
+      <BR>Copyright (C) 2001 Theodore Ts'o. This file may be 
+      <BR>Copyright (C) 2001 Theodore Ts'o (tytso@mit.edu) 
+      <BR>Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011 Theodore Tso (msgids) 
+      <BR>Copyright (C) 2002 Andreas Dilger 
+      <BR>Copyright (C) 2002 Theodore Ts'o. 
+      <BR>Copyright (C) 2002 Theodore Ts'o &lt;tytso@mit.edu&gt; 
+      <BR>Copyright (c) 2003,2004 Cluster File Systems, Inc, info@clusterfs.com
+      <BR>Copyright (c) 2003-2005 Silicon Graphics, Inc. 
+      <BR>Copyright (c) 2003-2007 Theodore Ts'o &lt;tytso@mit.edu&gt; 
+      <BR>Copyright (C) 2003 VMware, Inc. 
+      <BR>Copyright (C) 2004 Kay Sievers &lt;kay.sievers@vrfy.org&gt; 
+      <BR>Copyright (c) 2005 Ben Gardner &lt;bgardner@wabtec.com&gt; 
+      <BR>Copyright (C) 2006, 2007 by Andreas Dilger &lt;adilger@clusterfs.com&gt; 
+      <BR>Copyright (C) 2006 Cluster File Systems, Inc. 
+      <BR>Copyright (C) 2006 Theodore Ts'o &lt;tytso@mit.edu&gt; 
+      <BR>Copyright (C) 2007, 2008 Theodore Tso (msgids) 
+      <BR>Copyright (C) 2007 Cluster File Systems, Inc 
+      <BR>Copyright (c) 2008 John Darrington &lt;j.darrington@elvis.murdoch.edu.au&gt; 
+      <BR>Copyright (C) 2008 Red Hat, Inc. All rights reserved. 
+      <BR>Copyright (C) 2008 Theodore Tso (msgids) 
+      <BR>Copyright (C) 2009 NEC Software Tohoku, Ltd. 
+      <BR>Copyright (C) 2009 Sun Microsystems, Inc. 
+      <BR>Copyright (C) 2010 Red Hat, Inc., Lukas Czerner &lt;lczerner@redhat.com&gt; 
+      <BR>Copyright (C) 2011 Theodore Tso (msgids) 
+      <BR>Copyright (C) 2011 Theodore Ts'o.
+      <BR>Copyright (C) 2011 Whamcloud, Inc.
+      <BR>Copyright (C) Andrew Esh 2001 
+      <BR>Copyright (C) Andrew Tridgell 1999-2005 
+      <BR>Copyright (C) Andries Brouwer 
+      <BR>Copyright (C) Jeremy Allison 2000-2006
+      <BR>Copyright (C) Paul `Rusty' Russell 2000
+      <BR><B>License:</B> The GPL 2.0 License.
+      <BR>See above
+
+
+      <BR><BR><B>Software:</B> FFmpeg 0.5.13
+      <BR><B>Copyright notice:</B>  
+      <BR>Copyright (C) 1989, 1991, 1999-2001,2007 Free Software Foundation, Inc.,
+      <BR>Copyright (C) 1991-1996, Thomas G. Lane.
+      <BR>Copyright (C) 1995 Mark Adler
+      <BR>Copyright (C) 1997-1998 Rasca, Berlin
+      <BR>Copyright (C) 1997-2001 H. Dietz and R. Fisher
+      <BR>Copyright (C) 1999,2000 Sebastien Rougeaux &lt;sebastien.rougeaux@anu.edu.au&gt;
+      <BR>Copyright (C) 1999-2001 Aaron Holtzman &lt;aholtzma@ess.engr.uvic.ca&gt;
+      <BR>Copyright (C) 1999 Intel Corporation
+      <BR>Copyright (c) 1999 Roger Hardiman
+      <BR>Copyright (c) 2000, 2001, 2002, 2003 Fabrice Bellard
+      <BR>Copyright (c) 2000,2001 Gerard Lantau
+      <BR>Copyright (c) 2000-2001 Peter Gubanov &lt;peter@elecard.net.ru&gt;
+      <BR>Copyright (c) 2000-2003 Fabrice Bellard
+      <BR>Copyright(C) 2000 Michel Lespinasse &lt;walken@zoy.org&gt;
+      <BR>Copyright (C) 2000, Silicon Integrated System Corp
+      <BR>Copyright (C) 2001-2002 Michael Niedermayer (michaelni@gmx.at)
+      <BR>Copyright (c) 2001-2003 BERO &lt;bero@geocities.co.jp&gt;
+      <BR>Copyright (C) 2001-2003 Michael Niedermayer &lt;michaelni@gmx.at&gt;
+      <BR>Copyright (C)2001 Daniel Maas &lt;dmaas@dcine.com&gt;
+      <BR>Copyright (c) 2001 Fabrice Bellard
+      <BR>Copyright (c) 2001 Juan J. Sierralta P
+      <BR>Copyright (c) 2001 Lionel Ulmer (lionel.ulmer@free.fr / bbrox@bbrox.org)
+      <BR>Copyright (c) 2001 Michael Niedermayer &lt;michaelni@gmx.at&gt;
+      <BR>Copyright (c) 2001 Michel Lespinasse
+      <BR>Copyright(C) 2001 Peter Ross &lt;pross@xvid.org&gt;
+      <BR>Copyright (c) 2002-2003 Fabrice Bellard
+      <BR>Copyright (c) 2002-2006 Michael Niedermayer &lt;michaelni@gmx.at&gt;
+      <BR>Copyright (c) 2002-2004 Maxim Poliakovski
+      <BR>Copyright (c) 2001-2008 The FFmpeg Project
+      <BR>Copyright (c) 2002 Alex Beregszaszi
+      <BR>Copyright (c) 2002 Brian Foley
+      <BR>Copyright (c) 2002 Dieter Shirley
+      <BR>Copyright (c) 2002 Fabrice Bellard
+      <BR>Copyright (c) 2002 Falk Hueffner &lt;falk@debian.org&gt;
+      <BR>Copyright (c) 2002 Francois Revol &lt;revol@free.fr&gt;
+      <BR>Copyright (C) 2002 Frederic 'dilb' Boulay
+      <BR>Copyright (c) 2002 Gildas Bazin &lt;gbazin@netcourrier.com&gt;
+      <BR>Copyright (c) 2002 Laszlo Torok &lt;torokl@alpha.dfmk.hu&gt;
+      <BR>Copyright (c) 2002 Lennert Buytenhek &lt;buytenh@gnu.org&gt;
+      <BR>Copyright (c) 2002 Leon van Stuivenberg
+      <BR>Copyright (c) 2002 Mark Hills &lt;mark@pogo.org.uk&gt;
+      <BR>Copyright (c) 2002 Philip Gladstone
+      <BR>Copyright (c) 2002 Steve O'Hara-Smith
+      <BR>Copyright (C) 2002 the xine project
+      <BR>Copyright (c) 2003-2004 Michael Niedermayer &lt;michaelni@gmx.at&gt;
+      <BR>Copyright (c) 2003-2004 Romain Dolbeau &lt;romain@dolbeau.org&gt;
+      <BR>Copyright (C) 2003-2005 by Christopher R. Hertel (crh@ubiqx.mn.org)
+      <BR>Copyright (C) 2003-2008 x264 project
+      <BR>Copyright (c) 2003 Alex Beregszaszi
+      <BR>Copyright (C) 2003 Alex Beregszaszi & Mike Melanson
+      <BR>Copyright (c) 2003 BERO &lt;bero@geocities.co.jp&gt;
+      <BR>Copyright (c) 2003 Charles Yates
+      <BR>Copyright (C) 2003 David S. Miller &lt;davem@redhat.com&gt;
+      <BR>Copyright (C) 2003 Dr. Tim Ferguson
+      <BR>Copyright (c) 2003 Ewald Snel
+      <BR>Copyright (c) 2003 Fabrice Bellard
+      <BR>Copyright (c) 2003 Ivan Kalvachev
+      <BR>Copyright (C) 2003 Ivan Kalvachev
+      <BR>Copyright (C) 2003  James Klicman &lt;james@klicman.org&gt;
+      <BR>Copyright (c) 2003 Max Krasnyansky &lt;maxk@qualcomm.com&gt;
+      <BR>Copyright (c) 2003 Michael Niedermayer
+      <BR>Copyright (c) 2003 Michael Niedermayer &lt;michaelni@gmx.at&gt;
+      <BR>Copyright (C) 2003 Michael Niedermayer &lt;michaelni@gmx.at&gt;
+      <BR>Copyright (c) 2003 Michel Bardiaux
+      <BR>Copyright (C) 2003 Mike Melanson
+      <BR>Copyright (c) 2003 Nick Kurshev
+      <BR>Copyright(C) 2003 Pascal Massimino &lt;skal@planet-d.net&gt;
+      <BR>Copyright (C) 2003 Roberto Togni
+      <BR>Copyright (c) 2003 Romain Dolbeau &lt;romain@dolbeau.org&gt;
+      <BR>Copyright (c) 2003 Roman Shaposhnik
+      <BR>Copyright (c) 2003 Sascha Sommer
+      <BR>Copyright (c) 2003 Thomas Raivio
+      <BR>Copyright (c) 2003 Tinic Uro
+      <BR>Copyright (c) 2003 Zdenek Kabelac
+      <BR>Copyright (c) 2004-2005 Michael Niedermayer, Loren Merritt
+      <BR>Copyright (C) 2004-2007 Eric Lasota
+      <BR>Copyright (c) 2004-2007 Michael Niedermayer
+      <BR>Copyright (c) 2004 Adam Thayer &lt;krevnik@comcast.net&gt;
+      <BR>Copyright (c) 2004 AGAWA Koji
+      <BR>Copyright (c) 2004 AGAWA Koji &lt;i (AT) atty (DOT) jp&gt;
+      <BR>Copyright (C) 2004 Alex Beregszaszi
+      <BR>Copyright (C) 2004 Benjamin Zores
+      <BR>Copyright (c) 2004 Denes Balatoni.
+      <BR>Copyright (c) 2004 Franois Revol &lt;revol@free.fr&gt;
+      <BR>Copyright (C) 2004 Gildas Bazin
+      <BR>Copyright (C) 2004 Konstantin Shishkov
+      <BR>Copyright (c) 2004 Maarten Daniels
+      <BR>Copyright (C) 2004 Marc Hoffman &lt;marc.hoffman@analog.com&gt;
+      <BR>Copyright (C) 2004 Michael Niedermayer &lt;michaelni@gmx.at&gt;
+      <BR>Copyright (C) 2004 Mike Melanson &lt;melanson@pcisys.net&gt;
+      <BR>Copyright (C) 2004 Romain Dolbeau &lt;romain@dolbeau.org&gt;
+      <BR>Copyright (c) 2004 Roman Shaposhnik
+      <BR>Copyright (c) 2004 Thomas Raivio
+      <BR>Copyright (c) 2005-2006 Oded Shimon ( ods15 ods15 dyndns org )
+      <BR>Copyright (c) 2005-2006 Robert Edele &lt;yartrebo@earthlink.net&gt;
+      <BR>Copyright (c) 2005-2008 Diego Biurrun
+      <BR>Copyright (C) 2005-2008 Loren Merritt &lt;lorenm@u.washington.edu&gt;
+      <BR>Copyright (c) 2005-2008 Mans Rullgard
+      <BR>Copyright (C) 2005-2008 x264 project
+      <BR>Copyright (c) 2005 Alban Bedel &lt;albeu@free.fr&gt;
+      <BR>Copyright (c) 2005 Alex Beregszaszi
+      <BR>Copyright (c) 2005 BBC, Andrew Kennedy &lt;dirac at rd dot bbc dot co dot uk&gt;
+      <BR>Copyright (c) 2005 Benjamin Larsson
+      <BR>Copyright (c) 2005 David Hammerton
+      <BR>Copyright (c) 2005 Denes Balatoni ( dbalatoni programozo hu )
+      <BR>Copyright (c) 2005 Eric Lasota
+      <BR>Copyright (c) 2005 Fabrice Bellard
+      <BR>Copyright (c) 2005 Francois Revol
+      <BR>Copyright (c) 2005 Ian Caulfield
+      <BR>Copyright (c) 2005 Jeff Muizelaar
+      <BR>Copyright (c) 2005 Konstantin Shishkov
+      <BR>Copyright (C) 2005  Mans Rullgard &lt;mans@mansr.com&gt;
+      <BR>Copyright (c) 2005 Marcus Engene myfirstname(at)mylastname.se
+      <BR>Copyright (C) 2005  Matthieu CASTET, Alex Beregszaszi
+      <BR>Copyright (C) 2005  Michael Ahlberg, Mns Rullgrd
+      <BR>Copyright (c) 2005 Michael Niedermayer &lt;michaelni@gmx.at&gt;
+      <BR>Copyright (C) 2005  Ole AndrVadla Ravn &lt;oleavr@gmail.com&gt;
+      <BR>Copyright (c) 2005 Reimar Dffinger
+      <BR>Copyright (c) 2005 Roberto Togni
+      <BR>Copyright (c) 2005 Roine Gustafsson
+      <BR>Copyright (c) 2005 Vidar Madsen
+      <BR>Copyright (c) 2005 Wolfram Gloger
+      <BR>Copyright (c) 2005 Zoltan Hidvegi &lt;hzoli -a- hzoli -d- com&gt;,
+      <BR>Copyright (c) 2006-2007 Benjamin Larsson
+      <BR>Copyright (c) 2006-2007 Konstantin Shishkov
+      <BR>Copyright (c) 2006-2007 Maxim Gavrilov ( maxim.gavrilov gmail com )
+      <BR>Copyright (c) 2006-2007 Maxim Poliakovski
+      <BR>Copyright (c) 2006, 2007 Michel Bardiaux &lt;mbardiaux@mediaxim.be&gt;
+      <BR>Copyright (c) 2006-2008 BBC, Anuradha Suraparaju &lt;asuraparaju at gmail dot com &gt;
+      <BR>Copyright (c) 2006-2008 Benjamin Larsson
+      <BR>Copyright (c) 2006, 2008 Konstantin Shishkov
+      <BR>Copyright (c) 2006-2008 Maxim Poliakovski
+      <BR>Copyright (c) 2006,2008 Peter Ross
+      <BR>Copyright (c) 2006-2008 Ramiro Polla
+      <BR>Copyright (c) 2006-2008 Zuxy MENG Jie, Loren Merritt
+      <BR>Copyright (c) 2006-2009 Justin Ruggles
+      <BR>Copyright (c) 2006 Alex Beregszaszi
+      <BR>Copyright (C) 2006  Aurelien Jacobs &lt;aurel@gnuage.org&gt;
+      <BR>Copyright (c) 2006 Baptiste Coudurier &lt;baptiste.coudurier@smartjog.com&gt;
+      <BR>Copyright (C) 2006 Benjamin Larsson
+      <BR>Copyright (C) 2006 Clemens Fruhwirth &lt;clemens@endorphin.org&gt;
+      <BR>Copyright (C) 2006 Corey Hickey
+      <BR>Copyright (c) 2006 Daniel Maas &lt;dmaas@maasdigital.com&gt;
+      <BR>Copyright (c) 2006 DivX, Inc.
+      <BR>Copyright (c) 2006 Expertisecentrum Digitale Media, UHasselt
+      <BR>Copyright (c) 2006 Gregory Montoir (cyx@users.sourceforge.net)
+      <BR>Copyright (c) 2006 Guillaume Poirier &lt;gpoirier@mplayerhq.hu&gt;
+      <BR>Copyright (c) 2006  Justin Ruggles &lt;justin.ruggles@gmail.com&gt;
+      <BR>Copyright (c) 2006 Kartikey Mahendra BHATT (bhattkm at gmail dot com)
+      <BR>Copyright (c) 2006 Konstantin Shishkov
+      <BR>Copyright (c) 2006 Luca Abeni
+      <BR>Copyright (c) 2006 Luca Barbato &lt;lu_zero@gentoo.org&gt;
+      <BR>Copyright (c) 2006 Mans Rullgard &lt;mans@mansr.com&gt;
+      <BR>Copyright (c) 2006 Michael Benjamin &lt;michael.benjamin@analog.com&gt;
+      <BR>Copyright (C) 2006 Michael Niedermayer (michaelni@gmx.at)
+      <BR>Copyright (c) 2006 Oded Shimon &lt;ods15@ods15.dyndns.org&gt;
+      <BR>Copyright (c) 2006  Patrick Guimond
+      <BR>Copyright (c) 2006 Paul Richards &lt;paul.richards@gmail.com&gt;
+      <BR>Copyright (c) 2006 Peter Ross
+      <BR>Copyright (c) 2006 Reimar Doeffinger
+      <BR>Copyright (c) 2006 Reynaldo H. Verdejo Pinochet
+      <BR>Copyright (C) 2006 Robert Edele &lt;yartrebo@earthlink.net&gt;
+      <BR>Copyright (c) 2006 Roman Shaposhnik
+      <BR>Copyright (c) 2006 Ryan Martell. (rdm4@martellventures.com)
+      <BR>Copyright (c) 2006 SmartJog S.A., Baptiste Coudurier &lt;baptiste dot coudurier at smartjog dot com&gt;
+      <BR>Copyright (c) 2006  Stefan Gehrer &lt;stefan.gehrer@gmx.de&gt;
+      <BR>Copyright (c) 2007-2008 Bartlomiej Wolowiec &lt;bartek.wolowiec@gmail.com&gt;
+      <BR>Copyright (c) 2007-2008 Ian Caulfield
+      <BR>Copyright (c) 2007, 2008 Ivo van Poorten
+      <BR>Copyright (c) 2007-2008 Marco Gerards &lt;marco@gnu.org&gt;
+      <BR>Copyright (c) 2007-2009 Peter Ross &lt;pross@xvid.org&gt;
+      <BR>Copyright (C) 2007 Alexis Ballier
+      <BR>Copyright (c) 2007 Anssi Hannula &lt;anssi.hannula@gmail.com&gt;
+      <BR>Copyright (c) 2007 Aurelien Jacobs &lt;aurel@gnuage.org&gt;
+      <BR>Copyright (c) 2007 Baptiste Coudurier &lt;baptiste dot coudurier at smartjog dot com&gt;
+      <BR>Copyright (c) 2007 Bartlomiej Wolowiec &lt;bartek.wolowiec@gmail.com&gt;
+      <BR>Copyright (c) 2007 Benjamin Zores &lt;ben@geexbox.org&gt;
+      <BR>Copyright (c) 2007 Benoit Fouet ( benoit fouet free fr )
+      <BR>Copyright (c) 2007 Bobby Bingham
+      <BR>Copyright (c) 2007 by Ivo van Poorten
+      <BR>Copyright (c) 2007 Christian Ohm, 2008 Eli Friedman
+      <BR>Copyright (c) 2007 Christophe GISQUET &lt;christophe.gisquet@free.fr&gt;
+      <BR>Copyright (C) 2007 Clemens Fruhwirth
+      <BR>Copyright (c) 2007 David Conrad
+      <BR>Copyright (c) 2007 Denes Balatoni &lt;dbalatoni@programozo.hu&gt;
+      <BR>Copyright (c) 2007 Denes Balatoni &lt; dbalatoni XatX interware XdotX hu &gt;
+      <BR>Copyright (c) 2007 Ian Caulfield
+      <BR>Copyright (c) 2007 Ivo van Poorten
+      <BR>Copyright (c) 2007 Justin Ruggles &lt;justin.ruggles@gmail.com&gt;
+      <BR>Copyright (C) 2007 Konstantin Shishkov
+      <BR>Copyright (c) 2007 Loic Minier &lt;lool at dooz.org&gt;
+      <BR>Copyright (c) 2007 Loren Merritt
+      <BR>Copyright (c) 2007 Luca Abeni ( lucabe72 email it )
+      <BR>Copyright (c) 2007 Luca Barbato &lt;lu_zero@gentoo.org&gt;
+      <BR>Copyright (c) 2007 Mans Rullgard &lt;mans@mansr.com&gt;
+      <BR>Copyright (C) 2007 Marc Hoffman &lt;mmh@pleasantst.com&gt;
+      <BR>Copyright (c) 2007 Marco Gerards
+      <BR>Copyright (C) 2007 Michael Niedermayer &lt;michaelni@gmx.at&gt;
+      <BR>Copyright (c) 2007 Mike Melanson, Konstantin Shishkov
+      <BR>Copyright (C) 2007 Nicholas Tung
+      <BR>Copyright (c) 2007 Peter Ross
+      <BR>Copyright (c) 2007 Reimar Doeffinger
+      <BR>Copyright (c) 2007 Reimar Dffinger
+      <BR>Copyright (c) 2007 Reynaldo H. Verdejo Pinochet
+      <BR>Copyright (c) 2007 Ronald S. Bultje &lt;rbultje@ronald.bitfreak.net&gt;
+      <BR>Copyright (c) 2007 Siarhei Siamashka &lt;ssvb@users.sourceforge.net&gt;
+      <BR>Copyright (c) 2007 SmartJog S.A., Baptiste Coudurier &lt;baptiste dot coudurier at smartjog dot com&gt;
+      <BR>Copyright (C) 2007 Vitor Sessak &lt;vitor1001@gmail.com&gt;
+      <BR>Copyright (c) 2007 Vladimir Voroshilov
+      <BR>Copyright (c) 2008 Alessandro Sappia
+      <BR>Copyright (c) 2008 Aurelien Jacobs &lt;aurel@gnuage.org&gt;
+      <BR>Copyright (c) 2008 Baptiste Coudurier &lt;baptiste dot coudurier at gmail dot com&gt;
+      <BR>Copyright (c) 2008 Bartlomiej Wolowiec
+      <BR>Copyright (c) 2008 BBC, Anuradha Suraparaju &lt;asuraparaju at gmail dot com &gt;
+      <BR>Copyright (C) 2008 David Conrad
+      <BR>Copyright (C) 2008 Eli Friedman (eli.friedman@gmail.com)
+      <BR>Copyright (c) 2008 Gregory Montoir (cyx@users.sourceforge.net)
+      <BR>Copyright (c) 2008 GUCAS, Zhentan Feng &lt;spyfeng at gmail dot com&gt;
+      <BR>Copyright (c) 2008 Ivo van Poorten
+      <BR>Copyright (c) 2008 Jaikrishnan Menon &lt;realityman@gmx.net&gt;
+      <BR>Copyright (c) 2008 Justin Ruggles
+      <BR>Copyright (c) 2008 Konstantin Shishkov, Mathieu Velten
+      <BR>Copyright (c) 2008 Loren Merritt
+      <BR>Copyright (C) 2008 Loren Merritt &lt;lorenm@u.washington.edu&gt;
+      <BR>Copyright (c) 2008 Luca Abeni
+      <BR>Copyright (c) 2008 Mans Rullgard &lt;mans@mansr.com&gt;
+      <BR>Copyright (c) 2008 Maxim Poliakovski
+      <BR>Copyright (c) 2008 Michael Niedermayer &lt;michaelni@gmx.at&gt;
+      <BR>Copyright (C) 2008 NVIDIA
+      <BR>Copyright (c) 2008 Peter Ross
+      <BR>Copyright (C) 2008  Ramiro Polla &lt;ramiro@lisha.ufsc.br&gt;
+      <BR>Copyright (C) 2008  Reimar Dffinger
+      <BR>Copyright (c) 2008 Robert Marston
+      <BR>Copyright (C) 2008 Sascha Sommer (saschasommer@freenet.de)
+      <BR>Copyright (c) 2008 Siarhei Siamashka &lt;ssvb@users.sourceforge.net&gt;
+      <BR>Copyright (c) 2008 Sisir Koppaka
+      <BR>Copyright (c) 2008 Vitor Sessak
+      <BR>Copyright (c) 2008 Vladimir Voroshilov
+      <BR>Copyright (c) 2009 Alex Converse &lt;alex dot converse at gmail dot com&gt;
+      <BR>Copyright (c) 2009  Aurelien Jacobs &lt;aurel@gnuage.org&gt;
+      <BR>Copyright (c) 2009 Baptiste Coudurier &lt;baptiste dot coudurier at gmail dot com&gt;
+      <BR>Copyright (C) 2009 Dylan Yudaken
+      <BR>Copyright (c) 2009 Jaikrishnan Menon &lt;realityman@gmx.net&gt;
+      <BR>Copyright (C) 2009 Justin Ruggles
+      <BR>Copyright (C) 2009 Konstantin Shishkov
+      <BR>Copyright (c) 2009 Michael Niedermayer &lt;michaelni@gmx.at&gt;
+      <BR>Copyright (c) 2009  Nicolas Martin (martinic at iro dot umontreal dot ca)
+      <BR>Copyright (C) 2009  Sebastien Lucas &lt;sebastien.lucas@gmail.com&gt;
+      <BR>Copyright (c) 2009 Toshimitsu Kimura
+      <BR>Copyright (C) 2009  Zuxy Meng &lt;zuxy.meng@gmail.com&gt;
+      <BR><B>License:</B> The LGPL 2.1 License
+      <BR>The GNU Lesser General Public License, version 2.1 (LGPL-2.1)
+      <BR>GNU Lesser General Public License
+      <BR>Version 2.1, February 1999
+      <BR>Copyright (C) 1991, 1999 Free Software Foundation, Inc. 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
+      <BR>[This is the first released version of the Lesser GPL. It also counts as the successor of the GNU Library Public License, version 2, hence the version number 2.1.]
+      <BR><B>Preamble</B>
+      <BR>The licenses for most software are designed to take away your freedom to share and change it. By contrast, the GNU General Public Licenses are intended to guarantee your freedom to share and change free software--to make sure the software is free for all its users. 
+      <BR>This license, the Lesser General Public License, applies to some specially designated software packages--typically libraries--of the Free Software Foundation and other authors who decide to use it. You can use it too, but we suggest you first think carefully about whether this license or the ordinary General Public License is the better strategy to use in any particular case, based on the explanations below. 
+      <BR>When we speak of free software, we are referring to freedom of use, not price. Our General Public Licenses are designed to make sure that you have the freedom to distribute copies of free software (and charge for this service if you wish); that you receive source code or can get it if you want it; that you can change the software and use pieces of it in new free programs; and that you are informed that you can do these things.
+      <BR>To protect your rights, we need to make restrictions that forbid distributors to deny you these rights or to ask you to surrender these rights. These restrictions translate to certain responsibilities for you if you distribute copies of the library or if you modify it. 
+      <BR>For example, if you distribute copies of the library, whether gratis or for a fee, you must give the recipients all the rights that we gave you. You must make sure that they, too, receive or can get the source code. If you link other code with the library, you must provide complete object files to the recipients, so that they can relink them with the library after making changes to the library and recompiling it. And you must show them these terms so they know their rights. 
+      <BR>We protect your rights with a two-step method: (1) we copyright the library, and (2) we offer you this license, which gives you legal permission to copy, distribute and/or modify the library. 
+      <BR>To protect each distributor, we want to make it very clear that there is no warranty for the free library. Also, if the library is modified by someone else and passed on, the recipients should know that what they have is not the original version, so that the original author's reputation will not be affected by problems that might be introduced by others. 
+      <BR>Finally, software patents pose a constant threat to the existence of any free program. We wish to make sure that a company cannot effectively restrict the users of a free program by obtaining a restrictive license from a patent holder. Therefore, we insist that any patent license obtained for a version of the library must be consistent with the full freedom of use specified in this license. 
+      <BR>Most GNU software, including some libraries, is covered by the ordinary GNU General Public License. This license, the GNU Lesser General Public License, applies to certain designated libraries, and is quite different from the ordinary General Public License. We use this license for certain libraries in order to permit linking those libraries into non-free programs. 
+      <BR>When a program is linked with a library, whether statically or using a shared library, the combination of the two is legally speaking a combined work, a derivative of the original library. The ordinary General Public License therefore permits such linking only if the entire combination fits its criteria of freedom. The Lesser General Public License permits more lax criteria for linking other code with the library. 
+      <BR>We call this license the "Lesser" General Public License because it does Less to protect the user's freedom than the ordinary General Public License. It also provides other free software developers Less of an advantage over competing non-free programs. These disadvantages are the reason we use the ordinary General Public License for many libraries. However, the Lesser license provides advantages in certain special circumstances. 
+      <BR>For example, on rare occasions, there may be a special need to encourage the widest possible use of a certain library, so that it becomes a de-facto standard. To achieve this, non-free programs must be allowed to use the library. A more frequent case is that a free library does the same job as widely used non-free libraries. In this case, there is little to gain by limiting the free library to free software only, so we use the Lesser General Public License. 
+      <BR>In other cases, permission to use a particular library in non-free programs enables a greater number of people to use a large body of free software. For example, permission to use the GNU C Library in non-free programs enables many more people to use the whole GNU operating system, as well as its variant, the GNU/Linux operating system. 
+      <BR>Although the Lesser General Public License is Less protective of the users' freedom, it does ensure that the user of a program that is linked with the Library has the freedom and the wherewithal to run that program using a modified version of the Library. 
+      <BR>The precise terms and conditions for copying, distribution and modification follow. Pay close attention to the difference between a "work based on the library" and a "work that uses the library". The former contains code derived from the library, whereas the latter must be combined with the library in order to run. 
+      <BR><B>TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION</B>
+      <BR><B>0.</B> This License Agreement applies to any software library or other program which contains a notice placed by the copyright holder or other authorized party saying it may be distributed under the terms of this Lesser General Public License (also called "this License"). Each licensee is addressed as "you".
+      <BR>A "library" means a collection of software functions and/or data prepared so as to be conveniently linked with application programs (which use some of those functions and data) to form executables. 
+      <BR>The "Library", below, refers to any such software library or work which has been distributed under these terms. A "work based on the Library" means either the Library or any derivative work under copyright law: that is to say, a work containing the Library or a portion of it, either verbatim or with modifications and/or translated straightforwardly into another language. (Hereinafter, translation is included without limitation in the term "modification".) 
+      <BR>"Source code" for a work means the preferred form of the work for making modifications to it. For a library, complete source code means all the source code for all modules it contains, plus any associated interface definition files, plus the scripts used to control compilation and installation of the library.
+      <BR>Activities other than copying, distribution and modification are not covered by this License; they are outside its scope. The act of running a program using the Library is not restricted, and output from such a program is covered only if its contents constitute a work based on the Library (independent of the use of the Library in a tool for writing it). Whether that is true depends on what the Library does and what the program that uses the Library does. 
+      <BR><B>1.</B> You may copy and distribute verbatim copies of the Library's complete source code as you receive it, in any medium, provided that you conspicuously and appropriately publish on each copy an appropriate copyright notice and disclaimer of warranty; keep intact all the notices that refer to this License and to the absence of any warranty; and distribute a copy of this License along with the Library. 
+      <BR>You may charge a fee for the physical act of transferring a copy, and you may at your option offer warranty protection in exchange for a fee. 
+      <BR><B>2.</B> You may modify your copy or copies of the Library or any portion of it, thus forming a work based on the Library, and copy and distribute such modifications or work under the terms of Section 1 above, provided that you also meet all of these conditions: 
+      <BR>a) The modified work must itself be a software library. 
+      <BR>b) You must cause the files modified to carry prominent notices stating that you changed the files and the date of any change.
+      <BR>c) You must cause the whole of the work to be licensed at no charge to all third parties under the terms of this License. 
+      <BR>d) If a facility in the modified Library refers to a function or a table of data to be supplied by an application program that uses the facility, other than as an argument passed when the facility is invoked, then you must make a good faith effort to ensure that, in the event an application does not supply such function or table, the facility still operates, and performs whatever part of its purpose remains meaningful. 
+      <BR>(For example, a function in a library to compute square roots has a purpose that is entirely well-defined independent of the application. Therefore, Subsection 2d requires that any application-supplied function or table used by this function must be optional: if the application does not supply it, the square root function must still compute square roots.) 
+      <BR>These requirements apply to the modified work as a whole. If identifiable sections of that work are not derived from the Library, and can be reasonably considered independent and separate works in themselves, then this License, and its terms, do not apply to those sections when you distribute them as separate works. But when you distribute the same sections as part of a whole which is a work based on the Library, the distribution of the whole must be on the terms of this License, whose permissions for other licensees extend to the entire whole, and thus to each and every part regardless of who wrote it. 
+      <BR>Thus, it is not the intent of this section to claim rights or contest your rights to work written entirely by you; rather, the intent is to exercise the right to control the distribution of derivative or collective works based on the Library. 
+      <BR>In addition, mere aggregation of another work not based on the Library with the Library (or with a work based on the Library) on a volume of a storage or distribution medium does not bring the other work under the scope of this License. 
+      <BR><B>3.</B> You may opt to apply the terms of the ordinary GNU General Public License instead of this License to a given copy of the Library. To do this, you must alter all the notices that refer to this License, so that they refer to the ordinary GNU General Public License, version 2, instead of to this License. (If a newer version than version 2 of the ordinary GNU General Public License has appeared, then you can specify that version instead if you wish.) Do not make any other change in these notices. 
+      <BR>Once this change is made in a given copy, it is irreversible for that copy, so the ordinary GNU General Public License applies to all subsequent copies and derivative works made from that copy. 
+      <BR>This option is useful when you wish to copy part of the code of the Library into a program that is not a library. 
+      <BR><B>4.</B> You may copy and distribute the Library (or a portion or derivative of it, under Section 2) in object code or executable form under the terms of Sections 1 and 2 above provided that you accompany it with the complete corresponding machine-readable source code, which must be distributed under the terms of Sections 1 and 2 above on a medium customarily used for software interchange. 
+      <BR>If distribution of object code is made by offering access to copy from a designated place, then offering equivalent access to copy the source code from the same place satisfies the requirement to distribute the source code, even though third parties are not compelled to copy the source along with the object code.
+      <BR><B>5.</B> A program that contains no derivative of any portion of the Library, but is designed to work with the Library by being compiled or linked with it, is called a "work that uses the Library". Such a work, in isolation, is not a derivative work of the Library, and therefore falls outside the scope of this License. 
+      <BR>However, linking a "work that uses the Library" with the Library creates an executable that is a derivative of the Library (because it contains portions of the Library), rather than a "work that uses the library". The executable is therefore covered by this License. Section 6 states terms for distribution of such executables. 
+      <BR>When a "work that uses the Library" uses material from a header file that is part of the Library, the object code for the work may be a derivative work of the Library even though the source code is not. Whether this is true is especially significant if the work can be linked without the Library, or if the work is itself a library. The threshold for this to be true is not precisely defined by law. 
+      <BR>If such an object file uses only numerical parameters, data structure layouts and accessors, and small macros and small inline functions (ten lines or less in length), then the use of the object file is unrestricted, regardless of whether it is legally a derivative work. (Executables containing this object code plus portions of the Library will still fall under Section 6.) 
+      <BR>Otherwise, if the work is a derivative of the Library, you may distribute the object code for the work under the terms of Section 6. Any executables containing that work also fall under Section 6, whether or not they are linked directly with the Library itself. 
+      <BR><B>6.</B> As an exception to the Sections above, you may also combine or link a "work that uses the Library" with the Library to produce a work containing portions of the Library, and distribute that work under terms of your choice, provided that the terms permit modification of the work for the customer's own use and reverse engineering for debugging such modifications. 
+      <BR>You must give prominent notice with each copy of the work that the Library is used in it and that the Library and its use are covered by this License. You must supply a copy of this License. If the work during execution displays copyright notices, you must include the copyright notice for the Library among them, as well as a reference directing the user to the copy of this License. Also, you must do one of these things: 
+      <BR>a) Accompany the work with the complete corresponding machine-readable source code for the Library including whatever changes were used in the work (which must be distributed under Sections 1 and 2 above); and, if the work is an executable linked with the Library, with the complete machine-readable "work that uses the Library", as object code and/or source code, so that the user can modify the Library and then relink to produce a modified executable containing the modified Library. (It is understood that the user who changes the contents of definitions files in the Library will not necessarily be able to recompile the application to use the modified definitions.) 
+      <BR>b) Use a suitable shared library mechanism for linking with the Library. A suitable mechanism is one that (1) uses at run time a copy of the library already present on the user's computer system, rather than copying library functions into the executable, and (2) will operate properly with a modified version of the library, if the user installs one, as long as the modified version is interface-compatible with the version that the work was made with. 
+      <BR>c) Accompany the work with a written offer, valid for at least three years, to give the same user the materials specified in Subsection 6a, above, for a charge no more than the cost of performing this distribution. 
+      <BR>d) If distribution of the work is made by offering access to copy from a designated place, offer equivalent access to copy the above specified materials from the same place. 
+      <BR>e) Verify that the user has already received a copy of these materials or that you have already sent this user a copy.
+      <BR>For an executable, the required form of the "work that uses the Library" must include any data and utility programs needed for reproducing the executable from it. However, as a special exception, the materials to be distributed need not include anything that is normally distributed (in either source or binary form) with the major components (compiler, kernel, and so on) of the operating system on which the executable runs, unless that component itself accompanies the executable. 
+      <BR>It may happen that this requirement contradicts the license restrictions of other proprietary libraries that do not normally accompany the operating system. Such a contradiction means you cannot use both them and the Library together in an executable that you distribute. 
+      <BR><B>7.</B> You may place library facilities that are a work based on the Library side-by-side in a single library together with other library facilities not covered by this License, and distribute such a combined library, provided that the separate distribution of the work based on the Library and of the other library facilities is otherwise permitted, and provided that you do these two things: 
+      <BR>a) Accompany the combined library with a copy of the same work based on the Library, uncombined with any other library facilities. This must be distributed under the terms of the Sections above. 
+      <BR>b) Give prominent notice with the combined library of the fact that part of it is a work based on the Library, and explaining where to find the accompanying uncombined form of the same work.
+      <BR><B>8.</B> You may not copy, modify, sublicense, link with, or distribute the Library except as expressly provided under this License. Any attempt otherwise to copy, modify, sublicense, link with, or distribute the Library is void, and will automatically terminate your rights under this License. However, parties who have received copies, or rights, from you under this License will not have their licenses terminated so long as such parties remain in full compliance. 
+      <BR><B>9.</B> You are not required to accept this License, since you have not signed it. However, nothing else grants you permission to modify or distribute the Library or its derivative works. These actions are prohibited by law if you do not accept this License. Therefore, by modifying or distributing the Library (or any work based on the Library), you indicate your acceptance of this License to do so, and all its terms and conditions for copying, distributing or modifying the Library or works based on it. 
+      <BR><B>10.</B> Each time you redistribute the Library (or any work based on the Library), the recipient automatically receives a license from the original licensor to copy, distribute, link with or modify the Library subject to these terms and conditions. You may not impose any further restrictions on the recipients' exercise of the rights granted herein. You are not responsible for enforcing compliance by third parties with this License. 
+      <BR><B>11.</B> If, as a consequence of a court judgment or allegation of patent infringement or for any other reason (not limited to patent issues), conditions are imposed on you (whether by court order, agreement or otherwise) that contradict the conditions of this License, they do not excuse you from the conditions of this License. If you cannot distribute so as to satisfy simultaneously your obligations under this License and any other pertinent obligations, then as a consequence you may not distribute the Library at all. For example, if a patent license would not permit royalty-free redistribution of the Library by all those who receive copies directly or indirectly through you, then the only way you could satisfy both it and this License would be to refrain entirely from distribution of the Library. 
+      <BR>If any portion of this section is held invalid or unenforceable under any particular circumstance, the balance of the section is intended to apply, and the section as a whole is intended to apply in other circumstances. 
+      <BR>It is not the purpose of this section to induce you to infringe any patents or other property right claims or to contest validity of any such claims; this section has the sole purpose of protecting the integrity of the free software distribution system which is implemented by public license practices. Many people have made generous contributions to the wide range of software distributed through that system in reliance on consistent application of that system; it is up to the author/donor to decide if he or she is willing to distribute software through any other system and a licensee cannot impose that choice. 
+      <BR>This section is intended to make thoroughly clear what is believed to be a consequence of the rest of this License. 
+      <BR><B>12.</B> If the distribution and/or use of the Library is restricted in certain countries either by patents or by copyrighted interfaces, the original copyright holder who places the Library under this License may add an explicit geographical distribution limitation excluding those countries, so that distribution is permitted only in or among countries not thus excluded. In such case, this License incorporates the limitation as if written in the body of this License. 
+      <BR><B>13.</B> The Free Software Foundation may publish revised and/or new versions of the Lesser General Public License from time to time. Such new versions will be similar in spirit to the present version, but may differ in detail to address new problems or concerns.
+      <BR>Each version is given a distinguishing version number. If the Library specifies a version number of this License which applies to it and "any later version", you have the option of following the terms and conditions either of that version or of any later version published by the Free Software Foundation. If the Library does not specify a license version number, you may choose any version ever published by the Free Software Foundation. 
+      <BR><B>14.</B> If you wish to incorporate parts of the Library into other free programs whose distribution conditions are incompatible with these, write to the author to ask for permission. For software which is copyrighted by the Free Software Foundation, write to the Free Software Foundation; we sometimes make exceptions for this. Our decision will be guided by the two goals of preserving the free status of all derivatives of our free software and of promoting the sharing and reuse of software generally. 
+      <BR>NO WARRANTY 
+      <BR><B>15.</B>  BECAUSE THE LIBRARY IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR THE LIBRARY, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE LIBRARY "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE LIBRARY IS WITH YOU. SHOULD THE LIBRARY PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION. 
+      <BR><B>16.</B>  IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE LIBRARY AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE LIBRARY (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE LIBRARY TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. 
+      <BR>END OF TERMS AND CONDITIONS
+      <BR><B>How to Apply These Terms to Your New Libraries</B>
+      <BR>If you develop a new library, and you want it to be of the greatest possible use to the public, we recommend making it free software that everyone can redistribute and change. You can do so by permitting redistribution under these terms (or, alternatively, under the terms of the ordinary General Public License). 
+      <BR>To apply these terms, attach the following notices to the library. It is safest to attach them to the start of each source file to most effectively convey the exclusion of warranty; and each file should have at least the "copyright" line and a pointer to where the full notice is found. 
+      <BR>&lt;one line to give the library's name and an idea of what it does.&gt; Copyright (C) &lt;year&gt; &lt;vname of author&gt; 
+      <BR>This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.
+      <BR>This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+      <BR>You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA 
+      <BR>Also add information on how to contact you by electronic and paper mail. 
+      <BR>You should also get your employer (if you work as a programmer) or your school, if any, to sign a "copyright disclaimer" for the library, if necessary. Here is a sample; alter the names: 
+      <BR>Yoyodyne, Inc., hereby disclaims all copyright interest in the library `Frob' (a library for tweaking knobs) written by James Random Hacker.
+      <BR>signature of Ty Coon, 1 April 1990
+      <BR>Ty Coon, President of Vice
+      <BR>That's all there is to it! 
+
+      <BR><BR><B>Software:</B> GDB - The GNU Project Debugger 6.8a
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright 1984 by Third Eye Software, Inc.
+      <BR>Copyright (c) 1984, 1986-2008 Free Software Foundation, Inc.
+      <BR>Copyright 1990-1996 DIGITAL EQUIPMENT CORPORATION
+      <BR>Copyright 1990-1996 HEWLETT-PACKARD COMPANY
+      <BR>Copyright 1990-1996 OPEN SOFTWARE FOUNDATION, INC.
+      <BR>Copyright (c) 1990 Regents of the University of California.
+      <BR>Copyright 1991, 1992 Siemens-Nixdorf Information Systems
+      <BR>Copyright 1991 by the Massachusetts Institute of Technology
+      <BR>Copyright 1994-1998, 2002-2004 Andrew Cagney &lt;cagney@highland.com.au&gt;
+      <BR>Copyright (c) 1998 Cygnus Solutions
+      <BR>Copyright (c) 1983 Regents of the University of California.
+      <BR>Copyright (c) 1987 Oliver Laumann
+      <BR>Copyright (c) 1987, 1990 Regents of the University of California.
+      <BR>Copyright (c) 1993,1991,1990,1989,1988,1987 Carnegie Mellon University
+      <BR>Copyright (C) 1993 by Sun Microsystems, Inc. 
+      <BR>Copyright (C) 1994-1998, Andrew Cagney &lt;cagney@highland.com.au&gt;
+      <BR>Copyright (C) 1994, 2000 Advanced RISC Machines Ltd.
+      <BR>Copyright (C) 1994 Advanced RISC Machines Ltd.
+      <BR>Copyright (C) 1994 X Consortium
+      <BR>Copyright (C) 1995, 1996, 1997 by Ulrich Drepper &lt;drepper@gnu.ai.mit.edu&gt;
+      <BR>Copyright (C) 1995 Jiri Gaisler, European
+      <BR>Copyright (C) 1996-1998, Andrew Cagney &lt;cagney@highland.com.au&gt;
+      <BR>Copyright (C) 1996, Andrew Cagney &lt;cagney@highland.com.au&gt; 
+      <BR>Copyright (C) 1996, Cygnus Software Technologies Ltd.
+      <BR>Copyright (C) 1998, Andrew Cagney &lt;cagney@highland.com.au&gt;
+      <BR>Copyright (C) 1998, 1999 Cygnus Solutions.
+      <BR>Copyright (C)2003-2004 Harold Levy.
+      <BR>Copyright (C) 2004, 1999 Per Bothner
+      <BR>Copyright (C) 2006 MIPS Technologies, Inc.
+      <BR><B>License:</B>  The GPL 2.0 License.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> GNU dbm - Database routine library 1.8.3
+      <BR><B>Copyright notice:</B>
+      <BR>Copyright (C) 1989-2000 Free Software Foundation, Inc.
+      <BR><B>License:</B> The GPL 2.0 License
+      <BR>See above
+
+      <BR><BR><B>Software:</B> GNU Zebra 0.93a
+      <BR><B>Copyright notice:</B>
+      <BR>Copyright 1991 by the Massachusetts Institute of Technology
+      <BR>Copyright 1996, 1997, 1999, 2000, 2001, 2002 Free Software Foundation, Inc.
+      <BR>Copyright 1997-2002 Kunihiro Ishiguro
+      <BR>Copyright 2000 - John Fraizer, EnterZone Inc.
+      <BR>Copyright (C) 1985,1989-1999 Free Software Foundation, Inc.
+      <BR>Copyright (C) 1995, 1996, 1997, and 1998 WIDE Project.
+      <BR>Copyright (c) 1996-2002 Kunihiro Ishiguro &lt;kunihiro@zebra.org&gt;
+      <BR>Copyright (C) 1998, 99, 2000 Kunihiro Ishiguro, Toshiaki Takada
+      <BR>Copyright (C) 1999, 2000 Alex Zinin, Kunihiro Ishiguro, Toshiaki Takada
+      <BR>Copyright (C) 1999, 2000 Toshiaki Takada
+      <BR>Copyright (C) 1999-2002 Yasuhiro Ohara
+      <BR>Copyright (C) 1999 Alex Zinin
+      <BR>Copyright (C) 1999 Michael Handler
+      <BR>Copyright (C) 2000, 2001 IP Infusion Inc.
+      <BR>Copyright (C) 2000 John W. Fraizer III &lt;john.fraizer@enterzone.net&gt;
+      <BR>Copyright (C) 2000 Vladimir B. Grebenschikov &lt;vova@express.ru&gt;
+      <BR>Copyright (C) 2001 KDD R&D Laboratories, Inc.
+      <BR>Copyright (C) 2004 6WIND
+      <BR><B>License:</B> The GPL 2.0 License
+      <BR>See above
+
+      <BR><BR><B>Software:</B> handlebars.js 1.0.rc.1
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (C) 2011 by Yehuda Katz
+      <BR><B>License:</B> MIT license
+      <BR>See above
+
+      <BR><BR><B>Software:</B> html5shiv 3.6
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (c) 2008 Ariel Flesler – aflesler@gmail.com |
+      <BR>Copyright (c) 2011 John Resig, Jörn Zaefferer
+      <BR><B>License:</B> MIT license
+      <BR>See above
+
+      <BR><BR><B>Software:</B> iproute2 - Linux Foundation 2.6.25
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (C) 2000-2004 iproute2 project. 
+      <BR>Copyright 1999 A.N.Kuznetsov
+      <BR>Copyright 2001 by Robert Olsson &lt;robert.olsson@its.uu.se&gt;
+      <BR>Copyright (C) 1989, 1991 Free Software Foundation, Inc.
+      <BR>Copyright (C) 1999 Pavel Golubev &lt;pg@ksi-linux.com&gt;
+      <BR>Copyright (C) 2001-2004 Lubomir Bulej &lt;pallas@kadan.cz&gt;
+      <BR>Copyright (C) 2004 by Harald Welte &lt;laforge@gnumonks.org&gt;
+      <BR>Copyright (C)2004-2007 USAGI/WIDE Project
+      <BR><B>License:</B>  The GPL 2.0 License.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> IPsec Tools 0.8
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (C) 1995, 1996, 1997, and 1998 WIDE Project
+      <BR>Copyright 2000 Aaron D. Gifford.
+      <BR>Copyright 2000 Wasabi Systems, Inc.
+      <BR>Copyright (C) 1994 X Consortium
+      <BR>Copyright (C) 1995-2003 WIDE Project.
+      <BR>Copyright (C) 1996-2008 Free Software Foundation, Inc.
+      <BR>Copyright (c) 2001-2002 SuSE GmbH Nuernberg, Germany.
+      <BR>Copyright (C) 2004-2006 Emmanuel Dreyfus
+      <BR>Copyright (C) 2004 SuSE Linux AG, Nuernberg, Germany.
+      <BR>Copyright (c) 2005 by Trusted Computer Solutions, Inc.
+      <BR>Copyright (C) 2005 International Business Machines Corporation
+      <BR>Copyright (c) 2005 SUSE LINUX AG, Nuernberg, Germany.
+      <BR>Copyright (C) 2008 Timo Teras &lt;timo.teras@iki.fi&gt;.
+      <BR><B>License:</B>  The BSD 2.0 License.
+      <BR>See above
+
+      <BR><BR><B>Software:</B>  iptables 1.4.0
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (C) 2000-2004 netfilter project. 
+      <BR>Copyright 2006 UfoMechanic 
+      <BR>Copyright (C) 1989, 1991 Free Software Foundation, Inc.
+      <BR>Copyright (c) 2000-2001 Netfilter Core Team.
+      <BR>Copyright (C) 2000-2002 Joakim Axelsson &lt;gozem@linux.nu&gt;
+      <BR>Copyright (C) 2000 Emmanuel Roger &lt;winfield@freegates.be&gt;
+      <BR>Copyright (c) 2000 Marc Boucher
+      <BR>Copyright (c) 2000 Netfilter Core Team
+      <BR>Copyright (C) 2002,2004 MARA Systems AB &lt;http://www.marasystems.com&gt;
+      <BR>Copyright (C) 2003-2004 Jozsef Kadlecsik &lt;kadlec@blackhole.kfki.hu&gt;
+      <BR>Copyright (C) 2003, CyberTAN Corporation
+      <BR>Copyright (C) 2006 Red Hat, Inc., James Morris &lt;jmorris@redhat.com&gt;
+      <BR>Copyright (C)2006 USAGI/WIDE Project
+      <BR>Copyright © CC Computer Consultants GmbH, 2007
+      <BR><B>License:</B>  The GPL 2.0 License. 
+      <BR>See above
+
+      <BR><BR><B>Software:</B> jqdialog 1.5
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (c) 2011 Kailash Nadh
+      <BR><B>License:</B> The GPL 3.0 License.
+      <BR>GNU General Public License, version 3 (GPL-3.0)
+      <center><B>GNU GENERAL PUBLIC LICENSE</B></center>
+      <center>Version 3, 29 June 2007</center>
+      <BR>Copyright (C) 2007 Free Software Foundation, Inc. &lt;http://fsf.org/&gt;
+      <BR>Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
+      <BR><B>Preamble</B>
+      <BR>The GNU General Public License is a free, copyleft license for software and other kinds of works.
+      <BR>The licenses for most software and other practical works are designed to take away your freedom to share and change the works. By contrast, the GNU General Public License is intended to guarantee your freedom to share and change all versions of a program--to make sure it remains free software for all its users. We, the Free Software Foundation, use the GNU General Public License for most of our software; it applies also to any other work released this way by its authors. You can apply it to your programs, too.
+      <BR>When we speak of free software, we are referring to freedom, not price. Our General Public Licenses are designed to make sure that you have the freedom to distribute copies of free software (and charge for them if you wish), that you receive source code or can get it if you want it, that you can change the software or use pieces of it in new free programs, and that you know you can do these things.
+      <BR>To protect your rights, we need to prevent others from denying you these rights or asking you to surrender the rights. Therefore, you have certain responsibilities if you distribute copies of the software, or if you modify it: responsibilities to respect the freedom of others.
+      <BR>For example, if you distribute copies of such a program, whether gratis or for a fee, you must pass on to the recipients the same freedoms that you received. You must make sure that they, too, receive or can get the source code. And you must show them these terms so they know their rights.
+      <BR>Developers that use the GNU GPL protect your rights with two steps: (1) assert copyright on the software, and (2) offer you this License giving you legal permission to copy, distribute and/or modify it.
+      <BR>For the developers' and authors' protection, the GPL clearly explains that there is no warranty for this free software. For both users' and authors' sake, the GPL requires that modified versions be marked as changed, so that their problems will not be attributed erroneously to authors of previous versions.
+      <BR>Some devices are designed to deny users access to install or run modified versions of the software inside them, although the manufacturer can do so. This is fundamentally incompatible with the aim of protecting users' freedom to change the software. The systematic pattern of such abuse occurs in the area of products for individuals to use, which is precisely where it is most unacceptable. Therefore, we have designed this version of the GPL to prohibit the practice for those products. If such problems arise substantially in other domains, we stand ready to extend this provision to those domains in future versions of the GPL, as needed to protect the freedom of users.
+      <BR>Finally, every program is threatened constantly by software patents. States should not allow patents to restrict development and use of software on general-purpose computers, but in those that do, we wish to avoid the special danger that patents applied to a free program could make it effectively proprietary. To prevent this, the GPL assures that patents cannot be used to render the program non-free.
+      <BR>The precise terms and conditions for copying, distribution and modification follow.
+      <BR><B>TERMS AND CONDITIONS</B>
+      <BR><B>0. Definitions.</B>
+      <BR>“This License” refers to version 3 of the GNU General Public License.
+      <BR>“Copyright” also means copyright-like laws that apply to other kinds of works, such as semiconductor masks.
+      <BR>“The Program” refers to any copyrightable work licensed under this License. Each licensee is addressed as “you”. “Licensees” and “recipients” may be individuals or organizations.
+      <BR>To “modify” a work means to copy from or adapt all or part of the work in a fashion requiring copyright permission, other than the making of an exact copy. The resulting work is called a “modified version” of the earlier work or a work “based on” the earlier work.
+      <BR>A “covered work” means either the unmodified Program or a work based on the Program.
+      <BR>To “propagate” a work means to do anything with it that, without permission, would make you directly or secondarily liable for infringement under applicable copyright law, except executing it on a computer or modifying a private copy. Propagation includes copying, distribution (with or without modification), making available to the public, and in some countries other activities as well.
+      <BR>To “convey” a work means any kind of propagation that enables other parties to make or receive copies. Mere interaction with a user through a computer network, with no transfer of a copy, is not conveying.
+      <BR>An interactive user interface displays “Appropriate Legal Notices” to the extent that it includes a convenient and prominently visible feature that (1) displays an appropriate copyright notice, and (2) tells the user that there is no warranty for the work (except to the extent that warranties are provided), that licensees may convey the work under this License, and how to view a copy of this License. If the interface presents a list of user commands or options, such as a menu, a prominent item in the list meets this criterion.
+      <BR><B>1. Source Code.</B>
+      <BR>The “source code” for a work means the preferred form of the work for making modifications to it. “Object code” means any non-source form of a work.
+      <BR>A “Standard Interface” means an interface that either is an official standard defined by a recognized standards body, or, in the case of interfaces specified for a particular programming language, one that is widely used among developers working in that language.
+      <BR>The “System Libraries” of an executable work include anything, other than the work as a whole, that (a) is included in the normal form of packaging a Major Component, but which is not part of that Major Component, and (b) serves only to enable use of the work with that Major Component, or to implement a Standard Interface for which an implementation is available to the public in source code form. A “Major Component”, in this context, means a major essential component (kernel, window system, and so on) of the specific operating system (if any) on which the executable work runs, or a compiler used to produce the work, or an object code interpreter used to run it.
+      <BR>The “Corresponding Source” for a work in object code form means all the source code needed to generate, install, and (for an executable work) run the object code and to modify the work, including scripts to control those activities. However, it does not include the work's System Libraries, or general-purpose tools or generally available free programs which are used unmodified in performing those activities but which are not part of the work. For example, Corresponding Source includes interface definition files associated with source files for the work, and the source code for shared libraries and dynamically linked subprograms that the work is specifically designed to require, such as by intimate data communication or control flow between those subprograms and other parts of the work.
+      <BR>The Corresponding Source need not include anything that users can regenerate automatically from other parts of the Corresponding Source.
+      <BR>The Corresponding Source for a work in source code form is that same work.
+      <BR><B>2. Basic Permissions.</B>
+      <BR>All rights granted under this License are granted for the term of copyright on the Program, and are irrevocable provided the stated conditions are met. This License explicitly affirms your unlimited permission to run the unmodified Program. The output from running a covered work is covered by this License only if the output, given its content, constitutes a covered work. This License acknowledges your rights of fair use or other equivalent, as provided by copyright law.
+      <BR>You may make, run and propagate covered works that you do not convey, without conditions so long as your license otherwise remains in force. You may convey covered works to others for the sole purpose of having them make modifications exclusively for you, or provide you with facilities for running those works, provided that you comply with the terms of this License in conveying all material for which you do not control copyright. Those thus making or running the covered works for you must do so exclusively on your behalf, under your direction and control, on terms that prohibit them from making any copies of your copyrighted material outside their relationship with you.
+      <BR>Conveying under any other circumstances is permitted solely under the conditions stated below. Sublicensing is not allowed; section 10 makes it unnecessary.
+      <BR><B>3.Protecting Users' Legal Rights From Anti-Circumvention Law.</B> 
+      <BR>No covered work shall be deemed part of an effective technological measure under any applicable law fulfilling obligations under article 11 of the WIPO copyright treaty adopted on 20 December 1996, or similar laws prohibiting or restricting circumvention of such measures.
+      <BR>When you convey a covered work, you waive any legal power to forbid circumvention of technological measures to the extent such circumvention is effected by exercising rights under this License with respect to the covered work, and you disclaim any intention to limit operation or modification of the work as a means of enforcing, against the work's users, your or third parties' legal rights to forbid circumvention of technological measures.
+      <BR><B>4. Conveying Verbatim Copies.</B>
+      <BR>You may convey verbatim copies of the Program's source code as you receive it, in any medium, provided that you conspicuously and appropriately publish on each copy an appropriate copyright notice; keep intact all notices stating that this License and any non-permissive terms added in accord with section 7 apply to the code; keep intact all notices of the absence of any warranty; and give all recipients a copy of this License along with the Program.
+      <BR>You may charge any price or no price for each copy that you convey, and you may offer support or warranty protection for a fee.
+      <BR><B>5. Conveying Modified Source Versions.</B>
+      <BR>You may convey a work based on the Program, or the modifications to produce it from the Program, in the form of source code under the terms of section 4, provided that you also meet all of these conditions:
+      <BR>a) The work must carry prominent notices stating that you modified it, and giving a relevant date.
+      <BR>b) The work must carry prominent notices stating that it is released under this License and any conditions added under section 7. This requirement modifies the requirement in section 4 to “keep intact all notices”.
+      <BR>c) You must license the entire work, as a whole, under this License to anyone who comes into possession of a copy. This License will therefore apply, along with any applicable section 7 additional terms, to the whole of the work, and all its parts, regardless of how they are packaged. This License gives no permission to license the work in any other way, but it does not invalidate such permission if you have separately received it.
+      <BR>d) If the work has interactive user interfaces, each must display Appropriate Legal Notices; however, if the Program has interactive interfaces that do not display Appropriate Legal Notices, your work need not make them do so.
+      <BR>A compilation of a covered work with other separate and independent works, which are not by their nature extensions of the covered work, and which are not combined with it such as to form a larger program, in or on a volume of a storage or distribution medium, is called an “aggregate” if the compilation and its resulting copyright are not used to limit the access or legal rights of the compilation's users beyond what the individual works permit. Inclusion of a covered work in an aggregate does not cause this License to apply to the other parts of the aggregate.
+      <BR><B>6. Conveying Non-Source Forms.</B>
+      <BR>You may convey a covered work in object code form under the terms of sections 4 and 5, provided that you also convey the machine-readable Corresponding Source under the terms of this License, in one of these ways:
+      <BR>a) Convey the object code in, or embodied in, a physical product (including a physical distribution medium), accompanied by the Corresponding Source fixed on a durable physical medium customarily used for software interchange.
+      <BR>b) Convey the object code in, or embodied in, a physical product (including a physical distribution medium), accompanied by a written offer, valid for at least three years and valid for as long as you offer spare parts or customer support for that product model, to give anyone who possesses the object code either (1) a copy of the Corresponding Source for all the software in the product that is covered by this License, on a durable physical medium customarily used for software interchange, for a price no more than your reasonable cost of physically performing this conveying of source, or (2) access to copy the Corresponding Source from a network server at no charge.
+      <BR>c) Convey individual copies of the object code with a copy of the written offer to provide the Corresponding Source. This alternative is allowed only occasionally and noncommercially, and only if you received the object code with such an offer, in accord with subsection 6b.
+      <BR>d) Convey the object code by offering access from a designated place (gratis or for a charge), and offer equivalent access to the Corresponding Source in the same way through the same place at no further charge. You need not require recipients to copy the Corresponding Source along with the object code. If the place to copy the object code is a network server, the Corresponding Source may be on a different server (operated by you or a third party) that supports equivalent copying facilities, provided you maintain clear directions next to the object code saying where to find the Corresponding Source. Regardless of what server hosts the Corresponding Source, you remain obligated to ensure that it is available for as long as needed to satisfy these requirements.
+      <BR>e) Convey the object code using peer-to-peer transmission, provided you inform other peers where the object code and Corresponding Source of the work are being offered to the general public at no charge under subsection 6d.
+      <BR>A separable portion of the object code, whose source code is excluded from the Corresponding Source as a System Library, need not be included in conveying the object code work.
+      <BR>A “User Product” is either (1) a “consumer product”, which means any tangible personal property which is normally used for personal, family, or household purposes, or (2) anything designed or sold for incorporation into a dwelling. In determining whether a product is a consumer product, doubtful cases shall be resolved in favor of coverage. For a particular product received by a particular user, “normally used” refers to a typical or common use of that class of product, regardless of the status of the particular user or of the way in which the particular user actually uses, or expects or is expected to use, the product. A product is a consumer product regardless of whether the product has substantial commercial, industrial or non-consumer uses, unless such uses represent the only significant mode of use of the product.
+      <BR>“Installation Information” for a User Product means any methods, procedures, authorization keys, or other information required to install and execute modified versions of a covered work in that User Product from a modified version of its Corresponding Source. The information must suffice to ensure that the continued functioning of the modified object code is in no case prevented or interfered with solely because modification has been made.
+      <BR>If you convey an object code work under this section in, or with, or specifically for use in, a User Product, and the conveying occurs as part of a transaction in which the right of possession and use of the User Product is transferred to the recipient in perpetuity or for a fixed term (regardless of how the transaction is characterized), the Corresponding Source conveyed under this section must be accompanied by the Installation Information. But this requirement does not apply if neither you nor any third party retains the ability to install modified object code on the User Product (for example, the work has been installed in ROM).
+      <BR>The requirement to provide Installation Information does not include a requirement to continue to provide support service, warranty, or updates for a work that has been modified or installed by the recipient, or for the User Product in which it has been modified or installed. Access to a network may be denied when the modification itself materially and adversely affects the operation of the network or violates the rules and protocols for communication across the network.
+      <BR>Corresponding Source conveyed, and Installation Information provided, in accord with this section must be in a format that is publicly documented (and with an implementation available to the public in source code form), and must require no special password or key for unpacking, reading or copying.
+      <BR><B>7. Additional Terms.</B>
+      <BR>“Additional permissions” are terms that supplement the terms of this License by making exceptions from one or more of its conditions. Additional permissions that are applicable to the entire Program shall be treated as though they were included in this License, to the extent that they are valid under applicable law. If additional permissions apply only to part of the Program, that part may be used separately under those permissions, but the entire Program remains governed by this License without regard to the additional permissions.
+      <BR>When you convey a copy of a covered work, you may at your option remove any additional permissions from that copy, or from any part of it. (Additional permissions may be written to require their own removal in certain cases when you modify the work.) You may place additional permissions on material, added by you to a covered work, for which you have or can give appropriate copyright permission.
+      <BR>Notwithstanding any other provision of this License, for material you add to a covered work, you may (if authorized by the copyright holders of that material) supplement the terms of this License with terms:
+      <BR>a) Disclaiming warranty or limiting liability differently from the terms of sections 15 and 16 of this License; or
+      <BR>b) Requiring preservation of specified reasonable legal notices or author attributions in that material or in the Appropriate Legal Notices displayed by works containing it; or
+      <BR>c) Prohibiting misrepresentation of the origin of that material, or requiring that modified versions of such material be marked in reasonable ways as different from the original version; or
+      <BR>d) Limiting the use for publicity purposes of names of licensors or authors of the material; or
+      <BR>e) Declining to grant rights under trademark law for use of some trade names, trademarks, or service marks; or
+      <BR>f) Requiring indemnification of licensors and authors of that material by anyone who conveys the material (or modified versions of it) with contractual assumptions of liability to the recipient, for any liability that these contractual assumptions directly impose on those licensors and authors.
+      <BR>All other non-permissive additional terms are considered “further restrictions” within the meaning of section 10. If the Program as you received it, or any part of it, contains a notice stating that it is governed by this License along with a term that is a further restriction, you may remove that term. If a license document contains a further restriction but permits relicensing or conveying under this License, you may add to a covered work material governed by the terms of that license document, provided that the further restriction does not survive such relicensing or conveying.
+      <BR>If you add terms to a covered work in accord with this section, you must place, in the relevant source files, a statement of the additional terms that apply to those files, or a notice indicating where to find the applicable terms.
+      <BR>Additional terms, permissive or non-permissive, may be stated in the form of a separately written license, or stated as exceptions; the above requirements apply either way.
+      <BR><B>8. Termination.</B>
+      <BR>You may not propagate or modify a covered work except as expressly provided under this License. Any attempt otherwise to propagate or modify it is void, and will automatically terminate your rights under this License (including any patent licenses granted under the third paragraph of section 11).
+      <BR>However, if you cease all violation of this License, then your license from a particular copyright holder is reinstated (a) provisionally, unless and until the copyright holder explicitly and finally terminates your license, and (b) permanently, if the copyright holder fails to notify you of the violation by some reasonable means prior to 60 days after the cessation.
+      <BR>Moreover, your license from a particular copyright holder is reinstated permanently if the copyright holder notifies you of the violation by some reasonable means, this is the first time you have received notice of violation of this License (for any work) from that copyright holder, and you cure the violation prior to 30 days after your receipt of the notice.
+      <BR>Termination of your rights under this section does not terminate the licenses of parties who have received copies or rights from you under this License. If your rights have been terminated and not permanently reinstated, you do not qualify to receive new licenses for the same material under section 10.
+      <BR><B>9. Acceptance Not Required for Having Copies.</B>
+      <BR>You are not required to accept this License in order to receive or run a copy of the Program. Ancillary propagation of a covered work occurring solely as a consequence of using peer-to-peer transmission to receive a copy likewise does not require acceptance. However, nothing other than this License grants you permission to propagate or modify any covered work. These actions infringe copyright if you do not accept this License. Therefore, by modifying or propagating a covered work, you indicate your acceptance of this License to do so.
+      <BR><B>10. Automatic Licensing of Downstream Recipients.</B>
+      <BR>Each time you convey a covered work, the recipient automatically receives a license from the original licensors, to run, modify and propagate that work, subject to this License. You are not responsible for enforcing compliance by third parties with this License.
+      <BR>An “entity transaction” is a transaction transferring control of an organization, or substantially all assets of one, or subdividing an organization, or merging organizations. If propagation of a covered work results from an entity transaction, each party to that transaction who receives a copy of the work also receives whatever licenses to the work the party's predecessor in interest had or could give under the previous paragraph, plus a right to possession of the Corresponding Source of the work from the predecessor in interest, if the predecessor has it or can get it with reasonable efforts.
+      <BR>You may not impose any further restrictions on the exercise of the rights granted or affirmed under this License. For example, you may not impose a license fee, royalty, or other charge for exercise of rights granted under this License, and you may not initiate litigation (including a cross-claim or counterclaim in a lawsuit) alleging that any patent claim is infringed by making, using, selling, offering for sale, or importing the Program or any portion of it.
+      <BR><B>11. Patents.</B>
+      <BR>A “contributor” is a copyright holder who authorizes use under this License of the Program or a work on which the Program is based. The work thus licensed is called the contributor's “contributor version”.
+      <BR>A contributor's “essential patent claims” are all patent claims owned or controlled by the contributor, whether already acquired or hereafter acquired, that would be infringed by some manner, permitted by this License, of making, using, or selling its contributor version, but do not include claims that would be infringed only as a consequence of further modification of the contributor version. For purposes of this definition, “control” includes the right to grant patent sublicenses in a manner consistent with the requirements of this License.
+      <BR>Each contributor grants you a non-exclusive, worldwide, royalty-free patent license under the contributor's essential patent claims, to make, use, sell, offer for sale, import and otherwise run, modify and propagate the contents of its contributor version.
+      <BR>In the following three paragraphs, a “patent license” is any express agreement or commitment, however denominated, not to enforce a patent (such as an express permission to practice a patent or covenant not to sue for patent infringement). To “grant” such a patent license to a party means to make such an agreement or commitment not to enforce a patent against the party.
+      <BR>If you convey a covered work, knowingly relying on a patent license, and the Corresponding Source of the work is not available for anyone to copy, free of charge and under the terms of this License, through a publicly available network server or other readily accessible means, then you must either (1) cause the Corresponding Source to be so available, or (2) arrange to deprive yourself of the benefit of the patent license for this particular work, or (3) arrange, in a manner consistent with the requirements of this License, to extend the patent license to downstream recipients. “Knowingly relying” means you have actual knowledge that, but for the patent license, your conveying the covered work in a country, or your recipient's use of the covered work in a country, would infringe one or more identifiable patents in that country that you have reason to believe are valid.
+      <BR>If, pursuant to or in connection with a single transaction or arrangement, you convey, or propagate by procuring conveyance of, a covered work, and grant a patent license to some of the parties receiving the covered work authorizing them to use, propagate, modify or convey a specific copy of the covered work, then the patent license you grant is automatically extended to all recipients of the covered work and works based on it.
+      <BR>A patent license is “discriminatory” if it does not include within the scope of its coverage, prohibits the exercise of, or is conditioned on the non-exercise of one or more of the rights that are specifically granted under this License. You may not convey a covered work if you are a party to an arrangement with a third party that is in the business of distributing software, under which you make payment to the third party based on the extent of your activity of conveying the work, and under which the third party grants, to any of the parties who would receive the covered work from you, a discriminatory patent license (a) in connection with copies of the covered work conveyed by you (or copies made from those copies), or (b) primarily for and in connection with specific products or compilations that contain the covered work, unless you entered into that arrangement, or that patent license was granted, prior to 28 March 2007.
+      <BR>Nothing in this License shall be construed as excluding or limiting any implied license or other defenses to infringement that may otherwise be available to you under applicable patent law.
+      <BR><B>12. No Surrender of Others' Freedom.</B>
+      <BR>If conditions are imposed on you (whether by court order, agreement or otherwise) that contradict the conditions of this License, they do not excuse you from the conditions of this License. If you cannot convey a covered work so as to satisfy simultaneously your obligations under this License and any other pertinent obligations, then as a consequence you may not convey it at all. For example, if you agree to terms that obligate you to collect a royalty for further conveying from those to whom you convey the Program, the only way you could satisfy both those terms and this License would be to refrain entirely from conveying the Program.
+      <BR><B>13. Use with the GNU Affero General Public License.</B>
+      <BR>Notwithstanding any other provision of this License, you have permission to link or combine any covered work with a work licensed under version 3 of the GNU Affero General Public License into a single combined work, and to convey the resulting work. The terms of this License will continue to apply to the part which is the covered work, but the special requirements of the GNU Affero General Public License, section 13, concerning interaction through a network will apply to the combination as such.
+      <BR><B>14.Revised Versions of this License.</B> 
+      <BR>The Free Software Foundation may publish revised and/or new versions of the GNU General Public License from time to time. Such new versions will be similar in spirit to the present version, but may differ in detail to address new problems or concerns.
+      <BR>Each version is given a distinguishing version number. If the Program specifies that a certain numbered version of the GNU General Public License “or any later version” applies to it, you have the option of following the terms and conditions either of that numbered version or of any later version published by the Free Software Foundation. If the Program does not specify a version number of the GNU General Public License, you may choose any version ever published by the Free Software Foundation.
+      <BR>If the Program specifies that a proxy can decide which future versions of the GNU General Public License can be used, that proxy's public statement of acceptance of a version permanently authorizes you to choose that version for the Program.
+      <BR>Later license versions may give you additional or different permissions. However, no additional obligations are imposed on any author or copyright holder as a result of your choosing to follow a later version.
+      <BR><B>15. Disclaimer of Warranty.</B>
+      <BR>THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+      <BR><B>16. Limitation of Liability.</B>
+      <BR>IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+      <BR><B>17. Interpretation of Sections 15 and 16.</B>
+      <BR>If the disclaimer of warranty and limitation of liability provided above cannot be given local legal effect according to their terms, reviewing courts shall apply local law that most closely approximates an absolute waiver of all civil liability in connection with the Program, unless a warranty or assumption of liability accompanies a copy of the Program in return for a fee.
+      <BR>END OF TERMS AND CONDITIONS
+      <BR><B>How to Apply These Terms to Your New Programs</B>
+      <BR>If you develop a new program, and you want it to be of the greatest possible use to the public, the best way to achieve this is to make it free software which everyone can redistribute and change under these terms.
+      <BR>To do so, attach the following notices to the program. It is safest to attach them to the start of each source file to most effectively state the exclusion of warranty; and each file should have at least the “copyright” line and a pointer to where the full notice is found.
+      <BR>&lt;one line to give the program's name and a brief idea of what it does.&gt;
+      <BR>Copyright (C) &lt;year&gt;  &lt;name of author&gt;
+
+      <BR><BR>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+      <BR><BR>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+      <BR>You should have received a copy of the GNU General Public License along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+      <BR>Also add information on how to contact you by electronic and paper mail.
+      <BR>If the program does terminal interaction, make it output a short notice like this when it starts in an interactive mode:
+      <BR>&lt;program&gt;  Copyright (C) &lt;year&gt;  &lt;name of author&gt;
+
+      <BR><BR>This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+      <BR>This is free software, and you are welcome to redistribute it under certain conditions; type `show c' for details.
+      <BR>The hypothetical commands `show w' and `show c' should show the appropriate parts of the General Public License. Of course, your program's commands might be different; for a GUI interface, you would use an “about box”.
+      <BR>You should also get your employer (if you work as a programmer) or school, if any, to sign a “copyright disclaimer” for the program, if necessary. For more information on this, and how to apply and follow the GNU GPL, see &lt;http://www.gnu.org/licenses/&gt;.
+      <BR>The GNU General Public License does not permit incorporating your program into proprietary programs. If your program is a subroutine library, you may consider it more useful to permit linking proprietary applications with the library. If this is what you want to do, use the GNU Lesser General Public License instead of this License. But first, please read &lt;http://www.gnu.org/philosophy/why-not-lgpl.html&gt;.
+
+      <BR><BR><B>Software:</B> jQuery 1.8.3
+      <BR><B>Copyright notice:</B>
+      <BR>Copyright 2005, 2012 jQuery Foundation, Inc. and other contributors
+      <BR><B>License:</B> MIT license
+      <BR>See above
+
+      <BR><BR><B>Software:</B> jQuery Form Plugin 3.46.0
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (c) 2012 M. Alsup
+      <BR><B>License:</B> MIT license.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> jQuery Mobile 1.3.2
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright 2005, 2010, 2012, 2013 jQuery Foundation and other contributors
+      <BR>Copyright 2013 The jQuery Foundation
+      <BR>Copyright (C) 2004-2010 Alex Gorbatchev.
+      <BR>Copyright (c) 2010-2012, The Dojo Foundation All Rights Reserved.
+      <BR>Copyright (c) 2010 "Cowboy" Ben Alman
+      <BR>Copyright (c) 2011 Brandon Aaron (http://brandonaaron.net)
+      <BR>Copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas. Dual MIT/BSD license
+      <BR><B>License:</B> MIT license.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> jQuery-Cookie 1.4.0
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (c) 2013 Klaus Hartl
+      <BR><B>License:</B> MIT license.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> jquery-json 2.3
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyrighted 2005 by Bob Ippolito.
+      <BR><B>License:</B> MIT license.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> jquerytree 3.1
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright 2010, John Resig
+      <BR>Copyright 2010, The Dojo Foundation
+      <BR>Copyright 2011, John Resig
+      <BR>Copyright 2011, The Dojo Foundation
+      <BR>Copyright (c) 2010 Hunter.z (baby666.cn)
+      <BR><B>License:</B> MIT license
+      <BR>See above
+
+      <BR><BR><B>Software:</B> libiconv 1.13.1 
+      <BR><B>Copyright notice:</B>
+      <BR>Copyright (C) 1986, 1991, 1995-2009 Free Software Foundation, Inc. 
+      <BR>Copyright (C) 1994 X Consortium 
+      <BR>Copyright (C) 1995-1997, 2000-2007 by Ulrich Drepper &lt;drepper@gnu.ai.mit.edu&gt; 
+      <BR>Copyright (C) 1999-2001, 2003 Bruno Haible.
+      <BR>Copyright (c) Perry Rapp 
+      <BR><B>License:</B> The LGPL 2.1 License.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> Linux IPv6 Router Advertisement Daemon – radvd 1.4 
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright© 1996-2000 Pedro Roque Lars Fenneberg. 
+      <BR>Copyright 1991 by the Massachusetts Institute of Technology
+      <BR>Copyright 1996-2000,2008 by the above mentioned author(s)
+      <BR>Copyright (C) 1996, 1997, 1999, 2000-2005,2007 Free Software Foundation, Inc.
+      <BR><B>License: </B>The BSD 2.0 License.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> Lua - Post 4.x 5.1.4
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (C) 1994-2008 Lua.org, PUC-Rio
+      <BR><B>License:</B> MIT license.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> luaforwindows 5.1.4-46
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (C) 1994-2008 Lua.org, PUC-Rio
+      <BR><B>License:</B> MIT license.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> LuCI 0.9
+      <BR><B>Copyright notice: </B>
+      <BR>Copyright 2008 Steven Barth &lt;steven@midlink.org&gt;
+      <BR>Copyright 2008 Jo-Philipp Wich &lt;xm@leipzig.freifunk.net&gt;
+      <BR><B>License:</B> The Apache License.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> LZO real-time data compression library 2.05
+      <BR><B>Copyright notice: </B>
+      <BR>Copyright (C) 1989, 1991, 1995-2011 Free Software Foundation, Inc.
+      <BR>Copyright (c) 1994-2008 Ralf S. Engelschall &lt;rse@engelschall.com&gt;
+      <BR>Copyright (C) 1994 X Consortium
+      <BR>Copyright (C) 1996-2011 Markus Franz Xaver Johannes Oberhumer
+      <BR>Copyright (C) 1996-2011 Markus F.X.J. Oberhumer
+      <BR><B>License:</B> The GPL 2.0 License
+      <BR>See above
+
+      <BR><BR><B>Software:</B> MAD (MPEG Audio Decoder) - libid3tag 0.15.1b
+      <BR><B>Copyright notice: </B>
+      Copyright 1991 by the Massachusetts Institute of Technology
+      Copyright (C) 2000-2004 Underbit Technologies, Inc.
+      Copyright (C) 1989, 1991, 1996-2004 Free Software Foundation, Inc.
+      <BR><B>License:</B> The GPL 2.0 License
+      <BR>See above
+
+
+      <BR><BR><B>Software:</B> ncurses 5.7
+      <BR><B>Copyright notice: </B> 
+      <BR>Copyright (C) 1994 X Consortium
+      <BR>Copyright (C) 1992-2008 Free Software Foundation, Inc.
+      <BR>Copyright (c) 2001-2006,2008 Thomas E. Dickey
+      <BR><B>License:</B> MIT license
+      <BR>See above
+
+      <BR><BR><B>Software:</B> NTFS-3G Read/Write Driver 2013.1.13
+      <BR><B>Copyright notice: </B> 
+      <BR>Copyright © 2004 Scott James Remnant &lt;scott@netsplit.com&gt;.
+      <BR>Copyright (C) 1989, 1991, 1999-2008 Free Software Foundation, Inc.
+      <BR>Copyright (C) 1994 X Consortium
+      <BR>Copyright (C) 1995 Theodore Ts'o.
+      <BR>Copyright (c) 1997-2000 by Sun Microsystems, Inc.
+      <BR>Copyright (c) 2000-2002 Anton Altaparmakov and others
+      <BR>Copyright (c) 2000-2011 Anton Altaparmakov
+      <BR>Copyright (c) 2001-2005 Richard Russon
+      <BR>Copyright (C) 2001-2007 Miklos Szeredi &lt;miklos@szeredi.hu&gt;
+      <BR>Copyright (c) 2002-2004 Matthew J. Fanto
+      <BR>Copyright (c) 2002-2009 Szabolcs Szakacsits
+      <BR>Copyright (c) 2003-2004 Lode Leroy
+      <BR>Copyright (c) 2003 Jan Kratochvil
+      <BR>Copyright (c) 2003 Lode Leroy
+      <BR>Copyright (c) 2004-2005 Holger Ohmacht
+      <BR>Copyright (c) 2004-2006 Yuval Fledel
+      <BR>Copyright (c) 2004 Carmelo Kintana
+      <BR>Copyright (c) 2004 Giang Nguyen
+      <BR>Copyright (c) 2004 Per Olofsson
+      <BR>Copyright (c) 2004-2007 Yura Pakhuchiy
+      <BR>Copyright (c) 2005 Cristian Klein
+      <BR>Copyright (c) 2005 Erik Sornes
+      <BR>Copyright (c) 2006 Hil Liao
+      <BR>Copyright (C) 2007-2008 Alon Bar-Lev
+      <BR>Copyright (c) 2007-2012 Jean-Pierre Andre
+      <BR>Copyright (c) 2008 Bernhard Kaindl
+      <BR>Copyright (c) 2009-2010 Erik Larsson
+      <BR>Copyright (c) 2009 Martin Bene
+      <BR><B>License:</B> The GPL 2.0 License
+      <BR>See above
+
+      <BR><BR><B>Software:</B> OpenSSL 0.9.8y
+      <BR><B>Copyright notice: </B>
+      <BR>Copyright (c) 1986 by Sun Microsystems, Inc.
+      <BR>Copyright (c) 1995-1998 Eric A. Young, Tim J. Hudson
+      <BR>Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
+      <BR>Copyright (c) 1998-2012 The OpenSSL Project.
+      <BR>Copyright (c) 2002 Bob Beck &lt;beck@openbsd.org&gt;
+      <BR>Copyright (c) 2002 Markus Friedl
+      <BR>Copyright (c) 2002 Theo de Raadt
+      <BR>Copyright (c) 2004 Kungliga Tekniska Hskolan
+      <BR>Copyright (c) 2004, Richard Levitte &lt;richard@levitte.org&gt;
+      <BR>Copyright (c) 2007 KISA(Korea Information Security Agency).
+      <BR>Copyright (C) 2008 Ben Laurie (ben@links.org)
+      <BR><B>License:</B> OpenSSL License
+      <BR>LICENSE ISSUES
+      <BR>==============
+
+      <BR><BR>The OpenSSL toolkit stays under a dual license, i.e. both the conditions of the OpenSSL License and the original SSLeay license apply to the toolkit. See below for the actual license texts. Actually both licenses are BSD-style Open Source licenses. In case of any license issues related to OpenSSL please contact openssl-core@openssl.org.
+
+      <BR><BR>OpenSSL License
+      <BR>---------------
+
+      <BR><BR>/* 
+      <BR>=====================
+      <BR> * Copyright (c) 1998-2011 The OpenSSL Project.  All rights reserved.
+      <BR> *
+      <BR> * Redistribution and use in source and binary forms, with or without
+      <BR> * modification, are permitted provided that the following conditions
+      <BR> * are met:
+       <BR>*
+       <BR>* 1. Redistributions of source code must retain the above copyright
+       <BR>*    notice, this list of conditions and the following disclaimer.
+       <BR>*
+       <BR>* 2. Redistributions in binary form must reproduce the above copyright
+       <BR>*    notice, this list of conditions and the following disclaimer in
+       <BR>*    the documentation and/or other materials provided with the
+       <BR>*    distribution.
+       <BR>*
+       <BR>* 3. All advertising materials mentioning features or use of this
+       <BR>*    software must display the following acknowledgment:
+       <BR>*    "This product includes software developed by the OpenSSL Project
+       <BR>*    for use in the OpenSSL Toolkit. (http://www.openssl.org/)"
+       <BR>*
+       <BR>* 4. The names "OpenSSL Toolkit" and "OpenSSL Project" must not be used to
+       <BR>*    endorse or promote products derived from this software without
+       <BR>*    prior written permission. For written permission, please contact
+       <BR>*    openssl-core@openssl.org.
+       <BR>*
+       <BR>* 5. Products derived from this software may not be called "OpenSSL"
+       <BR>*    nor may "OpenSSL" appear in their names without prior written
+       <BR>*    permission of the OpenSSL Project.
+       <BR>*
+       <BR>* 6. Redistributions of any form whatsoever must retain the following
+       <BR>*    acknowledgment:
+       <BR>*    "This product includes software developed by the OpenSSL Project
+       <BR>*    for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+       <BR>*
+       <BR>* THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT ``AS IS'' AND ANY
+       <BR>* EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+       <BR>* IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+       <BR>* PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE OpenSSL PROJECT OR
+       <BR>* ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+       <BR>* SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+       <BR>* NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+       <BR>* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+       <BR>* HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+       <BR>* STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+       <BR>* ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+       <BR>* OF THE POSSIBILITY OF SUCH DAMAGE.
+       <BR>* =====================
+       <BR>*
+       <BR>* This product includes cryptographic software written by Eric Young
+       <BR>* (eay@cryptsoft.com).  This product includes software written by Tim
+       <BR>* Hudson (tjh@cryptsoft.com).
+       <BR>*
+       <BR>*/
+
+      <BR><BR><B>Software:</B> OSIP Library 4.0.0
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright© 2001-2003 Aymeric MOIZARD.
+      <BR>Copyright 1991 by the Massachusetts Institute of Technology
+      <BR>Copyright (C) 1991-2, RSA Data Security, Inc. Created 1991.
+      <BR>Copyright (C) 1992-2012 Free Software Foundation, Inc.
+      <BR>Copyright (C) 2001-2012 Aymeric MOIZARD - &lt;amoizard@antisip.com&gt;  
+      <BR><B>License:</B> The LGPL 2.1 License.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> PolarSSL 0.10.1-bsd
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (C) 2005-2010 polarssl project. 
+      <BR>Copyright (C) 2006-2008  Christophe Devine
+      <BR>Copyright (c) 2009, Paul Bakker &lt;polarssl_maintainer @ polarssl . org&gt;
+      <BR><B>License:</B> The GPL 2.0 License.
+      <BR>See above
+
+      <BR><BR><B>Software:</B>  ppp - Pauls PPP Package 2.4.1
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (C) Andrew Tridgell 1999
+      <BR>Copyright 1995-1996 Jean-loup Gailly
+      <BR>Copyright 1995-1996 Mark Adler
+      <BR>Copyright 1995 Jean-loup Gailly
+      <BR>Copyright 1999 Paul Mackerras.
+      <BR>Copyright 1999 Paul Mackerras, Alan Curry.
+      <BR>Copyright (c) 1985, 1986, 1989 The Regents of the University of California.
+      <BR>Copyright (c) 1989 Carnegie Mellon University.
+      <BR>Copyright (C) 1990, RSA Data Security, Inc. 
+      <BR>Copyright (c) 1991 Gregory M. Christy
+      <BR>Copyright (c) 1993-1994 The Australian National University.
+      <BR>Copyright (c) 1995, 1996, 1997 Francis.Dupont@inria.fr, INRIA Rocquencourt,
+      <BR>Copyright (C) 1995-1996 Jean-loup Gailly and Mark Adler
+      <BR>Copyright (c) 1995 Eric Rosenquist, Strata Software Limited.
+      <BR>Copyright (C) 1995 Jean-loup Gailly and Mark Adler
+      <BR>Copyright (c) 1995 Pedro Roque Marques
+      <BR>Copyright (c) 1998, 1999 Francis.Dupont@inria.fr, GIE DYADE
+      <BR>Copyright (C) 1999 Paul Mackerras. 
+      <BR>Copyright (c) 1999 The Australian National University.
+      <BR>Copyright (C) 1999 Tommi Komulainen &lt;Tommi.Komulainen@iki.fi&gt;
+      <BR>Copyright (c) 2000 by Sun Microsystems, Inc.
+      <BR>Copyright (c) 2000 Paul Mackerras.
+      <BR>Copyright (C) Andrew Tridgell 1999
+      <BR><B>License:</B> The GPL 2.0 License.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> ppp - Pauls PPP Package 2.4.5
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright 1992,1993, 1994,1995 The Regents of the University of Michigan
+      <BR>Copyright 1992 Livingston Enterprises, Inc.
+      <BR>Copyright 1995-2000 EPFL-LRC/ICA, and are licensed under the GNU Lesser
+      <BR>Copyright 1999 Paul Mackerras, Alan Curry.
+      <BR>Copyright 2000 Michal Ostrowski &lt;mostrows@styx.uwaterloo.ca&gt;
+      <BR>Copyright 2000 Mitchell Blank Jr.
+      <BR>Copyright 2002 Roaring Penguin Software Inc.
+      <BR>Copyright (c) 1984-2000 Carnegie Mellon University.
+      <BR>Copyright (C) 1990-2, RSA Data Security, Inc.
+      <BR>Copyright (c) 1989-2004 Paul Mackerras &lt;paulus@samba.org&gt;
+      <BR>Copyright (C) 1995,1996,1997,1998 Lars Fenneberg &lt;lf@elemental.net&gt;
+      <BR>Copyright (c) 1995, 1996, 1997 Francis.Dupont@inria.fr, INRIA Rocquencourt,
+      <BR>Copyright (c) 1995 Eric Rosenquist.
+      <BR>Copyright (c) 1995 Pedro Roque Marques.
+      <BR>Copyright (C) 1996, Matjaz Godec &lt;gody@elgo.si&gt;
+      <BR>Copyright (C) 1997, Miguel A.L. Paraz &lt;map@iphil.net&gt;
+      <BR>Copyright (c) 1998, 1999 Francis.Dupont@inria.fr, GIE DYADE,
+      <BR>Copyright (C) 1999 by Roaring Penguin Software Inc.
+      <BR>Copyright (c) 1999 Tommi Komulainen.
+      <BR>Copyright (C) 2000-2001 by Roaring Penguin Software Inc.
+      <BR>Copyright (c) 2000-2001 by Sun Microsystems, Inc.
+      <BR>Copyright (C) 2001 by Roaring Penguin Software Inc., Michal Ostrowski
+      <BR>Copyright (c) 2002 Google, Inc.
+      <BR>Copyright (C) 2002 Netservers
+      <BR>Copyright (C) 2002 Roaring Penguin Software Inc.
+      <BR>Copyright (C) 2003 Andrew Bartlet &lt;abartlet@samba.org&gt;
+      <BR>Copyright (C) 2003, Sean E. Millichamp &lt;sean at bruenor dot org&gt;
+      <BR>Copyright (C) 2004 Marco d'Itri &lt;md@linux.it&gt;
+      <BR>Copyright (C) 2006,2007,2008 Katalix Systems Ltd
+      <BR>Copyright (c) 2007 Diego Rivera.
+      <BR>Copyright (c) 2008 Paul Mackerras.
+      <BR>Copyright (C) Andrew Tridgell 1992-2004
+      <BR>Copyright (C) Anton Blanchard 2001
+      <BR>Copyright (C) Jeremy Allison 2000-2003
+      <BR>Copyright (C) Martin Pool 2003
+      <BR>Copyright (C) Paul `Rusty' Russell 2000
+      <BR>Copyright (C) Simo Sorce 2001-2002
+      <BR><B>License:</B> The GPL 2.0 License
+      <BR>See above
+
+      <BR><BR><B>Software:</B> Samba 3.0.37
+      <BR><B>Copyright notice:</B>
+      <BR>Copyright 1999-2003 by Michael R Sweet.
+      <BR>Copyright 2005 by Joel J. Smith.
+      <BR>Copyright Andrew Bartlett &lt;abartlet@samba.org&gt; 2002
+      <BR>Copyright Andrew Tridgell and the Samba Team 1992-2009
+      <BR>Copyright Andrew Tridgell &lt;tridge@samba.org&gt;1992-1998, 2000
+      <BR>Copyright (C) 1984, 1989, 1990, 1991-2003 Free Software Foundation, Inc.
+      <BR>Copyright (C) 1990-1998 Karl Auer
+      <BR>Copyright (C) 1995-1998 by Paal-Kr. Engstad and Volker Lendecke
+      <BR>Copyright (C) 1995-1998 by Volker Lendecke
+      <BR>Copyright (C) 1995-1998 Samba-Team
+      <BR>Copyright (C) 1997-1998 by Christopher R. Hertel
+      <BR>Copyright (C) 1997-1998 by Norm Jacobs, Colorado Springs, Colorado, USA
+      <BR>Copyright (C) 1997-1998 by Sun Microsystem, Inc.
+      <BR>Copyright (C) 1997-2003 Luke Howard.
+      <BR>Copyright (c) 1997 Kungliga Tekniska Hskolan
+      <BR>Copyright (C) 1998, 1999, 2000 Luke Howard &lt;lukeh@padl.com&gt;
+      <BR>Copyright (C) 1998 Benny Holmgren
+      <BR>Copyright (C) 1998 by Christopher R. Hertel
+      <BR>Copyright (C) 1998 John H Terpstra &lt;jht@aquasoft.com.au&gt;
+      <BR>Copyright (c) 1998  Red Hat Software
+      <BR>Copyright (c) 2000 by Nicolas Devillard.
+      <BR>Copyright (C) 2000 Ryo Kawahara &lt;rkawa@lbe.co.jp&gt;
+      <BR>Copyright (c) 2000 Silicon Graphics, Inc.
+      <BR>Copyright (C) 2001, 2002 by Martin Pool
+      <BR>Copyright (C) 2001 Andreas Moroder
+      <BR>Copyright (C) 2001 Andrew Bartlett (abartlet@samba.org)
+      <BR>Copyright (C) 2001 Andrew Tridgell (tridge@samba.org)
+      <BR>Copyright (C) 2001, Brandon Stone, Amherst College, &lt;bbstone@amherst.edu&gt;.
+      <BR>Copyright (C) 2001 by Martin Pool &lt;mbp@samba.org&gt;
+      <BR>Copyright (C) 2001 Deniz Akkus Kanca &lt;deniz@arayan.com&gt;
+      <BR>Copyright (C) 2001 Franois Le Lay &lt;fanch@tuxfamily.org&gt;
+      <BR>Copyright (C) 2001 Jim McDonough (jmcd@us.ibm.com)
+      <BR>Copyright (C) 2001 Rafal Szczesniak &lt;mimir@spin.ict.pwr.wroc.pl&gt;
+      <BR>Copyright (C) 2001 Remus Koos (remuskoos@yahoo.com)
+      <BR>Copyright (C) 2001 Simo Sorce &lt;idra@samba.org&gt;
+      <BR>Copyright (C) 2001 Steve French (sfrench@us.ibm.com)
+      <BR>Copyright (C) 2002, 2003 by Martin Pool &lt;mbp@samba.org&gt;
+      <BR>Copyright (C) 2002-2003 Jelmer Vernooij &lt;jelmer@samba.org&gt;
+      <BR>Copyright (C) 2002, Alexander Bokovoy - cascaded VFS adoption,
+      <BR>Copyright (C) 2002 by Jeremy Allison
+      <BR>Copyright (C) 2002 by Martin Pool &lt;mbp@samba.org&gt;
+      <BR>Copyright (C) 2002 Hewlett-Packard.
+      <BR>Copyright (C) 2002, Jeremy Allison - modified to make a VFS module.
+      <BR>Copyright (C) 2002 Jim McDonough (jmcd@us.ibm.com)
+      <BR>Copyright (C) 2002, Juergen Hasch - added some options.
+      <BR>Copyright (C) 2002, Simo Sorce
+      <BR>Copyright (C) 2002, Stefan (metze) Metzmacher
+      <BR>Copyright (C) 2003-2004 Jelmer Vernooij &lt;jelmer@samba.org&gt;
+      <BR>Copyright (C) 2003,2008 Steve French  (sfrench@us.ibm.com)
+      <BR>Copyright (C) 2003 Andrew Bartlett (abartlet@samba.org)
+      <BR>Copyright (C) 2003 by Andrew Bartlett
+      <BR>Copyright (C) 2003 by Jim McDonough &lt;jmcd@us.ibm.com&gt;
+      <BR>Copyright (C) 2003 by Martin Pool &lt;mbp@samba.org&gt;
+      <BR>Copyright (C) 2003 by Tim Potter &lt;tpot@samba.org&gt;
+      <BR>Copyright (C) 2003 Jelmer Vernooij &lt;jelmer@samba.org&gt;
+      <BR>Copyright (C) 2003 Jim McDonough (jmcd@us.ibm.com)
+      <BR>Copyright (C) 2003 TAKAHASHI Motonobu &lt;monyo@samba.org&gt;
+      <BR>Copyright (C) 2003, 2004, 2005 Volker Lendecke (vl@samba.org)
+      <BR>Copyright (C) 2004,2005 Tim Potter &lt;tpot@samba.org&gt;
+      <BR>Copyright (C) 2004,2005 Guenther Deschner (gd@samba.org)
+      <BR>Copyright (C) 2005 Jeremy Allison (jra@samba.org)
+      <BR>Copyright (C) 2005 Steve French  (sfrench@us.ibm.com)
+      <BR>Copyright (C) 2006 Gerald Carter &lt;jerry@samba.org&gt;
+      <BR>Copyright (C) 2006 Gerald (Jerry) Carter (jerry@samba.org)
+      <BR>Copyright (C) 2006 Guenther Deschner
+      <BR>Copyright (C) 2006 Krishna Ganugapati &lt;krishnag@centeris.com&gt;
+      <BR>Copyright (C) 2006 Lars Mueller &lt;lars@samba.org&gt;
+      <BR>Copyright (C) 2006 Volker Lendecke (vl@samba.org)
+      <BR>Copyright (C) 2007 Free Software Foundation, Inc.
+      <BR>Copyright (C) 2007 Lauri Nurmi &lt;lanurmi@iki.fi&gt;
+      <BR>Copyright (c) 2007 Red Hat, Inc.
+      <BR>Copyright (C) 2008 Free Software Foundation, Inc.
+      <BR>Copyright (C) 2008 Jeff Layton (jlayton@samba.org)
+      <BR>Copyright (C) 2008 Jeremy Allison (jra@samba.org)
+      <BR>Copyright (C) Aaron Collins 2003
+      <BR>Copyright (C) abartlet@samba.org     2001
+      <BR>Copyright (C) Alexander Bokovoy             2002-2005
+      <BR>Copyright (C) Alexei Kotovich, 2002
+      <BR>Copyright (C) Alexey Kotovich 2002
+      <BR>Copyright (c) Alex O. Yuriev, 1996.
+      <BR>Copyright (C) Andew Bartlett &lt;abartlet@samba.org&gt; 2001
+      <BR>Copyright (C) Andreas Gruenbacher 2002.
+      <BR>Copyright (C) Andrew Bartlett 2001-2005
+      <BR>Copyright (C) Andrew Esh                        2001
+      <BR>Copyright (c) Andrew G. Morgan 1996-8.
+      <BR>Copyright (C) Andrew Tridgell 1992-2006
+      <BR>Copyright (C) Andrew Tridgell 1992-1998 Modified by Jeremy Allison 1995.
+      <BR>Copyright (C) Benjamin Riefenstahl 2003
+      <BR>Copyright (C) Bjoern Jacke    2006-2007
+      <BR>Copyright (C) Brian Moran 2005.
+      <BR>Copyright (C) by Tim Potter 2000-2002
+      <BR>Copyright (C) Chris Nicholls 2005.
+      <BR>Copyright (C) Christian Ambach &lt;cambach1@de.ibm.com&gt; 2006
+      <BR>Copyright (C) Christopher R. Hertel 1998, 2000
+      <BR>Copyright (c) Cristian Gafton 1996.
+      <BR>Copyright (C) Dan Perry 2004
+      <BR>Copyright (C) Derrell Lipman 2003, 2004
+      <BR>Copyright (C) Elliot Lee &lt;sopwith@redhat.com&gt; 1996, Red Hat Software. 
+      <BR>Copyright (C) Elrond 2000, 2002
+      <BR>Copyright (C) Eric Lorimer 2002
+      <BR>Copyright (C) Francesco Chemolli &lt;kinkie@kame.usr.dsi.unimi.it&gt; 2000 
+      <BR>Copyright (C) Gera;d (Jerry) Carter             2006.
+      <BR>Copyright (C) Gerald Carter 2000-2007
+      <BR>Copyright (C) Herb Lewis 2002
+      <BR>Copyright (C) Igor Mammedov (niallain@gmail.com) 2007
+      <BR>Copyright (C) Igor Vergeichik &lt;iverg@mail.ru&gt; 2001
+      <BR>Copyright (C) James Peach 2005-2007
+      <BR>Copyright (c) Jan Rkorajski 1999.
+      <BR>Copyright (C) Jean Francois Micouleau 1998-2002.
+      <BR>Copyright (C) Jean-Pierre.Boulard@univ-rennes1.fr      1996
+      <BR>Copyright (C) Jelmer Vernooij 2002-2003,2005-2006
+      <BR>Copyright (C) Jeremy Allison 1992-2008
+      <BR>Copyright (C) Jeremy Cooper 2004
+      <BR>Copyright (C) Jeremy R. Allison 1995-2005.
+      <BR>Copyright (C) Jim McDonough 2001-2006 (jmcd@us.ibm.com)
+      <BR>Copyright (C) John H Terpstra 1995-2003
+      <BR>Copyright (C) John Terpsra 2000-2001
+      <BR>Copyright (C) Kalim Moghul                  2005
+      <BR>Copyright (C) Karl Auer 1993-1998
+      <BR>Copyright (C) Krishna Ganugapati (krishnag@centeris.com)         2006
+      <BR>Copyright (C) Luke Howard 2001-2004
+      <BR>Copyright (C) Luke Kenneth Casson Leighton 1994-2001
+      <BR>Copyright (C) Luke Mewburn 2004-2005
+      <BR>Copyright (C) Marcin Krzysztof Porwit 2005.
+      <BR>Copyright (C) Marc Jacobsen 1999, 2000.
+      <BR>Copyright (C) Martin Pool 2001-2003
+      <BR>Copyright (C) Michael Adam 2006,2008
+      <BR>Copyright (C) Michael R Sweet 1999
+      <BR>Copyright (C) Nalin Dahyabhai &lt;nalin@redhat.com&gt; 2003,2004
+      <BR>Copyright (C) Nigel Williams 2001
+      <BR>Copyright (C) Paul Ashton 1997-2000
+      <BR>Copyright (C) Paul `Rusty' Russell             2000
+      <BR>Copyright (C) Rafal Szczesniak 2002-2003
+      <BR>Copyright (C) Rakesh Patel 2004
+      <BR>Copyright (C) Remus Koos 2001 (remuskoos@yahoo.com)
+      <BR>Copyright (C) Re-written by Jeremy Allison 2000.
+      <BR>Copyright (C) Richard Sharpe 1998, 2000-2002
+      <BR>Copyright (C) Ricky Poulten 1995-1998
+      <BR>Copyright (C) Robert O'Callahan 2006 (added cached credential code).
+      <BR>Copyright (C) Shahms King 2001
+      <BR>Copyright (C) Shirish Kalele 2000
+      <BR>Copyright (C) Simo Sorce 2000-2007
+      <BR>Copyright (C) Stefan (metze) Metzmacher 2002-2004
+      <BR>Copyright (C) Stefan Metzmacher 2003-2006
+      <BR>Copyright (C) Steve French 2001,2005
+      <BR>Copyright (C) Steve Langasek          1998-2003
+      <BR>Copyright (C) Steve Roylance 2003
+      <BR>Copyright (C) Sumit Bose, 2004
+      <BR>Copyright (C) TAKAHASHI Motonobu (monyo), 2003
+      <BR>Copyright (C) T.D.Lee@durham.ac.uk 1999
+      <BR>Copyright (C) Theodore Ts'o 1996, 1997,
+      <BR>Copyright (C) Tim Potter 1998-2003, 2006
+      <BR>Copyright (C) Timur Bakeyev        2005
+      <BR>Copyright (C) Tom Jansen (Ninja ISD) 2002 
+      <BR>Copyright (C) tridge@samba.org 2001
+      <BR>Copyright (C) Vance Lankhaar &lt;vlankhaar@linux.ca&gt; 2003
+      <BR>Copyright (C) Vince Brimhall 2004-2005
+      <BR>Copyright (C) Volker Lendecke 2003-2007
+      <BR>Copyright (C) Wilco Baan Hofman 2006
+      <BR>Copyright (C) Ying Chen 2000
+      <BR><B>License:</B> The GPL 2.0 License
+      <BR>See above
+
+      <BR><BR><B>Software:</B> siproxd – SIP proxy/masquerading daemon 0.8.1 
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright©C2002-2005 siproxd project. 
+      <BR>Copyright (C) 1994 X Consortium
+      <BR>Copyright (C) 1998-2005 Free Software Foundation, Inc.
+      <BR>Copyright (C) 2002-2011 Thomas Ries &lt;tries@gmx.net&gt;
+      <BR>Copyright (C) 2006-2011 Hans Carlos Hofmann &lt;labtop-carlos@hchs.de&gt;
+      <BR><B>License:</B> The GPL 2.0 License. 
+      <BR>See above
+
+      <BR><BR><B>Software:</B> SQLite 3.6.18
+      <BR><B>Copyright notice:</B>  
+      <BR>Copyright© 1992-1998 Andrew Tridgell. 
+      <BR>Copyright (C) 1994 X Consortium 
+      <BR>Copyright (C) 1994, 1995, 1996,1999-2005, 2007, 2008 Free Software Foundation, Inc. 
+      <BR><B>License:</B> The Public Domain License
+
+      <BR><BR><B>Software:</B> UPnP SDK for Linux – libupnp  1.3.1 
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright©C2006-2011 Portable upnp project.
+      <BR>Copyright (c) 1989 by Hewlett-Packard Company, Palo Alto, Ca. 
+      <BR>Copyright (c) 1990- 1993, 1996 Open Software Foundation, Inc.
+      <BR>Copyright (C) 1991-2, RSA Data Security, Inc. Created 1991. 
+      <BR>Copyright (c) 1996-1999 by Internet Software Consortium.
+      <BR>Copyright (c) 1998 Microsoft.
+      <BR>Copyright (c) 2000-2003 Intel Corporation
+      <BR>Copyright (c) 2006 Rémi Turboult &lt;r3mi@users.sourceforge.net&gt;
+      <BR>Copyright (C) 2011-2012 France Telecom All rights reserved.
+      <BR><B>License:</B> The BSD 2.0 License.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> validate.js  1.1
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (c) 2013 Rick Harrison
+      <BR><B>License:</B> MIT license.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> WIDE-DHCPv6  20080615
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright©C2002-2008 WIDE Project. 
+      <BR>Copyright 1991 by the Massachusetts Institute of Technology 
+      <BR>Copyright (C) 1998-2001, 2003 Internet Software Consortium. 
+      <BR>Copyright (C) 1998-2004 WIDE Project. 
+      <BR>Copyright (c) 1998 Todd C. Miller &lt;Todd.Miller@courtesan.com&gt; 
+      <BR>Copyright (C) 2003, 2004 Free Software Foundation, Inc. 
+      <BR>Copyright (C) 2004 Internet Systems Consortium, Inc. ("ISC") 
+      <BR>Copyright (c) 2004, 2006 WIDE Project.
+      <BR><B>License:</B> The BSD 2.0 License.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> xl2tpd  1.1.12
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (C) 1989, 1991 Free Software Foundation, Inc. 
+      <BR>Copyright (C) 1998 Adtran, Inc. 
+      <BR>Copyright (C) 2002 Jeff McAdams 
+      <BR>Copyright: (c) 2006-2007 Xelerance 
+      <BR>Copyright (C) The Internet Society (1999). 
+      <BR><B>License:</B> The GPL 2.0 License.
+      <BR>See above
+
+      <BR><BR><B>Software:</B> zlib 1.2.5 
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright©C1995-2010 Jean-loup Gailly and Mark Adler. 
+      <BR>Copyright 1995-2010 Mark Adler
+      <BR>Copyright (c) 1990-2000 Info-ZIP.
+      <BR>Copyright (C) 1995-2010 Jean-loup Gailly, Brian Raiter and Gilles Vollant.
+      <BR>Copyright (C) 1995-2010 Jean-loup Gailly (jloup@gzip.org)
+      <BR>Copyright (c) 1996 L. Peter Deutsch
+      <BR>Copyright (c) 1996 L. Peter Deutsch and Jean-Loup Gailly
+      <BR>Copyright (c) 1997,99 Borland Corporation    
+      <BR>Copyright (C) 1998,1999,2000 by Jacques Nomssi Nzali
+      <BR>Copyright (C) 1998, 2007 Brian Raiter &lt;breadbox@muppetlabs.com&gt;
+      <BR>Copyright (c) 1998-2010 - by Gilles Vollant - version 1.1 64 bits from Mathias Svensson
+      <BR>Copyright (C) 1998 - 2010 Gilles Vollant, Even Rouault, Mathias Svensson
+      <BR>Copyright (C) 1998-2010 Gilles Vollant (minizip) ( http://www.winimage.com/zLibDll/minizip.html )
+      <BR>Copyright (C) 1998 by Andreas R. Kleinert
+      <BR>Copyright (C) 1998 by Bob Dellaca
+      <BR>Copyright (C) 2000-2004 Simon-Pierre Cadieux                  
+      <BR>Copyright (C) 2002-2004 Dmitriy Anisimkov                
+      <BR>Copyright (C) 2003,2004 by Cosmin Truta
+      <BR>Copyright (C) 2003 Chris Anderson &lt;christop@charm.net&gt;
+      <BR>Copyright (C) 2004 by Henrik Ravn
+      <BR>Copyright (C) 2007-2008 Even Rouault
+      <BR>Copyright (C) 2009-2010 Mathias Svensson ( http://result42.com )
+      <BR><B>License:</B> The zlib/libpng License.
+      <BR>The zlib/libpng License
+      <BR>Copyright (c) &lt;year&gt; &lt;copyright holders&gt;
+      <BR>This software is provided 'as-is', without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software.
+      <BR>Permission is granted to anyone to use this software for any purpose, including commercial applications, and to alter it and redistribute it freely, subject to the following restrictions:
+      <BR><B>1.</B> The origin of this software must not be misrepresented; you must not claim that you wrote the original software. If you use this software in a product, an acknowledgment in the product documentation would be appreciated but is not required.
+      <BR><B>2.</B> Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
+      <BR><B>3.</B> This notice may not be removed or altered from any source distribution.
+
+      <BR><BR><B>Software:</B> Linux kernel 2.6.30
+      <BR><B>Copyright notice:</B> 
+      <BR>Copyright (C) 1989, 1991 Free Software Foundation, Inc. 
+      <BR><B>License:</B> The GPL 2.0 License.
+      <BR>See above
+
+      <BR><BR><BR>
+      <P>WRITTEN OFFER<BR>
+      <P>
+            This product contains software whose rights holders license it on the terms of the GNU General Public License, version 2 (GPLv2)or other open source software license. We will provide you with the source code of the software licensed under related license if you send us a written request by mail or email to the following addresses: mobile@huawei.com
+      </P>
+      <P><BR>
+            detailing the name of the product and the firmware version for which you need the source code and indicating how we can contact you.
+      </P>
+      <P><BR>
+            Please note that we will ask you to pay us US $ 10, for the costs incurred. This offer is valid for three years from the moment we distributed the product.
+      </P></P>
+      </div>
+      </div>
+      </div>
+</article>  
+</body>
+</html>
+

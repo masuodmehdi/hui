@@ -1,0 +1,170 @@
+[settings]
+functionname = hi_adapter_cli_lsw_mac_set_limitenable;
+attributenum = 4;
+attributeflag= 1;
+
+[parameter]
+attribute=alias<port>              type<uint>    range<0x0,0x7>                default<0>;
+attribute=alias<enable>            type<uchar>   range<0x0,0x1>                default<0>;
+attribute=alias<res>               type<uchar>   range<0x0,0x0>                default<0>;
+attribute=alias<res1>              type<ushort>  range<0x0,0x0>                default<0>;
+
+[help]
+typedef struct
+{
+    hi_lsw_port_e  em_port;
+    hi_uchar8      uc_enable;
+    hi_uchar8      uc_res;
+    hi_ushort16    us_res1;
+}hi_lsw_port_status_s;
+
+/*�˿ںŶ���*/
+typedef enum
+{
+    HI_LSW_PORT_GE0_E   = 0,
+    HI_LSW_PORT_FE1_E   = 1,
+    HI_LSW_PORT_FE2_E   = 2,
+    HI_LSW_PORT_FE3_E   = 3,
+    HI_LSW_PORT_FE4_E   = 4,
+    HI_LSW_PORT_PON_E   = 5,
+    HI_LSW_PORT_CPU_E   = 6,
+    HI_LSW_PORT_MAX_E,
+	
+}hi_lsw_port_e;
+
+/* ����ĳ�������Ե�ʹ�� */
+typedef enum
+{
+    HI_FALSE_E  = 0   , 
+    HI_TRUE_E     
+}HI_BOOL_E; MS', Arial, Helvetica, sans-serif;
+font-size: 18px;
+font-weight: normal;
+}
+.current-page {
+height: 30px;
+padding: 0px 0px 6px;
+}
+.clearfix {
+display: block;
+}
+.pr {
+position: relative;
+}
+.container{
+border-left: 0,1px,1px,1px solid #EBEBEB;
+color: #333;
+}
+.terms-of-use {
+color: #333;
+padding: 10px 50px;
+}
+.terms-of-use h2 {
+color: #333;
+font-size: 14px;
+font-weight: bold;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+display: block;
+margin: 0px;
+padding: 0px;
+}
+</style> 
+</head>
+<body class="gray-bgcolor">
+  	<article class="article-bg-2">
+	<div class="container">
+    	<div style="text-align:center;"><div class="container-1">
+    		<div class="current-page pr clearfix" style="padding-left:20px; padding-top:15px;">
+				<h1>Datenschutzrichtlinien</h1>
+    		</div>
+    	</div>
+		</div>
+		<div class="container-1">
+			<hr style="margin-left:20px;margin-right:20px;"/>
+			<div class="terms-of-use">
+	  <p>Sehr geehrte Nutzer, <br />
+	    <br />
+	    Huawei Technologies  Co., Ltd (nachfolgend „Huawei“ genannt) ist ein Unternehmen, bei dem  Datenschutz groß geschrieben wird und bei dem Ihre persönlichen Daten in  sicheren Händen sind. Bitte geben Sie keine persönlichen oder vertraulichen  Daten an Huawei weiter bzw. stellen Sie diese Daten Huawei nicht zur Verfügung,  bevor Sie nicht diese Datenschutzerklärung gründlich gelesen, verstanden und  Ihr Einverständnis damit erklärt haben.<br />
+  <br />
+  
+	    Mit dieser  Datenschutzerklärung möchte Huawei Ihnen folgende Inhalte vermitteln: </p>
+	          1 So nutzt Huawei Ihre persönlichen Daten<br />
+			  2 So nutzt Huawei Cookies<br />
+			  3 So nutzt Huawei Ihre persönlichen Daten<br />
+	          4 So werden Ihre persönlichen Daten aktualisiert, geändert  oder überprüft<br />
+	          5 So schützt Huawei Ihre persönlichen Daten<br />
+	          6 So behandelt Huawei persönliche Daten von Kindern<br />
+	          7 Umgang mit Drittanbietern von Dienstleistungen<br />
+	          8 Datenübermittlung<br />
+	          9 Aktualisierung dieser Richtlinie<br />
+	          10 Huawei kontaktieren<br />
+	  <br />
+	    Bitte beachten Sie,  dass diese Datenschutzrichtlinie ausschließlich für die Unterhaltungselektronikprodukte  von Huawei Technologies Co., Ltd gelten, einschließlich, jedoch nicht  beschränkt auf, Telefone, Smartphones, Tablets, Heimgeräte, Datenkarten,  Mobiltelefone oder Computeranwendungen, Tools und Software, zusammen mit den zugehörigen  Webseiten, Produkten und Diensten. Sie gilt nicht für jene Huawei-Webseiten,  Dienste und Produkte, die diese Richtlinie nicht anzeigen, keine Verknüpfung zu  ihr oder eine eigene Datenschutzrichtlinie haben. <br />
+	    Diese Richtlinie  beschreibt die wichtigste Strategie von Huawei. Eine einfache Richtlinie kann  jedoch nicht auf alle Belange der Datenverarbeitung eingehen. Huawei gibt  seinen Kunden evtl. zusätzliche Informationen, die als Ergänzung zu dieser  Datenschutzerklärung für ein Produkt oder eine Dienstleistung gelten, um den  Kunden mitzuteilen, wenn personenbezogene Daten für bestimmte Zwecke  verarbeitet werden. Achten Sie bitte bei der Verwendung von Huawei-Produkten  oder -Dienstleistungen auch auf unsere Mitteilungen in anderer Form.</p>
+	    <br /><strong>1 So nutzt Huawei Ihre  persönlichen Daten</strong><strong>?</strong>
+<p><br /><strong>1.1 Wie, wann und für welche Zwecke sammelt und nutzt  Huawei Ihre personenbezogenen Daten?</strong>
+  <br /><br /><strong>Anlegen eines Kontos, Kauf,  Registrierung von Produkten oder Dienstleistungen</strong><br />
+	    Unter der  Voraussetzung, dass Sie Anfragen online einreichen, um ein Konto zu erstellen,  einen Kauf zu tätigen, unsere Produkte oder Dienstleistungen zu registrieren,  einschließlich der Aufgabe Ihrer Bestellung, Lieferung Ihrer Produkte oder  Dienstleistungen, Produktaktivierung oder -verifizierung, Änderung gemäß Ihrer  Anfrage, Bereitstellung von technischer Unterstützung oder autorisierter  Aktualisierung usw. fordern wir Sie u.&nbsp;U. auf, Daten zu übermitteln, die  notwendig sind, um eine solche Anfrage zu erfüllen. Dazu gehören Ihre  E-Mail-Adresse, die Empfängeradresse, Telefonnummer, Produktinformationen,  Zeitpunkt des Kaufs, Art der Bezahlung usw. Diese Daten ermöglichen uns, Ihren  Einkauf abzuschließen, und Sie können Produkte herunterladen und Dienste in  Anspruch nehmen.<br />
+  <br /><strong>Teilnahme an Werbeaktionen oder  Marktumfragen</strong><br />
+	    Nachdem wir Ihre Zustimmung erhalten  haben, dass wir Sie einladen dürfen, an unseren Werbeaktionen und Marktstudien  teilzunehmen, ist es möglich, dass wir Sie auffordern, uns erforderliche  Angaben zu übermitteln, damit wir Sie kontaktieren können und Ihnen  Informationen über Produkte und Dienste bereitstellen, die Sie interessieren  könnten. Zu diesen Angaben gehören Ihre Kontaktdaten, Handynummer,  E-Mail-Adresse usw. Sie können festlegen, dass Huawei Ihre persönlichen Daten  nicht zu Zwecken der Werbung oder Marktforschung verwendet. Wenn Sie dies  wünschen, können Sie diesen Punkt ablehnen. Deaktivieren Sie in diesem Fall die  entsprechenden Optionen in Webseiten, Formularen oder in unseren Produkten,  oder Sie können uns per E-Mail unter mobile@huawei.com kontaktieren. <br />
+  <br /><strong>Inhalte mit Ihren Freunden teilen oder  Ihre Freunde zur Teilnahme einladen</strong><br />
+	    Wenn Sie unsere  Dienstleistungen nutzen, um Inhalte mit Ihren Freunden zu teilen oder wenn Sie  Ihre Freunde zur Teilnahme einladen, fordern wir Sie möglicherweise auf, Kontaktdaten  von Ihren Freunden bereitzustellen, einschließlich Konten von sozialen  Netzwerken, E-Mail-Adressen usw. Huawei kann die von Ihnen bereitgestellten  Informationen nutzen, um Einladungsinformationen an Ihre Freunde über E-Mail,  Instant Messenger-Tools, soziale Netzwerke oder SMS/MMS zu senden. Diese  Informationen dienen nur zum Zweck, Einladungen an Ihre Freunde zu versenden.  Huawei speichert diese Informationen nicht und nutzt diese Informationen auch  unter keinen Umständen zur anderweitigen Identifizierung Ihrer Freunde. <br />
+  <br /><strong>Aktualisieren</strong><br />
+	    Huawei kann System-  und Anwendungsdaten von Ihren Endgeräten erfassen. Dies geschieht, um Sie  rechtzeitig über hilfreiche System- oder Anwendungsaktualisierungen zu  informieren. Zu den erfassten Informationen gehören der Namen des Geräts, die  Version des Systems und der Anwendungen, die Version von Betriebssystem und  Internet Browser, die Einstellung von Region und Sprache, die Gerätekennungen  (IMEI, ESN, MEID, SN), die Identifizierungsnummer Ihres Anbieternetzwerks usw.  Huawei verarbeitet diese Informationen nur zum Zweck, Sie über System- oder  Anwendungsaktualisierungen zu informieren. <br />
+  <br /><strong>Statistiken</strong><br />
+	    Huawei erfasst  möglicherweise bestimmte Informationen für Statistiken oder Analysen. Diese  Informationen können u.&nbsp;a. der Name Ihres Geräts, die Geräteversion, die  Gerätekennungen (IMEI, ESN, MEID, SN), die Geostandort-Fuzzydaten Ihres Gerätes  (wie die Kennung (ID) des Bereiches, in dem sich Ihr Gerät befindet), die  Kennung Ihres Anbieternetzwerks (PLMN), die Art der Nutzung Ihrer Anwendungen  sowie die IP-Adresse, die Sie für den Internetzugang nutzen, umfassen. Huawei  erfasst und verarbeitet derartige Informationen nur zum Zweck, Ihnen die  bestmöglichen personalisierten Benutzererlebnisse zu bieten, Ihnen auf Sie  zugeschnittene Inhalte bereitzustellen, unsere Produkte zu verbessern, die  Effizienz unserer Geschäftstätigkeit zu analysieren, die Wirtschaftszahlen, wie  beispielsweise den Marktanteil, zu analysieren, die Sicherheit des Netzwerkes  und der Dienstleistung zu verbessern und Ihre  After-Sale-Garantiedienstleistungen zu aktivieren. <br />
+  <br /><strong>Fehlerbehebung</strong><br />
+	    Wenn der Betrieb  Ihres Geräts oder Ihrer Anwendung fehlschlägt oder wenn Ihr Gerät oder Ihre  Anwendung eine abnorme Leistung zeigen und Sie sich entscheiden, die relevanten  Informationen an Huawei zu senden, sodass Huawei und die Partner von Huawei  Ihnen einen Fehlerbehebungsservice bereitstellen können, erfasst Huawei  relevante Informationen, wie Gerätemodell, Name und Version der Anwendung,  Gerätekennung, Fehlerprotokolle usw. <br />
+  <br /><strong>Synchronisierung,  Freigabe und Speicherung von Daten</strong><br />
+	    Einige der  Serviceleistungen, die Huawei bietet, ermöglichen Ihnen die Synchronisierung,  die Freigabe und das Speichern von Daten. Huawei erfasst und speichert Daten,  die Sie hochladen, herunterladen oder registrieren, um diese Optionen zu  ermöglichen. <br />
+  <br /><strong>1.2 Standortbasierte Dienstleistungen</strong><br />
+	    Wenn Sie bestimmte  Dienstleistungen basierend auf Geostandort-Daten nutzen, wie beispielsweise:  Wenn Sie wetterbezogene spezielle Geostandorte suchen oder zu diesen navigieren,  erfasst, nutzt und verarbeitet Huawei möglicherweise die präzisen  Geostandort-Daten oder entsprechende Fuzzydaten, damit Huawei die  entsprechenden Serviceleistungen erbringen kann. Diese Informationen können die  Kennung, den Typ und das Modell Ihrer Geräte sowie die  Echtzeit-Geostandort-Informationen Ihres Geräts (einschließlich der Daten des  Global Positioning Systems („GPS“), der WLAN-Nummer oder der Kennung (ID) des  Sendemasts Ihres Anbieternetzwerks) umfassen. Sie können Ihre GPS-Daten über  die GPS-Einstellungen aktivieren, ändern oder deaktivieren. Möglicherweise  haben Sie jedoch je nach Bestimmungen Ihres Netzwerkanbieters keine  Berechtigung zur Kontrolle der WLAN-Nummer und der Kennung (ID) des Sendemasts  Ihres Anbieternetzwerks. Huawei sammelt anonyme Geostandort-Daten, um  standortbasierte Produkte und Dienste anzubieten und zu verbessern. <br />
+  <br /><strong>1.3 Erfassen und  Nutzen von anonymisierten (unpersönlichen) Daten</strong>
+  <br />
+	    „Anonymisierte  Daten“ beziehen sich auf Informationen, mit denen sich eine bestimmte Person  nicht identifizieren lässt, wie beispielsweise wie viele Personen unsere  Webseite besucht haben, wie viele Webseiten insgesamt besucht wurden. Huawei  erfasst diese Informationen, um zu verstehen, wie die Menschen unsere Webseite,  unser Produkt oder unsere Serviceleistung nutzen, sodass Huawei weitere  Verbesserungen vornehmen und so die Kundenanforderungen besser erfüllen kann.  Huawei erfasst, nutzt, überträgt oder veröffentlicht u.&nbsp;U. anonymisierte  Daten nach eigenem Ermessen für andere Zwecke.<br />
+	    <br /><strong>2 Richtlinie zu  Cookies</strong><br />
+	  <p>Damit unsere  Webseiten richtig funktionieren, legen wir manchmal kleine Dateien, sogenannte  Cookies, auf Ihrem Computer oder mobilen Gerät ab. Ein Cookie ist eine einfache  Textdatei, die von dem Server einer Webseite auf Ihrem Computer oder mobilen  Gerät abgelegt wird. Lediglich dieser Server ist in der Lage, den Inhalt dieser  Cookies abzurufen oder zu lesen. Jeder Cookie ist spezifisch für Ihren  Web-Browser. Er enthält einige anonyme Informationen wie eine eindeutige  Kennung und den Namen der Webseite sowie einige Ziffern und Zahlen. Er  ermöglicht einer Webseite, sich an Dinge wie Ihre Vorlieben oder den Inhalt  Ihres Warenkorbs zu erinnern. <br />
+	    Die meisten  großen Webseiten oder Internetdienstanbieter tun dies, um Ihr Benutzererlebnis  zu verbessern, indem dieser Webseite gestattet wird, sich an Sie zu „erinnern“, entweder  für die Dauer Ihres Besuchs (mithilfe eines „Sitzungscookies“) oder für wiederholte Besuche (mithilfe eines „beständigen  Cookies“). Cookies helfen  der Webseite, sich an Ihre Einstellungen zu erinnern (Sprache, Schriftgrad und  andere Einstellungen für die Anzeige der Webseite auf Ihrem Computer oder  mobilen Gerät), damit Sie sie nicht immer wieder neu eingeben müssen, wenn Sie  uns wieder besuchen. Wenn eine Webseite keine Cookies verwendet, geht sie jedes  Mal davon aus, dass Sie ein neuer Besucher sind, wenn Sie auf der Webseite zu  einer neuen Seite wechseln. Wenn Sie z.&nbsp;B. Ihre Anmeldeinformationen  eingeben und zu einer anderen Seite wechseln, werden Sie nicht erkannt und Sie  können nicht angemeldet bleiben. <br />
+	    Unsere Cookies  werden nicht verwendet, um Sie persönlich zu identifizieren. Sie sind nur dazu  da, damit die Webseite besser für Sie funktioniert. <br />
+	    Sie können Cookies  nach Bedarf kontrollieren und/oder löschen. Einzelheiten dazu finden Sie unter  AboutCookies.org. <br />
+	    Sie können alle auf  Ihrem Computer bereits vorhandenen Cookies löschen. Außerdem können Sie die  meisten Browser so einstellen, dass keine Cookies abgelegt werden. In diesem  Fall müssen Sie aber möglicherweise jedes Mal einige Einstellungen manuell  anpassen, wenn Sie unsere Webseiten besuchen. <br />
+	    Anweisungen zum  Ändern der Einstellungen Ihres Browsers finden Sie unter den folgenden Links: <br />
+  <a href="http://support.microsoft.com/kb/260971" target="_blank">Internet Explorer</a><br />
+  <a href="https://support.google.com/chrome/bin/answer.py?hl=en-GB&amp;answer=95647&amp;p=cpn_cookies" target="_blank">Google Chrome</a><br />
+  <a href="http://support.mozilla.org/en-US/kb/Cookies" target="_blank">Mozilla Firefox</a><br />
+  <a href="http://support.apple.com/kb/PH5042" target="_blank">Safari</a><br />
+  <a href="http://www.opera.com/browser/tutorials/security/privacy/" target="_blank">Opera</a><br />
+	    Huawei verwendet  Cookies nur für die hier dargelegten Zwecke und nicht zum Erfassen von  personenbezogenen Daten für andere Zwecke. </p>
+	    <br /><strong>3 So nutzt Huawei Ihre persönlichen Daten</strong><br />
+	  <p>Huawei gibt Ihre  persönlichen Daten nur in den folgenden Situationen preis. Huawei verkauft  weder Ihre persönlichen Daten an Drittanbieter noch gibt Huawei sie auf andere  Weise preis, außer unter folgenden Umständen:<br />
+	    (i) Sie haben der  Preisgabe ausdrücklich zugestimmt:<br />
+	    Nachdem Sie Ihre  Zustimmung erteilt haben, kann Huawei Ihre persönlichen Informationen mit  anderen Firmen teilen.<br />
+	    (ii) Offenlegung  Ihrer persönlichen Informationen gegenüber anderen Huawei-Subunternehmern oder  kooperierenden autorisierten Drittanbietern:<br />
+	    Huawei muss Ihnen  ggf. bestimmte Dienstleistungen über Kooperationspartner bereitstellen. Somit  gibt Huawei einige Ihrer persönlichen Daten an Kooperationspartner weiter, um  die Dienstleistungen umfassender zu gestalten und um Ihre Anforderungen zu  erfüllen. Beispiel: Sie beschließen, Huawei-Produkte online zu erwerben. In  diesem Fall muss Huawei Ihre persönlichen Daten an relevante logistische  Serviceanbieter weitergeben, damit diese Ihnen die Produkte liefern können oder  damit unsere Kooperationspartner Ihnen andere Kundendienste anbieten können.  Huawei untersagt Huawei-Subunternehmern oder autorisierten Drittanbietern  strengstens die Nutzung dieser zur Verfügung gestellten persönlichen Daten zu  anderen Zwecken.<br />
+	    (iii) Offenlegung  Ihrer persönlichen Informationen aufgrund gesetzlicher Bestimmungen oder  gegenüber anderer zuständiger Behörden:<br />
+	    Huawei gibt Ihre  persönlichen Daten ggf. unter Umständen weiter, unter denen dies gesetzlich  vorgeschrieben ist, bei Prozessen und Gerichtsverfahren oder gegenüber  öffentlichen Stellen und Regierungsbehörden. Ihre persönlichen Daten können  unter Umständen auch an Transaktionsparteien weitergegeben werden, falls Huawei  an der Neustrukturierung, Fusion oder Geschäftsauflösung im Insolvenzfall beteiligt  ist. </p>
+	    <br /><strong>4 So werden Ihre persönlichen Daten  aktualisiert, geändert oder überprüft</strong><br />
+	  <p>Sie sind für die  Genauigkeit Ihrer eingereichten persönlichen Daten verantwortlich. Huawei geht  nach der kaufmännisch besten Vorgehensweise vor, um die Genauigkeit Ihrer persönlichen  Daten sicherzustellen. Huawei löscht oder ändert/ergänzt die Daten auf Ihre  Anfrage. Sie können uns kontaktieren, indem Sie uns eine E-Mail an <a href="mailto:mobile@huawei.com">mobile@huawei.com</a> senden und Ihre Anfrage mitteilen.  Gemäß den allgemeinen Geschäftsbedingungen (AGBs) von Huawei kann es vorkommen,  dass Sie Ihre persönlichen Daten von Zeit zu Zeit verwalten müssen, wie  beispielsweise die persönlichen Kontoregistrierungsdaten. </p>
+      <br /><strong>5 So schützt Huawei Ihre persönlichen  Daten</strong><br />
+	  <p>Huawei setzt angemessene  Vorsichtsmaßnahmen ein, einschließlich, jedoch nicht beschränkt auf physische,  technische und strukturelle Vorsichtsmaßnahmen, um Ihre persönlichen Daten vor  nicht autorisiertem Aufrufen, unbefugter Preisgabe, Missbrauch, Änderungen,  Schäden oder Verlust zu schützen. Als technische Maßnahmen setzt Huawei  Antiviren-Software, Verschlüsselungen, Überwachungsmaßnahmen in unserem System  und einen Schutz vor Angriffen auf unser Datencenter ein. Als physische  Maßnahmen werden Besuchskontrollmaßnahmen eingesetzt, sodass nur Personen, die  diese Daten für ihre Geschäftstätigkeit benötigen, darauf zugreifen können. Als  strukturelle Maßnahmen stellt Huawei sicher, dass die Mitarbeiter die Bedeutung  des Datenschutzes verstehen. Dazu werden Huawei-Mitarbeiter in Bezug auf das  Verständnis der Bedeutung von Sicherheit und Datenschutz geschult. Auch wenn  wir angemessene Maßnahmen ergreifen, um Ihre persönlichen Daten zu schützen,  beachten Sie bitte, dass keine Sicherheitsmaßnahmen 100% perfekt oder  unzerstörbar sein können. </p>
+      <br /><strong>6 So behandelt Huawei persönliche Daten  von Kindern</strong><br />
+	  <p>Huawei wird nicht  wissentlich personenbezogene Daten von Kindern sammeln, ohne ausdrücklich  darauf hinzuweisen, dass sie vorher die Zustimmung ihrer Eltern einholen, wenn  dies durch geltendes Recht gefordert wird. Wir verwenden oder legen  personenbezogene Daten von Kindern lediglich offen, soweit dies gesetzlich  zulässig ist, um die elterliche Zustimmung gemäß den örtlichen Gesetzen und  Vorschriften einzuholen oder den Schutz von Kindern zu gewährleisten. Die  Definition „Kind“ oder „Kinder“ soll geltenden Gesetzen sowie nationalen und  regionalen kulturellen Gepflogenheiten Rechnung tragen. </p>
+	  <br />
+	  <strong>7 Umgang mit Drittanbietern von Dienstleistungen</strong><br />
+	  <p>Um Ihren Besuch so  komfortabel wie möglich zu gestalten und Ihre Erfahrungen zu bereichern, werden  möglicherweise Inhalte oder Internet-Hyperlinks bereitgestellt, die nicht von  Huawei, sondern von Drittanbietern stammen. Sie können derartige Hyperlinks  oder Inhalte aufrufen und die Dienste oder Produkte besagter Drittanbieter  nutzen; diese werden jedoch nicht von Huawei kontrolliert. Huawei kontrolliert  keine Vertraulichkeits- und Datenschutzmaßnahmen von Drittanbietern. Derartige  Maßnahmen fallen auch nicht unter diese Richtlinie. Diese Richtlinie gilt für  keinerlei Daten, die Sie Drittanbietern zu Ihrer Person zur Verfügung stellen.  Bitte überprüfen Sie die Datenschutzrichtlinien der jeweiligen Drittanbieter. </p>
+	    <br /><strong>8 Datenübermittlung</strong><br />
+	  <p>Huawei-Produkte und  -Dienstleistungen können auf Ressourcen und Servern in verschiedenen Ländern  weltweit bereitgestellt werden. Daher können Ihre persönlichen Daten über  internationale Grenzen hinaus an einen Standort außerhalb des Landes, in dem  Sie unsere Dienstleistungen in Anspruch nehmen, übertragen werden. Diese Länder  verfügen möglicherweise nicht über Gesetze, die Ihre persönlichen Daten  speziell schützen oder sie verfügen über andere gesetzliche Bestimmungen, was  den Datenschutz betrifft. In solchen Fällen ergreift Huawei Maßnahmen, um  sicherzustellen, dass eine gesetzliche Grundlage für einen derartigen Transfer  vorhanden ist, und dass Ihre persönlichen Daten angemessen und gemäß den  gesetzlichen Vorschriften geschützt sind, beispielsweise durch die Anwendung  von Standard-Vereinbarungen, die (nach Bedarf) von den relevanten Behörden genehmigt  wurden sowie durch die Verpflichtung zum Einsatz anderer entsprechender  technischer und unternehmensspezifischer Datenschutzmaßnahmen. </p>
+      <br /><strong>9 Aktualisierung dieser Richtlinie</strong><br />
+	  <p>Möglicherweise  aktualisiert Huawei diese Datenschutzrichtlinie von Zeit zu Zeit. In diesem  Fall informiert Huawei umfassend auf allen gängigen Kanälen und mit allen  gängigen Verfahren über diese Änderung. Bitte sehen Sie sich in diesem Fall die  neueste, aktualisierte Version dieser Datenschutzrichtlinie auf unserer  Webseite an. </p>
+      <br /><strong>10 Huawei kontaktieren</strong><br />
+	  <p>Bei Fragen,  Anregungen oder Vorschlägen können Sie sich an unsere lokalen  Huawei-Niederlassungen wenden. Eine Liste der weltweiten Huawei-Niederlassungen  finden Sie unter http://www.huawei.com/en/about-huawei/contact-us/index.htm.  Alternativ können Sie uns eine E-Mail an mobile@huawei.com senden.<br />
+          <br />
+	    Letzte  Aktualisierung: 14. Mai 2013<br />
+	    © Huawei  Technologies Co., Limited. 1998-2013. Alle Rechte vorbehalten. </p>
+			</div>
+		</div>
+	</div>
+</article>	
+</body>
+</html>

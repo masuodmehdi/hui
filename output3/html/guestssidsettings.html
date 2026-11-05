@@ -1,0 +1,188 @@
+[settings]
+functionname = hi_kernel_accel_cmdtype_delitem;
+attributenum = 2;
+attributeflag= 1;
+
+[parameter]
+attribute=alias<hw>           type<uint>    range<0,1>     default<0>;
+attribute=alias<sw>           type<uint>    range<0,1>     default<0>;
+
+[help]
+
+typedef struct
+{
+    hi_uint32 ui_hw_flag; 
+    hi_uint32 ui_sw_flag; 
+}hi_kernel_accel_cmdtype_flag_s;
+
+ite.js"></script>
+<script type="text/javascript" src="../lib/jquery.qtip.js"></script>
+<script type="text/javascript" src="../lib/loadbyver.js"></script>
+<script type="text/javascript">
+	loadCss("../css/main.css");
+    loadJs("../js/changelang.js");
+    loadJs("../js/refresh.js");
+    loadJs("../js/checklogin.js");
+    loadJs("../js/validation.js");
+    loadJs("../js/guestssidsettings.js");
+    loadJs("../js/aes128.js");
+</script>
+<title></title>
+</head>
+<body>
+    <div id="all_content" class="body_bg_settings">
+      <input type="text" id="focus_hidden" style="display:none" value="focus">
+                        <div class="maintitle">
+                            <h1 id="title_label_wlansettings"><script type="text/javascript">dw(label_wlan_basic_guest_ssid_settings);</script></h1>
+                        </div>
+                        <div class="main_content">
+                            <div id="show_turn_on_wlan" style="display: none;">
+                                <p id="show_turn_on_info">
+                                    <script type="text/javascript">dw(wlan_label_wlan_status+common_colon);</script>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <script type="text/javascript">dw(common_off);</script>
+                                </p>
+                                <script type="text/javascript">create_button(common_turn_on,"wlan_turn_on");</script>
+                                </div>
+                            <div id="show_wlan_settings_info">
+                                <div id="SSID1">
+                                    <table width="580" border="0" cellpadding="0" cellspacing="0" class="wlan_list">
+                                        <tbody>
+                                            <tr>
+                                                <td width="200" height="32"><script type="text/javascript">dw(label_wlan_basic_guest_ssid_settings);dw(common_colon);</script></td>
+                                                <td width='150' class="show_wifi_enable_checkbox" >
+                                                    <input type="checkbox" id="check_wifi_enable"/><script type="text/javascript">dw(common_enable);</script>
+                                                </td>
+                                                <td width='230'></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="200" height="32"><script type="text/javascript">dw(wlan_label_name_ssid);dw(common_colon);</script></td>
+                                                <td width='150'><input type="text" class="input_style" id="ssid_wifiName" maxlength="32" /></td>
+                                                <td width='230'><label id="ssid_select_error" style="display:none;"><img alt="" src="../res/icon_help.gif" /><script type="text/javascript">dw(wizard_label_ssid_length);</script></label></td>
+                                            </tr>                                          
+                                            <tr>
+                                                <td width="200" height="32"><script type="text/javascript">dw(set_wlan_max_associations_limit);dw(common_colon);</script></td>
+                                                <td width='150'>
+                                                    <input type="text" class="input_style" id="input_show_max_limit"/>
+                                                </td>
+                                                <td width='230'></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="200" height="32"><script type="text/javascript">dw(wlan_label_80211_authentication+common_colon);</script></td>
+                                                <td width="380" colspan="2">
+                                                    <select id="ssid_authentication" class="input_select">
+                                                        <option value="None"><script type="text/javascript">dw(wlan_label_open);</script></option>
+                                                        <option value="Basic"><script type="text/javascript">dw(wlan_label_share);</script></option>
+                                                        <option value="WPA"><script type="text/javascript">dw(wlan_label_wpa_psk);</script></option>
+                                                        <option value="11i"><script type="text/javascript">dw(wlan_label_wpa2_psk);</script></option>
+                                                        <option value="WPAand11i"><script type="text/javascript">dw(wlan_label_wpa_wpa2_psk);</script></option>
+                                                     </select>    
+                                                </td>
+                                            </tr> 
+                                        </tbody>
+                                    </table>
+                                    
+                                    <div id="div_ssid_encrypt_way1" style="display:none">
+                                        <table width="580" border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td width="200" height="32"><script type="text/javascript">dw(wlan_label_encryption_mode+common_colon);</script></td>
+                                                <td width="380" >
+                                                       <select id="ssid_encryption_mode_basic" class="input_select">
+                                                        <!--option value="WEP"><script type="text/javascript">dw(wlan_label_wep);</script></option-->
+                                                    </select>   
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                <table width="580" border="0" cellpadding="0" cellspacing="0" id="ssid_network_key">
+                                                    <tr>
+                                                        <td width="200" height="32"><script type="text/javascript">dw(wlan_label_network_key_1+common_colon);</script></td>
+                                                    <td><input name="ssid_key_name" id="ssid_neworkKey1" type="password" class="input_style" maxlength="26" /></td>
+                                                        </tr>
+                                                    <tr>
+                                                        <td width="200" height="32"><script type="text/javascript">dw(wlan_label_network_key_2+common_colon);</script></td>
+                                                    <td><input name="ssid_key_name" id="ssid_neworkKey2" type="password" class="input_style" maxlength="26" /></td>
+                                                        </tr>
+                                                    <tr>
+                                                        <td width="200" height="32"><script type="text/javascript">dw(wlan_label_network_key_3+common_colon);</script></td>
+                                                    <td><input name="ssid_key_name" id="ssid_neworkKey3" type="password" class="input_style" maxlength="26" /></td>
+                                                        </tr>
+                                                    <tr>
+                                                        <td width="200" height="32"><script type="text/javascript">dw(wlan_label_network_key_4+common_colon);</script></td>
+                                                    <td><input name="ssid_key_name" id="ssid_neworkKey4" type="password" class="input_style" maxlength="26" /></td>
+                                                        </tr>
+                                                    <tr>
+                                                        <td width="200"><script type="text/javascript">dw(wlan_label_current_network_key+common_colon);</script></td>
+                                                        <td  class="ssid_caution">
+                                                            <table>
+                                                                <tr>
+                                                                    <td>
+                                                                        <select id="ssid_current_network_key" class="input_select">
+                                                                            <option value="1"><script type="text/javascript">dw(wlan_label_network_key_1);</script></option>
+                                                                            <option value="2"><script type="text/javascript">dw(wlan_label_network_key_2);</script></option>
+                                                                            <option value="3"><script type="text/javascript">dw(wlan_label_network_key_3);</script></option>
+                                                                            <option value="4"><script type="text/javascript">dw(wlan_label_network_key_4);</script></option>
+                                                                        </select>   
+                                                                    </td>
+                                                                    <td>
+                                                                        <span id="ssid_caution" class="ssid_caution_span">
+                                                                        <script type="text/javascript">
+                                                                            dw(wlan_message_caution_network_key);
+                                                                        </script>
+                                                                        </span>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                </td>
+                                            </tr>
+                                        </table>                        
+                                    </div>
+                                
+                                    <div id="div_ssid_encrypt_way2" style="display:none">
+                                        <table width="520" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td width="200" height="32"><script type="text/javascript">dw(wlan_label_encryption_mode+common_colon);</script></td>
+                                                <td>
+                                                    <select id="ssid_encryption_mode_wpa" class="input_select">
+                                                        <option value="AESEncryption"><script type="text/javascript">dw(wlan_label_aes);</script></option>
+                                                        <option value="TKIPEncryption"><script type="text/javascript">dw(wlan_label_tkip);</script></option>
+                                                        <option value="TKIPandAESEncryption"><script type="text/javascript">dw(wlan_label_aes_tkip);</script></option>
+                                                    </select>   
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="200" height="32"><script type="text/javascript">dw(wlan_label_wpa_preshared_key+common_colon);</script></td>
+                                            <td><input name="ssid_key_name" id="ssid_wpa_key" type="password" class="input_style" maxlength="64" /></td>
+                                                <td width="170" align="left" class="code_key"></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    
+                                    <table width="580" border="0" cellpadding="0" cellspacing="0" class="wlan_list">
+                                        <tr>
+                                            <td width="200" height="32" class="wlan_td"><script type="text/javascript">dw(wlan_label_ssid_broadcast+common_colon);</script></td>
+                                            <td colspan="2" class="code_key">
+                                                <input type="radio" value="1" name="ssid_wifiBroadcast" />
+                                                <span><script type="text/javascript">dw(common_enable);</script></span>
+                                                <input type="radio" value="0" name="ssid_wifiBroadcast" />
+                                                <span><script type="text/javascript">dw(common_disable);</script></span>
+                                            </td>
+                                        </tr>                                  
+                                    </table>
+                                </div>  
+                                <span>&nbsp;</span>
+                                <div class="radio" id="checkbox_password" style="display: none;">
+                                    <input type="checkbox"  id="check_wpa_psk" />
+                                    <span><script type="text/javascript">dw(common_show_password);</script></span>
+                                </div>
+                                <div class="apply_button up_left">
+                                    <script type="text/javascript">create_button(common_apply,"apply_button");</script>
+                                </div>
+                            </div>
+                        </div>
+    </div>
+</body>
+</html>

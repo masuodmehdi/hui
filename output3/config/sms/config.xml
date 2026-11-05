@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<scpd xmlns="urn:schemas-upnp-org:service-1-0">
+  <specVersion>
+    <major>1</major>
+    <minor>0</minor>
+  </specVersion>
+  <actionList>
+   <action>
+      <name>GetVersion</name>
+      <argumentList>
+          <argument>
+              <name>NewVersion</name>
+              <direction>out</direction>
+              <relatedStateVariable>Version</relatedStateVariable>
+          </argument>
+      </argumentList>
+    </action>
+  </actionList>
+  <serviceStateTable>
+    <stateVariable>
+      <name>Version</name>
+      <dataType>string</dataType>
+    </stateVariable>
+  </serviceStateTable>
+</scpd>
+
+    <!-- 短信有效期，默认10752（最大值）取值范围[1-10752]，整型 -->
+    <validity>10752</validity>
+    <!-- 是否有导入功能-->
+    <import_enabled>0</import_enabled>
+    <!--是否支持短信中心号码-->
+    <sms_center_enabled>1</sms_center_enabled>
+    <!--是否支持短有效期-->
+    <sms_validity_enabled>0</sms_validity_enabled>
+</config>

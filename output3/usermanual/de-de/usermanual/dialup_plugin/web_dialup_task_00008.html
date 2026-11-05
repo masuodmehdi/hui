@@ -1,0 +1,93 @@
+[settings]
+functionname=0xF7002004;
+attributenum=4;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       	  type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000B0D>; /*全局模块*/
+attribute=alias<em_pee_sta>       type<int>    range<0x0,0x01>  	  default<0x00000000>;
+attribute=alias<em_opt_sta>       type<int>    range<0x0,0x01>  	  default<0x00000000>;
+attribute=alias<em_tdm_sta>       type<int>    range<0x0,0x01>  	  default<0x00000000>;
+
+[help]
+typedef struct 
+{
+    HI_BOOL_E em_pee_sta;   /* PEE告警状态 */
+    HI_BOOL_E em_opt_sta;   /* 光模块发光检测告警状态，当GPON MAC没有指示光模块发光而光模块处于发光状态时，产生该告警。 */
+    HI_BOOL_E em_tdm_sta;   /* TDM发送错误告警状态 */
+    
+}hi_dp_gpon_up_sta_s;
+ hinzugef&uuml;gt, bearbeitet und gel&ouml;scht wird.">
+<meta name="DC.Relation" scheme="URI" content="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="web_dialup_task_00008">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../../public_sys-resources/ExpandCollapse.js"></script><script type="text/javascript" src="../../../../language/lang_de_de.js"></script>
+<title>Konfigurieren des drahtlosen WAN-Profils</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_dialup_task_00008"></a><a name="web_dialup_task_00008"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Rechtliche Hinweise</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Konfigurieren des drahtlosen WAN-Profils</h1>
+
+
+<div class="taskbody"><p>In diesem Abschnitt wird beschrieben, wie ein drahtloses WAN-Profil hinzugef&uuml;gt, bearbeitet und gel&ouml;scht wird.</p>
+
+<a name="web_dialup_task_00008__1.3.1"></a><a name="1.3.1"></a><h4 class="sectiontitle">Kontext</h4>
+<div class="p"><p>Befolgen Sie zum Hinzuf&uuml;gen eines Profils die nachstehenden Schritte.</p>
+</div>
+
+<a name="web_dialup_task_00008__1.3.2"></a><a name="1.3.2"></a><div><h4 class="sectiontitle">Vorgehensweise</h4><a class="dropdownAllButtonexpand" onclick="ExpandorCollapseAllNodes(this,'Alle einblenden','Alle ausblenden')" title="expand">Alle einblenden</a>
+<ol>
+<li><span>W&auml;hlen Sie <span class="menucascade"><b><span class="uicontrol"><script>dw(common_settings);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(dialup_label_dialup);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(dialup_label_wireless_profile);</script></span></b></span>.</span></li>
+<li><span>Klicken Sie auf <span class="uicontrol"><b><script>dw(dialup_button_newprofile);</script></b></span> und legen Sie die dem Profil zugeordneten Parameter fest.</span></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Geben Sie <span class="uicontrol"><b><script>dw(dialup_label_user_name);</script></b></span> und <span class="uicontrol"><b><script>dw(common_password);</script></b></span> ein.</span></span></a></div><div class="dropdowncontext"><span><p><div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> HINWEIS: </span><div class="notebody"><p>Um <span class="uicontrol"><b><script>dw(dialup_label_user_name);</script></b></span> und <span class="uicontrol"><b><script>dw(common_password);</script></b></span> zu erhalten, wenden Sie sich an Ihren Serviceanbieter.</p>
+</div></div>
+</p></span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>W&auml;hlen Sie aus der Dropdown-Liste <span class="uicontrol"><b><script>dw(dialup_label_connection_mode);</script></b></span> einen Verbindungsmodus aus.</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(common_auto);</script></b></span>: Das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> stellt automatisch eine Verbindung zum Internet her, nachdem es aktiviert wird. Nachdem die Verbindung hergestellt ist, trennt <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> die Internetverbindung nicht automatisch wieder.</li>
+<li><span class="uicontrol"><b><script>dw(common_manual);</script></b></span>: Das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> stellt eine Verbindung zum Internet her, nachdem Sie von der Seite <span class="uicontrol"><b><script>dw(dialup_label_connection);</script></b></span> aus auf <span class="uicontrol"><b><script>dw(common_connect);</script></b></span> geklickt haben.</li>
+<li><span class="uicontrol"><b><script>dw(label_dailup_option_on_demand);</script></b></span>: Das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> stellt automatisch eine Internetverbindung her, wenn eine Daten&uuml;bertragung vorhanden ist. Das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> trennt die Internetverbindung automatisch, wenn der Zeitraum, w&auml;hrend dem keine Daten &uuml;bertragen werden, <span class="uicontrol"><b><script>dw(dialup_label_max_idle_time_s);</script></b></span> &uuml;bersteigt. Ihre Abrechnung gem&auml;&szlig; der Zeit erfolgt, die Sie mit dem Internet verbunden
+sind, ist es ratsam, diesen Modus zu verwenden.<div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> HINWEIS: </span><div class="notebody"><p><span class="uicontrol"><b><script>dw(dialup_label_max_idle_time_s);</script></b></span>: Dies gibt den l&auml;ngsten unbet&auml;tigten Zeitraum der Internetverbindung an. Im <span class="uicontrol"><b><script>dw(common_auto);</script></b></span>-Modus wird <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> automatisch vom Internet getrennt, sodass an diese Person keine Daten &uuml;bermittelt werden.</p>
+</div></div>
+</li>
+</ul>
+</span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_save);</script></b></span>.</span></span></a></div><div class="dropdowncontext"><span><p><div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> HINWEIS: </span><div class="notebody"><ul><li>So bearbeiten Sie ein Profil: W&auml;hlen Sie unter <span class="uicontrol"><b><script>dw(dialup_label_profile_name);</script></b></span> das Profil aus, das ge&auml;ndert werden soll. Klicken Sie auf <span class="uicontrol"><b><script>dw(common_edit);</script></b></span>, um die WAN-Profileinstellungen zu &auml;ndern. Und
+klicken Sie auf <span class="uicontrol"><b><script>dw(common_save);</script></b></span>.</li><li>So l&ouml;schen Sie ein Profil: W&auml;hlen Sie unter <span class="uicontrol"><b><script>dw(dialup_label_profile_name);</script></b></span> das Profil aus, das gel&ouml;scht werden soll. Und klicken Sie auf <span class="uicontrol"><b><script>dw(common_delete);</script></b></span>.</li></ul>
+</div></div>
+</p></span></div></div></li>
+</ol></div>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

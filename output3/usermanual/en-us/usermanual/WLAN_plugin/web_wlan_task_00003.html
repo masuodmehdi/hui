@@ -1,0 +1,131 @@
+[settings]
+functionname=0xF7002004;
+attributenum=1;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000407>; /*È«¾ÖÄ£¿é*/
+
+[help]
+void  
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="Configuring WLAN">
+<meta name="abstract" content="You can configure the basic settings of the WLAN.">
+<meta name="description" content="You can configure the basic settings of the WLAN.">
+<meta name="DC.Relation" scheme="URI" content="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="web_wlan_task_00003">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../../public_sys-resources/ExpandCollapse.js"></script><script type="text/javascript" src="../../../../language/lang_en_us.js"></script>
+<title>Configuring WLAN</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_wlan_task_00003"></a><a name="web_wlan_task_00003"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Legal Notice</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">Overview</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Quick Setup</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Connection</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Dial-up Settings</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN Settings</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN Management</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Security Settings</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">System Management</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP Settings</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Advanced Settings</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Maintenance</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Acronyms and Abbreviations</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Configuring WLAN</h1>
+
+
+<div class="taskbody"><p>You can configure the basic settings of the WLAN.</p>
+
+<a name="web_wlan_task_00003__1.3.1"></a><a name="1.3.1"></a><div><h4 class="sectiontitle">Procedure</h4><a class="dropdownAllButtonexpand" onclick="ExpandorCollapseAllNodes(this,'Expand All','Collapse All')" title="expand">Expand All</a>
+<ol>
+<li><span>Choose <span class="menucascade"><b><span class="uicontrol"><script>dw(common_settings);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(wlan_label_wlan);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(wlan_label_wlan_settings);</script></span></b></span>.</span></li>
+<li><span>From <span class="uicontrol"><b><script>dw(wlan_label_country);</script></b></span>, select a desired country.</span></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>From <span class="uicontrol"><b><script>dw(wlan_label_channel);</script></b></span>, select a desired channel.</span></span></a></div><div class="dropdowncontext"><span><p><div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>Different countries use different channels. If you do not know which channel to choose, select <span class="uicontrol"><b><script>dw(common_auto);</script></b></span>, the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> will search for a channel automatically.</p>
+</div></div>
+</p></span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>From <span class="uicontrol"><b><script>dw(wlan_label_80211_mode);</script></b></span>, select a mode.</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(wlan_label_80211b);</script></b></span>: Only clients that support the 802.11b standard are allowed to access the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>. </li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_80211n);</script></b></span>: Only clients that support the 802.11n standard are allowed to access the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>. </li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_80211g);</script></b></span>: Only clients that support the 802.11g standard are allowed to access the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>. </li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_80211bg);</script></b></span>: Clients that support the 802.11b or 802.11g standard are allowed to access the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>. </li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_80211bgn);</script></b></span>: Clients that support the 802.11b, 802.11g, or 802.11n standard are allowed to access the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</li>
+</ul>
+<p><div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>For details about the 802.11 standard supported by a client, contact the relevant supplier.</p>
+</div></div>
+</p></span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Enter the <span class="uicontrol"><b><script>dw(wlan_label_name_ssid);</script></b></span> and <span class="uicontrol"><b><script>dw(set_wlan_max_associations_limit);</script></b></span>.</span></span></a></div><div class="dropdowncontext"><span><p><div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><ul><li>The service set identifier (SSID) is a name that identifies a wireless local area network (WLAN). A wireless client (for example, a computer) can communicate with the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> properly only when they are
+using the same SSID. To ensure the WLAN security, do not use the default SSID. You can define an SSID as required.</li><li>The <span class="uicontrol"><b><script>dw(set_wlan_max_associations_limit);</script></b></span> refers to the maximum number of connections. It is used to set the maximum number of concurrent WLAN users on the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>. You can enter
+any number in the range of 1~32.</li></ul>
+</div></div>
+</p></span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>From <span class="uicontrol"><b><script>dw(wlan_label_80211_authentication);</script></b></span>, select an authentication mode.</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(wlan_label_open);</script></b></span>: Open System authentication. If this mode is selected and if the encryption mode is set to <span class="uicontrol"><b><script>dw(wlan_label_none);</script></b></span>, clients can access the WLAN provided by the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> without entering any security key.</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_share);</script></b></span>: Shared Key authentication. To access the WLAN provided by the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>, clients must enter the Wired Equivalent Privacy (WEP) key that matches the key set
+on the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_wpa_psk);</script></b></span>: This data encryption method uses a random 256-bit key.</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_wpa2_psk);</script></b></span>: This is the second version of <span class="uicontrol"><b><script>dw(wlan_label_wpa_psk);</script></b></span> and is more secure than <span class="uicontrol"><b><script>dw(wlan_label_wpa_psk);</script></b></span>.</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_wpa_wpa2_psk);</script></b></span>: Both <span class="uicontrol"><b><script>dw(wlan_label_wpa_psk);</script></b></span> and <span class="uicontrol"><b><script>dw(wlan_label_wpa2_psk);</script></b></span> encryption modes are supported. Clients can access the WLAN in <span class="uicontrol"><b><script>dw(wlan_label_wpa_psk);</script></b></span> or <span class="uicontrol"><b><script>dw(wlan_label_wpa2_psk);</script></b></span> mode.</li>
+</ul>
+</span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>From <span class="uicontrol"><b><script>dw(wlan_label_encryption_mode);</script></b></span>, select an encryption mode.</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(wlan_label_none);</script></b></span>: No encryption. No security key is required when clients access the WLAN.<div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>For daily use, it is recommended that you set a security key, to improve the security performance of a WLAN.</p>
+</div></div>
+</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_wep);</script></b></span>: This stands for Wired Equivalent Privacy.</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_aes);</script></b></span>: This stands for the Advanced Encryption Standard.</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_tkip);</script></b></span>: This stands for the Temporal Key Integrity Protocol.</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_aes_tkip);</script></b></span>: Both <span class="uicontrol"><b><script>dw(wlan_label_aes);</script></b></span> and <span class="uicontrol"><b><script>dw(wlan_label_tkip);</script></b></span> encryption modes are supported. Clients can encrypt data in <span class="uicontrol"><b><script>dw(wlan_label_aes);</script></b></span> or <span class="uicontrol"><b><script>dw(wlan_label_tkip);</script></b></span> mode.</li>
+</ul>
+</span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Enter security key in <span class="uicontrol"><b><script>dw(wlan_label_wpa_preshared_key);</script></b></span> or <span class="uicontrol"><b><script>dw(wlan_label_network_key_1);</script></b></span><span class="uicontrol"><b>/2/3/4</b></span>.</span></span></a></div><div class="dropdowncontext"><span><p><div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>Select <span class="uicontrol"><b><script>dw(common_show_password);</script></b></span> to view the security key that you have entered.</p>
+</div></div>
+</p></span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>From <span class="uicontrol"><b><script>dw(wlan_label_ap_isolation);</script></b></span>, select:</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(common_on);</script></b></span>: to enable AP isolation.</li>
+<li><span class="uicontrol"><b><script>dw(common_off);</script></b></span>: to disable AP isolation.</li>
+</ul>
+</span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Set <span class="uicontrol"><b><script>dw(wlan_label_ssid_broadcast);</script></b></span>.</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(common_enabled);</script></b></span>: to enable the SSID broadcast.</li>
+<li><span class="uicontrol"><b><script>dw(common_disabled);</script></b></span>: to disable the SSID broadcast.</li>
+</ul>
+<p><div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p>During the process of setting up the WLAN, you can set the SSID broadcast to <span class="uicontrol"><b><script>dw(common_enabled);</script></b></span> to facilitate the access from clients. After the WLAN is set up, set the SSID broadcast to <span class="uicontrol"><b><script>dw(common_disabled);</script></b></span> to improve the security of the WLAN.</p>
+</div></div>
+</p></span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Set <span class="uicontrol"><b><script>dw(wlan_label_wps_settings);</script></b></span>.</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(common_enabled);</script></b></span>: to enable the WPS function of <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</li>
+<li><span class="uicontrol"><b><script>dw(common_disabled);</script></b></span>: to disable the WPS function of <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span></li>
+</ul>
+</span></div></div></li>
+<li><span>Click <span class="uicontrol"><b><script>dw(common_apply);</script></b></span>.</span></li>
+</ol></div>
+
+<div class="example"><a name="web_wlan_task_00003__1.3.2"></a><a name="1.3.2"></a><h4 class="sectiontitle">Setting a WPA Security Key for the WLAN</h4><ol><li>From <span class="uicontrol"><b><script>dw(wlan_label_80211_authentication);</script></b></span>, select <span class="uicontrol"><b><script>dw(wlan_label_wpa_wpa2_psk);</script></b></span>.</li><li>From <span class="uicontrol"><b><script>dw(wlan_label_encryption_mode);</script></b></span>, select <span class="uicontrol"><b><script>dw(wlan_label_aes);</script></b></span>.</li><li>In <span class="uicontrol"><b><script>dw(wlan_label_wpa_preshared_key);</script></b></span>, enter the security key. For example, <strong>huawei_terminal</strong>.</li><li>Click <span class="uicontrol"><b><script>dw(common_apply);</script></b></span>.</li></ol>
+</div>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html" title="">WLAN Settings</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

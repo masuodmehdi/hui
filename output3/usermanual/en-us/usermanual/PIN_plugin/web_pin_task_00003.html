@@ -1,0 +1,78 @@
+[settings]
+functionname=0xF7002004;
+attributenum=4;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       		  type<uint>     range<0x0,0xFFFFFFFF>  default<0x00000403>; /*È«¾ÖÄ£¿é*/
+attribute=alias<em_port>       		  type<int>      range<0x0,0x08>        default<0x00000000>;
+attribute=alias<em_filter_mode>       type<int>      range<0x0,0x03>        default<0x00000000>;
+attribute=alias<st_item>              type<binary>   range<0,96>            default<0x00000000>;
+
+
+[help]
+typedef struct 
+{
+      HI_DP_PORT_E  em_port;
+
+      HI_DP_SMAC_FILTER_MODE_E  em_filter_mode;
+    
+      hi_dp_smac_filter_list_s  st_item[HI_DP_SMAC_FILTER_LIST_NUM];
+    
+}hi_dp_smac_filter_table_item_s;
+
+example:
+hi_cli  /home/cli/sdk/dp/smac_filter_table_item_set -v em_port 1 em_filter_mode 1 st_item "0x01 0x00 0x00 0x00 0x01 0x00 0x00 0x00 0x01 0x00 0x00 0x00 0x01 0x00 0x00 0x00 0x01 0x00 0x00 0x00 0x01 0x00 0x00 0x00 0x01 0x00 0x00 0x00 0x01 0x00 0x00 0x00 0x01 0x00 0x00 0x00 0x01 0x00 0x00 0x00 0x01 0x00 0x00 0x00"
+r.css">
+<script language="javascript" type="text/javascript" src="../../../public_sys-resources/ExpandCollapse.js"></script><script type="text/javascript" src="../../../../language/lang_en_us.js"></script>
+<title>Changing the PIN</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_pin_task_00003"></a><a name="web_pin_task_00003"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Legal Notice</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">Overview</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Quick Setup</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Connection</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Dial-up Settings</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN Settings</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN Management</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Security Settings</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">System Management</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP Settings</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Advanced Settings</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Maintenance</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Acronyms and Abbreviations</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Changing the PIN</h1>
+
+
+<div class="taskbody"><p>If personal identification number (PIN) verification is
+turned on, you can change the PIN.</p>
+
+<a name="web_pin_task_00003__1.3.1"></a><a name="1.3.1"></a><h4 class="sectiontitle">Procedure</h4>
+<ol>
+<li><span>Choose <span class="menucascade"><b><span class="uicontrol"><script>dw(common_settings);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(firewall_label_security);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(dialup_label_pin_code_management);</script></span></b></span>.</span></li>
+<li><span>From <span class="uicontrol"><b><script>dw(dialup_label_pin_code_operation);</script></b></span>, select <span class="uicontrol"><b><script>dw(common_modify);</script></b></span>.</span></li>
+<li><span>Enter the current PIN.</span></li>
+<li><span>Enter a new PIN and confirm the PIN.</span></li>
+<li><span>Click <span class="uicontrol"><b><script>dw(common_apply);</script></b></span>.</span></li>
+</ol>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN Management</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

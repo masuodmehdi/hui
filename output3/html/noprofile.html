@@ -1,0 +1,84 @@
+[settings]
+commandtype=0xF8005840;
+attributenum=7;
+displayattribute = 1 ;
+
+[parameter]
+attribute=alias<fid>      type<ushort>    range<0x0,0xFFFF>      default<0>;
+attribute=alias<enable>   type<uchar>     range<0x0,0x1>         default<0>;
+attribute=alias<res>      type<uchar>     range<0x0,0x1>   	 default<0>;
+attribute=alias<cbs>      type<uint>      range<0x0,0xFFFFFFFF>  default<0>;
+attribute=alias<cir>      type<uint>      range<0x0,0xFFFFFFFF>  default<0>;
+attribute=alias<pbs>      type<uint>      range<0x0,0xFFFFFFFF>  default<0>;
+attribute=alias<pir>      type<uint>      range<0x0,0xFFFFFFFF>  default<0>;
+
+[help]
+typedef struct
+{
+    hi_ushort16         us_fid;
+    hi_uchar8           uc_enable;
+    hi_uchar8           uc_res;
+    hi_lsw_car_info_s   st_car;
+}hi_lsw_car_s;
+
+typedef struct
+{
+    hi_uint32 ui_cbs;
+    hi_uint32 ui_cir;
+    hi_uint32 ui_pbs;
+    hi_uint32 ui_pir;
+}hi_lsw_car_info_s;
+            loadJs("../js/aes128.js");
+        </script>
+        <title></title>
+    </head>
+
+    <body>
+        <div id="all_content" class="body_bg">
+        <div class="login_head_div login_head_dim">
+                <div class="login_head_dim login_head_filter">
+                    <div class="logo"></div>
+                    <div class="logo1">
+                        <a href="#"></a>
+                    </div>
+                    <div class="language_no3g">
+                        <span>
+                            <select id="lang"></select>
+                        </span>
+                        <a id="help_url" target="_blank" href="../usermanual/en-us/usermanual/web_content_concept_00001.html">
+                           <span id="help_span">
+                                <script type="text/javascript">dw(common_help);</script>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="no3g_content_box">
+                <div id="noprofile_message" style="height:100px">
+                    <h1 id="noprofile_title" class="fontsize">
+                         <script type="text/javascript">dw(profile);</script>
+                    </h1>
+                    <div id="noprofile_content" class="nocard_content" >
+                        <h1 class = 'noprofile_contentfontsize'>
+                             <script type="text/javascript">dw(profile_content);</script>
+                        </h1>
+                        <h1 class = 'noprofile_contentfontsize'>
+                             <script type="text/javascript">dw(profile_whattodo);</script>
+                        </h1>
+                    </div>
+                </div>
+                <div class="noprofile_bottom_button">
+                        <script type="text/javascript">create_button(common_continue, "link_login_noprofile");</script>
+                    </div>
+                    
+            </div>
+            <div id="footer"  class="footer">
+            </div>
+        </div>
+        <noscript>
+            <div class="noscript_text">
+                Your browser does not support JavaScript.
+            </div>
+        </noscript>
+    </body>
+</html>

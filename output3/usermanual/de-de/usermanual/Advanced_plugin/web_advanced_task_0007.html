@@ -1,0 +1,85 @@
+[settings]
+functionname=0xF7002004;
+attributenum=15;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       			type<uint>  range<0x0,0xFFFFFFFF>  	default<0x00000507>; /*全局模块*/
+attribute=alias<ui_sfid_0>       		type<uint>  range<0x0,0x7F>  		default<0x00000000>;
+attribute=alias<em_fid_match_en>       	type<int>   range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<em_fid_match_mode>      type<int>   range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ui_sfid_1>       		type<uint>  range<0x0,0xFFFFFFFF>  	default<0x00000000>;
+attribute=alias<em_vlan_match_en>       type<int>   range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<em_vlan_match_mode>     type<int>   range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ui_vlan_value>       	type<uint>  range<0,4095>  			default<0x00000000>;
+attribute=alias<em_pri_match_en>       	type<int>   range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<em_pri_match_mod>       type<int>   range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ui_pri_value>       	type<uint>  range<0,7>  			default<0x00000000>;
+attribute=alias<em_igr_match_en>       	type<int>   range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<em_igr_match_mode>      type<int>   range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<em_igr>       			type<int>   range<0x0,0x08>  		default<0x00000000>;
+attribute=alias<em_valid>       		type<int>   range<0x0,0x01>  		default<0x00000000>;
+
+[help]
+typedef struct 
+{
+    /* 索引 */
+    uint   ui_sfid;                                 /* 简单流ID, 索引,分类ID, 为后续MAP即CAR的输入ID, 0-127 */
+
+    /* 基于流ID匹配规则 */
+    HI_BOOL_E   em_fid_match_en;   
+    HI_DP_FLOW_MATCH_MODE_E   em_fid_match_mode;    /* 如果FID有效则表示FID的匹配 */
+    uint   ui_fid;                                  /* 表示FID的匹配对应EFC ID */
+
+    /* 基于VLAN匹配规则 */
+    HI_BOOL_E    em_vlan_match_en;                  /* vlan有效标识 */
+    HI_DP_FLOW_MATCH_MODE_E   em_vlan_match_mode;   /* vlan匹配方式，如果FID有效则表示FID的匹配 */
+    uint    ui_vlan_value;                          /* vlan值，如果FID有效则低8bit表示FID */
+
+    /* 基于PRI匹配规则 */
+    HI_BOOL_E    em_pri_match_en;                   /* pri有效标识 */    
+    HI_DP_FLOW_MATCH_MODE_E   em_pri_match_mode;    
+    uint    ui_pri_value;                           /* pri值 */
+
+    /* 基于端口匹配规则 */
+    HI_BOOL_E    em_igr_match_en;                   /* ingress有效标识 */
+    HI_DP_FLOW_MATCH_MODE_E   em_igr_match_mode;    /* igr匹配方式 */       
+    HI_DP_PORT_E    em_igr;                         /* ingress号 */
+
+    HI_BOOL_E    em_valid;                          /* 表项有效标志 */ 
+
+}hi_dp_flow_sfc_table_item_s;href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Konfigurieren der Statischen Route</h1>
+
+
+<div class="taskbody"><p>Sie k&ouml;nnen statisches Routing konfigurieren. Statisches Routing legt einen festen Routingpfad zu den benachbarten Zielen fest.</p>
+
+<a name="web_advanced_task_0007__1.3.1"></a><a name="1.3.1"></a><h4 class="sectiontitle">Vorgehensweise</h4>
+<ol>
+<li><span>W&auml;hlen Sie <span class="menucascade"><b><span class="uicontrol"><script>dw(common_settings);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(common_advanced);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(staticroute_label_staticroute);</script></span></b></span>.</span></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Klicken Sie auf:</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(common_add);</script></b></span> und geben Sie die Parameter in die Tabelle ein, um einen Eintrag hinzuzuf&uuml;gen.</li>
+<li><span class="uicontrol"><b><script>dw(common_edit);</script></b></span> , um ein Element zu bearbeiten.</li>
+<li><span class="uicontrol"><b><script>dw(common_delete);</script></b></span> , um ein Element zu l&ouml;schen.</li>
+</ul>
+</span></div></div></li>
+<li><span>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_apply);</script></b></span> , damit die Einstellungen &uuml;bernommen werden. </span></li>
+</ol>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

@@ -1,0 +1,92 @@
+[settings]
+functionname=0xF7002004;
+attributenum=9;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       				type<uint>     range<0x0,0xFFFFFFFF>  default<0x00000A02>; /*全局模块*/
+attribute=alias<ui_total_share>       		type<uint>     range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<em_qid_connect_en>       	type<binary>   range<0,512>  		  default<0x00000000>;
+attribute=alias<em_gsch_id_connect_en>      type<binary>   range<0,128>  		  default<0x00000000>;
+attribute=alias<ui_gsch_id_connect_sta>     type<binary>   range<0,128>  		  default<0x00000000>;
+attribute=alias<ui_psch_id_connect_sta>     type<binary>   range<0,56>  		  default<0x00000000>;
+attribute=alias<em_qid_assign_err>       	type<binary>   range<0,512>  		  default<0x00000000>;
+attribute=alias<em_qid_not_assign_err>      type<binary>   range<0,512>  		  default<0x00000000>;
+attribute=alias<ui_qid_buffer_used_sta>     type<binary>   range<0,512>  		  default<0x00000000>;
+
+[help]
+typedef struct
+{
+    uint  ui_total_share;                                      /* 队列共享空间 */
+
+    /* 获取组调度器和端口调度器的是否连接 */
+    HI_BOOL_E em_qid_connect_en[HI_DP_QOS_QUEUE_NUM];           /* 所有队列的连接状态 */
+    HI_BOOL_E em_gsch_id_connect_en[HI_DP_QOS_GS_ID_NUM];       /* 所有组调度器的连接状态 */
+
+    /* 获取组调度器和端口调度器的8个虚调度优先级连接状态 */
+    uint    ui_gsch_id_connect_sta[HI_DP_QOS_GS_ID_NUM];        /* bit 0~7分别表示组调度器下的各优先级连接状态    */
+    uint    ui_psch_id_connect_sta[HI_DP_QOS_EGR_NUM];          /* bit 0~7分别表示端口调度器下的各优先级连接状态  */
+
+    /* 错误指示信息 */
+    HI_BOOL_E em_qid_assign_err[HI_DP_QOS_QUEUE_NUM];           /* 所有队列资源分配错误指示 */
+    HI_BOOL_E em_qid_not_assign_err[HI_DP_QOS_QUEUE_NUM];       /* 所有队列资源未分配错误指示 */
+    uint    ui_qid_buffer_used_sta[HI_DP_QOS_QUEUE_NUM];
+
+}hi_dp_qos_sta_s;
+web_quicksetup_task_00001.html">Quick Setup</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Connection</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Dial-up Settings</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN Settings</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN Management</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Security Settings</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">System Management</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP Settings</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Advanced Settings</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Maintenance</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Acronyms and Abbreviations</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Configuring the DHCP Server</h1>
+
+
+<div class="taskbody"><p>If the Dynamic Host Configuration Protocol (DHCP) server is enabled, the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> allocates IP addresses to clients connected to it.</p>
+
+<a name="web_dhcp_task_00002__1.3.1"></a><a name="1.3.1"></a><h4 class="sectiontitle">Context</h4>
+<div class="p"><ul><li><span class="uicontrol"><b><script>dw(dhcp_label_start_ip_address);</script></b></span>, <span class="uicontrol"><b><script>dw(dhcp_label_end_ip_address);</script></b></span>, and <span class="uicontrol"><b><script>dw(dhcp_label_dhcp_lease_time);</script></b></span> are available to be set only when the DHCP server is enabled. </li><li><span class="uicontrol"><b><script>dw(dhcp_label_dhcp_lease_time);</script></b></span> is the time limit on a client's use of an Internet Protocol (IP) address to connect to the network.</li><li>After the DHCP server is enabled, enable the function to automatically obtain an IP address and a DNS server address from clients.</li></ul>
+</div>
+
+<a name="web_dhcp_task_00002__1.3.2"></a><a name="1.3.2"></a><h4 class="sectiontitle">Procedure</h4>
+<ol>
+<li><span>Choose <span class="menucascade"><b><span class="uicontrol"><script>dw(common_settings);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(dhcp_label_dhcp);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(dhcp_label_dhcp);</script></span></b></span>.</span></li>
+<li><span>In <span class="uicontrol"><b><script>dw(dialup_label_ip_address);</script></b></span>, enter the IP address of the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</span></li>
+<li><span>In <span class="uicontrol"><b><script>dw(dhcp_label_subnet_mask);</script></b></span>, enter the subnet mask of the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</span></li>
+<li><span>Select <span class="uicontrol"><b><script>dw(common_enable);</script></b></span> to enable the DHCP server.</span></li>
+<li><span>In <span class="uicontrol"><b><script>dw(dhcp_label_start_ip_address);</script></b></span>, enter a start IP address.</span></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>In <span class="uicontrol"><b><script>dw(dhcp_label_end_ip_address);</script></b></span>, enter an end IP address.</span></span></a></div><div class="dropdowncontext"><span><p><div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><ul><li>The end IP address must be bigger than or equal to the start IP address. </li><li>The minimum range from the start IP address to the end IP address is an independent IP address.  </li></ul>
+</div></div>
+</p></span></div></div></li>
+<li><span>In<span class="uicontrol"><b> <script>dw(dhcp_label_dhcp_lease_time);</script></b></span>, enter a lease time.</span></li>
+<li><span>Click <span class="uicontrol"><b><script>dw(common_apply);</script></b></span>.</span></li>
+</ol>
+
+<div class="example"><a name="web_dhcp_task_00002__1.3.3"></a><a name="1.3.3"></a><h4 class="sectiontitle">Example of DHCP Server Configuration</h4><p>Enable the DHCP server, and then configure the clients in the local area network to obtain IP addresses in a specified network segment automatically.</p>
+<ol><li>In <span class="uicontrol"><b><script>dw(dialup_label_ip_address);</script></b></span>, enter an IP address. For example, 192.168.1.1.</li><li>In <span class="uicontrol"><b><script>dw(dhcp_label_subnet_mask);</script></b></span>, enter a subnet mask. For example, 255.255.255.0.</li><li>Select <span class="uicontrol"><b><script>dw(common_enable);</script></b></span> to enable the DHCP server.</li><li>In <span class="uicontrol"><b><script>dw(dhcp_label_start_ip_address);</script></b></span>, enter a start IP address. For example, 192.168.1.100.</li><li>In <span class="uicontrol"><b><script>dw(dhcp_label_end_ip_address);</script></b></span>, enter an end IP address. For example, 192.168.1.200.</li><li>In <span class="uicontrol"><b><script>dw(dhcp_label_dhcp_lease_time);</script></b></span>, enter a lease time. For example, 7 day.</li><li>Click <span class="uicontrol"><b><script>dw(common_apply);</script></b></span>.</li></ol>
+</div>
+
+<a name="web_dhcp_task_00002__1.3.4"></a><a name="1.3.4"></a><h4 class="sectiontitle">Configuring DHCP Clients</h4><p>If the Dynamic Host Configuration Protocol (DHCP) server is enabled, certain settings must be configured from clients.Configuration on a Windows XP operating system is used as an example.</p>
+<ol><li>Choose <span class="menucascade"><b><span class="uicontrol">Start</span></b> &gt; <b><span class="uicontrol">Control Panel</span></b> &gt; <b><span class="uicontrol">Network Connections</span></b> &gt; <b><span class="uicontrol">Wireless Network Connection</span></b></span>.</li><li>Right-click the <span class="uicontrol"><b>Network Connection</b></span> icon and choose <span class="uicontrol"><b>Properties</b></span>.</li><li>Select <span class="uicontrol"><b>Internet Protocol (TCP/IP)</b></span> and click <span class="uicontrol"><b>Properties</b></span>.</li><li>In the <span class="uicontrol"><b>Network Protocol (TCP/IP) Properties</b></span> dialog box, select <span class="uicontrol"><b>Obtain an IP address automatically</b></span> and <span class="uicontrol"><b>Obtain DNS server address automatically</b></span>.</li><li>Click <span class="uicontrol"><b>OK</b></span>.</li></ol>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP Settings</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

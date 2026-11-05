@@ -1,0 +1,85 @@
+[settings]
+functionname=0xF7002004;
+attributenum=10;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       		type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000702>; /*È«¾ÖÄ£¿é*/
+attribute=alias<ui_fid>       		type<uint>   range<0,191>  			default<0x00000000>;
+attribute=alias<em_cvlan_act>       type<int>    range<0x0,0x03>  		default<0x00000000>;
+attribute=alias<ui_cvlan_value>     type<uint>   range<0,4095>  		default<0x00000000>;
+attribute=alias<em_svlan_act>       type<int>    range<0x0,0x03>  		default<0x00000000>;
+attribute=alias<ui_svlan_value>     type<uint>   range<0x0,4095>  		default<0x00000000>;
+attribute=alias<em_c8021p_act>      type<int>    range<0x0,0x05>  		default<0x00000000>;
+attribute=alias<ui_s8021p_value>    type<uint>   range<0,7>  			default<0x00000000>;
+attribute=alias<em_tag_act>       	type<int>    range<0x0,0x02>  		default<0x00000000>;
+attribute=alias<em_valid>       	type<int>    range<0x0,0x01>  		default<0x00000001>;
+
+[help]
+typedef struct 
+{
+    uint   ui_fid;
+
+    HI_DP_VALN_ACT_E    em_cvlan_act;
+    uint    ui_cvlan_value;         
+
+    HI_DP_VALN_ACT_E    em_svlan_act;
+    uint    ui_svlan_value;         
+
+    HI_DP_8021P_ACT_E   em_c8021p_act;
+    uint    ui_c8021p_value;
+
+    HI_DP_8021P_ACT_E   em_s8021p_act;
+    uint    ui_s8021p_value;
+
+    HI_DP_TAG_ACT_E em_tag_act;
+
+    HI_BOOL_E   em_valid; 
+    
+}hi_dp_l2_act_table_item_s;
+
+/a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Warum kann ich auf einem Client nicht auf das Internet zugreifen?</h1>
+
+<div class="taskbody">
+<a name="web_faq_task_00002__1.2.1"></a><a name="1.2.1"></a><h4 class="sectiontitle">Vorgehensweise</h4>
+<ol>
+<li><span>&Uuml;berpr&uuml;fen Sie, ob die USIM-Karte ordnungsgem&auml;&szlig; funktioniert.</span></li>
+<li><span>Pr&uuml;fen Sie die Signalst&auml;rke und stellen Sie sicher, dass Sie sich in einem Bereich mit Netzabdeckung befinden.</span></li>
+<li><span>&Uuml;berpr&uuml;fen Sie, ob die Verbindung zwischen dem  <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> und dem Client gut ist.</span></li>
+<li><span>Vergewissern Sie sich, dass der Netzwerkmodus richtig eingestellt ist. F&uuml;r Einzelheiten besuchen Sie die Verwaltungsseite und &uuml;berpr&uuml;fen Sie den <span class="uicontrol"><b><script>dw(wan_label_wan_status);</script></b></span>.</span></li>
+<li><span>Wenn Sie auf das Internet &uuml;ber das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> zugreifen, pr&uuml;fen Sie, dass die Parameter wie Profil, PPP-Benutzername und Passwort korrekt sind. Diese Parameter stellt Ihr Dienstanbieter zur Verf&uuml;gung. F&uuml;r Einzelheiten besuchen Sie die Verwaltungsseite und &uuml;berpr&uuml;fen Sie die<span class="uicontrol"><b><script>dw(dialup_label_profile_list);</script></b></span> und wenden Sie sich an Ihren Dienstanbieter.</span></li>
+<li><span>Der Client kann nicht auf das Internet zugreifen, wenn der DHCP-Dienst nicht aktiviert ist und der Client noch keine dynamische IP-Adresse hat. In diesem Fall m&uuml;ssen Sie Ihrem Client eine IP-Adresse zuweisen.</span></li>
+<li><span>&Uuml;berpr&uuml;fen Sie, ob der Netzwerkadapter Ihres Clients normal funktioniert.</span></li>
+<li><span>&Uuml;berpr&uuml;fen Sie, dass die Parameter wie <span class="uicontrol"><b><script>dw(wlan_label_wlan_mac_filter);</script></b></span>, <span class="uicontrol"><b><script>dw(firewall_label_lan_ip_filter);</script></b></span> und <span class="uicontrol"><b><script>dw(urlfilter_label_urlfilter);</script></b></span> des <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> korrekt sind.</span></li>
+<li><span>Falls das Problem weiterhin besteht, wenden Sie sich an Ihren Dienstanbieter.</span></li>
+</ol>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/faq_plugin/web_faq_topic_00001.html" title="">FAQ</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

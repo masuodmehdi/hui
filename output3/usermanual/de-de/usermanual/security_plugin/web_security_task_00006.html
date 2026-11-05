@@ -1,0 +1,137 @@
+[settings]
+functionname=0xF7002004;
+attributenum=1;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000809>; /*È«¾ÖÄ£¿é*/
+
+[help]
+void  
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="task">
+<meta name="DC.Title" content="Konfigurieren des virtuellen Servers">
+<meta name="abstract" content="Das <script>dw(common_3g_wireless_modem);</script> unterst&uuml;tzt einen virtuellen Server, damit externe Benutzer die M&ouml;glichkeit haben, die angebotenen Dienste im LAN-Netzwerk (Local Area Network) unter Verwendung des Hypertext Transfer-Protokoll (HTTP), File Transfer-Protokoll (FTP) und anderer Protokolle zu nutzen.">
+<meta name="description" content="Das <script>dw(common_3g_wireless_modem);</script> unterst&uuml;tzt einen virtuellen Server, damit externe Benutzer die M&ouml;glichkeit haben, die angebotenen Dienste im LAN-Netzwerk (Local Area Network) unter Verwendung des Hypertext Transfer-Protokoll (HTTP), File Transfer-Protokoll (FTP) und anderer Protokolle zu nutzen.">
+<meta name="DC.Relation" scheme="URI" content="../../usermanual/security_plugin/web_security_topic_00001.html">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="web_security_task_00006">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../../public_sys-resources/ExpandCollapse.js"></script><script type="text/javascript" src="../../../../language/lang_de_de.js"></script>
+<title>Konfigurieren des virtuellen Servers</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_security_task_00006"></a><a name="web_security_task_00006"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Rechtliche Hinweise</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Konfigurieren des virtuellen Servers</h1>
+
+
+<div class="taskbody"><p>Das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> unterst&uuml;tzt einen virtuellen Server, damit externe Benutzer die M&ouml;glichkeit haben, die angebotenen Dienste im LAN-Netzwerk (Local Area Network) unter Verwendung des Hypertext Transfer-Protokoll (HTTP), File Transfer-Protokoll (FTP) und anderer Protokolle zu nutzen.</p>
+
+<a name="web_security_task_00006__1.3.1"></a><a name="1.3.1"></a><h4 class="sectiontitle">Vorgehensweise</h4>
+<ol>
+<li><span>W&auml;hlen Sie <span class="menucascade"><b><span class="uicontrol"><script>dw(common_settings);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(firewall_label_security);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(firewall_label_virtual_server);</script></span></b></span>.</span></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Um</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li>einen virtuellen Server hinzuzuf&uuml;gen, klicken Sie auf <span class="uicontrol"><b><script>dw(common_add);</script></b></span> und legen Sie die Parameter fest. Klicken Sie auf <span class="uicontrol"><b><script>dw(common_save);</script></b></span>.</li>
+<li>Zur Bearbeitung eines virtuellen Servers klicken Sie auf <span class="uicontrol"><b><script>dw(common_edit);</script></b></span> , um ein Element zu bearbeiten. Klicken Sie auf <span class="uicontrol"><b><script>dw(common_save);</script></b></span>.</li>
+<li>Zum L&ouml;schen eines virtuellen Servers klicken Sie auf <span class="uicontrol"><b><script>dw(common_delete);</script></b></span> , um ein Element zu l&ouml;schen. Klicken Sie auf <span class="uicontrol"><b><script>dw(common_ok);</script></b></span>.</li>
+</ul>
+</span></div></div></li>
+<li><span>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_apply);</script></b></span> , damit die Einstellungen &uuml;bernommen werden.</span></li>
+</ol>
+
+<div class="example"><a name="web_security_task_00006__1.3.2"></a><a name="1.3.2"></a><h4 class="sectiontitle">Konfiguration eines FTP-Servers</h4><p>Zum Aktivieren der FTP-Dienste f&uuml;r einen Client mit der IP-Adresse 192.168.1.101 und der M&ouml;glichkeit des Zugriffs durch externe Benutzer gehen Sie folgenderma&szlig;en vor: </p>
+<ol><li>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_add);</script></b></span> und konfigurieren Sie einen virtuellen Server.
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="14.306151645207441%"><p><span class="uicontrol"><b><script>dw(firewall_label_name);</script> </b></span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="14.306151645207441%"><p><span class="uicontrol"><b><script>dw(firewall_label_status);</script> </b></span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="14.306151645207441%"><p><span class="uicontrol"><b><script>dw(specialapp_commonport);</script></b></span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="13.876967095851217%"><p><span class="uicontrol"><b><script>dw(firewall_label_wan_port);</script></b></span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="14.449213161659516%"><p><span class="uicontrol"><b><script>dw(firewall_label_lan_port);</script></b></span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="14.306151645207441%"><p><span class="uicontrol"><b><script>dw(virtual_lan_ipadress);</script></b></span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="14.449213161659516%"><p><span class="uicontrol"><b><script>dw(firewall_label_protocol);</script></b></span></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="14.306151645207441%"><p>Mein FTP-Server</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="14.306151645207441%"><p><span class="uicontrol"><b><script>dw(common_on);</script></b></span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="14.306151645207441%"><p><span class="uicontrol"><b><script>dw(virtual_port_ftp);</script></b></span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="13.876967095851217%"><p>21</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="14.449213161659516%"><p>21</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="14.306151645207441%"><p>192.168.1.101</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="14.449213161659516%"><p><span class="uicontrol"><b><script>dw(firewall_label_tcp);</script></b></span></p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</li><li>Klicken Sie auf <span class="uicontrol"><b><script>dw(dialup_label_connection);</script></b></span>. Unter <span class="uicontrol"><b><script>dw(wan_label_wan_status);</script></b></span> sehen Sie die WAN-IP-Adresse des <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>. Zum Beispiel 10.2.1.123.</li><li>Im Browser eines externen Benutzers geben Sie die FTP-Serveradresse<span class="uicontrol"><b>ftp://10.2.1.123</b></span>ein und greifen auf den FTP-Dienst zu, den der Client mit der IP-Adresse 192.168.1.101 anbietet.</li></ol>
+<div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> HINWEIS: </span><div class="notebody"><p>Standardm&auml;&szlig;ig ist der FTP-Dienstport 21. Wenn dieser Port ge&auml;ndert wird, zum Beispiel auf 8021, muss der externe Benutzer <span class="uicontrol"><b>ftp://10.2.1.123:8021</b></span> eingeben, um auf den FTP-Server zugreifen zu k&ouml;nnen.</p>
+</div></div>
+</div>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/security_plugin/web_security_topic_00001.html" title="">Sicherheitseinstellungen</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

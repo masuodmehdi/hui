@@ -1,0 +1,1 @@
+busyboxInternetGatewayDevice.Services.X_ALGAbility"E5element="H323Enable|RTSPEnable|PPTPEnable|SipStatus|SipPort|SIPWanPath"ATPelement="H323Enable|RTSPEnable|PPTPEnable|SIPEnable|SIPPort|SIPWanPath"

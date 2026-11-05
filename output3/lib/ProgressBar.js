@@ -1,0 +1,25 @@
+[settings]
+functionname=hi_kernel_codec_hlp_port_send_tone;  
+attributenum=3;
+attributeflagflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<port_id>      		type<uint>   range<0,3>    default<0>;
+attribute=alias<tone_type>      	type<uint>   range<0,0>    default<0>;
+attribute=alias<ts>    				type<uint>   range<0,0>    default<0>;
+
+[help]
+usage: send_tone -v port_id 0 tone_type 0 ts 0
+	 
+   
+ }  
+   
+ ProgressBar.prototype.start = function(callback) {  
+     var moveing = window.setInterval(function() {  
+         bar.move(moveing, callback);  
+     }, this.speed);  
+ }  
+   
+ ProgressBar.prototype.clear = function() {  
+     this.bar.style.width = "1%";   
+ }  

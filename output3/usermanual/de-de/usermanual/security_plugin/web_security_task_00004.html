@@ -1,0 +1,86 @@
+[settings]
+functionname=0xF7002004;
+attributenum=10;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       	 			type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000800>; /*全局模块*/
+attribute=alias<em_napt_en>       			type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<em_napt_dn_unhit_act>       type<int>    range<0x0,0x09>  		default<0x00000001>;
+attribute=alias<em_napt_age_en>       		type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ui_napt_age_time>       	type<uint>   range<0,4095>  		default<300>;
+attribute=alias<ui_outnet_ip>       		type<ip> 	default<100.0.0.0>;
+attribute=alias<em_napt_dn_pcnt_en>       	type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ui_pcnt_napt_dn_index>      type<uint>   range<0,63>  			default<0x00000000>;
+attribute=alias<em_napt_up_pcnt_en>       	type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ui_pcnt_napt_up_index>      type<uint>   range<0,63>  			default<0x00000000>;
+
+[help]
+/* napt配置参数 */
+typedef struct  
+{
+    HI_BOOL_E           em_napt_en;                             /* 整个NAPT操作硬件使能 */
+    HI_DP_TRANS_ACT_E   em_napt_dn_unhit_act;                   /* NAPT处理,下行查询SUBNET没有命中,则可配置为转CPU或者丢弃 */ 
+
+    HI_BOOL_E           em_napt_age_en;    
+    uint                ui_napt_age_time;
+
+    uint                ui_outnet_ip[8];                        /* 外网IP */
+
+
+    HI_BOOL_E           em_napt_dn_pcnt_en;                     /* 上下行配置特定l2_idx统计使能位 */
+    uint                ui_pcnt_napt_dn_index;                  /* 待统计的l2_idx的值 */    
+
+    HI_BOOL_E           em_napt_up_pcnt_en;                     /* 上下行配置特定l2_idx统计使能位 */
+    uint                ui_pcnt_napt_up_index;                  /* 待统计的l2_idx的值 */    
+    
+}hi_dp_l3_attr_s;
+
+
+tml">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Konfigurieren des LAN-MAC-Filters</h1>
+
+
+<div class="taskbody"><p>Sie k&ouml;nnen die Clients, die auf das WLAN zugreifen, steuern und verwalten und die WLAN-Sicherheit verbessern.</p>
+
+<a name="web_security_task_00004__1.3.1"></a><a name="1.3.1"></a><h4 class="sectiontitle">Voraussetzung</h4>
+<div class="p">Um den LAN-MAC-Filter zu konfigurieren, sollte zuerst die LAN-MAC-Adressfilterung aktiviert werden. Einzelheiten finden Sie unter <a href="web_security_task_00002.html">Aktivieren bzw. Deaktivieren des Firewall-Switch</a>.</div>
+
+<a name="web_security_task_00004__1.3.2"></a><a name="1.3.2"></a><h4 class="sectiontitle">Vorgehensweise</h4>
+<ol>
+<li><span>W&auml;hlen Sie <span class="menucascade"><b><span class="uicontrol"><script>dw(common_settings);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(firewall_label_security);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(lanmacfilter_label_lanmacfilter);</script></span></b></span>.</span></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Unter <span class="uicontrol"><b><script>dw(label_lanmacfilter_filter_mode);</script></b></span> w&auml;hlen Sie</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(wlan_label_allow);</script></b></span>, um f&uuml;r Clients mit Adressen in der Liste <span class="uicontrol"><b><script>dw(wlan_label_mac_address);</script></b></span> die Verbindung zum <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> &uuml;ber WLAN zuzulassen.</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_deny);</script></b></span>, um f&uuml;r Clients mit Adressen in der Liste <span class="uicontrol"><b><script>dw(wlan_label_mac_address);</script></b></span> die Verbindung zum <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> &uuml;ber WLAN nicht zuzulassen.</li>
+</ul>
+</span></div></div></li>
+<li><span> Geben Sie eine MAC-Adresse im Bereich <span class="uicontrol"><b><script>dw(wlan_label_mac_address);</script></b></span> ein. Das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> kann die Zugriffssteuerung &uuml;ber Clients durchf&uuml;hren, deren MAC-Adressen in der Liste aufgef&uuml;hrt sind.</span></li>
+<li><span>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_apply);</script></b></span>.</span></li>
+</ol>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/security_plugin/web_security_topic_00001.html" title="">Sicherheitseinstellungen</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

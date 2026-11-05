@@ -1,0 +1,134 @@
+[settings]
+functionname=0xF7002004;
+attributenum=50;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       					 type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000B01>; /*全局模块*/
+attribute=alias<ui_preamble_type1_len_bit>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_preamble_type2_len_bit>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_preamble_type3_len_byte>      type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_preamble_type3_pattern>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_delimiter>       			 type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_onu_id>       				 type<uint>   range<0,255>  		 default<0x00000000>;
+attribute=alias<ui_dbru_unit>       			 type<uint>   range<0,0x1F>  		 default<0x6>;
+attribute=alias<ui_pee_threshold>       		 type<int>    range<0x0,0xFFFFF>  	 default<0x2F000>;
+attribute=alias<ui_fixed_delay>       			 type<uint>   range<0x0,0xFFFF>  	 default<0x17F9>;
+attribute=alias<ui_random_delay>       			 type<uint>   range<0x0,0xFFFF>  	 default<0x00000000>;
+attribute=alias<ui_tx_delay>       				 type<uint>   range<0x0,0xFF>  		 default<0x00000000>;
+attribute=alias<ui_tcont_threshold>       	     type<uint>   range<0x0,0xFFFF>  	 default<0x1600>;
+attribute=alias<ui_pre_eqd>       				 type<uint>   range<0x0,0xFFFF>  	 default<0x00000000>;
+attribute=alias<ui_eqd>       					 type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_eqd_residue>       			 type<int>    range<0,7>  			 default<0x00000000>;
+attribute=alias<ui_eqd_dec>       				 type<uint>   range<0,1>  			 default<0x00000000>;
+attribute=alias<ui_eqd_inc>       				 type<uint>   range<0,1>  			 default<0x00000000>;
+attribute=alias<em_cut_en>       				 type<int>    range<0,0xFFF>  		 default<0>;
+attribute=alias<ui_cut_len>       				 type<uint>   range<0x0,0xFFFFFFFF>  default<80>;
+attribute=alias<ui_min_cut_len>       			 type<uint>   range<0,0x1F>  	     default<10>;
+attribute=alias<em_dyinggasp_send_mode>       	 type<int>    range<0x0,0x01>  		 default<0x00000000>;
+attribute=alias<em_endian>       				 type<int>    range<0x0,0x01>  		 default<0x00000000>;
+attribute=alias<em_tx_mode_0>       			 type<int>    range<0x0,0x02>  		 default<0x00000000>;
+attribute=alias<em_active>       				 type<int>    range<0x0,0x01>  		 default<0x00000000>;
+attribute=alias<em_sd_active>       			 type<int>    range<0x0,0x01>  		 default<0x00000000>;
+attribute=alias<em_tx_sel>       				 type<int>    range<0x0,0x03>  		 default<0x00000000>;
+attribute=alias<em_swing_volt>       			 type<int>    range<0x0,0x03>  		 default<0x00000000>;
+attribute=alias<ui_err_on_threshold>       		 type<int>    range<0x0,0x3FF>  	 default<234>;
+attribute=alias<ui_err_off_threshold>       	 type<int>    range<0x0,0x3FF>  	 default<156>;
+attribute=alias<em_omcicut_en>       			 type<int>    range<0x0,0x01>  		 default<0x00000000>;
+attribute=alias<ui_txomci_tcont_num>       		 type<uint>   range<0,7>  			 default<0>;
+attribute=alias<ui_txomci_portid>       		 type<uint>   range<0x0,0xFFF>  	 default<0x00000000>;
+attribute=alias<ui_alarm_mask>       			 type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_arg_0>       				 type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<em_tx_en>       				 type<int>    range<0x0,0x01>  		 default<0x00000000>;
+attribute=alias<em_tx_mode_1>       			 type<int>    range<0x0,0x01>  		 default<0x00000000>;
+attribute=alias<ui_len>       					 type<uint>   range<8,2047>  		 default<8>;
+attribute=alias<ui_seed>       					 type<uint>   range<0x1,0x7FFFFF>  	 default<0x7FFFFF>;
+attribute=alias<ui_interval>       				 type<int>    range<0,255>  		 default<0x00000000>;
+attribute=alias<ui_gemport>       				 type<uint>   range<0,4095>  		 default<0x00000000>;
+attribute=alias<ui_tcont>       				 type<uint>   range<0,7>  		 	 default<0x00000000>;
+attribute=alias<ui_indicate_num>       			 type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_arg_1>       				 type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<em_enable>       				 type<int>    range<0x0,0x01>  		 default<0x00000000>;
+attribute=alias<ui_e1_length>       			 type<int>    range<0x0,0xFFFFFFFF>  default<0x22>;
+attribute=alias<ui_t1_length>       			 type<uint>   range<0x0,0xFFFFFFFF>  default<0x22>;
+attribute=alias<em_out_loop_en>       			 type<int>    range<0x0,0x01>  		 default<0x00000000>;
+
+[help]
+    HI_DP_DYINGGASP_SEND_MODE_E  em_dyinggasp_send_mode;    /* 逻辑是否发送Dyinggasp消息选择 */
+    HI_DP_ENDIAN_E             em_endian;                   /* 上行字序模式 */           
+    HI_DP_GPON_UP_TX_MODE_E    em_tx_mode;                  /* 发光控制 */
+    HI_LEVEL_E                 em_active;                   /* 激光器发光使能有效电平 */
+    HI_LEVEL_E                 em_sd_active;                /* 光模块发光检测电平 */
+    HI_DP_GPON_UP_TX_SEL_E     em_tx_sel;                   /* 发光信号选择 */
+    HI_DP_GPON_UP_SWING_VOLT_E em_swing_volt;               /* 差分信号幅度 */
+    uint                       ui_err_on_threshold;         /* 光模块异常发光的持续时间容忍门限 */
+    uint                       ui_err_off_threshold;        /* 光模块异常关断的持续时间容忍门限 */
+
+>dw(common_3g_wireless_modem);</script></b></span>. </li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_80211g);</script></b></span>: Nur Clients, die den 802.11g-Standard unterst&uuml;tzen, erhalten Zugriff auf das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>. </li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_80211bg);</script></b></span>: Clients, die den 802.11b- oder 802.11g-Standard unterst&uuml;tzen, erhalten Zugriff auf das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>. </li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_80211bgn);</script></b></span>: Clients, die den 802.11b-, 802.11g- oder 802.11n-Standard unterst&uuml;tzen, erhalten Zugriff auf das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</li>
+</ul>
+<p><div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> HINWEIS: </span><div class="notebody"><p>F&uuml;r Einzelheiten &uuml;ber den 802.11-Standard, der von einem Client unterst&uuml;tzt wird, kontaktieren Sie den entsprechenden Anbieter.</p>
+</div></div>
+</p></span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Geben Sie den <span class="uicontrol"><b><script>dw(wlan_label_name_ssid);</script></b></span> ein und <span class="uicontrol"><b><script>dw(set_wlan_max_associations_limit);</script></b></span>.</span></span></a></div><div class="dropdowncontext"><span><p><div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> HINWEIS: </span><div class="notebody"><ul><li>Die SSID (Service Set Identifier) ist der Name, der ein WLAN (Wireless Local Area Network) identifiziert. Ein Drahtlosclient (wie z.B. ein Computer) kann mit dem <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> nur dann richtig kommunizieren,
+wenn beide die gleiche SSID verwenden. Um die Sicherheit des WLAN zu gew&auml;hrleisten, verwenden Sie nicht die Standard-SSID. Sie k&ouml;nnen eine SSID je nach Bedarf festlegen.</li><li>Das <span class="uicontrol"><b><script>dw(set_wlan_max_associations_limit);</script></b></span> bezieht sich auf die maximale Anzahl an Verbindungen. Es wird verwendet zum Festlegen der maximalen Anzahl gleichzeitiger WLAN-Benutzer f&uuml;r das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>. Sie k&ouml;nnen eine beliebige Anzahl im Bereich von 1 ~ 32 eingeben.</li></ul>
+</div></div>
+</p></span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Unter <span class="uicontrol"><b><script>dw(wlan_label_80211_authentication);</script></b></span>w&auml;hlen Sie einen Authentifizierungsmodus.</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(wlan_label_open);</script></b></span>: Offene Systemauthentifizierung. Wenn dieser Modus ausgew&auml;hlt und der Verschl&uuml;sselungsmodus <span class="uicontrol"><b><script>dw(wlan_label_none);</script></b></span>ist, k&ouml;nnen Clients auf das vom <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> zur Verf&uuml;gung gestellte WLAN ohne die Eingabe eines Sicherheitsschl&uuml;ssel zugreifen.</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_share);</script></b></span>: Authentifizierung mit gemeinsamem Schl&uuml;ssel. Um auf das vom <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>zur Verf&uuml;gung gestellte WLAN zugreifen zu k&ouml;nnen, m&uuml;ssen Clients den WEP-Schl&uuml;ssel (Wired
+Equivalent Privacy) eingeben, der mit dem Schl&uuml;ssel &uuml;bereinstimmt, der im <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> eingestellt ist.</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_wpa_psk);</script></b></span>: Diese Verschl&uuml;sselungsmethode verwendet einen zuf&auml;lligen 256-Bit Schl&uuml;ssel.</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_wpa2_psk);</script></b></span>: Dies ist die zweite Version von <span class="uicontrol"><b><script>dw(wlan_label_wpa_psk);</script></b></span> , welche sicherer ist als <span class="uicontrol"><b><script>dw(wlan_label_wpa_psk);</script></b></span>.</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_wpa_wpa2_psk);</script></b></span>: Sowohl der <span class="uicontrol"><b><script>dw(wlan_label_wpa_psk);</script></b></span> als auch der <span class="uicontrol"><b><script>dw(wlan_label_wpa2_psk);</script></b></span> Verschl&uuml;sselungsmodi werden unterst&uuml;tzt. Clients k&ouml;nnen im Modus <span class="uicontrol"><b><script>dw(wlan_label_wpa_psk);</script></b></span> oder <span class="uicontrol"><b><script>dw(wlan_label_wpa2_psk);</script></b></span> auf das WLAN zugreifen.</li>
+</ul>
+</span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Unter <span class="uicontrol"><b><script>dw(wlan_label_encryption_mode);</script></b></span>w&auml;hlen Sie einen Authentifizierungsmodus.</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(wlan_label_none);</script></b></span>: Keine Verschl&uuml;sselung. Es wird kein Sicherheitsschl&uuml;ssel ben&ouml;tigt, wenn Clients auf das WLAN zugreifen.<div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> HINWEIS: </span><div class="notebody"><p>F&uuml;r den allt&auml;glichen Gebrauch wird empfohlen, dass Sie einen Sicherheitsschl&uuml;ssel einrichten,
+um die Sicherheit des WLAN zu erh&ouml;hen.</p>
+</div></div>
+</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_wep);</script></b></span>: Steht f&uuml;r Wired Equivalent Privacy (WEP).</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_aes);</script></b></span>: Steht f&uuml;r erweiterter Verschl&uuml;sselungsstandard (Advanced Encryption Standard).</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_tkip);</script></b></span>: Steht f&uuml;r Temporal Key Integrity Protocol.</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_aes_tkip);</script></b></span>: Sowohl der <span class="uicontrol"><b><script>dw(wlan_label_aes);</script></b></span> als auch der <span class="uicontrol"><b><script>dw(wlan_label_tkip);</script></b></span> Verschl&uuml;sselungsmodi werden unterst&uuml;tzt. Clients k&ouml;nnen im Modus <span class="uicontrol"><b><script>dw(wlan_label_aes);</script></b></span> oder <span class="uicontrol"><b><script>dw(wlan_label_tkip);</script></b></span> auf das WLAN zugreifen.</li>
+</ul>
+</span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Geben Sie den Sicherheitsschl&uuml;ssel in <span class="uicontrol"><b><script>dw(wlan_label_wpa_preshared_key);</script></b></span> ein oder <span class="uicontrol"><b><script>dw(wlan_label_network_key_1);</script></b></span><span class="uicontrol"><b>/2/3/4</b></span>.</span></span></a></div><div class="dropdowncontext"><span><p><div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> HINWEIS: </span><div class="notebody"><p>W&auml;hlen Sie <span class="uicontrol"><b><script>dw(common_show_password);</script></b></span> , um den Sicherheitsschl&uuml;ssel anzuzeigen, den Sie eingegeben haben.</p>
+</div></div>
+</p></span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Unter <span class="uicontrol"><b><script>dw(wlan_label_ap_isolation);</script></b></span>w&auml;hlen Sie:</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(common_on);</script></b></span>: um die AP-Isolierung zu aktivieren.</li>
+<li><span class="uicontrol"><b><script>dw(common_off);</script></b></span>: um die AP-Isolierung zu deaktivieren.</li>
+</ul>
+</span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Festlegen von <span class="uicontrol"><b><script>dw(wlan_label_ssid_broadcast);</script></b></span>.</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(common_enabled);</script></b></span>: um das SSID Broadcast zu aktivieren.</li>
+<li><span class="uicontrol"><b><script>dw(common_disabled);</script></b></span>: um das SSID Broadcast zu deaktivieren.</li>
+</ul>
+<p><div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> HINWEIS: </span><div class="notebody"><p>Beim Einrichten des WLAN k&ouml;nnen Sie das SSID Broadcast auf <span class="uicontrol"><b><script>dw(common_enabled);</script></b></span> setzen, um den Zugang von Clients zu erleichtern. Nach der Einrichtung des WLAN wird das SSID Broadcast auf <span class="uicontrol"><b><script>dw(common_disabled);</script></b></span> gesetzt, um die Sicherheit des WLAN zu erh&ouml;hen.</p>
+</div></div>
+</p></span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Festlegen von <span class="uicontrol"><b><script>dw(wlan_label_wps_settings);</script></b></span>.</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(common_enabled);</script></b></span>: zur Aktivierung der WPS-Funktion des <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</li>
+<li><span class="uicontrol"><b><script>dw(common_disabled);</script></b></span>: zur Deaktivierung der WPS-Funktion des <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span></li>
+</ul>
+</span></div></div></li>
+<li><span>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_apply);</script></b></span>.</span></li>
+</ol></div>
+
+<div class="example"><a name="web_wlan_task_00003__1.3.2"></a><a name="1.3.2"></a><h4 class="sectiontitle">WPA Sicherheitsschl&uuml;ssel f&uuml;r das WLAN einrichten</h4><ol><li>Unter <span class="uicontrol"><b><script>dw(wlan_label_80211_authentication);</script></b></span>w&auml;hlen Sie <span class="uicontrol"><b><script>dw(wlan_label_wpa_wpa2_psk);</script></b></span>.</li><li>Unter <span class="uicontrol"><b><script>dw(wlan_label_encryption_mode);</script></b></span>w&auml;hlen Sie <span class="uicontrol"><b><script>dw(wlan_label_aes);</script></b></span>.</li><li>Im Modus <span class="uicontrol"><b><script>dw(wlan_label_wpa_preshared_key);</script></b></span>geben Sie den Sicherheitsschl&uuml;ssel ein. Zum Beispiel <strong>huawei_terminal</strong>.</li><li>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_apply);</script></b></span>.</li></ol>
+</div>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html" title="">WLAN-Einstellungen</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

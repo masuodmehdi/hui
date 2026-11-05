@@ -1,0 +1,90 @@
+[settings]
+functionname = hi_kernel_dp_l2_mc_add_cmd;
+attributenum = 6;
+attributeflag= 1;
+
+[parameter]
+attribute=alias<mc_id>       type<uint>    range<0x0,0xFFFFFFFF>    default<0>; 
+attribute=alias<mc_port>     type<uint>    range<0x0,0xFFFFFFFF>    default<0>;
+attribute=alias<mac>         type<mac>                              default<00:e0:fc:55:55:5a>;
+attribute=alias<arg>         type<ushort>  range<0x0,0xFFFF>        default<0>;
+attribute=alias<vlan>        type<uint>    range<0x0,0xFFFFFFFF>    default<0>;
+attribute=alias<untag_en>    type<uint>    range<0x0,0xFFFFFFFF>    default<0>;
+
+
+[help]
+
+typedef struct  
+{
+    uint    ui_mc_id;                   /* 0 - 255;HI_DP_TRANS_MC_LIST_E有效 */
+    hi_dp_port_u u_mc_port;             /* 组播用户;HI_DP_TRANS_MC_PORTMAP_E有效 */
+    
+    uchar   uc_mac[6];       
+    ushort  us_arg;  
+    uint    ui_vlan;
+    HI_BOOL_E em_untag_en;
+    
+}hi_dp_l2_mc_s;
+
+
+
+k_00004">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../../public_sys-resources/ExpandCollapse.js"></script><script type="text/javascript" src="../../../../language/lang_en_us.js"></script>
+<title>Configuring the LAN MAC Filter</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_security_task_00004"></a><a name="web_security_task_00004"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Legal Notice</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">Overview</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Quick Setup</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Connection</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Dial-up Settings</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN Settings</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN Management</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Security Settings</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">System Management</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP Settings</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Advanced Settings</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Maintenance</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Acronyms and Abbreviations</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Configuring the LAN MAC Filter</h1>
+
+
+<div class="taskbody"><p>You can control and manage the clients accessing the WLAN and improve the WLAN security.</p>
+
+<a name="web_security_task_00004__1.3.1"></a><a name="1.3.1"></a><h4 class="sectiontitle">Prerequisite</h4>
+<div class="p">To configure the LAN MAC Filter, The LAN MAC Filtering should be enabled first. For details, see <a href="web_security_task_00002.html">Enabling or Disabling the Firewall Switch</a>.</div>
+
+<a name="web_security_task_00004__1.3.2"></a><a name="1.3.2"></a><h4 class="sectiontitle">Procedure</h4>
+<ol>
+<li><span>Choose <span class="menucascade"><b><span class="uicontrol"><script>dw(common_settings);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(firewall_label_security);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(lanmacfilter_label_lanmacfilter);</script></span></b></span>.</span></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>From <span class="uicontrol"><b><script>dw(label_lanmacfilter_filter_mode);</script></b></span>, Select</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(wlan_label_allow);</script></b></span>, to allow the clients with addresses in the <span class="uicontrol"><b><script>dw(wlan_label_mac_address);</script></b></span> list to connect to the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> through the WLAN.</li>
+<li><span class="uicontrol"><b><script>dw(wlan_label_deny);</script></b></span>, to not allow the clients with addresses in the <span class="uicontrol"><b><script>dw(wlan_label_mac_address);</script></b></span> list to connect to the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> through the WLAN.</li>
+</ul>
+</span></div></div></li>
+<li><span> Enter MAC addresses in the <span class="uicontrol"><b><script>dw(wlan_label_mac_address);</script></b></span> area. The <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> can perform the access control over the clients whose MAC addresses are in the list.</span></li>
+<li><span>Click <span class="uicontrol"><b><script>dw(common_apply);</script></b></span>.</span></li>
+</ol>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="../../usermanual/security_plugin/web_security_topic_00001.html" title="">Security Settings</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

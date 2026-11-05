@@ -1,0 +1,83 @@
+[settings]
+functionname=0xF7002004;
+attributenum=6;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       		 type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000B04>; /*全局模块*/
+attribute=alias<ui_sfid>       		 type<uint>   range<0,127>  		 default<0x00000000>;
+attribute=alias<ui_gemport_id>       type<uint>   range<0,4095>  		 default<0x00000000>;
+attribute=alias<ui_tcont_id>       	 type<uint>   range<0,7>  		     default<0x00000000>;
+
+[help]
+/* 上行GEMPORT 映射表表项结构 */
+typedef struct
+{
+    uint    ui_sfid;                /* 流分类ID, 索引 */
+
+    uint    ui_gemport_id;          /* 映射GEMPORT ID */
+    uint    ui_tcont_id;            /* 映射TCONT   ID */
+     
+}hi_dp_gpon_up_map_table_item_s;Sie es.">
+<meta name="description" content="Wenn das WLAN (Wireless Local Area Network) aktiviert wurde, k&ouml;nnen Clients auf das WLAN zugreifen mit dem <script>dw(common_3g_wireless_modem);</script>. Wenn Sie nicht auf das WLAN zugreifen m&ouml;chten, so deaktivieren Sie es.">
+<meta name="DC.Relation" scheme="URI" content="../../usermanual/connection_plugin/web_connection_topic_00001.html">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="web_connection_task_00004">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../../public_sys-resources/ExpandCollapse.js"></script><script type="text/javascript" src="../../../../language/lang_de_de.js"></script>
+<title>Konfigurieren des WLAN-Status</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_connection_task_00004"></a><a name="web_connection_task_00004"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Rechtliche Hinweise</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Konfigurieren des WLAN-Status</h1>
+
+
+<div class="taskbody"><p>Wenn das WLAN (Wireless Local Area Network) aktiviert wurde, k&ouml;nnen Clients auf das WLAN zugreifen mit dem <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>. Wenn Sie nicht auf das WLAN zugreifen m&ouml;chten, so deaktivieren Sie es.</p>
+
+<a name="web_connection_task_00004__1.3.1"></a><a name="1.3.1"></a><h4 class="sectiontitle">Vorgehensweise</h4>
+<ol>
+<li><span>W&auml;hlen Sie <span class="menucascade"><b><span class="uicontrol"><script>dw(dialup_label_connection);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(wlan_label_wlan_status );</script></span></b></span>.</span></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Klicken Sie zum Aktivieren und Deaktivieren des WLAN auf die Schaltfl&auml;che.</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(common_turn_on);</script></b></span>: um das WLAN zu aktivieren.</li>
+<li><span class="uicontrol"><b><script>dw(common_turn_off);</script></b></span>: um das WLAN zu deaktivieren.</li>
+</ul>
+</span></div></div></li>
+</ol>
+
+<a name="web_connection_task_00004__1.3.2"></a><a name="1.3.2"></a><h4 class="sectiontitle">Zus&auml;tzliche Bedingung</h4>
+<div class="p"><p>Nach dem Einschalten des WLAN wird der aktuelle WLAN-Status in der nachfolgenden Tabelle angezeigt.</p>
+</div>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

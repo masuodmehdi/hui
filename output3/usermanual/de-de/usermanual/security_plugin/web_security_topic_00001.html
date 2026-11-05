@@ -1,0 +1,107 @@
+[settings]
+functionname=0xF7002004;
+attributenum=22;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       		            type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000807>; /*全局模块*/
+attribute=alias<ui_index>      	 	            type<uint>   range<0,511>  			default<0x00000000>;
+attribute=alias<em_valid_0>       	            type<int>    range<0x0,0x02>  		default<0x00000000>;
+attribute=alias<em_age_en>       	            type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ui_age>       		            type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_subnet_ip>                   type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_subnet_port>                 type<uint>   range<0x0,0xFFFF>  	default<0x00000000>;
+attribute=alias<ui_outnet_ip_index>             type<uint>   range<0,7>  			default<0x00000000>;
+attribute=alias<ui_outnet_port_0>               type<uint>   range<0,0xFFFF>  		default<0x00000000>;
+attribute=alias<em_proto>       	            type<int>    range<0x0,0x03>  		default<0x00000000>;
+attribute=alias<ui_dn_rep_index>                type<uint>   range<0,63>  			default<0x00000000>;
+attribute=alias<ui_up_rep_index>                type<uint>   range<0,63>  			default<0x00000000>;
+attribute=alias<em_uni_port>       	            type<int>    range<0x0,0x08>  		default<0x00000000>;
+attribute=alias<em_valid_1>       	            type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<em_ip_valid>       	            type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ui_ip_mask>       	            type<uint>   range<0x0,0x1F>  		default<0x00000000>;
+attribute=alias<ui_outnet_ip>                   type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<em_port_valid>                  type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ui_outnet_port_1>               type<uint>   range<0x0,0xFFFF>  	default<0x00000000>;
+attribute=alias<em_ex_outnet_filter_en>         type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ui_ex_outnet_filter_index>      type<uint>   range<0,63>  			default<0x00000000>;
+attribute=alias<em_outnet_unhit_act>            type<int>    range<0x0,0x09>  		default<0x00000001>;
+
+[help]
+            typedef struct 
+{
+    uint    ui_index;                          
+
+    HI_BOOL_E   em_valid;                   /* 表项有效位 */
+
+    HI_BOOL_E   em_age_en;                  /* 静态标示位 */
+    uint    ui_age;                         /* 表项年龄 */
+
+    uint    ui_subnet_ip;                   /* 该Napt连接中子网主机的IP地址 */    
+    uint    ui_subnet_port;                 /* 该Napt连接中子网主机的TCP/UDP端口号 */     
+    
+    uint    ui_outnet_ip_index;             /* 外网IP INDEX   */  
+    uint    ui_outnet_port;                 /* 该Napt连接对应的外网端口,即HGU WAN口Napt TCP/UDP端口号 */         
+
+    HI_DP_L3_IP_PROTO_E   em_proto;         /* 该Napt连接中允许通过的IP报文协议类型 */
+
+    uint    ui_dn_rep_index;                /* 作为索引完成下行Napt报文的Napt转换 */
+    uint    ui_up_rep_index;                /* 该索引提供给Txdma完成上行Napt报文的Napt转换 */
+
+    HI_DP_PORT_E    em_uni_port;            /* 用户侧端口信息 */
+
+    hi_dp_l3_outnet_filter_s st_base_outnet_filter;     /* 外网限制指示, 实际配置到对应的基本OUTNET表 */
+
+    HI_BOOL_E   em_ex_outnet_filter_en;                 /* 扩展外网过滤  */
+    uint    ui_ex_outnet_filter_index;                  /* 0-63  */
+
+    HI_DP_TRANS_ACT_E          em_outnet_unhit_act;     /* 下行OUTNET UNHIT的转发策略,只有丢弃和转CPU两种选择 */     
+                                                                                             
+}hi_dp_l3_napt_table_item_s;
+1.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Sicherheitseinstellungen</h1>
+
+
+
+<div><p></p>
+
+<p></p>
+
+</div>
+
+<div>
+<ul class="ullinks">
+<li class="ulchildlink"><strong><a href="../../usermanual/security_plugin/web_security_task_00002.html">Aktivieren bzw. Deaktivieren des Firewall-Switch</a></strong><br>
+Das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> unterst&uuml;tzt die Firewall-Funktion, um die &Uuml;bertragung von Datenstr&ouml;men zu kontrollieren und Ihr lokales Netzwerk vor nicht autorisiertem Zugriff zu sch&uuml;tzen.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/security_plugin/web_security_task_00003.html">Konfigurieren des LAN-IP-Filters</a></strong><br>
+Die IP-Adressfilterfunktion im LAN-Netzwerk (Local Area Network) kann verwendet werden, um den Zugriff bestimmter Clients im LAN auf bestimmte Internetdienste zu beschr&auml;nken.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/security_plugin/web_security_task_00004.html">Konfigurieren des LAN-MAC-Filters</a></strong><br>
+Sie k&ouml;nnen die Clients, die auf das WLAN zugreifen, steuern und verwalten und die WLAN-Sicherheit verbessern.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/security_plugin/web_security_task_00005.html">Konfigurieren des URL-Filters</a></strong><br>
+Wenn Sie das Kontrollk&auml;stchen f&uuml;r die URL-Filterung aktivieren, steuert das Gateway den Zugriff auf Websites.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/security_plugin/web_security_task_00006.html">Konfigurieren des virtuellen Servers</a></strong><br>
+Das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> unterst&uuml;tzt einen virtuellen Server, damit externe Benutzer die M&ouml;glichkeit haben, die angebotenen Dienste im LAN-Netzwerk (Local Area Network) unter Verwendung des Hypertext Transfer-Protokoll (HTTP), File Transfer-Protokoll (FTP) und anderer Protokolle zu nutzen.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/security_plugin/web_security_task_00007.html">Konfigurieren von speziellen Anwendungen</a></strong><br>
+Das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> unterst&uuml;tzt die Verwendung spezieller Anwendungen f&uuml;r die Konfiguration der dynamischen Portweiterleitung. Bestimmte Anwendungen im LAN-Netzwerk (Local Area Network) m&uuml;ssen einen bestimmten Port in der Firewall verwenden, um auf Remoteanwendungen zugreifen zu k&ouml;nnen. Um eine TCP- und eine UDP-Verbindung zwischen einer Anwendung im LAN und einer Remoteanwendung einzurichten, verwendet die Firewall diese Weiterleitungsfunktion, um den ben&ouml;tigten Port zu &ouml;ffnen. </li>
+<li class="ulchildlink"><strong><a href="../../usermanual/security_plugin/web_security_task_00008.html">Konfigurieren des DMZ</a></strong><br>
+Wenn externe Benutzer nicht auf bestimmte Netzwerkdienste zugreifen k&ouml;nnen, welche vom LAN-Netzwerk zur Verf&uuml;gung gestellt werden, verwenden Sie die DMZ-Funktion des <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> , um die Clients, die die ben&ouml;tigten Netzwerkdienste anbieten, als DMZ-Host einzurichten. Externe Benutzer k&ouml;nnen anschlie&szlig;end auf diese Dienste zugreifen. DMZ steht f&uuml;r entmilitarisierte Zone (Demilitarized Zone) in Netzwerken. </li>
+<li class="ulchildlink"><strong><a href="../../usermanual/security_plugin/web_security_task_00009.html">SIP-ALG konfigurieren</a></strong><br>
+SIP (Session Initiation Protocol) ist ein Control-Protokoll auf Anwendungsebene. Es wird verwendet, um eine Sitzung zu initiieren, zu &auml;ndern oder zu beenden. Mit Application-Level Gateway (ALG), das auch als Firewall auf Anwendungsebene oder Proxy Firewall auf Anwendungsebene bezeichnet wird, wird das SIP stabiler und vollst&auml;ndig. Um eine SIP-Anwendung auszuf&uuml;hren, aktivieren Sie SIP-ALG.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/security_plugin/web_security_task_00010.html">UPnP konfigurieren</a></strong><br>
+Der Universal Plug and Play-Dienst (UPnP) erm&ouml;glicht eine intelligente Verbindung zwischen zwei UPnP-Ger&auml;ten mittels Portweiterleitung. UPnP-Ger&auml;ten kann automatisch eine IP-Adresse zugewiesen werden und sie k&ouml;nnen dynamisch auf das Internet zugreifen.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/security_plugin/web_security_task_00012.html">ACL konfigurieren</a></strong><br>
+Wenn Sie das Kontrollk&auml;stchen ACL (Access Control List) aktivieren, steuert das Gateway den Zugang aus dem LAN und dem WAN zum Gateway.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/web_content_concept_00001.html">Online-Hilfe</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

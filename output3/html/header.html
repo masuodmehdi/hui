@@ -1,0 +1,113 @@
+[settings]
+functionname = hi_kernel_accel_cmdtype_config_get;
+attributenum = 2;
+attributeflag= 1;
+
+[parameter]
+attribute=alias<hw>           type<uint>    range<0,1>     default<0>;
+attribute=alias<sw>           type<uint>    range<0,1>     default<0>;
+
+[help]
+
+typedef struct
+{
+    hi_uint32 ui_hw_accel_enabled; 
+    hi_uint32 ui_sw_accel_enabled; 
+}hi_kernel_accel_cmdtype_config_s;
+
+d(0)" onclick='javascript:window.location.href = "home.html" + URL_PAGE_TAIL; '>
+                    <span></span>
+                    </a>
+                </li>
+                <li id="menu_statistic">
+                    <a id="statistic" href="javascript:void(0)" onclick='javascript:window.location.href = "statistic.html" + URL_PAGE_TAIL;'>
+                    <span></span>
+                    </a>
+                </li>
+                <li id="menu_connection">
+                    <a id="connection" href="javascript:void(0)" onclick='javascript:window.location.href = "connectionstatus.html" + URL_PAGE_TAIL;' >
+                    <span></span>
+                    </a>
+                </li>
+                <li id="menu_sms">
+                    <a id="sms" href="javascript:void(0)" onclick='javascript:window.location.href = "sms.html" + URL_PAGE_TAIL;'>
+                    <span></span>
+                    </a>
+                </li>
+                <li id="menu_ussd">
+                    <a id="ussd"   href="javascript:void(0)" onclick='javascript:window.location.href = "ussd.html" + URL_PAGE_TAIL;'>
+                    <span></span>
+                    </a>
+                </li>                
+                <li id="menu_settings">
+                    <a id="settings">
+                    <span></span>
+                    </a>
+                </li>              
+                <li id="menu_maintenance">
+                    <a id="maintenance"  href="javascript:void(0)" onclick='javascript:window.location.href = "maintenance.html"+ URL_PAGE_TAIL;'>
+                    <span></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="help">
+            <span>
+                <select id="lang">
+                </select>
+            </span>
+            <span>
+                <a id=help_url href="#" target="_blank">
+                <span id="help_span"></span>
+                </a>
+            </span>
+            <span>
+                <span class="username">
+                    <span id="username_span" style="display:none"></span>
+                </span>
+            </span>
+            <span>
+                <span class="logout">
+                    <span id="logout_span"></span>
+                </span>
+            </span>
+        </div>
+        <div class="tools">
+            <ul>
+                 <li id="update_gif" class="nav01" >
+                    <a id="tooltip_update"  href="javascript:void(0)" onclick='javascript:window.location.href = "update.html" + URL_PAGE_TAIL;'></a>
+                </li>
+                <li id="sms_full" class="nav02">
+                    <a id="tooltip_sms_full"  href="javascript:void(0)" onclick='javascript:window.location.href = "sms.html?inbox"+ URL_PAGE_TAIL2;'></a>
+                </li>
+                <li id="sms_gif" class="nav02">
+                        <a id="tooltip_sms"  href="javascript:void(0)" onclick='javascript:window.location.href = "sms.html?inbox"+ URL_PAGE_TAIL2;'></a>
+                </li>
+                <li id="sim_signal_gif" class="nav03">
+                    <span id="tooltip_sim"></span>
+                </li>
+                <li id="plmn_gif" class="nav04">
+                    <span id="tooltip_plmn"></span>
+                </li>
+                <li id="wan_gif" class="nav05">
+                    <span id="tooltip_wan"></span>
+                </li>
+                <li id="wifi_gif" class="nav06">
+                    <span id="tooltip_wifi"></span>
+                </li>
+                <!--li id="battery_gif" class="nav07">
+                    <span id="tooltip_battery"></span>
+                </li-->
+                <!--li id="station_gif" class="nav08">
+                    <span id="tooltip_station"></span>
+                </li-->
+            </ul>
+        </div>
+        <script type="text/javascript">
+            log.debug("header.html enter");
+            $(document).ready( function() {
+                getUserManualUrl();
+            });
+        </script>
+    </div>
+</div>

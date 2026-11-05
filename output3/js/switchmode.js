@@ -1,0 +1,27 @@
+[settings]
+functionname=hi_kernel_mpcp_set_lld0mac;  
+attributenum=1;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<mac>          type<mac>                           default<10:00:00:01:02:03>;
+
+[help]
+usage: setmac								         ; 设置LLD0缺省MAC		
+	   setmac -v mac "0xe0 0xfc 0x00 0x00 0x00 0x01" ; 设置LLD0指定MAC		
+
+ar browserName=navigator.appName;
+    if (browserName=="Netscape")
+    {
+        window.open('','_parent','');
+        window.close();
+    }
+    else
+    {
+        if (browserName=="Microsoft Internet Explorer")
+        {
+            window.opener = "whocares";
+            window.close();
+        }
+    }
+}

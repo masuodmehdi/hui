@@ -1,0 +1,83 @@
+[settings]
+functionname = hi_kernel_dp_nni_tag_sft_table_item_set_cmd;
+attributenum = 24;
+attributeflag= 1;
+
+[parameter]                                                                                           
+attribute=alias<port>                      type<uint>          range<0x0,0xFFFFFFFF>           default<0>;  
+attribute=alias<index>                     type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<igr_valid>                 type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<igr_pri_match_en>          type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<igr_pri_match_value>       type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<igr_pri_rep_en>            type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<igr_pri_rep_value>         type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<igr_tpid_match_sel>        type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<igr_tpid_rep_sel>          type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<igr_vid_match_en>          type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<igr_vid_match_value>       type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<igr_vid_rep_en>            type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<igr_vid_rep_value>         type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<egr_valid>                 type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<egr_pri_match_en>          type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<egr_pri_match_value>       type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<egr_pri_rep_en>            type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<egr_pri_rep_value>         type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<egr_tpid_match_sel>        type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<egr_tpid_rep_sel>          type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<egr_vid_match_en>          type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<egr_vid_match_value>       type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<egr_vid_rep_en>            type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+attribute=alias<egr_vid_rep_value>         type<uint>          range<0x0,0xFFFFFFFF>           default<0>; 
+
+
+
+
+
+[help]
+typedef struct
+{
+    HI_DP_PORT_E            em_port;
+    uint                    ui_index;       /* 0 ~ 15 */
+    hi_dp_tag_sft_s         st_igr_sft;
+    hi_dp_tag_sft_s         st_egr_sft;
+    
+}hi_dp_tag_sft_item_s;
+
+
+/* RXDMA/TXDMA ¶Ë¿ÚTAGÇÐ»»±íÏî */
+typedef struct
+{
+    HI_BOOL_E   em_vld;
+
+    HI_BOOL_E   em_pri_match_en;
+    uint        ui_pri_match_value;
+    HI_BOOL_E   em_pri_rep_en;
+    uint        ui_pri_rep_value;
+
+    HI_DP_TPID_SEL_E    em_tpid_match_sel;
+    HI_DP_TPID_SEL_E    em_tpid_rep_sel;
+
+    HI_BOOL_E   em_vid_match_en;
+    uint        ui_vid_match_value;
+    HI_BOOL_E   em_vid_rep_en;
+    uint        ui_vid_rep_value;
+    
+}hi_dp_tag_sft_s;
+n/web_system_task_00002.html">Viewing the Device Information</a></strong><br>
+This section describes how to view the information about the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/system_plugin/web_system_task_00003.html">Viewing the Diagnosis Information</a></strong><br>
+This section describes how to view the diagnostic information about the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/system_plugin/web_system_task_00005.html">Changing the Password</a></strong><br>
+To prevent unauthorized access to the management page, change the login password. </li>
+<li class="ulchildlink"><strong><a href="../../usermanual/system_plugin/web_system_task_00006.html">Restoring the Factory Defaults</a></strong><br>
+If the default settings are restored, all user-defined settings of the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> are deleted and all parameters are restored to default values. </li>
+<li class="ulchildlink"><strong><a href="../../usermanual/system_plugin/web_system_task_00007.html">Rebooting the <script>dw(common_3g_wireless_modem);</script></a></strong><br>
+This section describes how to reboot the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</li>
+</ul>
+<div class="familylinks">
+  <div class="parentlink"><strong>Parent topic:</strong> <a href="../../usermanual/web_content_concept_00001.html">OnlineHelp</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

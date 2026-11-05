@@ -1,0 +1,97 @@
+[settings]
+functionname=0xF7002004;
+attributenum=14;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       		type<uint>      range<0x0,0xFFFFFFFF>  default<0x00000100>; /*全局模块*/
+attribute=alias<em_up_mode>         type<int>       range<0x0,0x03>  	   default<0>;            
+attribute=alias<em_pon_mode>        type<int>       range<0x0,0x02>  	   default<0>;
+attribute=alias<em_sw_mode>         type<int>       range<0x0,0x02>  	   default<0>;   
+attribute=alias<em_up_pri_mode>     type<int>       range<0x0,0x07>  	   default<0>;   
+attribute=alias<em_dn_pri_mode>     type<int>       range<0x0,0x07>  	   default<0>;   
+attribute=alias<em_up_vlan_mode>    type<int>       range<0x0,0x05>  	   default<0>;   
+attribute=alias<em_dn_vlan_mode>    type<int>       range<0x0,0x02>  	   default<0>;   
+attribute=alias<em_los_sel>         type<int>       range<0x0,0x01>  	   default<0>;   
+attribute=alias<em_sds_clk_sw_en>   type<int>       range<0x0,0x01>  	   default<0>;   
+attribute=alias<em_ddr_optimize>    type<int>       range<0x0,0x02>  	   default<0>;   
+attribute=alias<us_default_stpid>   type<ushort>    range<0x0,0xFFFF>  	   default<0x8100>; 
+attribute=alias<us_stpid>           type<ushort>    range<0x0,0xFFFF>  	   default<0x8100>; 
+attribute=alias<us_ctpid>           type<ushort>    range<0x0,0xFFFF>  	   default<0x88A8>; 
+
+[help]
+typedef struct  
+{
+    HI_DP_UP_MODE_E         em_up_mode;     /* 上行模式 */    
+    HI_DP_PON_MODE_E        em_pon_mode;    /* 当上行模式配置为HI_DP_UP_PON_MODE_E时生效 */
+              
+    HI_DP_GLB_SW_MODE_E     em_sw_mode;     /* LSW接入模式 */
+
+    HI_DP_PRI_MODE_E        em_up_pri_mode;
+    HI_DP_PRI_MODE_E        em_dn_pri_mode;    
+    HI_DP_VLAN_MODE_E       em_up_vlan_mode;
+    HI_DP_VLAN_MODE_E       em_dn_vlan_mode;    
+
+    HI_DP_LOS_SEL_E em_los_sel;             /*LOS信号来源选择*/
+    //HI_LEVEL_E em_los_active;               /*光模块(RX)LOS信号电平*/
+    //HI_LEVEL_E em_sd_active;                /*光模块SD信号电平*/
+
+    HI_BOOL_E em_sds_clk_sw_en;             /* Serdes时钟切换使能 */
+
+    HI_DDR_OPTIMIZE_E em_ddr_optimize;              /*数据处理访问DDR性能优化*/
+
+    ushort  us_default_stpid;               /* 缺省TPID, 当端口需要添加缺省TAG时，使用该TPID (外层) */
+    ushort  us_stpid;                       /* 外层TPID识别 */ 
+    ushort  us_ctpid;                       /* 内层TPID识别 */ 
+
+}hi_dp_glb_attr_s;/usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Konfigurieren des DMS</h1>
+
+
+<div class="taskbody"><p>Ziel des Digital Media Server (DMS) ist die Zusammenarbeit von drahtgebundenen Netzwerken mit drahtlosen Netzwerken (zu diesen drahtgebundenen und drahtlosen Netzwerken geh&ouml;ren PCs, Ger&auml;te der Unterhaltungselektronik und mobile Ger&auml;te), um eine nahtlose Umgebung aufzubauen, in der Datenmedien und Dienste geteilt und entwickelt werden k&ouml;nnen. Stellen Sie vor der Verwendung dieser Funktion sicher, dass die Speicherger&auml;te &uuml;ber den USB-Port angeschlossen sind.</p>
+
+<a name="web_advanced_task_0025__1.3.1"></a><a name="1.3.1"></a><div><h4 class="sectiontitle">Vorgehensweise</h4><a class="dropdownAllButtonexpand" onclick="ExpandorCollapseAllNodes(this,'Alle einblenden','Alle ausblenden')" title="expand">Alle einblenden</a>
+<ol>
+<li><span>W&auml;hlen Sie <span class="menucascade"><b><span class="uicontrol"><script>dw(common_settings);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(common_advanced);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(dms_label_dms);</script></span></b></span>.</span></li>
+<li><span>&Uuml;berpr&uuml;fen Sie <span class="uicontrol"><b><script>dw(enable_dms);</script></b></span> , um DMS zu aktivieren.</span></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_browse);</script></b></span> , um einen Ordner auszuw&auml;hlen, der freigegeben werden muss.</span></span></a></div><div class="dropdowncontext"><span><p><div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> HINWEIS: </span><div class="notebody"><ul><li>Wenn ein Ordnername nicht angezeigt werden kann, deaktivieren Sie <span class="uicontrol"><b><script>dw(dms_auto_infomation);</script></b></span>.</li><li>Es k&ouml;nnen maximal 5000 Unterordner in einem freigegebenen Ordner angezeigt werden.</li><li>Es sind maximal 4096 Zeichen f&uuml;r den Pfad zu einem freigegebenen Ordner erlaubt.</li><li>Es sind mehrere Datentr&auml;ger erlaubt.</li></ul>
+</div></div>
+</p></span></div></div></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Freigabeverzeichnis hinzuf&uuml;gen oder l&ouml;schen in <span class="uicontrol"><b><script>dw(share_directory);</script></b></span>.</span></span></a></div><div class="dropdowncontext"><span><p><div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> HINWEIS: </span><div class="notebody"><ul><li>Wenn Sie kein Freigabeverzeichnis hinzuf&uuml;gen oder l&ouml;schen m&ouml;chten, &uuml;berspringen Sie diesen Schritt bitte.</li><li>Um ein Freigabeverzeichnis hinzuzuf&uuml;gen, klicken Sie auf <span class="uicontrol"><b><script>dw(common_add);</script></b></span> und klicken Sie auf <span class="uicontrol"><b><script>dw(common_browse);</script></b></span> , um einen Ordner auszuw&auml;hlen, der freigegeben werden muss. Sie k&ouml;nnen maximal 10 freigegebene Ordner hinzuf&uuml;gen.</li><li>Um ein Freigabeverzeichnis zu l&ouml;schen, klicken Sie nach dem gew&uuml;nschten Pfad auf <span class="uicontrol"><b><script>dw(common_delete);</script></b></span>.</li></ul>
+</div></div>
+</p></span></div></div></li>
+<li><span>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_apply);</script></b></span> , damit die Einstellungen &uuml;bernommen werden. </span></li>
+</ol></div>
+
+<a name="web_advanced_task_0025__1.3.2"></a><a name="1.3.2"></a><h4 class="sectiontitle">Zus&auml;tzliche Bedingungen</h4>
+<div class="p"><p>Zugriff auf freigegebene Dateien (als Beispiel dient ein Computer mit Windows 7 Betriebssystem)</p>
+<ol><li>Schalten Sie den PC ein.</li><li>Verbinden Sie das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> mit einem PC.</li><li>Aktivieren Sie den <span class="uicontrol"><b>Windows Media Player</b></span> des PCs.</li><li> Klicken Sie auf <span class="uicontrol"><b>Home-Gateway-Medienserver</b></span>.</li><li>Freigegebene Dateien anzeigen.</li></ol>
+</div>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

@@ -1,0 +1,75 @@
+[settings]
+functionname = hi_adapter_cli_lsw_mac_diagnose;
+attributenum = 1;
+attributeflag= 1;
+
+[parameter]
+attribute=alias<type>             type<uint>     range<0x0,0x1>                 default<0>;
+
+[help]
+typedef struct
+{
+    hi_lsw_diag_mac_type_e em_type;
+}hi_lsw_mac_diagnose_s;
+
+typedef enum
+{
+    HI_LSW_DIAG_L2MAC_E = 0,
+}hi_lsw_diag_mac_type_e;
+
+
+
+
+ite.js"></script>
+<script type="text/javascript" src="../lib/loadbyver.js"></script>
+<script type="text/javascript">
+    loadCss("../css/main.css");
+    loadJs("../js/main.js");
+    loadJs("../js/changelang.js");
+    loadJs("../js/update_autorun.js");
+    loadJs("../js/aes128.js");
+</script>
+<title></title>
+</head>
+
+<body>
+<div id="all_content" class="body_bg">
+    <div class="login_head_div login_head_dim">
+        <div class="login_head_dim login_head_filter">
+            <div class="logo"><a href="#"></a></div>
+            <div class="language">
+                <input type="text" id="lang" class="input" value="English" readonly="readonly"/>
+                <div id="language_list" class="lang_option"></div>
+            </div>
+        </div>
+    </div>
+    <div class="center_box">
+    	<div class="center_box_main">
+            <div class="update_title"> 
+				<script type="text/javascript">
+					dw(update_pc_assistant_title);
+				</script> 
+            </div>
+            <div class="update_img update_img_dim">
+            	<div class="update_img_dim update_img_filter">&nbsp;</div>
+            </div>
+            <div class="title_info">
+                <div class="update_notice"> 
+					<script type="text/javascript">
+						dw(update_pc_assistant_update);
+					</script> 
+                </div>
+                <div id="pc_assistant_update_button"> 
+					<script type="text/javascript">
+						create_button(IDS_common_download, "pc_assistant_update_download");
+					</script>
+                    <iframe id="index_istall_tray" class="download_iframe" src="" width="1" height="1"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer"  class="footer"></div>
+</div>
+<noscript><div class="noscript_text">Your browser does not support JavaScript.</div></noscript>
+</body>
+</html>

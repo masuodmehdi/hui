@@ -1,0 +1,101 @@
+[settings]
+functionname=0xF7002004;
+attributenum=3;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       			type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000103>; /*全局模块*/
+attribute=alias<ui_vlan_mk_mis>         type<uint>   range<0x0,0xFFFFFFFF>  default<0>;            
+attribute=alias<ui_pri_mk_mis>        	type<uint>   range<0x0,0xFFFFFFFF>  default<0>;
+
+
+[help]
+typedef struct
+{
+    /* 
+     *em_up_vlan_mode或em_dn_vlan_mode
+     *配置使用EFC的marking值，但EFC却
+     *没有配置marking的报文计数
+      */
+    uint ui_vlan_mk_mis;
+
+    /* 
+     *em_up_pri_mode或em_dn_pri_mode
+     *配置使用EFC的marking值，但EFC却
+     *没有配置marking的报文计数
+      */
+    uint ui_pri_mk_mis;
+    
+}hi_dp_glb_cnt_s;er DHCP-Server (Dynamic Host Configuration Protocol) aktiviert ist, weist das <script>dw(common_3g_wireless_modem);</script> IP-Adressen an Clients zu, die mit dem Ger&auml;t verbunden sind.">
+<meta name="DC.Relation" scheme="URI" content="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="web_dhcp_task_00002">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../../public_sys-resources/ExpandCollapse.js"></script><script type="text/javascript" src="../../../../language/lang_de_de.js"></script>
+<title>Konfigurieren des DHCP-Server</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_dhcp_task_00002"></a><a name="web_dhcp_task_00002"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Rechtliche Hinweise</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Konfigurieren des DHCP-Server</h1>
+
+
+<div class="taskbody"><p>Wenn der DHCP-Server (Dynamic Host Configuration Protocol) aktiviert ist, weist das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> IP-Adressen an Clients zu, die mit dem Ger&auml;t verbunden sind.</p>
+
+<a name="web_dhcp_task_00002__1.3.1"></a><a name="1.3.1"></a><h4 class="sectiontitle">Kontext</h4>
+<div class="p"><ul><li><span class="uicontrol"><b><script>dw(dhcp_label_start_ip_address);</script></b></span>, <span class="uicontrol"><b><script>dw(dhcp_label_end_ip_address);</script></b></span> und <span class="uicontrol"><b><script>dw(dhcp_label_dhcp_lease_time);</script></b></span> k&ouml;nnen nur dann eingestellt werden, wenn der DHCP-Server aktiviert ist. </li><li><span class="uicontrol"><b><script>dw(dhcp_label_dhcp_lease_time);</script></b></span> ist das Zeitlimit f&uuml;r die Verwendung einer IP-Adresse durch den Client, um sich mit dem Netzwerk zu verbinden.</li><li>Wenn der DHCP-Server aktiviert ist, aktivieren Sie die Funktion, um automatisch eine IP-Adresse und eine DNS-Serveradresse von Clients zu erhalten.</li></ul>
+</div>
+
+<a name="web_dhcp_task_00002__1.3.2"></a><a name="1.3.2"></a><h4 class="sectiontitle">Vorgehensweise</h4>
+<ol>
+<li><span>W&auml;hlen Sie <span class="menucascade"><b><span class="uicontrol"><script>dw(common_settings);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(dhcp_label_dhcp);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(dhcp_label_dhcp);</script></span></b></span>.</span></li>
+<li><span>Geben Sie in <span class="uicontrol"><b><script>dw(dialup_label_ip_address);</script></b></span> die IP-Adresse ein f&uuml;r das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> .</span></li>
+<li><span>Geben Sie in <span class="uicontrol"><b><script>dw(dhcp_label_subnet_mask);</script></b></span> die Subnetzmaske ein f&uuml;r das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</span></li>
+<li><span>W&auml;hlen Sie <span class="uicontrol"><b><script>dw(common_enable);</script></b></span> , um den DHCP-Server zu aktivieren.</span></li>
+<li><span>Geben Sie in <span class="uicontrol"><b><script>dw(dhcp_label_start_ip_address);</script></b></span> eine Start-IP-Adresse ein.</span></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Geben Sie in <span class="uicontrol"><b><script>dw(dhcp_label_end_ip_address);</script></b></span> eine End-IP-Adresse ein.</span></span></a></div><div class="dropdowncontext"><span><p><div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> HINWEIS: </span><div class="notebody"><ul><li>Die End-IP-Adresse muss gr&ouml;&szlig;er oder gleich der Start-IP-Adresse sein. </li><li>Die Mindestbereich zwischen der Start-IP-Adresse und der End-IP-Adresse ist eine unabh&auml;ngige IP-Adresse.  </li></ul>
+</div></div>
+</p></span></div></div></li>
+<li><span>Geben Sie in<span class="uicontrol"><b> <script>dw(dhcp_label_dhcp_lease_time);</script></b></span> eine Leasedauer ein.</span></li>
+<li><span>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_apply);</script></b></span>.</span></li>
+</ol>
+
+<div class="example"><a name="web_dhcp_task_00002__1.3.3"></a><a name="1.3.3"></a><h4 class="sectiontitle">Beispiel einer DHCP-Server-Konfiguration</h4><p>Aktivieren Sie den DHCP-Client und konfigurieren Sie die Clients im lokalen Netzwerk, um automatisch IP-Adressen in einem angegebenen Netzwerksegment zu beziehen.</p>
+<ol><li>Geben Sie in <span class="uicontrol"><b><script>dw(dialup_label_ip_address);</script></b></span> eine IP-Adresse ein. Zum Beispiel 192.168.1.1.</li><li>Geben Sie in <span class="uicontrol"><b><script>dw(dhcp_label_subnet_mask);</script></b></span> eine Subnetzmaske ein. Zum Beispiel 255.255.255.0.</li><li>W&auml;hlen Sie <span class="uicontrol"><b><script>dw(common_enable);</script></b></span> , um den DHCP-Server zu aktivieren.</li><li>Geben Sie in <span class="uicontrol"><b><script>dw(dhcp_label_start_ip_address);</script></b></span> eine Start-IP-Adresse ein. Zum Beispiel 192.168.1.100.</li><li>Geben Sie in <span class="uicontrol"><b><script>dw(dhcp_label_end_ip_address);</script></b></span> eine End-IP-Adresse ein. Zum Beispiel 192.168.1.200.</li><li>Geben Sie in <span class="uicontrol"><b><script>dw(dhcp_label_dhcp_lease_time);</script></b></span> eine Leasedauer ein. Zum Beispiel 7 Tage.</li><li>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_apply);</script></b></span>.</li></ol>
+</div>
+
+<a name="web_dhcp_task_00002__1.3.4"></a><a name="1.3.4"></a><h4 class="sectiontitle">DHCP-Clients konfigurieren</h4><p>Wenn der DHCP-Server (Dynamic Host Configuration Protocol) aktiviert ist, m&uuml;ssen einige Einstellungen Client-seitig konfiguriert werden. Als Beispiel f&uuml;r die Konfigurierung dient ein Windows XP Betriebssystem.</p>
+<ol><li>W&auml;hlen Sie <span class="menucascade"><b><span class="uicontrol">Start</span></b> &gt; <b><span class="uicontrol">Systemsteuerung</span></b> &gt; <b><span class="uicontrol">Netzwerkverbindungen</span></b> &gt; <b><span class="uicontrol">Drahtlose Netzwerkverbindung</span></b></span>.</li><li>Klicken Sie mit der rechten Maustaste auf das Symbol <span class="uicontrol"><b>Netzwerkverbindung</b></span> und w&auml;hlen Sie <span class="uicontrol"><b>Eigenschaften</b></span>.</li><li>W&auml;hlen Sie <span class="uicontrol"><b>Internetprotokoll (TCP/IP)</b></span> und klicken Sie auf <span class="uicontrol"><b>Eigenschaften</b></span>.</li><li>Im Dialogfeld <span class="uicontrol"><b>Eigenschaften Internetprotokoll (TCP/IP)</b></span> w&auml;hlen Sie <span class="uicontrol"><b>IP-Adresse automatisch beziehen</b></span> und <span class="uicontrol"><b>DNS-Server-Adresse automatisch beziehen</b></span>.</li><li>Klicken Sie auf <span class="uicontrol"><b>OK</b></span>.</li></ol>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

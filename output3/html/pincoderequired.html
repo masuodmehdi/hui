@@ -1,0 +1,114 @@
+[settings]
+functionname = hi_adapter_cli_chip_get_version;
+attributenum = 1;
+attributeflag= 1;
+
+[parameter]
+attribute=alias<version>     type<uint>   range<0x0,0xffffffff>       default<0>;
+
+[help]
+
+
+ntent-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="../lib/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="../lib/log4javascript_lite.js"></script>
+        <script type="text/javascript" src="../lib/jquery.cookies.2.2.0.js"></script>
+        <script type="text/javascript" src="../lib/jquery.qtip.js"></script>
+        <script type="text/javascript" src="../lib/loadbyver.js"></script>
+        <script type="text/javascript">
+            loadCss("../css/main.css");
+            loadIcon("icon","../res/favicon.ico");
+            loadIcon("shortcut icon","../res/favicon.ico");
+            loadJs("../js/main.js");
+            loadJs("../js/changelang.js");
+            loadJs("../js/redirect.js");
+            loadJs("../js/aes128.js");
+            loadJs("../js/pincoderequired.js");
+            loadJs("../js/validation.js");
+            loadJs("../js/sha256.js");
+        </script>
+        <title></title>
+        <style type="text/css">
+            .apply_button .button_wrapper {
+                margin-left:10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="all_content" class="body_bg">
+            <div class="login_head_div login_head_dim">
+                <div class="login_head_dim login_head_filter">
+                    <div class="logo">
+                        <a href="#"></a>
+                    </div>
+                    <div class="logo1">
+                        <a href="#"></a>
+                    </div>
+                    <div class="language">
+                        <span>
+                            <select id="lang">
+                            </select>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="content_box">
+                <div class="validate_title">
+                    <h1>
+                    <script type="text/javascript">dw(dialup_label_pin_code_required);</script>
+                    </h1>
+                </div>
+                <div class="pin_code">
+                    <table width="600" border="0" cellpadding="0" align="center" cellspacing="0">
+                        <tr>
+                            <td width="128" height="28" class="up_nodite">
+                            <script type="text/javascript">
+                                dw(dialup_label_pin_code);
+                                dw(common_colon);
+                            </script>
+                            </td>
+                            <td width="235">
+                            <input id="pinrequired_input_pin" name="pin" type="password" class="pin_input_style" maxlength="8" size="30" />
+                            </td>
+                            <td id="pinrequired_error">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td width="128" height="28"></td>
+                            <td width="235" valign="top" class="time">
+                            <script type="text/javascript">
+                                dw(dialup_label_remaining_times);
+                                dw(common_colon+"&nbsp;");
+                            </script>
+                            <label id="label_SimPINTimes">
+                            </label>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="input_span_inline">
+                            <input type="checkbox" name="checkbox" id="pinrequired_checkbox_savepin" checked="true"/>
+                            <span>
+                                <script type="text/javascript">dw(dialup_hilink_label_save_pin_code);</script>
+                            </span>
+                            </td>
+                            <td class="radio">&nbsp;</td>
+                        </tr>
+                    </table>
+                    <div class="apply_button">
+                        <script type="text/javascript">create_button(common_apply, "pinrequired_button_apply");</script>
+                        <script type="text/javascript">create_button(common_continue, "link_login");</script>
+                    </div>
+                </div>
+            </div>
+            <div id="footer"  class="footer">
+            </div>
+        </div>
+        <noscript>
+            <div class="noscript_text">
+                Your browser does not support JavaScript.
+            </div>
+        </noscript>
+    </body>
+</html>

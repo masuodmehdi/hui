@@ -1,0 +1,149 @@
+[settings]
+functionname=0xF7002004;
+attributenum=21;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>         type<uint>    range<0x0,0xFFFFFFFF>  	   default<0x00000D08>; /*È«¾ÖÄ£¿é*/
+attribute=alias<arl_age>        type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<age_entry>      type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<sv_up_fail>     type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<sv_dn_fail>     type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<dv_up_fail>     type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<dv_dn_fail>     type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<learn_fail>     type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<fe0_learn>      type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<fe1_learn>      type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<fe2_learn>      type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<fe3_learn>      type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<fe4_learn>      type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<pon_learn>      type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<cpu_learn>      type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<age_mport>      type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<smac_learn>     type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<smac_hit>       type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<egress_0>       type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<dmac_hit>       type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+attribute=alias<hash_full>      type<uint>    range<0x0,0xFFFFFFFF>        default<0x00000000>;
+
+[help]
+typedef struct 
+{
+    uint arl_age;               /* ÀÏ»¯µÄ´ÎÊý              */
+    uint age_entry;             /* ±»ÀÏ»¯µôµÄ±íÏî¼ÆÊý      */
+    uint sv_up_fail;            /* ÉÏÐÐSMAC+VLAN²é±íÊ§°Ü, ²»°üÀ¨¶ªÆú±¨ÎÄ  */
+    uint sv_dn_fail;            /* ÏÂÐÐSMAC+VLAN²é±íÊ§°Ü, ²»°üÀ¨¶ªÆú±¨ÎÄ  */
+    uint dv_up_fail;            /* ÉÏÐÐDMAC+VLAN²é±íÊ§°Ü   */
+    uint dv_dn_fail;            /* ÏÂÐÐDMAC+VLAN²é±íÊ§°Ü   */
+    uint learn_fail;            /* Ñ§Ï°Ê§°ÜµÄ´ÎÊý          */
+    uint fe0_learn;             /* ´ÓGE0/FE0Ñ§Ï°µÄ´ÎÊý     */
+    uint fe1_learn;             /* ´ÓGE1/FE1Ñ§Ï°µÄ´ÎÊý     */
+    uint fe2_learn;             /* ´ÓFE2Ñ§Ï°µÄ´ÎÊý         */
+    uint fe3_learn;             /* ´ÓFE3Ñ§Ï°µÄ´ÎÊý         */
+    uint fe4_learn;             /* ´ÓFE4Ñ§Ï°µÄ´ÎÊý         */
+    uint pon_learn;             /* ´ÓPONÑ§Ï°µÄ´ÎÊý         */
+    uint cpu_learn;             /* ´ÓCPUÑ§Ï°µÄ´ÎÊý         */
+    uint age_mport;             /* ÀÏ»¯¶à¶Ë¿Ú±íÏîµÄ´ÎÊý    */
+    uint smac_learn;            /* SMACÑ§Ï°ÐÂ±íÏîµÄ´ÎÊý    */
+    uint smac_hit;              /* SMACÃüÖÐµÄ´ÎÊý          */
+    uint egress_0;              /* CAPÄ£¿éegressÈ«0Í³¼Æ    */
+    uint dmac_hit;              /* DMAC²é±íÃüÖÐÍ³¼Æ        */
+    uint hash_full;             /* HASH±íÂú                */
+}hi_dp_logic_arl_cnt_s;
+                                                                      
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                            
+<?xpacket end="w"?>ÿþýüûúùø÷öõôóòñðïîíìëêéèçæåäãâáàßÞÝÜÛÚÙØ×ÖÕÔÓÒÑÐÏÎÍÌËÊÉÈÇÆÅÄÃÂÁÀ¿¾½¼»º¹¸·¶µ´³²±°¯®­¬«ª©¨§¦¥¤£¢¡ Ÿžœ›š™˜—–•”“’‘ŽŒ‹Š‰ˆ‡†…„ƒ‚€~}|{zyxwvutsrqponmlkjihgfedcba`_^]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=< :9876543210/.-,+*)('&%$#"! 
+	  !ù ? ,         êÀŸpH,È¤rÉl:ŸÐ¨tz®Ø¬V;RnH°xL“6^•T…NnrÒ\)‹W†|^Ç×)|C12JB=ŠŠ,BJ"†‡™š›C"J!R!J)C¬­®0C)J©?3-º»¼3‘?)´C8ÇÈÉ%CÂIÄQJ(C	/ÚÛÜ8C(J×?<5èéê5;BJ.7C4ö÷øC7.J'&RLœP²€‡ƒ*DÈ`A "JœHQ"‡IhØÈ±£G4¨ˆI²¤É“(S6	 ;

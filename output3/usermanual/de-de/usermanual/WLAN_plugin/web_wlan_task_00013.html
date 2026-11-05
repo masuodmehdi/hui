@@ -1,0 +1,103 @@
+[settings]
+functionname=0xF7002004;
+attributenum=18;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       		type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000B08>; /*全局模块*/
+attribute=alias<ui_ploam_tx>       	type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_ploam_hw_tx>     type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_omci_tx>       	type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_omci_hw_tx>      type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_burst>       	type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_gem>       		type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_bip_err>       	type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_tdm_tx>       	type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_eth_tx>       	type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_alarm>       	type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_alarm_discard>   type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_alarm_callback>  type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_pee>       		type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_oe_tx_err>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_map_err_drop>    type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_tx_cnt>       	type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_prbs>       		type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+
+[help]
+typedef struct 
+{
+    uint ui_ploam_tx;       /* 驱动发送PLOAM帧计数 */
+    uint ui_ploam_hw_tx;    /* 硬件发送PLOAM帧计数 */
+
+    uint ui_omci_tx;        /* 驱动发送OMCI帧计数 */
+    uint ui_omci_hw_tx;     /* 硬件发送OMCI帧计数 */
+
+    uint ui_burst;          /* 上行Burst计数 */
+    uint ui_gem;            /* 上行GEM帧计数 */
+    uint ui_bip_err;        /* 上行奇偶校验错计数 */
+    uint ui_tdm_tx;         /* 发送TDM帧计数 */
+    uint ui_eth_tx;         /* 上行以太帧计数 */
+
+    uint ui_alarm;          /* 告警计数 */
+    uint ui_alarm_discard;  /* 未处理告警计数 */
+    uint ui_alarm_callback; /* 调用回调函数处理告警计数 */
+    uint ui_pee;            /* PEE告警计数 */
+    uint ui_oe_tx_err;      /* 流氓ONU检测告警计数 */
+        
+    uint ui_map_err_drop;   /* 映射失败丢弃报文计数 */
+
+    hi_dp_gpon_up_prbs_cnt_s st_prbs_cnt;
+    
+}hi_dp_gpon_up_cnt_s;
+
+    rmanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Einrichten der WPS-Verbindung</h1>
+
+
+<div class="taskbody"><p>Wi-Fi Protected Setup (WPS) ist ein Standard, der verwendet wird, um ein drahtloses Netzwerk einfach und sicher einzurichten. Wenn herk&ouml;mmliche Methoden verwendet werden, m&uuml;ssen Sie den Namen des WLAN eingeben, also die SSID und den Sicherheitsschl&uuml;ssel des Access Point und des Clients, um einen nicht autorisierten Zugriff auf das WLAN zu verhindern. Wenn der WPS-Standard verwendet wird, m&uuml;ssen Sie die SSID und den Sicherheitsschl&uuml;ssel nicht kennen, weil diese vom Access Point und Client automatisch zugewiesen werden. </p>
+
+<a name="web_wlan_task_00013__1.3.1"></a><a name="1.3.1"></a><h4 class="sectiontitle">Voraussetzung</h4>
+<div class="p"><div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> HINWEIS: </span><div class="notebody"><p>Vor dem Einrichten der WPS-Verbindung stellen Sie bitte sicher, dass Ihre Einstellungen die folgenden Bedingungen erf&uuml;llen.</p>
+<ul><li><span class="uicontrol"><b><script>dw(wlan_label_wps_settings);</script></b></span>: <span class="uicontrol"><b><script>dw(common_enable);</script></b></span></li><li><span class="uicontrol"><b><script>dw(wlan_label_wlan_status);</script></b></span>: <span class="uicontrol"><b><script>dw(common_on);</script></b></span></li><li><span class="uicontrol"><b><script>dw(wlan_label_80211_authentication);</script></b></span>: <span class="uicontrol"><b><script>dw(wlan_label_wpa2_psk);</script></b></span> oder <span class="uicontrol"><b><script>dw(wlan_label_wpa_wpa2_psk);</script></b></span></li><li><span class="uicontrol"><b><script>dw(wlan_label_encryption_mode);</script></b></span>: <span class="uicontrol"><b><script>dw(wlan_label_aes);</script></b></span> oder <span class="uicontrol"><b><script>dw(wlan_label_aes_tkip);</script></b></span></li><li><span class="uicontrol"><b><script>dw(wlan_label_ssid_broadcast);</script></b></span>: <span class="uicontrol"><b><script>dw(common_enabled);</script></b></span></li></ul>
+</div></div>
+</div>
+
+<a name="web_wlan_task_00013__1.3.2"></a><a name="1.3.2"></a><h4 class="sectiontitle">Vorgehensweise</h4>
+<ol>
+<li><span>W&auml;hlen Sie <span class="menucascade"><b><span class="uicontrol"><script>dw(common_settings);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(wlan_label_wlan);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(wlan_label_wps_settings);</script></span></b></span>.</span></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Unter <span class="uicontrol"><b><script>dw(wlan_label_wps_mode);</script></b></span> w&auml;hlen Sie</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(wlan_wps_mode_client_pin);</script></b></span>, geben Sie die WPS-PIN f&uuml;r den Client ein in <span class="uicontrol"><b><script>dw(wlan_label_wps_pin);</script></b></span>.</li>
+<li><span class="uicontrol"><b><script>dw(wlan_wps_mode_ap_pin);</script></b></span>, geben Sie die WPS-PIN ein, die unter <span class="uicontrol"><b><script>dw(wlan_label_wps_pin);</script></b></span> im Client-Textfeld angezeigt wird.<div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> HINWEIS: </span><div class="notebody"><p>Sie k&ouml;nnen den <span class="uicontrol"><b><script>dw(wlan_wps_mode_client_pin);</script></b></span> auch aktualisieren, indem Sie auf <span class="uicontrol"><b><script>dw(wps_label_generate_pin);</script></b></span> klicken.</p>
+</div></div>
+</li>
+</ul>
+</span></div></div></li>
+<li><span>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_apply);</script></b></span>.</span></li>
+</ol>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html" title="">WLAN-Einstellungen</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

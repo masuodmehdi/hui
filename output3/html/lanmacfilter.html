@@ -1,0 +1,158 @@
+[settings]
+functionname=hi_kernel_napt_device_set;
+attributenum=2;
+attributeflag = 1;
+
+[parameter]
+attribute=alias<ifname>       type<string> range<0x0,16> 	  default<eth0>;
+attribute=alias<flags>        type<uint>   range<0x0,0xFFFFFFFF>  default<0x103>;
+
+[help]
+      32             8    4    0
+       +------...----+----+----+
+flags  |not_used   |l|prot|mode| 
+       +------...----+----+----+
+
+typedef enum HI_KERNEL_NAPT_DEV_MODE
+{
+    HI_KERNEL_NAPT_DEV_MODE_NONE_E = 0x0,
+    HI_KERNEL_NAPT_DEV_MODE_SW_E   = 0x1,
+    HI_KERNEL_NAPT_DEV_MODE_HW_E   = 0x2,
+} HI_KERNEL_NAPT_DEV_MODE_E;
+
+typedef enum HI_KERNEL_NAPT_L2PROTO
+{
+    HI_KERNEL_NAPT_L2PROTO_ETH_E = 0,
+    HI_KERNEL_NAPT_L2PROTO_PPP_E = 1,
+    HI_KERNEL_NAPT_L2PROTO_MAX_E,
+} HI_KERNEL_NAPT_L2PROTO_E;
+       
+typedef struct hi_kernel_napt_dev_cmdtype
+{
+    hi_char8  ac_ifname[16];
+    hi_uint32 ui_flags;
+} hi_kernel_napt_dev_cmdtype_s;
+    <body>
+        <div id="all_content" class="body_bg_settings">
+                            <div id="lanmacfiltersetting">
+                                <div class="maintitle">
+                                    <h1 id="title_label_lanmacfilter"><script type="text/javascript">dw(lanmacfilter_label_lanmacfilter);</script></h1>
+                                </div>
+                                <div class="main_content">
+                                    <p>
+                                        <script type="text/javascript">dw(lanmacfilter_label_lanmacfilter_0);</script><br/>                                    
+                                        <script type="text/javascript">dw(lanmacfilter_label_lanmacfilter_1);</script><br/>
+                                        <script type="text/javascript">dw(lanmacfilter_label_lanmacfilter_2);dw("<br>" + common_note + common_colon +security_label_firewall_reboot_hint);</script><br/>
+                                    </p>
+                                    <div id="lanmacfilter_setup">
+                                        <div class="mac_address">
+                                            <span>
+                                                <script type="text/javascript">
+                                                    dw(label_lanmacfilter_filter_mode);
+                                                    dw(common_colon);
+                                                </script>
+                                            </span>
+                                            <select class="input_select" id="lanmacid_mode_select" name="lanmacid_mode_select">
+                                                <option value='2'>
+                                                    <script type="text/javascript">dw(wlan_label_deny)</script>
+                                                </option>
+                                                <option value='1'>
+                                                    <script type="text/javascript">dw(wlan_label_allow)</script>
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="mac_address">
+                                            <span>
+                                                <script type="text/javascript">
+                                                    dw(label_lanmacfilter_filters);
+                                                    dw(common_colon);
+                                                </script>
+                                            </span>
+                                            <label>
+                                                <script type="text/javascript">dw(wlan_label_mac_address_example);</script>
+                                            </label>
+                                        </div>
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%" id="lanmacid_mac_list">
+                                            <tr height="1">
+                                                <th width="191"></th><th width="191"></th><th></th>
+                                            </tr>
+                                            <tr valign="top" height="42">
+                                                <td colspan="3">
+                                                    <h2><script type="text/javascript">dw(wlan_label_mac_address);dw(common_colon);</script></h2>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top" height="42">
+                                                <td >
+                                                    <input id="lanmacid_lanmacfilter_input0" name="lanmacid_lanmacfilter_input0" maxlength="17" class="input_style" type="text" value="" size="20"/>
+                                                </td>
+                                                <td>
+                                                    <input id="lanmacid_lanmacfilter_input1" name="lanmacid_lanmacfilter_input1" maxlength="17" class="input_style" type="text" value="" size="20"/>
+                                                </td>
+                                                <td>
+                                                    <input id="lanmacid_lanmacfilter_input2" name="lanmacid_lanmacfilter_input2" maxlength="17" class="input_style" type="text" value="" size="20"/>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top" height="42">
+                                                <td>
+                                                    <input id="lanmacid_lanmacfilter_input3" name="lanmacid_lanmacfilter_input3" maxlength="17" class="input_style" type="text" value="" size="20"/>
+                                                </td>
+                                                <td>
+                                                    <input id="lanmacid_lanmacfilter_input4" name="lanmacid_lanmacfilter_input4" maxlength="17" class="input_style" type="text" value="" size="20"/>
+                                                </td>
+                                                <td>
+                                                    <input id="lanmacid_lanmacfilter_input5" name="lanmacid_lanmacfilter_input5" maxlength="17" class="input_style" type="text" value="" size="20"/>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top" height="42">
+                                                <td>
+                                                    <input id="lanmacid_lanmacfilter_input6" name="lanmacid_lanmacfilter_input6" maxlength="17" class="input_style" type="text" value="" size="20"/>
+                                                </td>
+                                                <td>
+                                                    <input id="lanmacid_lanmacfilter_input7" name="lanmacid_lanmacfilter_input7" maxlength="17" class="input_style" type="text" value="" size="20"/>
+                                                </td>
+                                                <td>
+                                                    <input id="lanmacid_lanmacfilter_input8" name="lanmacid_lanmacfilter_input8" maxlength="17" class="input_style" type="text" value="" size="20"/>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top" height="42">
+                                                <td>
+                                                    <input id="lanmacid_lanmacfilter_input9" name="lanmacid_lanmacfilter_input9" maxlength="17" class="input_style" type="text" value="" size="20"/>
+                                                </td>
+                                                 <td>
+                                                    <input id="lanmacid_lanmacfilter_input10" name="lanmacid_lanmacfilter_input10" maxlength="17" class="input_style" type="text" value="" size="20"/>
+                                                </td>
+                                                <td>
+                                                    <input id="lanmacid_lanmacfilter_input11" name="lanmacid_lanmacfilter_input11" maxlength="17" class="input_style" type="text" value="" size="20"/>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top" height="42">
+                                                <td>
+                                                    <input id="lanmacid_lanmacfilter_input12" name="lanmacid_lanmacfilter_input12" maxlength="17" class="input_style" type="text" value="" size="20"/>
+                                                </td>
+                                                <td>
+                                                    <input id="lanmacid_lanmacfilter_input13" name="lanmacid_lanmacfilter_input13" maxlength="17" class="input_style" type="text" value="" size="20"/>
+                                                </td>
+                                                <td>
+                                                    <input id="lanmacid_lanmacfilter_input14" name="lanmacid_lanmacfilter_input14" maxlength="17" class="input_style" type="text" value="" size="20"/>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top" height="42">
+                                                <td>
+                                                    <input id="lanmacid_lanmacfilter_input15" name="lanmacid_lanmacfilter_input15" maxlength="17" class="input_style" type="text" value="" size="20"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="apply_button"> 
+                                        <script type="text/javascript">create_button(common_apply, "lanmacfilter_apply", "disable_btn");</script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        <noscript>
+            <div class="noscript_text">
+                Your browser does not support JavaScript.
+            </div>
+        </noscript>
+    </body>
+</html>

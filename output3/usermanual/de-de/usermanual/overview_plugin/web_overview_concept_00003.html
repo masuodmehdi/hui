@@ -1,0 +1,210 @@
+[settings]
+functionname=0xF7002004;
+attributenum=5;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       	type<uint>   	range<0x0,0xFFFFFFFF>  	default<0x00000706>; /*È«¾ÖÄ£¿é*/
+attribute=alias<ui_mc_id>       type<uint>   	range<0x0,0x000000FF>  	default<0x00000000>;
+attribute=alias<mac>             			type<mac>   	  			default<00:00:00:12:34:56>;
+attribute=alias<us_arg>       	type<ushort>   	range<0x0,0x0000FFFF>  	default<0x00000000>;
+attribute=alias<ui_vlan>       	type<uint>   	range<0x0,0xFFFFFFFF>  	default<0x00000000>;
+
+[help]
+typedef struct  
+{
+    uint    ui_mc_id;                   /* 0 - 255 */
+    
+    uchar   uc_mac[6];       
+    ushort  us_arg;  
+    uint    ui_vlan;
+    
+}hi_dp_l2_mc_s;
+tion" content="Anhand der Statussymbole <script>dw(dialup_label_current_connection);</script> und <script>dw(wlan_label_wlan_status);</script> erkennen Sie den Betriebsstatus des <script>dw(common_3g_wireless_modem);</script>.">
+<meta name="DC.Relation" scheme="URI" content="../../usermanual/overview_plugin/web_overview_topic_00001.html">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="web_overview_concept_00003">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../../public_sys-resources/ExpandCollapse.js"></script><script type="text/javascript" src="../../../../language/lang_de_de.js"></script>
+<title>Betriebsstatus</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_overview_concept_00003"></a><a name="web_overview_concept_00003"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Rechtliche Hinweise</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Betriebsstatus</h1>
+
+
+<div><p>Anhand der Statussymbole <span class="uicontrol"><b><script>dw(dialup_label_current_connection);</script></b></span> und <span class="uicontrol"><b><script>dw(wlan_label_wlan_status);</script></b></span> erkennen Sie den Betriebsstatus des <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</p>
+
+<ul><li><p>Statussymbole</p>
+<p>Die folgende Tabelle beschreibt die Symbole f&uuml;r das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="50%"><p><strong>Bezeichnung</strong></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50%"><p><strong>Status</strong></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="50%"><p>SMS</p>
+ </td>
+
+<td class="cellrowborder" valign="top" width="50%"><ul><li><span><img src="../../../../res/unread_message.gif"></span>: Neue Mitteilungen.</li><li><span><img src="../../../../res/message.gif"></span>: Ihr lokaler Posteingang ist voll.</li></ul>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="50%"><p>Signal</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50%"><p><span><img src="../../../../res/signal_0.gif"></span><span><img src="../../../../res/signal_1.gif"></span><span><img src="../../../../res/signal_2.gif"></span><span><img src="../../../../res/signal_3.gif"></span><span><img src="../../../../res/signal_4.gif"></span>: Diese Symbole geben die
+Signalst&auml;rke von schwach bis stark an.</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="50%"><p>Internet</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50%"><ul><li><span><img src="../../../../res/wan_901.gif"></span>: Eine DF&Uuml;-Verbindung ist eingerichtet.</li><li><span><img src="../../../../res/wan_902.gif"></span>: Es sind keine DF&Uuml;-Verbindungen eingerichtet.</li></ul>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="50%"><p>WLAN</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50%"><ul><li><span><img src="../../../../res/wifi_1.gif"></span>: WLAN ist aktiviert.</li><li><span><img src="../../../../res/wifi_0.gif"></span>: WLAN ist deaktiviert.</li></ul>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</li><li><p><span class="uicontrol"><b><script>dw(dialup_label_current_connection);</script></b></span></p>
+<p>Die folgende Tabelle beschreibt den aktuellen Verbindungsstatus f&uuml;r das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="50%"><p><strong>Bezeichnung</strong></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50%"><p><strong>Status</strong></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="50%"><p><span class="uicontrol"><b><script>dw(connectiontatus_label_ethbytesreceivedsent);</script></b></span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50%"><p>Zeigt die Bytes an, die das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> empfangen bzw. gesendet hat.</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="50%"><p><span class="uicontrol"><b><script>dw(dialup_label_duration);</script></b></span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50%"><p>Zeigt die Zeitdauer an, seitdem das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> mit dem Internet verbunden ist.</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="50%"><p><span class="uicontrol"><b><script>dw(system_label_my_number);</script></b></span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50%"><p>Zeigt die USIM-Kartennummer f&uuml;r das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> an.</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</li><li><p><span class="uicontrol"><b><script>dw(wlan_label_wlan_status);</script></b></span></p>
+<p>Die folgende Tabelle beschreibt den aktuellen WLAN-Verbindungsstatus f&uuml;r das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" frame="border" border="1" rules="all">
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="50%"><p><strong>Bezeichnung</strong></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50%"><p><strong>Status</strong></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="50%"><p><span class="uicontrol"><b><script>dw(wlan_label_wlan_status);</script></b></span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50%"><div class="p"><ul><li><span class="uicontrol"><b><script>dw(common_on);</script></b></span>: WLAN ist aktiviert.</li><li><span class="uicontrol"><b><script>dw(common_off);</script></b></span>: WLAN ist deaktiviert.</li></ul>
+</div>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="50%"><p><span class="uicontrol"><b><script>dw(wlan_label_current_wifi_user);</script></b></span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="50%"><p>Die Zahl vor dem &#8222;<strong>/</strong>&#8220; zeigt die aktuelle Anzahl von WLAN-Benutzern f&uuml;r das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> an.</p>
+<p>Die Zahl nach dem &#8222;<strong>/</strong>&#8220; zeigt die maximale Anzahl von WLAN-Benutzern an, die mit dem <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> verbunden sein k&ouml;nnen.</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</li></ul>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

@@ -1,0 +1,78 @@
+[settings]
+functionname=0xF7002004;
+attributenum=10;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       		type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000703>; /*È«¾ÖÄ£¿é*/
+attribute=alias<ui_fid>       		type<uint>   range<0,191>  			default<0x00000000>;
+attribute=alias<em_cvlan_act>       type<int>    range<0x0,0x03>  		default<0x00000000>;
+attribute=alias<ui_cvlan_value>     type<uint>   range<0,4095>  		default<0x00000000>;
+attribute=alias<em_svlan_act>       type<int>    range<0x0,0x03>  		default<0x00000000>;
+attribute=alias<ui_svlan_value>     type<uint>   range<0x0,4095>  		default<0x00000000>;
+attribute=alias<em_c8021p_act>      type<int>    range<0x0,0x05>  		default<0x00000000>;
+attribute=alias<ui_s8021p_value>    type<uint>   range<0,7>  			default<0x00000000>;
+attribute=alias<em_tag_act>       	type<int>    range<0x0,0x02>  		default<0x00000000>;
+attribute=alias<em_valid>       	type<int>    range<0x0,0x01>  		default<0x00000001>;
+
+[help]
+typedef struct 
+{
+    uint   ui_fid;
+
+    HI_DP_VALN_ACT_E    em_cvlan_act;
+    uint    ui_cvlan_value;         
+
+    HI_DP_VALN_ACT_E    em_svlan_act;
+    uint    ui_svlan_value;         
+
+    HI_DP_8021P_ACT_E   em_c8021p_act;
+    uint    ui_c8021p_value;
+
+    HI_DP_8021P_ACT_E   em_s8021p_act;
+    uint    ui_s8021p_value;
+
+    HI_DP_TAG_ACT_E em_tag_act;
+
+    HI_BOOL_E   em_valid; 
+    
+}hi_dp_l2_act_table_item_s;
+
+href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Warum kann ich auf einem Client nicht auf WLAN zugreifen?</h1>
+
+<div class="taskbody">
+<a name="web_faq_task_00003__1.2.1"></a><a name="1.2.1"></a><h4 class="sectiontitle">Vorgehensweise</h4>
+<ol>
+<li><span>&Uuml;berpr&uuml;fen Sie das Vorhandensein m&ouml;glicher St&ouml;rquellen oder abschirmender Gegenst&auml;nde in der N&auml;he des <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>. Sollte dies der Fall sein, so &auml;ndern Sie die Platzierung des <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</span></li>
+<li><span>&Uuml;berpr&uuml;fen und speichern Sie die Einstellungen der folgenden Parameter der Clients und des <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>: <span class="uicontrol"><b><script>dw(wlan_label_ssid);</script></b></span>, den Sicherheitsschl&uuml;ssel und den <span class="uicontrol"><b><script>dw(wlan_label_encryption_mode);</script></b></span>. Die SSID (Service Set Identifier) der Clients muss auf <span class="uicontrol"><b>ANY</b></span> festgelegt oder gleich derjenigen sein f&uuml;r das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>. Der Verschl&uuml;sselungsmodus und der Sicherheitsschl&uuml;ssel m&uuml;ssen denjenigen entsprechen, die festgelegt sind im <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>. &Auml;ndern Sie ansonsten die Einstellungen der Clients.</span></li>
+<li><span>Wenn die MAC-Adressfilterfunktion (Media Access Control) im WLAN (Wireless Local Area Network) im <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> aktiviert ist, so stellen Sie sicher, dass die MAC-Adressen der Clients nicht in der <span class="uicontrol"><b><script>dw(wlan_label_deny);</script></b></span> Liste sind. Details dazu finden Sie unter <a href="../WLAN_plugin/web_wlan_task_00012.html">Konfigurieren des WLAN-MAC-Filters</a>.</span></li>
+</ol>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/faq_plugin/web_faq_topic_00001.html" title="">FAQ</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

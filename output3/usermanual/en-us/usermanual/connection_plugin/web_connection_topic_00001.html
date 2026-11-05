@@ -1,0 +1,76 @@
+[settings]
+functionname=0xF7002005;
+attributenum=14;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000102>; /*全局模块*/
+attribute=alias<year>         type<uint>   range<0x0,0xFFFFFFFF>  default<0>;            
+attribute=alias<month>        type<uint>   range<0x0,0xFFFFFFFF>  default<0>;
+attribute=alias<day>          type<uint>   range<0x0,0xFFFFFFFF>  default<0>;        
+attribute=alias<chip_id>      type<uint>   range<0x0,0xFFFFFFFF>  default<0>;         
+attribute=alias<base_line>    type<uint>   range<0x0,0xFFFFFFFF>  default<0>;       
+attribute=alias<sub_version>  type<uint>   range<0x0,0xFFFFFFFF>  default<0>;
+attribute=alias<vendor_id>    type<uint>   range<0x0,0xFFFFFFFF>  default<0>;    
+attribute=alias<em_reset_type>    type<int>   range<0x0,0x01>  default<0>;  
+attribute=alias<em_chip_version>    type<int>   range<0x0,0x02>  default<0>;
+attribute=alias<uc_softare_version>    type<binary>   range<0,64>  default<0>;    
+attribute=alias<em_ecspll_update_flag>    type<int>   range<0x0,0x01>  default<0>;  
+attribute=alias<em_usb1_link>    type<int>   range<0x0,0x01>  default<0>;
+attribute=alias<em_usb2_link>    type<int>   range<0x0,0x01>  default<0>;
+
+[help]
+/*状态查询*/
+typedef struct
+{   
+    /*芯片版本相关信息*/
+    uint ui_year;                                  /*DATE*/            
+    uint ui_month;    
+    uint ui_day;                                 
+    uint ui_chip_id;                               /*32'h51130100*/                                                       
+    uint ui_base_line;                             /*基线版本号*/  
+    uint ui_sub_version;                           /*子版本号*/
+    uint ui_vendor_id;                             /*厂商ID*/                  
+    HI_SYSCTL_HARD_RESET_TYPE_E em_reset_type;     /*上一次硬件复位类型*/
+    HI_CHIP_VERSION_E em_chip_version;                  /* 芯片A/B版本 */
+    uchar uc_softare_version[HI_SOFTWARE_VERSION_LEN];  /* 软件版本 */
+    HI_BOOL_E em_ecspll_update_flag;
+
+    HI_BOOL_E em_usb1_link;                        /* USB 端口1连接状态 */
+    HI_BOOL_E em_usb2_link;                        /* USB 端口2连接状态 */
+} hi_sysctl_sta_s;
+001.html">Dial-up Settings</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN Settings</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN Management</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Security Settings</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">System Management</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP Settings</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Advanced Settings</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Maintenance</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Acronyms and Abbreviations</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Connection</h1>
+
+<div>
+<ul class="ullinks">
+<li class="ulchildlink"><strong><a href="../../usermanual/connection_plugin/web_connection_task_00002.html">Configuring the Connection</a></strong><br>
+Configure the network connection parameters.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/connection_plugin/web_connection_task_00004.html">Configuring the WLAN status</a></strong><br>
+After the wireless local area network (WLAN) is enabled, clients can access the WLAN using the <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>. If you do not want to access the WLAN, disable it.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/connection_plugin/web_connection_task_00005.html">Viewing the WAN status</a></strong><br>
+You can view the Wide Area Network(WAN) related parameters in this page.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/connection_plugin/web_connection_task_00006.html">Viewing the LAN status</a></strong><br>
+You can view the Local Area Network (LAN) status.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="../../usermanual/web_content_concept_00001.html">OnlineHelp</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

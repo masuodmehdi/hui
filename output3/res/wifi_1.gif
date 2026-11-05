@@ -1,0 +1,145 @@
+[settings]
+functionname=0xF7002004;
+attributenum=43;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       		type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000D10>; /*È«¾ÖÄ£¿é*/
+attribute=alias<not_thru>           type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ²»Í¸´«                  */
+attribute=alias<efc0_matched>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+attribute=alias<efc1_matched>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+attribute=alias<efc2_matched>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+attribute=alias<efc3_matched>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+attribute=alias<efc4_matched>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+attribute=alias<efc5_matched>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+attribute=alias<efc6_matched>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+attribute=alias<efc7_matched>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+attribute=alias<efc8_matched>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+attribute=alias<efc9_matched>       type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+attribute=alias<efc10_matched>      type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+attribute=alias<efc11_matched>      type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+attribute=alias<efc12_matched>      type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+attribute=alias<efc13_matched>      type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+attribute=alias<efc14_matched>      type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+attribute=alias<efc15_matched>      type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+attribute=alias<ge0_thru>           type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* GE0¶Ë¿ÚÎªÍ¸´«Ä£Ê½       */
+attribute=alias<ge1_thru>           type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* GE1¶Ë¿ÚÎªÍ¸´«Ä£Ê½       */
+attribute=alias<fe2_thru>           type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* FE2¶Ë¿ÚÎªÍ¸´«Ä£Ê½       */
+attribute=alias<fe3_thru>           type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* FE3¶Ë¿ÚÎªÍ¸´«Ä£Ê½       */
+attribute=alias<fe4_thru>           type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* FE4¶Ë¿ÚÎªÍ¸´«Ä£Ê½       */
+attribute=alias<un_tag>             type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* UNTAG±¨ÎÄ               */
+attribute=alias<vlan_tag>           type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* VLAN TAG±¨ÎÄ            */
+attribute=alias<pri_tag>            type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* PRI UNTAG±¨ÎÄ           */
+attribute=alias<broad_cast>         type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ¹ã²¥±¨ÎÄ                */
+attribute=alias<igmp>               type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×é²¥±¨ÎÄ                */
+attribute=alias<arp>                type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ARP±¨ÎÄ                 */
+attribute=alias<rarp>               type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* RARP±¨ÎÄ                */
+attribute=alias<pppoe_dis>          type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* PPPOE DISCOVERY±¨ÎÄ     */
+attribute=alias<eapol>              type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* EAPOL±¨ÎÄ               */
+attribute=alias<bpdu>               type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* BPDU±¨ÎÄ                */
+attribute=alias<dhcp>               type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* DHCP±¨ÎÄ                */
+attribute=alias<ipv6>               type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* IPV6±¨ÎÄ                */
+attribute=alias<icmp>               type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ICMP±¨ÎÄ                */
+attribute=alias<eth_type0>          type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåÀàĞÍÍ¸´«          */
+attribute=alias<eth_type1>          type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåÀàĞÍÍ¸´«          */
+attribute=alias<eth_type2>          type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåÀàĞÍÍ¸´«          */
+attribute=alias<eth_type3>          type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* ×Ô¶¨ÒåÀàĞÍÍ¸´«          */
+attribute=alias<pppoe_ses>          type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* PPPOE SESSION±¨ÎÄ       */
+attribute=alias<base_smac>          type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* »ùÓÚSMACÍ¸´«            */
+attribute=alias<thru_1588>          type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;          /* 41£®   1588±¨ÎÄÍ¸´« */
+
+[help]
+    uint  not_thru;                    /* ²»Í¸´«                  */
+    uint  efc0_matched;                /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+    uint  efc1_matched;                /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+    uint  efc2_matched;                /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+    uint  efc3_matched;                /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+    uint  efc4_matched;                /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+    uint  efc5_matched;                /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+    uint  efc6_matched;                /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+    uint  efc7_matched;                /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+    uint  efc8_matched;                /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+    uint  efc9_matched;                /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+    uint  efc10_matched;               /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+    uint  efc11_matched;               /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+    uint  efc12_matched;               /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+    uint  efc13_matched;               /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+    uint  efc14_matched;               /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+    uint  efc15_matched;               /* ×Ô¶¨ÒåEFCÆ¥ÅäÍ¸´«       */
+    uint  ge0_thru;                    /* GE0¶Ë¿ÚÎªÍ¸´«Ä£Ê½       */
+    uint  ge1_thru;                    /* GE1¶Ë¿ÚÎªÍ¸´«Ä£Ê½       */
+    uint  fe2_thru;                    /* FE2¶Ë¿ÚÎªÍ¸´«Ä£Ê½       */
+    uint  fe3_thru;                    /* FE3¶Ë¿ÚÎªÍ¸´«Ä£Ê½       */
+    uint  fe4_thru;                    /* FE4¶Ë¿ÚÎªÍ¸´«Ä£Ê½       */
+    uint  un_tag;                      /* UNTAG±¨ÎÄ               */
+    uint  vlan_tag;                    /* VLAN TAG±¨ÎÄ            */
+    uint  pri_tag;                     /* PRI UNTAG±¨ÎÄ           */
+    uint  broad_cast;                  /* ¹ã²¥±¨ÎÄ                */
+    uint  igmp;                        /* ×é²¥±¨ÎÄ                */
+    uint  arp;                         /* ARP±¨ÎÄ                 */
+    uint  rarp;                        /* RARP±¨ÎÄ                */
+    uint  pppoe_dis;                   /* PPPOE DISCOVERY±¨ÎÄ     */
+    uint  eapol;                       /* EAPOL±¨ÎÄ               */
+    uint  bpdu;                        /* BPDU±¨ÎÄ                */
+    uint  dhcp;                        /* DHCP±¨ÎÄ                */
+    uint  ipv6;                        /* IPV6±¨ÎÄ                */
+    uint  icmp;                        /* ICMP±¨ÎÄ                */
+    uint  eth_type0;                   /* ×Ô¶¨ÒåÀàĞÍÍ¸´«          */
+    uint  eth_type1;                   /* ×Ô¶¨ÒåÀàĞÍÍ¸´«          */
+    uint  eth_type2;                   /* ×Ô¶¨ÒåÀàĞÍÍ¸´«          */
+    uint  eth_type3;                   /* ×Ô¶¨ÒåÀàĞÍÍ¸´«          */
+    uint  pppoe_ses;                   /* PPPOE SESSION±¨ÎÄ       */
+    uint  base_smac;                   /* »ùÓÚSMACÍ¸´«            */
+    uint  thru_1588;                   /* 41£®   1588±¨ÎÄÍ¸´« */
+}hi_dp_logic_thru_reason_cnt_s;                                           
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                            
+<?xpacket end="w"?>ÿşıüûúùø÷öõôóòñğïîíìëêéèçæåäãâáàßŞİÜÛÚÙØ×ÖÕÔÓÒÑĞÏÎÍÌËÊÉÈÇÆÅÄÃÂÁÀ¿¾½¼»º¹¸·¶µ´³²±°¯®­¬«ª©¨§¦¥¤£¢¡ Ÿœ›š™˜—–•”“’‘Œ‹Š‰ˆ‡†…„ƒ‚€~}|{zyxwvutsrqponmlkjihgfedcba`_^]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=< :9876543210/.-,+*)('&%$#"! 
+	  !ù J ,         ì€J‚ƒ„…†‡ˆ‰Š‹Œ‘’“”‘=˜™š›™6Œ¡¢£¤£4ƒ.#†%œ®šEƒ
+ *…’!²=¸H²„+’,<!J<(JI¶ƒÁ‘Ã*2JC„ÂJJ+1C×Â;JF
+;15„>ãJ?&5!ëƒÂGJ	&„~H
+áÁŒ	”<B¨Å@!‚^h0!¡Ğ‹”˜@ „‡B)ÜI²¤É‘@2
+ºÑÀ0cæ€£B2câ˜õˆƒÍ
+*	Z £è	HÕ1`Ò P£JÅaB¨Õ«X³jİÊµ« @ ;

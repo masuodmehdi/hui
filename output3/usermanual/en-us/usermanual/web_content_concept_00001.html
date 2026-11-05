@@ -1,0 +1,116 @@
+[settings]
+functionname=0xF7002004;
+attributenum=14;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       		type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000A13>; /*全局模块*/
+attribute=alias<ui_qid>       		type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_cbuf>       		type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_pbuf>       		type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<em_egr>       		type<int>    range<0x0,0x13>  		default<0x00000000>;
+attribute=alias<em_egr_sch_mode>    type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ui_egr_sch_wgt>     type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_egr_sch_pri>     type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<em_gsch_en>       	type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ui_gsch_id>       	type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<em_gsch_mode>       type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ui_gsch_wgt>       	type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_gsch_pri>       	type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<em_valid>       	type<int>    range<0x0,0x01>  		default<0x00000000>;
+
+[help]
+typedef struct 
+{
+    uint    ui_qid;                         /* 队列的ID                       */
+
+    uint    ui_cbuf;                        /* 承诺buffer 数量, 私有空间      */
+    uint    ui_pbuf;                        /* 峰值buffer 数量, 最大可用空间  */  
+    
+    HI_DP_QOS_EGR_E         em_egr;         /* 端口                           */    
+    HI_DP_QOS_SCH_MODE_E    em_egr_sch_mode;/* 队列参与端口调度的调度模式     */
+    uint    ui_egr_sch_wgt;                 /* 队列参与端口WRR调度的权重      */
+    uint    ui_egr_sch_pri;                 /* 队列参与端口SP调度时的优先级   */
+
+    HI_BOOL_E   em_gsch_en;                 /* 指示组调度器是否有效           */    
+    uint    ui_gsch_id;                     /* 组调度器的ID                   */
+    HI_DP_QOS_SCH_MODE_E    em_gsch_mode;   /* 队列参与组调度的调度模式       */
+    uint    ui_gsch_wgt;                    /* 队列参与组WRR调度的权重        */
+    uint    ui_gsch_pri;                    /* 队列参与组SP调度的优先级       */
+
+    HI_BOOL_E   em_valid;                   /* 指示表项是否有效               */
+
+}hi_dp_qos_queue_s;
+" type="text/javascript" src="../../public_sys-resources/ExpandCollapse.js"></script><script type="text/javascript" src="../../../language/lang_en_us.js"></script>
+<title>OnlineHelp</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_content_concept_00001"></a><a name="web_content_concept_00001"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../usermanual/legal/instance_legal_notice_fmc_lte.html">Legal Notice</a></li>
+<li><a href="../usermanual/overview_plugin/web_overview_topic_00001.html">Overview</a></li>
+<li><a href="../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Quick Setup</a></li>
+<li><a href="../usermanual/connection_plugin/web_connection_topic_00001.html">Connection</a></li>
+<li><a href="../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../usermanual/dialup_plugin/web_dialup_topic_00001.html">Dial-up Settings</a></li>
+<li><a href="../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN Settings</a></li>
+<li><a href="../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN Management</a></li>
+<li><a href="../usermanual/security_plugin/web_security_topic_00001.html">Security Settings</a></li>
+<li><a href="../usermanual/system_plugin/web_system_topic_00001.html">System Management</a></li>
+<li><a href="../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP Settings</a></li>
+<li><a href="../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Advanced Settings</a></li>
+<li><a href="../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Maintenance</a></li>
+<li><a href="../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Acronyms and Abbreviations</a></li>
+</ul>
+</div>
+<div id="right">
+<!--h1 class="topictitle1">OnlineHelp</h1-->
+
+<div>
+<div class="section"><h4 class="sectiontitle">Let's simply share!</h4></div>
+
+<div class="section"><h4 class="sectiontitle"><span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> Online Help</h4></div>
+
+</div>
+
+<div>
+<ul class="ullinks">
+<!--li class="ulchildlink"><strong><a href="../usermanual/legal/instance_legal_notice_fmc_lte.html">Legal Notice</a></strong><br>
+</li>
+<li class="ulchildlink"><strong><a href="../usermanual/overview_plugin/web_overview_topic_00001.html">Overview</a></strong><br>
+</li>
+<li class="ulchildlink"><strong><a href="../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Quick Setup</a></strong><br>
+</li>
+<li class="ulchildlink"><strong><a href="../usermanual/connection_plugin/web_connection_topic_00001.html">Connection</a></strong><br>
+</li>
+<li class="ulchildlink"><strong><a href="../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></strong><br>
+</li>
+<li class="ulchildlink"><strong><a href="../usermanual/dialup_plugin/web_dialup_topic_00001.html">Dial-up Settings</a></strong><br>
+</li>
+<li class="ulchildlink"><strong><a href="../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN Settings</a></strong><br>
+</li>
+<li class="ulchildlink"><strong><a href="../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN Management</a></strong><br>
+</li>
+<li class="ulchildlink"><strong><a href="../usermanual/security_plugin/web_security_topic_00001.html">Security Settings</a></strong><br>
+</li>
+<li class="ulchildlink"><strong><a href="../usermanual/system_plugin/web_system_topic_00001.html">System Management</a></strong><br>
+</li>
+<li class="ulchildlink"><strong><a href="../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP Settings</a></strong><br>
+</li>
+<li class="ulchildlink"><strong><a href="../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Advanced Settings</a></strong><br>
+</li>
+<li class="ulchildlink"><strong><a href="../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Maintenance</a></strong><br>
+</li>
+<li class="ulchildlink"><strong><a href="../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></strong><br>
+</li>
+<li class="ulchildlink"><strong><a href="../usermanual/GPL_plugin/web_GPL_concept_1.html">GPL WRITTEN OFFER</a></strong><br>
+</li>
+<li class="ulchildlink"><strong><a href="../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Acronyms and Abbreviations</a></strong><br>
+</li-->
+</ul>
+</div>
+
+</div></body>
+</html>

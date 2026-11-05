@@ -1,0 +1,144 @@
+[settings]
+functionname = hi_adapter_cli_gmac_get_aes;
+attributenum = 3;
+attributeflag= 1;
+
+[parameter]
+attribute=alias<gemport>  type<ushort>   range<0x0,0xfff>     default<1>;
+attribute=alias<enable>   type<uchar>    range<0x0,0x1>       default<0>;
+attribute=alias<res>      type<uchar>    range<0x0,0x0>       default<0>;
+
+[help]
+typedef struct
+{
+    hi_ushort16   us_gemport;
+    hi_uchar8     uc_enable;
+    hi_uchar8     uc_res;
+}hi_gmac_aes_s;_lite.js"></script>
+		<script type="text/javascript" src="../lib/jquery.qtip.js"></script>
+        <script type="text/javascript" src="../lib/loadbyver.js"></script>
+        <script type="text/javascript">
+			loadCss("../css/main.css");
+			loadIcon("icon","../res/favicon.ico");
+			loadIcon("shortcut icon","../res/favicon.ico");
+			loadJs("../js/sms_setting.js");
+			loadJs("../js/main.js");
+			loadJs("../js/changelang.js");
+			loadJs("../js/checklogin.js");
+			loadJs("../js/redirect.js");
+			loadJs("../js/sms.js");
+			loadJs("../js/validation.js");
+			loadJs("../js/aes128.js");
+		</script>
+		<title></title>
+	</head>
+
+	<body>
+		<div id="all_content" class="body_bg">
+			<div id="wrapper" class="wrapper_dim">
+				<div class="wrapper_dim wrapper_filter">
+					<div id="header" class="header">
+					</div>
+					<div class="content">
+						<div class="main_left" id="left_menu_div">
+							<div id="sms_menu">
+							</div>
+						</div>
+                        <div style="display:none" id="frame_show" >
+                            <iframe id="show_html" class="content_right" frameborder="0" scrolling="no"></iframe>
+                       </div>
+                       <div id="right_show" style="display:none;">
+						<div class="content_right_sms">
+							<div id="fullMessage_tip_div" style="display:none;">
+								<label id="fullMessage_tip_label">
+									<script type="text/javascript">dw(strid_sms_hint_no_room);</script>
+								</label>
+							</div>
+							<div class="maintitle">
+								<h1 id="cur_box_type"></h1>
+								<h2 id="sms_storage_status"></h2>
+							</div>
+							<div class="sms_main_content">
+								<div class="sms_btn_bg" id="sms_btn">
+									<script type="text/javascript">create_button(sms_label_new_message,'message');</script>
+									<script type="text/javascript">create_button(common_delete,'del_msg_btn');</script>
+									<script type="text/javascript">create_button(strid_sms_label_import,'import_btn');</script>
+								</div>
+								<table border="0" cellpadding="0" cellspacing="0" class="sms_table" id="sms_table">
+									<tr id="boxList_title">
+										<th width="50" align="center">
+										<input type="checkbox" name="checkbox"  id="sms_check_all"/>
+										</th>
+										<th width="140" class="td_pl">
+										<label id="sms_number">
+											<script type="text/javascript">dw(sms_label_number);</script>
+										</label>
+										</th>
+										<th width="308" class="td_pl">
+										<label id="sms_content">
+											<script type="text/javascript">dw(sms_label_content);</script>
+										</label>
+										</th>
+										<th width="150" id="sms_simorlocal_date"  class="td_pl">
+										<label id="sms_date">
+											<script type="text/javascript">dw(sms_label_date);</script>
+										</label>
+										</th>
+								    </tr>
+								</table>
+                                <table border="0" cellpadding="0" cellspacing="0" class="sms_table sms_page_tools" width="690">
+									<tr>
+										<td colspan="4" bgcolor="#f6f7f6">
+										<div class="sms_pagination" id='sms_pagination'>
+                                        <div>
+										  <span class="page_tool">
+												<span class="sms_span">
+													<a class="pageBegin" id="pageBegin">&nbsp;</a>
+												</span>
+												<span class="sms_span">
+													<a class="prePage" id="prePage">&nbsp;</a>
+												</span>
+												<span class="page_num" id="page_num"></span>
+												<span class="sms_span">
+													<a class="nextPage" id="nextPage">&nbsp;</a>
+												</span>
+												<span class="sms_span">
+													<a class="pageLast" id="pageLast">&nbsp;</a>
+												</span>
+											 </span>
+											<span class="page_list">
+												<label id="curSmsPage">
+												</label>
+												<b>
+												<script type="text/javascript">
+													dw(sms_label_page);
+													dw(common_colon);
+												</script>
+												</b>
+											</span>
+												<input type="text" size="6" class="input_page" id="jump_page_index" />
+												<script type="text/javascript">create_button(common_go,'jump_page',"sms_go");</script>
+											</div>
+                                        </div>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<!-- sms_main_content end-->
+						</div>
+						<!--content_right end-->
+					</div>
+                    </div>
+					<!--content end-->
+					<div id="footer" class="footer">
+					</div>
+				</div>
+			</div>
+		</div>
+		<noscript>
+			<div class="noscript_text">
+				Your browser does not support JavaScript.
+			</div>
+		</noscript>
+	</body>
+</html>

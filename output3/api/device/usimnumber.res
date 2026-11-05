@@ -1,0 +1,1 @@
+busyboxapi/modem_1/mynum"E5element="Msisdn"

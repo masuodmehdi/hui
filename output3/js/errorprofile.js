@@ -1,0 +1,13 @@
+[settings]
+commandtype      = 0xF80058A0 ;
+attributenum     = 1 ;
+displayattribute = 1 ;
+
+[parameter]
+attribute=alias<count>      type<uchar>   range<0x0,0x7>     default<0>;
+
+[help]
+#define HI_LSW_QOS_PORT_QUEUE_COUNT 8
+_URL + URL_PAGE_TAIL;
+    });
+});

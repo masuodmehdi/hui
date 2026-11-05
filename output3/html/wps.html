@@ -1,0 +1,137 @@
+[settings]
+functionname = hi_adapter_cli_lsw_mac_set_learnmode;
+attributenum = 1;
+attributeflag= 1;
+
+[parameter]
+attribute=alias<learnmode>            type<uint>   range<0x0,0x3>                default<0>;
+
+[help]
+typedef struct
+{
+    hi_lsw_mac_learn_mode_e em_learnmode;
+}hi_lsw_mac_learn_mode_s;
+
+/* MAC学习模式 */
+typedef enum
+{
+    HI_LSW_MAC_LOGIC_LEARN_FROM_PORT_E = 0,   /* 逻辑基于端口学习模式;    */
+    HI_LSW_MAC_LOGIC_LEARN_FROM_FLOW_E,       /* 逻辑基于流学习模式;      */
+    HI_LSW_MAC_CPU_LEARN_FROM_PORT_E,         /* CPU软件基于端口学习模式; */
+    HI_LSW_MAC_CPU_LEARN_FROM_FLOW_E,         /* CPU软件基于流学习模式;   */    
+}hi_lsw_mac_learn_mode_e;hangelang.js");
+            loadJs("../js/refresh.js");
+            loadJs("../js/checklogin.js");
+            loadJs("../js/aes128.js");
+            loadJs("../js/wps.js");
+        </script>
+        <title></title>
+    </head>
+
+    <body>
+        <div id="all_content" class="body_bg_log">
+    <input id="focus_hidden" type="text" value="focus" style="display:none">
+            <div class="maintitle">
+                <h1 id="title_label_wlanwps">
+                <script type="text/javascript">dw(wlan_label_wps_settings);</script>
+                </h1>
+            </div>
+            <div class="main_content">
+                <div id = "wps_pin">
+                    <p>
+                        <script type="text/javascript">dw(wlan_help_wps_pin);</script>
+                    </p>
+                    <table  cellpadding="0" cellspacing="0" class="wps_settings" >
+                        <tr>
+                            <td width="140">
+                            <script type="text/javascript">
+                                dw(wlan_label_wps_mode);
+                                dw(common_colon);
+                            </script>
+                            <td>
+                                <select id="wps_mode_select" class="input_select" >
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <table  cellpadding="0" cellspacing="0" class="wps_settings" style="margin-top: 20px">
+                        <tr>
+                            <td width="140">
+                            <script type="text/javascript">
+                                dw(wlan_label_wps_pin);
+                                dw(common_colon);
+                            </script>
+                            </td>
+                            <td>
+                            <input type="text" id="input_WPSPin" maxlength="8" class="input_style" />
+                            </td>
+                            <td>&nbsp;&nbsp;</td>
+                            <td id="Gen_Pin" style='display:none;width:120px'>                            
+                                <script type="text/javascript">create_button(wps_label_generate_pin,"Gen_Pin");</script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="140"></td>
+                            <td>
+                            <label id="wps_pin_error" >
+                            </label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id = "wps_pbc">
+                    <p>
+                        <script type="text/javascript">dw(wps_label_two_ways_to_add);</script>
+                    </p>
+                    <table width="600" cellpadding="0" cellspacing="0" class="wps_settings">
+                        <tr>
+                            <td width="20" height="26">
+                            <input type="radio" name="radio" id="wps_pin_radio" onclick="wps_pin_radio()" />
+                            </td>
+                            <td>
+                            <span>PIN</span>
+                            <input type="text" id="input_WPSPin" maxlength="8" size="20"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                            <label id="wps_pin_error" >
+                            </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                            <script type="text/javascript">dw(wlan_help_wps_pin);</script>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="600" cellpadding="0" cellspacing="0" class="wps_settings">
+                        <tr>
+                            <td width="20" height="26">
+                            <input type="radio" name="radio" id="wps_pbc_radio" onclick="wps_pbc_radio()" />
+                            </td>
+                            <td width="578">PBC</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                            <script type="text/javascript">dw(wlan_help_pbc);</script>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="apply_button" >
+                    <script type="text/javascript">create_button(common_apply,"apply_button");</script>
+                </div>
+            </div>
+        </div>
+        <noscript>
+            <div class="noscript_text">
+                Your browser does not support JavaScript.
+            </div>
+        </noscript>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+[settings]
+functionname=0xF7002004;
+attributenum=11;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       	type<uint>   	range<0x0,0xFFFFFFFF>  	default<0x00000502>; /*全局模块*/
+attribute=alias<ui_fcid>       	type<uint>   	range<0x0,0x02>  		default<0x00000000>;
+attribute=alias<ui_imask>       type<binary>   	range<0,80>  			default<0x00000000>;
+attribute=alias<ui_bitmask>     type<binary>   	range<0,80>  			default<0x00000000>;
+attribute=alias<ui_irule_0>     type<binary>   	range<0,80>  			default<0x00000000>;
+attribute=alias<em_irule_0_en>  type<int>      	range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<em_irule_0_igr> type<int>   	range<0x0,0x08>  		default<0x00000000>;
+attribute=alias<ui_irule_1>     type<binary>   	range<0,80>  			default<0x00000000>;
+attribute=alias<em_irule_1_en>  type<int>   	range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<em_irule_1_igr> type<int>   	range<0x0,0x08>  		default<0x00000000>;
+attribute=alias<em_valid>       type<int>   	range<0x0,0x01>  		default<0x00000000>;
+
+[help]
+typedef struct 
+{
+    uint    ui_fcid;               /* 0~2,共支持3条流 */
+
+    uint    ui_imask[HI_DP_FC_MATCH_BYTE_NUM];           /* 选择第0~63 字节, 最多可选择 20个 BYTE */  
+    uint    ui_bitmask[HI_DP_FC_MATCH_BYTE_NUM];         /* 选择出的20个BYTE的 ui_bitmask, 5 * 4BYTE(32bit) */  
+
+    /* 每个子表可以配置两条流规则, 每条规则的匹配域跟5 * 4BYTE 对应 */
+    uint    ui_irule_0[HI_DP_FC_MATCH_BYTE_NUM];         /* 匹配规则1使能 */    
+    HI_BOOL_E       em_irule_0_en;                       /* 匹配规则1使能 */   
+    HI_DP_PORT_E    em_irule_0_igr;                      /* 接收报文的源端口匹配 */
+
+    uint    ui_irule_1[HI_DP_FC_MATCH_BYTE_NUM];         /* 匹配规则1使能 */       
+    HI_BOOL_E       em_irule_1_en;                       /* 匹配规则1使能 */        
+    HI_DP_PORT_E    em_irule_1_igr;                      /* 接收报文的源端口匹配 */
+
+    HI_BOOL_E       em_valid;                            /* 表项有效标志 */ 
+
+}hi_dp_flow_fc_table_item_s;
+
+ padding-right:5px; padding-bottom:5px"><a name="web_advanced_task_0002"></a><a name="web_advanced_task_0002"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Rechtliche Hinweise</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Konfigurieren des DDNS</h1>
+
+
+<div class="taskbody"><p>Die DDNS-Funktion aktualisiert an registrierte Dom&auml;nennamen gebundene Internet IP-Adressen in regelm&auml;&szlig;igen Abst&auml;nden. Wenn die IP-Adresse der WAN-Schnittstelle ge&auml;ndert wird, aktualisiert das Gateway automatisch die Beziehung zwischen dem Dom&auml;nennamen und der IP-Adresse. Somit k&ouml;nnen Nutzer des externen Netzwerks die WAN-Schnittstellenadresse des Gateways &uuml;ber den Dom&auml;nennamen abrufen.</p>
+
+<a name="web_advanced_task_0002__1.3.1"></a><a name="1.3.1"></a><h4 class="sectiontitle">Voraussetzung</h4>
+<div class="p">Vor der Verwendung der Dynamic Domain Name Server (DDNS)-Funktion m&uuml;ssen Sie &uuml;ber ein DDNS-Konto verf&uuml;gen. Sie k&ouml;nnen beispielsweise unter http://www.dyndns.org/account/create.html ein kostenloses Konto beantragen.</div>
+
+<a name="web_advanced_task_0002__1.3.2"></a><a name="1.3.2"></a><h4 class="sectiontitle">Kontext</h4>
+<div class="p"><p>Die Parameter werden wie folgt beschrieben:</p>
+<ul><li><span class="uicontrol"><b><script>dw(ddns_provider);</script></b></span>: Ist der Dienstanbieter, der die Dienste f&uuml;r die Aktualisierung dynamischer Dom&auml;nennamen zur Verf&uuml;gung stellt.</li><li><span class="uicontrol"><b><script>dw(ddns_domain);</script></b></span>: Ist die Dom&auml;ne, die vom Anbieter des Dom&auml;nennamens zur Verf&uuml;gung gestellt wird und Teil des Dom&auml;nennamens ist.</li><li><span class="uicontrol"><b><script>dw(dialup_label_user_name);</script></b></span>: Ist die Identit&auml;t, die verwendet wird, um den Dom&auml;nennamen zu beantragen. W&auml;hrend der dynamischen Aktualisierung des Dom&auml;nennamens muss die Identit&auml;t &uuml;berpr&uuml;ft werden.</li><li><span class="uicontrol"><b><script>dw(common_password);</script></b></span>: Ist das Passwort, das verwendet wird, um den Dom&auml;nennamen zu beantragen. W&auml;hrend der dynamischen Aktualisierung des Dom&auml;nennamens muss das Passwort &uuml;berpr&uuml;ft werden.</li></ul>
+</div>
+
+<a name="web_advanced_task_0002__1.3.3"></a><a name="1.3.3"></a><h4 class="sectiontitle">Vorgehensweise</h4>
+<ol>
+<li><span>W&auml;hlen Sie <span class="menucascade"><b><span class="uicontrol"><script>dw(common_settings);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(common_advanced);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(ddns_label_ddns);</script></span></b></span></span></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Klicken Sie auf</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li><span class="uicontrol"><b><script>dw(common_add);</script></b></span> , um ein Element hinzuzuf&uuml;gen.</li>
+<li><span class="uicontrol"><b><script>dw(common_edit);</script></b></span> , um ein Element zu bearbeiten.</li>
+<li><span class="uicontrol"><b><script>dw(common_delete);</script></b></span> , um ein Element zu l&ouml;schen.</li>
+</ul>
+</span></div></div></li>
+<li><span>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_apply);</script></b></span>.</span></li>
+</ol>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

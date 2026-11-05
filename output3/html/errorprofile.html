@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="../lib/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="../lib/log4javascript_lite.js"></script>
+        <script type="text/javascript" src="../lib/jquery.qtip.js"></script>
+        <script type="text/javascript" src="../lib/loadbyver.js"></script>
+        <script type="text/javascript">
+            loadCss("../css/main.css");
+            loadIcon("icon","../res/favicon.ico");
+            loadIcon("shortcut icon","../res/favicon.ico");
+            loadJs("../js/main.js");  
+            loadJs("../js/changelang.js");
+            loadJs("../js/redirect.js");
+            loadJs("../js/errorprofile.js");
+            loadJs("../js/aes128.js");
+        </script>
+        <title></title>
+    </head>
+
+    <body>
+        <div id="all_content" class="body_bg">
+        <div class="login_head_div login_head_dim">
+                <div class="login_head_dim login_head_filter">
+                    <div class="logo"></div>
+                    <div class="logo1">
+                        <a href="#"></a>
+                    </div>
+                    <div class="language_no3g">
+                        <span>
+                            <select id="lang"></select>
+                        </span>
+                        <a id="help_url" target="_blank" href="../usermanual/en-us/usermanual/web_content_concept_00001.html">
+                           <span id="help_span">
+                                <script type="text/javascript">dw(common_help);</script>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="no3g_content_box">
+                <div id="noprofile_message" style="height:100px">
+                    <h1 id="noprofile_title" class="fontsize">
+                         <script type="text/javascript">dw(errorprofile);</script>
+                    </h1>
+                    <div id="noprofile_content" class="nocard_content" >
+                        <h1 class = 'noprofile_contentfontsize'>
+                             <script type="text/javascript">dw(errorprofile_content);</script>
+                        </h1>
+                        <h1 class = 'noprofile_contentfontsize'>
+                             <script type="text/javascript">dw(errorprofile_whattodo);</script>
+                        </h1>
+                    </div>
+                </div>
+                <div class="noprofile_bottom_button" >
+                        <script type="text/javascript">create_button(common_continue, "link_login_errorprofile");</script>
+                    </div>
+                    
+            </div>
+            <div id="footer"  class="footer">
+            </div>
+        </div>
+        <noscript>
+            <div class="noscript_text">
+                Your browser does not support JavaScript.
+            </div>
+        </noscript>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+[settings]
+functionname=hi_kernel_igmp_get_usrvlanact;  
+attributenum=1;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<mode>         	type<uint>  range<0x0,4>      default<0x1>;
+
+[help]
+mode 
+	0x0:no action
+	0x1:cVlan«–ªª
+	0x2:sVlan«–ªª
+

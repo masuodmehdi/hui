@@ -1,0 +1,77 @@
+[settings]
+functionname=0xF7002004;
+attributenum=6;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       	type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000709>; /*È«¾ÖÄ£¿é*/
+attribute=alias<ui_mc_id>       type<uint>   range<0x0,0x000000FF>  default<0x00000000>;
+attribute=alias<ui_vlan>       	type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<em_egr>      	type<int>    range<0x0,0x08>  		default<0x00000000>;
+attribute=alias<em_vlan_act>    type<int>    range<0x0,0x02>  		default<0x00000000>;
+attribute=alias<em_valid>       type<int>    range<0x0,0x01>  		default<0x00000000>;
+
+[help]
+typedef struct  
+{
+    uint    ui_mc_id;                   /* 0 - 255 */
+    
+    uchar   uc_mac[6];       
+    ushort  us_arg;  
+    uint    ui_vlan;
+    
+}hi_dp_l2_mc_s;
+ge="javascript" type="text/javascript" src="../../../public_sys-resources/ExpandCollapse.js"></script><script type="text/javascript" src="../../../../language/lang_de_de.js"></script>
+<title>Schnellkonfiguration</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_quicksetup_task_00001"></a><a name="web_quicksetup_task_00001"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Rechtliche Hinweise</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Schnellkonfiguration</h1>
+
+<div class="taskbody">
+<a name="web_quicksetup_task_00001__1.2.1"></a><a name="1.2.1"></a><h4 class="sectiontitle">Kontext</h4>
+<div class="p">Sie k&ouml;nnen <span class="uicontrol"><b><script>dw(wizard_label_quick_setup);</script></b></span> zur Konfiguration und Verwaltung der Einstellungen des <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</div>
+
+<a name="web_quicksetup_task_00001__1.2.2"></a><a name="1.2.2"></a><h4 class="sectiontitle">Vorgehensweise</h4>
+<ol>
+<li><span>Wenn Sie sich zum ersten Mal auf der Webseite der Verwaltung anmelden, folgen Sie dem Schnellkonfigurations-Assistenten f&uuml;r eine schnelle Konfiguration Ihres <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>. Oder w&auml;hlen Sie <span class="menucascade"><b><span class="uicontrol"><script>dw(common_settings);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(wizard_label_quick_setup);</script></span></b></span>, um den Schnellkonfigurations-Assistenten zu &ouml;ffnen.</span></li>
+<li><div class="dropdownexpand"><div class="dropdowntitle" onclick="ExpandorCollapseNode(this)"><a><span><span>Folgen Sie den Anweisungen und klicken Sie auf <span class="uicontrol"><b><script>dw(common_next);</script></b></span>, um die Parameter festzulegen.</span></span></a></div><div class="dropdowncontext"><span><ul>
+<li>Profilparameter festlegen.</li>
+<li>Legen Sie die WLAN-Parameter (Wireless Local Area Network) fest.</li>
+</ul>
+</span></div></div></li>
+<li><span>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_finish);</script></b></span>.</span></li>
+</ol>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/web_content_concept_00001.html">Online-Hilfe</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

@@ -1,0 +1,14 @@
+#!/bin/sh
+PATH=/sbin:/bin:/usr/bin:/usr/sbin
+export PATH
+
+echo "RCS DONE"
+
+       <!-- 网络优先级列表，杨师正补充取值说明 -->
+		    <Mode>54</Mode>
+		    <Mode>14</Mode>
+		    <Mode>38</Mode>
+	</NetworkModes>
+    <!--是否显示波特率-->
+    <networkband_enable>1</networkband_enable>
+</config>

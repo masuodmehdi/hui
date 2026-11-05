@@ -1,0 +1,28 @@
+[settings]
+functionname=hi_kernel_igmp_del_ifname;  
+attributenum=4;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<enable>   		type<uchar>  range<0x0,0x0>      default<0x0>;
+attribute=alias<type>   		type<uchar>  range<0x1,0x3>      default<0x1>;
+attribute=alias<resv2>   		type<ushort>  range<0x0,0x0>      default<0x0>;
+attribute=alias<ifname>         type<string>  range<0x0,16>      default<eth0>;
+
+[help]
+删除ifname
+usage:
+hi_cli /home/cli/kigmp/getifname -v ifname ath1	 /*删除ifname：ath1 */
+
+parameter list:
+ifname		/* 删除的ifname (Input) */
+	range strlen(ifname) <0,15>
+
+/* 设备接口信息 */
+typedef struct{
+    hi_uchar8                uc_enable;
+    hi_uchar8                uc_type;      /* 设备类型:物理以太接口/虚拟以太接口/虚拟WIFI接口  */
+    hi_uchar8                uc_resv[2];
+    
+    hi_uchar8                uc_name[16];
+}hi_kernel_igmp_ifinfo_s;

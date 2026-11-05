@@ -1,0 +1,80 @@
+[settings]
+functionname=0xF7002004;
+attributenum=13;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       		  	type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000A04>; /*全局模块*/
+attribute=alias<em_cpu_scar_en>       	type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ui_cpu_cir>       	  	type<uint>   range<0x0,0x00007FFF>  default<0x00000000>;
+attribute=alias<ui_cpu_ebs>       	  	type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<em_local_prot_scar_en>  type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ui_local_port_cir>      type<uint>   range<0x0,0x00007FFF>  default<0x00000000>;
+attribute=alias<ui_local_port_ebs>      type<uint>   range<0x0,0x0000FFFF>  default<0x00000000>;
+attribute=alias<em_bc_scar_en>       	type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ui_bc_cir>       		type<uint>   range<0x0,0x00007FFF>  default<0x00000000>;
+attribute=alias<ui_bc_ebs>       		type<uint>   range<0x0,0x0000FFFF>  default<0x00000000>;
+attribute=alias<em_unhit_uc_scar_en>    type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ui_unhit_uc_cir>        type<uint>   range<0x0,0x00007FFF>  default<0x00000000>;
+attribute=alias<ui_unhit_uc_ebs>        type<uint>   range<0x0,0x0000FFFF>  default<0x00000000>;
+
+[help]
+typedef struct
+{ 
+    HI_BOOL_E   em_cpu_scar_en;             /* CPU接收报文流量抑制使能       */ 
+    uint        ui_cpu_cir;                 /* CPU接收报文数量,以包为单位进行抑制           */
+    uint        ui_cpu_ebs;                 /* CPU接收报文突发流量门限       */
+
+    HI_BOOL_E   em_local_prot_scar_en;      /* LOCAL接收报文流量抑制使能     */ 
+    uint        ui_local_port_cir;          /* LOCAL接收报文流速,以字节为单位进行抑制        */ 
+    uint        ui_local_port_ebs;          /* LOCAL接收报文突发流量门限     */ 
+
+    HI_BOOL_E   em_bc_scar_en;              /* 广播报文接收报文流量抑制使能     */ 
+    uint        ui_bc_cir;                  /* 广播报文接收报文流速,以字节为单位进行抑制     */           
+    uint        ui_bc_ebs;                  /* 广播报文接收报文突发流量门限     */          
+
+    HI_BOOL_E   em_unhit_uc_scar_en;        /* 未知单播接收报文流量抑制使能     */ 
+    uint        ui_unhit_uc_cir;            /* 未知单播接收报文流速,,以字节为单位进行抑制    */             
+    uint        ui_unhit_uc_ebs;            /* 未知单播接收报文突发流量门限     */            
+
+} hi_dp_qos_scar_table_s;/li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Dial-up Settings</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN Settings</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN Management</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Security Settings</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">System Management</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP Settings</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Advanced Settings</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Maintenance</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Acronyms and Abbreviations</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Advanced Settings</h1>
+
+<div>
+<ul class="ullinks">
+<li class="ulchildlink"><strong><a href="../../usermanual/Advanced_plugin/web_advanced_task_0002.html">Configuring the DDNS</a></strong><br>
+The DDNS feature will update Internet IP which bound with registered domain name periodically. When the IP address of the WAN interface is changed, the gateway automatically updates the relation between the domain name and the IP address. Thus, users of the external network can obtain the WAN interface address of the gateway through the domain name.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/Advanced_plugin/web_advanced_task_0003.html">Configuring the SNTP</a></strong><br>
+The Simple Network Time Protocol (SNTP) is network time synchronization function. It is used to update the time periodically from the network server so that the local time can remain the same as the network time. </li>
+<li class="ulchildlink"><strong><a href="../../usermanual/Advanced_plugin/web_advanced_task_0017.html">Configuring the Storage Services</a></strong><br>
+With Storage Services, you can view, modify, add or delete the shared file(s) on the USB device.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/Advanced_plugin/web_advanced_task_0006.html">Changing the Antenna Mode</a></strong><br>
+You can choose whether to use the external antenna. </li>
+<li class="ulchildlink"><strong><a href="../../usermanual/Advanced_plugin/web_advanced_task_0007.html">Configuring the Static Route</a></strong><br>
+You can configure static routing. Static routing specifies a fixed routing path to neighboring destinations.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/Advanced_plugin/web_advanced_task_0025.html">Configuring the DMS</a></strong><br>
+Digital Media Server (DMS) aims to interwork wire networks with wireless networks (Such wire and wireless networks contain personal PCs, consumer appliances, and mobile devices ) in an effort to build a seamless environment in which people can share and develop fresh data media and services. Before using this function, make sure that the storage devices are connected through the USB port.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/Advanced_plugin/parameters_light_on_off.html">Light On/Off</a></strong><br>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="../../usermanual/web_content_concept_00001.html">OnlineHelp</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

@@ -1,0 +1,76 @@
+[settings]
+functionname = hi_adapter_cli_lsw_mac_get_agetime;
+attributenum = 2;
+attributeflag= 1;
+
+[parameter]
+attribute=alias<agetime>            type<ushort>   range<0x0,0xfff>              default<0x12c>;
+attribute=alias<res>                type<ushort>   range<0x0,0x0>                default<0>;
+
+[help]
+typedef struct
+{
+    hi_ushort16  us_agetime;
+    hi_ushort16  us_res;
+}hi_lsw_mac_agetime_s;ck='javascript:window.location.href = "home.html" + URL_PAGE_TAIL;'>
+                    <span></span>
+                    </a>
+                </li>
+                <li id="menu_connection">
+                    <a id="connection"  href="javascript:void(0)" onclick='javascript:window.location.href = "connectionstatus.html" + URL_PAGE_TAIL;'>
+                    <span></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="help">
+            <span>
+                <select id="lang">
+                </select>
+            </span>
+            <span>
+                <a id=help_url href="#" target="_blank">
+                <span id="help_span"></span>
+                </a>
+            </span>
+            <span>
+                <span class="username">
+                    <span id="username_span" style="display:none"></span>
+                </span>
+            </span>
+            <span>
+                <span class="logout">
+                    <span id="logout_span"></span>
+                </span>
+            </span>
+        </div>
+        <div class="tools">
+            <ul>
+                <li id="sim_signal_gif" class="nav03">
+                    <span id="tooltip_sim"></span>
+                </li>
+                <li id="plmn_gif" class="nav04">
+                    <span id="tooltip_plmn"></span>
+                </li>
+                <li id="wan_gif" class="nav05">
+                    <span id="tooltip_wan"></span>
+                </li>
+                <li id="wifi_gif" class="nav06">
+                    <span id="tooltip_wifi"></span>
+                </li>
+                <!--li id="battery_gif" class="nav07">
+                    <span id="tooltip_battery"></span>
+                </li-->
+                <!--li id="station_gif" class="nav08">
+                    <span id="tooltip_station"></span>
+                </li-->
+            </ul>
+        </div>
+        <script type="text/javascript">
+            log.debug("header.html enter");
+            $(document).ready( function() {
+                getUserManualUrl();
+            });
+        </script>
+    </div>
+</div>

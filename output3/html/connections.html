@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="../lib/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="../lib/jquery.cookies.2.2.0.js"></script>
+        <script type="text/javascript" src="../lib/log4javascript_lite.js"></script>
+        <script type="text/javascript" src="../lib/jquery.qtip.js"></script>
+        <script type="text/javascript" src="../lib/loadbyver.js"></script>
+        <script type="text/javascript">
+            loadCss("../css/main.css");
+            loadJs("../js/changelang.js");
+            loadJs("../js/refresh.js");
+            loadJs("../js/checklogin.js");
+            loadJs("../js/validation.js");
+            loadJs("../js/connectionstatus.js");
+            loadJs("../js/aes128.js");
+        </script>
+        <title></title>
+    </head>
+
+    <body>
+         <div id="all_content" class="body_bg_settings">
+                            <div class="maintitle">
+                                <h1 id="title_label_connection">
+                                <script type="text/javascript">dw(setting_label_data_connection);</script>
+                                </h1>
+                            </div>
+                            <div class="main_content" style="min-height:400px">
+                                <table cellpadding="0" cellspacing="0" border="0" class="connstatus_admin_table"  style='display:none'>
+                                    <tr>
+                                        <td><table cellpadding="0" cellspacing="0" border="0" class="connectionset_table">
+                                            <tr id="connectiondevice"><td><script type='text/javascript'>dw(connectiontatus_label_connection_channel + common_colon);</script></td>
+                                                <td><select id="conn_device" class="input_select">
+                                                     <option value="1"><script type='text/javascript'>dw(label_set_quick_connection_wireless);</script></option>
+                                                     <option value="2"><script type='text/javascript'>dw(label_set_quick_connection_wireline);</script></option>
+                                                     <!--option value="3"><script type='text/javascript'>dw(set_quick_connection_device_radio_priority);</script></option-->
+                                                     </select>
+                                                </td>
+                                            </tr>
+                                            <tr id='conn_radio' style="display: none;"><td ><script type='text/javascript'>dw(dialup_label_profile_list + common_colon);</script></td>
+                                                <td id='conn_radio_td'><select id="conn_profiles" class="input_select"></select></td>
+                                            </tr>
+                                            <tr id='conn_eth'><td><script type='text/javascript'>dw(dialup_label_profile_list + common_colon);</script></td>
+                                                <td id='conn_eth_td'><select id="conn_eth_profiles" class="input_select"></select></td>
+                                            </tr>
+                                            <tr id='conn_romaining' style="display: none;">
+                                                <td> <script type="text/javascript">dw(connectiontatus_label_romaingswitch+common_colon);</script></td>
+                                                <td>
+                                                    <input type="radio" value="1" name="conn_romaingswitch" onClick="romaing_on_confirm1()"/>
+                                                    <span><script type="text/javascript">dw(common_enable);</script></span>
+                                                    <input type="radio" value="0" name="conn_romaingswitch" onClick="romaing_on_confirm2()"/>
+                                                    <span><script type="text/javascript">dw(common_disable);</script></span>
+                                                </td>
+                                            </tr> 
+                                            <tr id='conn_ipv6_tr' style="display: none;">
+                                                <td><script type='text/javascript'>dw(connectiontatus_label_iptype + common_colon);</script></td>
+                                                <td><select id="conn_iptype" class="input_select">
+                                                     <option value="ipv4"><script type='text/javascript'>dw('IPv4');</script></option>
+                                                     <option value="ipv6"><script type='text/javascript'>dw('IPv6');</script></option>
+                                                     <option value="ipv4ipv6"><script type='text/javascript'>dw('IPv4&nbsp;/&nbsp;IPv6');</script></option>
+                                                     </select>
+                                                </td>
+                                            </tr>
+                                        </table></td>
+                                        <td align="right"><table>
+                                        <tr><td height='38px'  id='app_btn'></td>
+                                        <td height='38px' id='conn_btn'></td></tr>
+                                        </table></td>
+                                    </tr>
+                              </table>
+                              <table cellpadding="0" cellspacing="0" border="0" class="connectionstatus_table" style="display: none;">
+                                <tr id='conn_status'>
+                                    <td><script type='text/javascript'>dw(label_ipv4connection_status + common_colon);</script></td>
+                                    <td><label id="connection_status" class="list_right"></label></td>
+                                </tr>
+                                <tr id='conn_ipv6_status' style="display: none;">
+                                    <td><script type='text/javascript'>dw(connectiontatus_label_ipv6connection_status + common_colon);</script></td>
+                                    <td><label id="connection_ipv6_status" class="list_right"></label></td>
+                                </tr>
+                                <tr id='conn_duration'>
+                                    <td><script type='text/javascript'>dw(dialup_label_duration + common_colon);</script></td>
+                                    <td><label id="TotalConnectTime" class="list_right"></label></td>
+                                </tr>
+                                <tr id='conn_receivedsent'>
+                                    <td><script type='text/javascript'>dw(connectiontatus_label_ethbytesreceivedsent + common_colon);</script></td>
+                                    <td><label id="TotalDownload" class="list_right"></label><label>&nbsp;/&nbsp;</label><label id="TotalUpload" class="list_right"></label>
+                                    </td>
+                                </tr>
+                              </table>
+                            </div>
+                        </div>
+                    <!--content end-->
+                    
+       
+    </body>
+</html>

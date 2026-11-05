@@ -1,0 +1,1 @@
+busyboxapi/modem_1/antenna"E5element="antennamode"

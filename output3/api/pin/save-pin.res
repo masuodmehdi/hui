@@ -1,0 +1,1 @@
+busyboxapi/modem_1/savepinstates"E5element="SimSavepinStatus|SimSavepinScid|SimSavepinPIN"

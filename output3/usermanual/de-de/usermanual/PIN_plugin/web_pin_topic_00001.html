@@ -1,0 +1,72 @@
+[settings]
+functionname=0xF7002004;
+attributenum=6;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       		  type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000203>; /*全局模块*/
+attribute=alias<ui_gem_port_id>       type<uint>   range<0x0,0x00000FFF>  default<0x00000000>;
+attribute=alias<ui_pri_remarking>     type<uint>   range<0x0,0x07>  	  default<0x00000000>;
+attribute=alias<em_local>       	  type<int>    range<0x0,0x01>  	  default<0x00000000>;
+attribute=alias<em_aes_en>       	  type<int>    range<0x0,0x01>  	  default<0x00000000>;
+attribute=alias<em_type>       		  type<int>    range<0x0,0x04>  	  default<0x00000000>;
+
+[help]
+/* 下行GEMPORT 表项结构 */
+typedef struct
+{
+     uint           ui_gem_port_id;                 /* gem port id, 表项索引 0 - 4095 */
+
+     uint           ui_pri_remarking;               /* 下行优先级remarking配置0 - 7   */   
+     HI_BOOL_E      em_local;                       /* 是否本地port                   */        
+     HI_BOOL_E      em_aes_en;                      /* 是否加密                       */        
+     HI_DP_GPON_DN_PORT_TYPE_E   em_type;           /* 端口类型                       */             
+     
+}hi_dp_gpon_dn_gemport_table_item_s;javascript" src="../../../public_sys-resources/ExpandCollapse.js"></script><script type="text/javascript" src="../../../../language/lang_de_de.js"></script>
+<title>PIN-Verwaltung</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_pin_topic_00001"></a><a name="web_pin_topic_00001"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Rechtliche Hinweise</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">PIN-Verwaltung</h1>
+
+<div>
+<ul class="ullinks">
+<li class="ulchildlink"><strong><a href="../../usermanual/PIN_plugin/web_pin_task_00002.html">Aktivieren bzw. Deaktivieren der PIN-Verifizierung</a></strong><br>
+Wenn die PIN-Verifizierung (Personal Identification Number) aktiviert ist, m&uuml;ssen Sie beim Starten des <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> die PIN eingeben. Wenn die PIN-Verifizierung deaktiviert ist, muss keine PIN eingegeben werden. </li>
+<li class="ulchildlink"><strong><a href="../../usermanual/PIN_plugin/web_pin_task_00003.html">&Auml;ndern der PIN</a></strong><br>
+Wenn die PIN-Verifizierung (Personal Identification Number) aktiviert ist, k&ouml;nnen Sie die PIN &auml;ndern.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/PIN_plugin/web_pin_task_00004.html">&Uuml;berpr&uuml;fen der PIN</a></strong><br>
+Wenn die PIN-Verifizierung (Personal Identification Number) aktiviert ist, m&uuml;ssen Sie die PIN bei jedem Start des <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> eingeben,um die G&uuml;ltigkeit der USIM zu &uuml;berpr&uuml;fen. </li>
+<li class="ulchildlink"><strong><a href="../../usermanual/PIN_plugin/web_pin_task_00005.html">Aktivieren bzw. Deaktivieren der automatischen PIN-Verifizierung</a></strong><br>
+Wenn der PIN-Schutz (Personal Identification Number) aktiviert ist, k&ouml;nnen Sie die automatische PIN-Verifizierung aktivieren bzw. deaktivieren. Wenn die Verifizierung aktiviert ist, wird die PIN gespeichert und das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> gibt die Verifizierung automatisch bei jedem Start weiter.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/web_content_concept_00001.html">Online-Hilfe</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

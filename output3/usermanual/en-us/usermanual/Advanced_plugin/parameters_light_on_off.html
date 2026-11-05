@@ -1,0 +1,68 @@
+[settings]
+functionname=0xF7002004;
+attributenum=8;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       				type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000A16>; /*全局模块*/
+attribute=alias<ui_qid>      				type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_queue_in>       			type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_queue_out>       		type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_queue_tail_drop>     	type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_queue_buffer_low_drop>   type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_fwred_drop>       		type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ui_gwred_drop>       		type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+
+[help]
+typedef struct 
+{
+    uint    ui_qid;                         /* 指定需要获取统计的队列ID      */
+    
+    uint    ui_queue_in;                    /* 入队成功统计                 */
+    uint    ui_queue_out;                   /* 出队成功统计                 */
+    uint    ui_queue_tail_drop;             /* 队列尾丢弃统计               */
+    uint    ui_queue_buffer_low_drop;       /* 资源不足丢弃统计             */
+    uint    ui_fwred_drop;                  /* 基于流CAR的WRED丢弃统计      */
+    uint    ui_gwred_drop;                  /* 基于组CAR的WRED丢弃统计      */
+
+}hi_dp_qos_queue_cnt_table_item_s;
+usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Quick Setup</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Connection</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Dial-up Settings</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN Settings</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN Management</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Security Settings</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">System Management</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP Settings</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Advanced Settings</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Maintenance</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Acronyms and Abbreviations</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Light On/Off</h1>
+
+<div>
+<div class="section"><p id="parameters_light_On_Off__p4"><a name="parameters_light_On_Off__p4"></a><a name="p4"></a><span class="menucascade"><b><span class="uicontrol"><script>dw(common_settings);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(common_advanced);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(label_light_on_off);</script></span></b></span></p>
+</div>
+
+<div class="section"><a name="parameters_light_On_Off__ul1"></a><a name="ul1"></a><ul id="parameters_light_On_Off__ul1"><li id="parameters_light_On_Off__ul1_li1"><a name="parameters_light_On_Off__ul1_li1"></a><a name="ul1_li1"></a><span id="parameters_light_On_Off__ph1"><a name="parameters_light_On_Off__ph1"></a><a name="ph1"></a><span class="uicontrol"><b><script>dw(light_label_wlan_status);</script></b></span>:<span class="uicontrol"><b><script>dw(common_on);</script></b></span>/<span class="uicontrol"><b><script>dw(common_off);</script></b></span></span><div class="p"><div class="note" id="parameters_light_On_Off__note1"><a name="parameters_light_On_Off__note1"></a><a name="note1"></a><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> NOTE: </span><div class="notebody"><p id="parameters_light_On_Off__p3"><a name="parameters_light_On_Off__p3"></a><a name="p3"></a>The light is on by default.</p>
+</div></div>
+</div>
+</li></ul>
+<a name="parameters_light_On_Off__ul1_1"></a><a name="ul1_1"></a><ul id="parameters_light_On_Off__ul1_1"><li id="parameters_light_On_Off__ul1_li1_1"><a name="parameters_light_On_Off__ul1_li1_1"></a><a name="ul1_li1_1"></a><span class="uicontrol"><b><script>dw(common_turn_on);</script></b></span>/<span class="uicontrol"><b><script>dw(common_turn_off);</script></b></span><p>To turn on or off the light of <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>.</p>
+</li></ul>
+</div>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Advanced Settings</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

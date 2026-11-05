@@ -1,0 +1,71 @@
+[settings]
+functionname=0xF7002004;
+attributenum=5;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       	type<uint>   	range<0x0,0xFFFFFFFF>  	default<0x0000070E>; /*全局模块*/
+attribute=alias<ui_vlan>       	type<uint>   	range<0x0,0x00000FFF>  	default<0x00000000>;
+attribute=alias<ui_fid>       	type<uint>   	range<0x0,0xFFFFFFFF>  	default<0x00000000>;
+attribute=alias<em_egr>       	type<int>   	range<0x0,0x08>  		default<0x00000000>;
+attribute=alias<em_valid>       type<int>   	range<0x0,0x01>  		default<0x00000000>;
+
+
+[help]
+typedef struct  
+{
+    uint    ui_vlan;                /* 0 - 4095   ,索引 */
+
+    hi_dp_l2_bc_egr_info_s  st_egr;
+
+}hi_dp_l2_bc_egr_s;
+e="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../../public_sys-resources/ExpandCollapse.js"></script><script type="text/javascript" src="../../../../language/lang_de_de.js"></script>
+<title>Wie f&uuml;ge ich einen Dr&uuml;cker hinzu?</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_faq_task_00008"></a><a name="web_faq_task_00008"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Rechtliche Hinweise</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">Wie f&uuml;ge ich einen Dr&uuml;cker hinzu?</h1>
+
+<div>
+<div class="note"><img src="../../../public_sys-resources/icon-note.gif"><span class="notetitle"> HINWEIS: </span><div class="notebody"><ul><li>Als Beispiel dient ein Computer mit dem Windows XP Betriebssystem.</li><li>Falls der externe USB-Drucker nicht verwendet werden kann, wenden Sie sich bitte an den Druckerhersteller, der Ihnen sagen kann, ob diese Methode unterst&uuml;tzt wird.</li></ul>
+<p></p>
+</div></div>
+
+<div class="section"><h4 class="sectiontitle">Einen Drucker &uuml;ber Samba hinzuf&uuml;gen</h4><ol><li>Installieren Sie den Druckertreiber auf Ihrem PC und verbinden Sie anschlie&szlig;end den PC und das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> &uuml;ber Ethernet oder WiFi.</li><li>Schlie&szlig;en Sie den Dr&uuml;cker &uuml;ber USB-Kabel an das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> an und schalten Sie beide ein.</li><li>Melden Sie sich auf der Verwaltungsseite an und w&auml;hlen Sie <span class="menucascade"><b><span class="uicontrol"><script>dw(common_settings);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(common_advanced);</script></span></b> &gt; <b><span class="uicontrol"><script>dw(Label_storage_services);</script></span></b></span>.</li><li>&Uuml;berpr&uuml;fen Sie <span class="uicontrol"><b><script>dw(Label_enable_samba);</script></b></span>und klicken Sie auf <span class="uicontrol"><b><script>dw(common_apply);</script></b></span>.</li><li>Klicken Sie auf <span class="uicontrol"><b><script>dw(common_add);</script></b></span>, um die Parameter wie folgt zu konfigurieren.<ul><li><span class="uicontrol"><b><script>dw(samba_label_username);</script></b></span>/<span class="uicontrol"><b><script>dw(common_password);</script></b></span>: Folgen Sie den Angaben auf der Seite, um den Benutzernamen und das Passwort einzugeben. Beim Zugriff auf Samba m&uuml;ssen Sie zum Anmelden diese Parameter eingeben.</li><li><span class="uicontrol"><b><script>dw(samba_label_right);</script></b></span>: W&auml;hlen Sie  <span class="uicontrol"><b><script>dw(sd_label_read_only);</script></b></span> oder <span class="uicontrol"><b><script>dw(sd_label_read_write);</script></b></span>.</li><li><span class="uicontrol"><b><script>dw(samba_label_directory);</script></b></span>: Klicken Sie auf <span class="uicontrol"><b><script>dw(common_browse);</script></b></span> und w&auml;hlen Sie das Stammverzeichnis des Druckers.</li></ul>
+</li><li>W&auml;hlen Sie <span class="menucascade"><b><span class="uicontrol">Start</span></b> &gt; <b><span class="uicontrol">Ausf&uuml;hren</span></b></span>, geben Sie die Standard-IP-Adresse ein f&uuml;r das <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> : <strong>\\192.168.1.1</strong>, und dr&uuml;cken Sie anschlie&szlig;end auf die <span class="uicontrol"><b>Eingabe</b></span>.</li><li>In dem angezeigten Dialogfeld geben Sie den Benutzernamen und das Passwort ein, die Sie auf der Seite <span class="uicontrol"><b><script>dw(Label_storage_services);</script></b></span> f&uuml;r den Zugriff auf den Samba-Dienst konfiguriert haben.</li><li>Doppelklicken Sie auf das Druckersymbol im Fenster. Folgen Sie den Anweisungen des Assistenten und w&auml;hlen Sie den entsprechenden Druckertreiber aus, um einen Drucker hinzuzuf&uuml;gen. Warten Sie f&uuml;r einige Minuten, damit die Einstellungen &uuml;bernommen werden.</li><li>&Uuml;berpr&uuml;fen Sie den Status des Druckers in der Systemsteuerung von Windows im Fenster "Drucker". Als Status sollte 鈥淏ereit" angezeigt werden.  Sie k&ouml;nnen den Drucker jetzt verwenden.</li></ol>
+</div>
+
+</div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/faq_plugin/web_faq_topic_00001.html" title="">FAQ</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

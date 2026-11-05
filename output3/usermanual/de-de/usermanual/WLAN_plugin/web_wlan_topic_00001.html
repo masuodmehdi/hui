@@ -1,0 +1,89 @@
+[settings]
+functionname=0xF7002004;
+attributenum=8;
+attributeflag = 1 ;   //0:close 1:open
+
+[parameter]
+attribute=alias<module>       		type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000B09>; /*全局模块*/
+attribute=alias<ui_index>       	type<uint>   range<0x0,0x7F>  		default<0x00000000>;
+attribute=alias<ui_gemport>       	type<uint>   range<0,4095>  		default<0x00000000>;
+attribute=alias<em_valid>       	type<int>    range<0x0,0x01>  		default<0x00000000>;
+attribute=alias<ul_up_frm_cnt>      type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ul_up_byte_cnt>     type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ul_dn_frm_cnt>      type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+attribute=alias<ul_dn_byte_cnt>     type<uint>   range<0x0,0xFFFFFFFF>  default<0x00000000>;
+
+[help]
+
+typedef struct
+{
+    uint ui_index;           /* 0~127,芯片仅支持128个GEMPORT的统计 */
+    uint ui_gemport;         /* 指定查找的gemport_id */
+    HI_BOOL_E em_valid;
+    
+    ulong ul_up_frm_cnt;      /* 指定gemport，上行帧数 */
+    ulong ul_up_byte_cnt;     /* 指定gemport，上行byte数 */
+
+    ulong ul_dn_frm_cnt;      /* 指定gemport，下行帧数 */
+    ulong ul_dn_byte_cnt;     /* 指定gemport，下行byte数 */
+
+
+}hi_dp_gpon_up_gemport_cnt_table_item_s;
+lesheet" type="text/css" href="../../../public_sys-resources/commonltr.css">
+<script language="javascript" type="text/javascript" src="../../../public_sys-resources/ExpandCollapse.js"></script><script type="text/javascript" src="../../../../language/lang_de_de.js"></script>
+<title>WLAN-Einstellungen</title>
+</head>
+<body style="clear:both; padding-left:10px; padding-top:5px; padding-right:5px; padding-bottom:5px"><a name="web_wlan_topic_00001"></a><a name="web_wlan_topic_00001"></a>
+
+
+<div id="navigation" class="navigation">
+<ul>
+<li><a href="../../usermanual/legal/instance_legal_notice_fmc_lte.html">Rechtliche Hinweise</a></li>
+<li><a href="../../usermanual/overview_plugin/web_overview_topic_00001.html">&Uuml;bersicht</a></li>
+<li><a href="../../usermanual/quicksetup_plugin/web_quicksetup_task_00001.html">Schnellkonfiguration</a></li>
+<li><a href="../../usermanual/connection_plugin/web_connection_topic_00001.html">Verbindung</a></li>
+<li><a href="../../usermanual/SMS_plugin/web_sms_topic_00001.html">SMS</a></li>
+<li><a href="../../usermanual/dialup_plugin/web_dialup_topic_00001.html">Einwahleinstellungen</a></li>
+<li><a href="../../usermanual/WLAN_plugin/web_wlan_topic_00001.html">WLAN-Einstellungen</a></li>
+<li><a href="../../usermanual/PIN_plugin/web_pin_topic_00001.html">PIN-Verwaltung</a></li>
+<li><a href="../../usermanual/security_plugin/web_security_topic_00001.html">Sicherheitseinstellungen</a></li>
+<li><a href="../../usermanual/system_plugin/web_system_topic_00001.html">Systemmanagement</a></li>
+<li><a href="../../usermanual/DHCP_plugin/web_dhcp_topic_00001.html">DHCP-Einstellungen</a></li>
+<li><a href="../../usermanual/Advanced_plugin/web_advanced_topic_0001.html">Erweiterte Einstellungen</a></li>
+<li><a href="../../usermanual/maintenance_plugin/web_maintenance_topic_0001.html">Wartung</a></li>
+<li><a href="../../usermanual/faq_plugin/web_faq_topic_00001.html">FAQ</a></li>
+
+<li><a href="../../usermanual/Abbreviations_plugin/web_Abbreviations_concept_1.html">Akronyme und Abk&uuml;rzungen</a></li>
+</ul>
+</div>
+<div id="right">
+<h1 class="topictitle1">WLAN-Einstellungen</h1>
+
+
+<div><p></p>
+
+<p></p>
+
+</div>
+
+<div>
+<ul class="ullinks">
+<li class="ulchildlink"><strong><a href="../../usermanual/WLAN_plugin/web_wlan_task_00003.html">Konfigurieren des WLAN</a></strong><br>
+Sie k&ouml;nnen die Grundeinstellungen des WLAN konfigurieren.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/WLAN_plugin/web_wlan_task_00004.html">Konfigurieren der Gast-SSID</a></strong><br>
+Durch die Verwendung der Gast-SSID k&ouml;nnen Ihre Familienmitglieder, Freunde, Besucher oder selbst Ihre Gesch&auml;ftspartner &uuml;ber Ihren <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span> auf das Internet zugreifen, jedoch ohne die Autorisierung f&uuml;r den Zugriff auf die Webmanagement-Seite oder andere Ger&auml;te, die an Ihrem <span class="uicontrol"><b><script>dw(common_3g_wireless_modem);</script></b></span>angeschlossen sind.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/WLAN_plugin/web_wlan_task_00016.html">Konfigurieren der WLAN-Bridge</a></strong><br>
+Mit der Funktion WLAN-Bridge k&ouml;nnen Sie zwei oder mehr Gateways verbinden, die ebenfalls die WLAN-Bridge-Funktion unterst&uuml;tzen, um gemeinsam ein gr&ouml;&szlig;eres Netzwerk aufzubauen.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/WLAN_plugin/web_wlan_task_00012.html">Konfigurieren des WLAN-MAC-Filters</a></strong><br>
+Um die Sicherheit des WLAN zu verbessern, k&ouml;nnen Sie die Clients, die auf Ihr WLAN zugreifen, kontrollieren und verwalten.</li>
+<li class="ulchildlink"><strong><a href="../../usermanual/WLAN_plugin/web_wlan_task_00013.html">Einrichten der WPS-Verbindung</a></strong><br>
+Wi-Fi Protected Setup (WPS) ist ein Standard, der verwendet wird, um ein drahtloses Netzwerk einfach und sicher einzurichten. Wenn herk&ouml;mmliche Methoden verwendet werden, m&uuml;ssen Sie den Namen des WLAN eingeben, also die SSID und den Sicherheitsschl&uuml;ssel des Access Point und des Clients, um einen nicht autorisierten Zugriff auf das WLAN zu verhindern. Wenn der WPS-Standard verwendet wird, m&uuml;ssen Sie die SSID und den Sicherheitsschl&uuml;ssel nicht kennen, weil diese vom Access Point und Client automatisch zugewiesen werden. </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Ausgangspunkt:</strong> <a href="../../usermanual/web_content_concept_00001.html">Online-Hilfe</a></div>
+</div>
+</div>
+
+</div></body>
+</html>

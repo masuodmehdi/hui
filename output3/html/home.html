@@ -1,0 +1,188 @@
+[settings]
+functionname = hi_kernel_accel_cmdtype_config_set;
+attributenum = 2;
+attributeflag= 1;
+
+[parameter]
+attribute=alias<hw>           type<uint>    range<0,1>     default<0>;
+attribute=alias<sw>           type<uint>    range<0,1>     default<0>;
+
+[help]
+
+typedef struct
+{
+    hi_uint32 ui_hw_accel_enabled; 
+    hi_uint32 ui_sw_accel_enabled; 
+}hi_kernel_accel_cmdtype_config_s;
+
+ookies.2.2.0.js"></script>
+        <script type="text/javascript" src="../lib/log4javascript_lite.js"></script>
+        <script type="text/javascript" src="../lib/jquery.qtip.js"></script> 
+        <script type="text/javascript" src="../lib/loadbyver.js"></script>
+        <script type="text/javascript">
+            loadCss("../css/main.css");
+            loadIcon("icon","../res/favicon.ico");
+            loadIcon("shortcut icon","../res/favicon.ico");
+            loadJs("../js/main.js");
+            loadJs("../js/changelang.js");
+            loadJs("../js/redirect.js");
+            loadJs("../js/validation.js");
+            loadJs("../js/home.js");
+            loadJs("../js/aes128.js"); 
+        </script> 
+        <title></title>
+    </head>
+
+    <body>
+        <div id="all_content" class="body_bg">
+            <div id="login_wrapper" class="login_wrapper_dim">
+                <div class="login_wrapper_dim login_wrapper_filter">
+                    <div id="header" class="header">
+                    </div>
+                    <div class="center_box">
+                        <div class="center_box_main">
+                            <div id="status_img" class="signal">
+                            </div>
+                            <div id="status_info" class="title_info">
+                                <div id="status_discript">
+                                    <div class="top_status_discript">
+                                        <h1 id="index_plmn_name"></h1>
+                                        <div id="index_connection_status">
+                                        </div>
+                                    </div>
+                                    <div id="index_connection_button" class='main_button'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="hilink">
+                        </div>-->
+                    </div>
+                    <div class="notification">
+                        <div class="new_msg">
+                            <script type="text/javascript">dw(hilink_label_newmessage);</script>
+                        </div>
+                        <div class="install">
+                            <script type="text/javascript">create_button(strid_home_title_download_install, "notification_tray");</script>
+                        </div>
+                    </div>
+                    <div class="login_box_info">
+                        <div class="login_info">
+                            <div class="connection">
+                                <h2>
+                                <script type="text/javascript">dw(dialup_label_current_connection)</script>
+                                </h2>
+                                <table width="91%" border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td id="revicedsent" width="40%">
+                                        </td>
+                                        <td id="revicedsent_date">
+                                        <label class="list_right" id="TotalDownload">
+                                        </label>
+                                        <label>
+                                            /
+                                        </label>
+                                        <label class="list_right" id="TotalUpload">
+                                        </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        <script type="text/javascript">
+                                            dw(dialup_label_duration);
+                                            dw(common_colon);
+                                        </script>
+                                        </td>
+                                        <td>
+                                        <label class="list_right" id="TotalConnectTime">
+                                        </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        <script type="text/javascript">
+                                            dw(system_label_my_number);
+                                            dw(common_colon);
+                                        </script>
+                                        </td>
+                                        <td class="list_right" id="ConnectionStatus">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="wlan_status">
+                                <h2>
+                                <script type="text/javascript">dw(wlan_label_wlan_status)</script>
+                                </h2>
+                                <table id="wlan_status_single_or_multi" width="91%" border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td width="60%">
+                                        <script type="text/javascript">
+                                            dw(wlan_label_wlan_status);
+                                            dw(common_colon)
+                                        </script>
+                                        </td>
+                                        <td>
+                                        <label class="list_right" id="CurrentWifiStatus">
+                                        </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        <script type="text/javascript">
+                                            dw(wlan_label_current_wifi_user);
+                                            dw(common_colon)
+                                        </script>
+                                        </td>
+                                        <td>
+                                        <label class="list_right" id="CurrentWifiUser">
+                                        </label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="login_sharing_div" class="sharing" style="display:none;">
+                                <h2>
+                                <script type="text/javascript">dw(sharing_label_sharing)</script>
+                                </h2>
+                                <p>
+                                    <label class="label_left">
+                                        <script type="text/javascript">dw(common_sharing_tip)</script>
+                                    </label>
+                                </p>
+                                <script type="text/javascript">create_button(sd_label_view_microsd_files,'view_SDCard_btn');</script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hot_links">
+                        <div class="hotlinks">
+                            <!--<table>
+                            <tr>
+                            <td>
+                            <span>
+                            <a class="nav01" href="http://www.google.com">
+                            <script
+                            type="text/javascript">dw(connection_hilink_label_traffic_statistics);</script>
+                            </a>
+                            </span>
+                            </td>
+                            </tr>
+                            </table>-->
+                        </div>
+                    </div>
+                    <div id="ad_div" style="height:90px;width:100%;display:none">
+                        <iframe id="ad_iframe" width="100%" height="100%" scrolling="no" frameborder="0">
+                        </iframe>
+                    </div>
+                    <div id="footer" class="footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <noscript>
+            <div class="noscript_text">
+                Your browser does not support JavaScript.
+            </div>
+        </noscript>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<scpd xmlns="urn:schemas-upnp-org:service-1-0">
+<specVersion>
+<major>1</major>
+<minor>0</minor>
+</specVersion>
+<actionList>
+<action>
+<name>SetConfigPassword</name>
+<argumentList>
+<argument>
+<name>NewPassword</name>
+<direction>in</direction>
+<relatedStateVariable>Password</relatedStateVariable>
+</argument>
+</argumentList>
+</action>
+</actionList>
+<serviceStateTable>
+<stateVariable sendEvents="no">
+<name>Password</name>
+<dataType>string</dataType>
+</stateVariable>
+</serviceStateTable>
+</scpd>
+tStart>
+        <TriggerPortEnd>4099</TriggerPortEnd>
+        <OpenPortStart>5191</OpenPortStart>
+        <OpenPortEnd>5191</OpenPortEnd>
+    </commonport>
+    <commonport>
+        <name>Asheron Call</name>
+        <Status>0</Status>
+        <TriggerProtocol>17</TriggerProtocol>
+        <TriggerPortStart>9000</TriggerPortStart>
+        <TriggerPortEnd>9013</TriggerPortEnd>
+        <OpenPortStart>9000</OpenPortStart>
+        <OpenPortEnd>9013</OpenPortEnd>
+    </commonport>
+    <commonport>
+        <name>Calista Ip Phone</name>
+        <Status>0</Status>
+        <TriggerProtocol>0</TriggerProtocol>
+        <TriggerPortStart>5190</TriggerPortStart>
+        <TriggerPortEnd>5190</TriggerPortEnd>
+        <OpenPortStart>3000</OpenPortStart>
+        <OpenPortEnd>3000</OpenPortEnd>
+    </commonport>
+    <commonport>
+        <name>Net2Phone</name>
+        <Status>0</Status>
+        <TriggerProtocol>17</TriggerProtocol>
+        <TriggerPortStart>6801</TriggerPortStart>
+        <TriggerPortEnd>6801</TriggerPortEnd>
+        <OpenPortStart>6801</OpenPortStart>
+        <OpenPortEnd>6801</OpenPortEnd>
+    </commonport>
+    <commonport>
+        <name>Rainbow Six or Rogue Spea</name>
+        <Status>0</Status>
+        <TriggerProtocol>17</TriggerProtocol>
+        <TriggerPortStart>2346</TriggerPortStart>
+        <TriggerPortEnd>2346</TriggerPortEnd>
+        <OpenPortStart>2346</OpenPortStart>
+        <OpenPortEnd>2346</OpenPortEnd>
+    </commonport>
+</config>
