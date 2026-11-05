@@ -35,7 +35,7 @@ jobs:
 
       - name: Carve and extract JFFS2
         run: |
-          mkdir -p output3
+          
           OFFSET=402412
           echo "=== Carving JFFS2 from offset $OFFSET ==="
           dd if=144.bin of=carved.jffs2 bs=1 skip=$OFFSET 2>/dev/null
