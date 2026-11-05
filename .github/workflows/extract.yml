@@ -3,8 +3,8 @@ name: Extract Router Firmware JFFS2
 on:
   push:
     paths:
-      - '144.bin'  # وقتی این فایل تغییر کرد یا آپلود شد، به صورت خودکار اجرا می‌شود
-  workflow_dispatch: # پشتیبانی از اجرای دستی
+      - '144.bin'
+  workflow_dispatch:
 
 jobs:
   extract:
@@ -18,20 +18,66 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install jefferson and dependencies
+      - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y liblzo2-dev
+          sudo apt-get install -y binwalk liblzo2-dev lzop
+
+      - name: Install jefferson
+        run: |
           pip install jefferson
 
-      - name: Run extraction
+      - name: Diagnose firmware with binwalk
         run: |
-          # استفاده از دستور jefferson برای استخراج، خروجی به پوشه output
-          # اگر فایل شما در ریشه مخزن قرار دارد، مسیر آن 144.bin است
-          jefferson 144.bin -d output
+          echo "=== binwalk signature scan ==="
+          binwalk 144.bin | head -80
+          echo "=== End of binwalk scan ==="
+
+      - name: Extract JFFS2 (auto-detect offset)
+        run: |
+          mkdir -p output
+          # Try direct extraction first
+          echo "=== Attempting direct jefferson extraction ==="
+          jefferson 144.bin -d output 2>&1 | tee jefferson_direct.log || true
+
+          # Count extracted files
+          FILE_COUNT=$(find output -type f 2>/dev/null | wc -l)
+          echo "Direct extraction file count: $FILE_COUNT"
+
+          # If direct extraction produced nothing, try to locate JFFS2 offset via binwalk and carve it
+          if [ "$FILE_COUNT" -eq 0 ]; then
+            echo "=== Direct extraction empty, trying offset-based carve ==="
+            # Extract JFFS2 offset from binwalk output (first JFFS2 signature)
+            OFFSET=$(binwalk 144.bin | grep -i "jffs2" | head -1 | awk '{print $1}')
+            if [ -n "$OFFSET" ]; then
+              echo "Found JFFS2 at offset: $OFFSET"
+              # Decode offset (binwalk prints decimal by default; use as-is)
+              dd if=144.bin of=carved.jffs2 bs=1 skip=$OFFSET 2>/dev/null || true
+              echo "=== Running jefferson on carved image ==="
+              jefferson carved.jffs2 -d output 2>&1 | tee jefferson_carved.log || true
+            else
+              echo "No JFFS2 signature found by binwalk."
+            fi
+          fi
+
+      - name: List output contents
+        run: |
+          echo "=== Output directory listing ==="
+          ls -la output/ || echo "output dir missing"
+          echo "=== File listing (first 100) ==="
+          find output/ -type f 2>/dev/null | head -100
+          echo "=== Total file count ==="
+          find output/ -type f 2>/dev/null | wc -l
 
       - name: Upload extracted files
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: extracted-jffs2
-          path: output/
+          path: |
+            output/
+            jefferson_direct.log
+            jefferson_carved.log
+            carved.jffs2
+          if-no-files-found: warn
+          retention-days: 7
