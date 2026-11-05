@@ -1,0 +1,37 @@
+name: Extract Router Firmware JFFS2
+
+on:
+  push:
+    paths:
+      - '144.bin'  # وقتی این فایل تغییر کرد یا آپلود شد، به صورت خودکار اجرا می‌شود
+  workflow_dispatch: # پشتیبانی از اجرای دستی
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install jefferson and dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y liblzo2-dev
+          pip install jefferson
+
+      - name: Run extraction
+        run: |
+          # استفاده از دستور jefferson برای استخراج، خروجی به پوشه output
+          # اگر فایل شما در ریشه مخزن قرار دارد، مسیر آن 144.bin است
+          jefferson 144.bin -d output
+
+      - name: Upload extracted files
+        uses: actions/upload-artifact@v4
+        with:
+          name: extracted-jffs2
+          path: output/
