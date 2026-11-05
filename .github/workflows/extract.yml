@@ -35,25 +35,34 @@ jobs:
 
       - name: Carve and extract JFFS2
         run: |
-          mkdir -p output
+          mkdir -p output3
           OFFSET=402412
           echo "=== Carving JFFS2 from offset $OFFSET ==="
           dd if=144.bin of=carved.jffs2 bs=1 skip=$OFFSET 2>/dev/null
           ls -la carved.jffs2
           echo "=== Running jefferson on carved image ==="
-          jefferson carved.jffs2 -d output2 2>&1 | tee jefferson_carved.log || true
+          jefferson carved.jffs2 -d output3 2>&1 | tee jefferson_carved.log || true
           echo "=== Extraction result ==="
-          find output/ -type f 2>/dev/null | head -50
-          echo "Total files: $(find output/ -type f 2>/dev/null | wc -l)"
+          find output3/ -type f 2>/dev/null | head -50
+          echo "Total files: $(find output3/ -type f 2>/dev/null | wc -l)"
 
       - name: List output contents
         run: |
           echo "=== Output directory listing ==="
-          ls -la output2/ || echo "output dir missing"
+          ls -la output3/ || echo "output dir missing"
           echo "=== File listing (first 100) ==="
-          find output2/ -type f 2>/dev/null | head -100
+          find output3/ -type f 2>/dev/null | head -100
           echo "=== Total file count ==="
-          find output2/ -type f 2>/dev/null | wc -l
+          find output3/ -type f 2>/dev/null | wc -l
+
+      - name: Commit extracted files to repository
+        if: always()
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add output3/ carved.jffs2 jefferson_carved.log || true
+          git diff --staged --quiet || git commit -m "Add extracted JFFS2 files from 144.bin [skip ci]"
+          git push || true
 
       - name: Upload extracted files
         if: always()
@@ -61,7 +70,7 @@ jobs:
         with:
           name: extracted-jffs2
           path: |
-            output/
+            output3/
             jefferson_carved.log
             carved.jffs2
           if-no-files-found: warn
