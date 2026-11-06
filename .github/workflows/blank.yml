@@ -1,12 +1,95 @@
-      - name: Extract JFFS2 from known offset
+name: Extract All JFFS2 Partitions from 146.bin
+
+on:
+  push:
+    paths:
+      - '146.bin'
+  workflow_dispatch:
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install system dependencies
         run: |
-          mkdir -p output
-          OFFSET=402412
-          echo "=== Carving JFFS2 from offset $OFFSET ==="
-          dd if=144.bin of=carved.jffs2 bs=1 skip=$OFFSET 2>/dev/null
-          ls -la carved.jffs2
-          echo "=== Running jefferson on carved image ==="
-          jefferson carved.jffs2 -d output 2>&1 | tee jefferson_carved.log || true
-          echo "=== Extraction result ==="
-          find output/ -type f 2>/dev/null | head -50
-          echo "Total files: $(find output/ -type f 2>/dev/null | wc -l)"
+          sudo apt-get update
+          sudo apt-get install -y binwalk liblzo2-dev lzop
+
+      - name: Install jefferson
+        run: |
+          pip install jefferson
+
+      - name: Diagnose firmware with binwalk
+        run: |
+          echo "=== binwalk signature scan ==="
+          binwalk 146.bin | head -200
+          echo "=== End of binwalk scan ==="
+
+      - name: Carve and extract all JFFS2 partitions
+        run: |
+          mkdir -p extracted
+          # استخراج آفست همه امضاهای JFFS2 (ستون اول خروجی binwalk)
+          OFFSETS=$(binwalk 146.bin | grep -i "jffs2" | awk '{print $1}')
+          if [ -z "$OFFSETS" ]; then
+            echo "No JFFS2 signature found in 146.bin"
+            exit 0
+          fi
+          IDX=0
+          PREV=""
+          for OFF in $OFFSETS; do
+            # اگر آفست تکراری باشد (چند امضا در یک بلوک) رد شود
+            if [ "$OFF" = "$PREV" ]; then
+              continue
+            fi
+            PREV="$OFF"
+            IDX=$((IDX+1))
+            echo "=== Carving JFFS2 partition #$IDX at offset $OFF ==="
+            # اگر آفست بعدی وجود دارد، طول را تا آفست بعدی محاسبه کن، وگرنه تا انتهای فایل
+            NEXT=$(echo "$OFFSETS" | awk -v cur="$OFF" '$1 > cur {print $1; exit}')
+            if [ -n "$NEXT" ]; then
+              LEN=$((NEXT - OFF))
+            else
+              LEN=$(( $(stat -c%s 146.bin) - OFF ))
+            fi
+            echo "Length: $LEN bytes"
+            dd if=146.bin of="part_${IDX}.jffs2" bs=1 skip=$OFF count=$LEN 2>/dev/null
+            ls -la "part_${IDX}.jffs2"
+            # پوشه خروجی را از قبل نساز؛ jefferson خودش می‌سازد
+            rm -rf "output_${IDX}"
+            jefferson "part_${IDX}.jffs2" -d "output_${IDX}" 2>&1 | tee "jefferson_${IDX}.log" || true
+            echo "--- Files extracted from partition #$IDX ---"
+            find "output_${IDX}/" -type f 2>/dev/null | head -30
+            echo "Total files: $(find "output_${IDX}/" -type f 2>/dev/null | wc -l)"
+          done
+
+      - name: List all output contents
+        run: |
+          echo "=== All carved partitions ==="
+          ls -la part_*.jffs2 2>/dev/null || echo "No carved partitions"
+          echo "=== All output directories ==="
+          for d in output_*; do
+            [ -d "$d" ] || continue
+            echo "--- $d ---"
+            find "$d/" -type f 2>/dev/null | head -50
+            echo "Total files: $(find "$d/" -type f 2>/dev/null | wc -l)"
+          done
+
+      - name: Upload all extracted files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: extracted-146-${{ github.run_id }}
+          path: |
+            part_*.jffs2
+            output_*/
+            jefferson_*.log
+          if-no-files-found: warn
+          retention-days: 7
