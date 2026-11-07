@@ -16,35 +16,52 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y binwalk unyaffs
+          sudo apt-get install -y binwalk build-essential git zlib1g-dev
 
-      - name: Scan and extract with binwalk
+      - name: Compile unyaffs from source
         run: |
-          echo "=== Binwalk Scan ==="
-          binwalk 146.bin | head -50
+          # unyaffs در مخازن اوبونتو موجود نیست، از گیت‌هاب کلون و کامپایل می‌کنیم
+          git clone https://github.com/ehlers/unyaffs.git
+          cd unyaffs
+          # رفع خطای کامپایل مربوط به sysmacros در سیستم‌های جدید
+          sed -i '54i #if defined(__linux__)' unyaffs.c
+          sed -i '55i #include <sys/sysmacros.h>' unyaffs.c
+          sed -i '56i #endif' unyaffs.c
+          make
+          sudo cp unyaffs /usr/local/bin/
+          cd ..
+
+      - name: Run binwalk scan (for reference)
+        run: |
+          echo "=== Binwalk Scan (for reference only) ==="
+          binwalk 146.bin | head -50 || true
+
+      - name: Find YAFFS signature and extract
+        run: |
+          # جستجوی نشانه YAFFS در فایل با strings
+          echo "=== Searching for YAFFS hints ==="
+          strings 146.bin | grep -i -E "yaffs|rootfs|system|userdata" | head -20 || true
           
-          # binwalk -e معمولاً فایل YAFFS را خودش استخراج می‌کند
-          binwalk -e 146.bin --run-as=root || true
-
-      - name: Find and extract YAFFS2 image
-        run: |
-          # پیدا کردن فایل استخراج شده توسط binwalk (معمولاً در پوشه _146.bin.extracted)
-          # و اجرای unyaffs روی آن
-          find _146.bin.extracted -type f \( -name "*.yaffs*" -o -name "*.img" \) | while read file; do
-            echo "Processing: $file"
-            # ساخت پوشه خروجی مخصوص هر فایل
-            output_dir="yaffs_out_$(basename $file)"
-            mkdir -p "$output_dir"
-            # اجرای unyaffs
-            unyaffs "$file" "$output_dir" || true
-            echo "Extracted to: $output_dir"
-          done
+          # یک آفست فرضی برای تست (باید بر اساس خروجی strings یا تحلیل دستی تنظیم شود)
+          # در اینجا ما فرض می‌کنیم که ممکن است YAFFS در یک آفست خاص باشد.
+          # اگر آفست را نمی‌دانید، می‌توانید از binwalk -E برای تحلیل آنتروپی استفاده کنید.
+          # برای تست، ما یک بازه بزرگ را برش می‌دهیم و unyaffs را اجرا می‌کنیم.
+          
+          # برش دادن یک بخش بزرگ از فایل (مثلاً از آفست 0 تا 50MB) به عنوان یک تلاش اولیه
+          dd if=146.bin of=potential_yaffs.img bs=1M count=50
+          
+          # تلاش برای استخراج با unyaffs (با تشخیص خودکار page size)
+          mkdir -p yaffs_output
+          unyaffs potential_yaffs.img yaffs_output || true
+          
+          # اگر تشخیص خودکار شکست خورد، با page size مشخص (مثلاً 2KB) تلاش می‌کنیم
+          # unyaffs -p 2048 potential_yaffs.img yaffs_output || true
 
       - name: List extracted files
         run: |
-          echo "=== YAFFS Output ==="
-          find yaffs_out_* -type f 2>/dev/null | head -100
-          echo "Total files: $(find yaffs_out_* -type f 2>/dev/null | wc -l)"
+          echo "=== Extracted files ==="
+          find yaffs_output -type f 2>/dev/null | head -50 || true
+          echo "Total files: $(find yaffs_output -type f 2>/dev/null | wc -l)"
 
       - name: Upload artifacts
         if: always()
@@ -52,6 +69,6 @@ jobs:
         with:
           name: extracted-146-yaffs
           path: |
-            _146.bin.extracted/
-            yaffs_out_*/
+            yaffs_output/
+            potential_yaffs.img
           if-no-files-found: warn
