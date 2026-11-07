@@ -1,0 +1,57 @@
+name: Extract YAFFS from 146.bin
+
+on:
+  push:
+    paths:
+      - '146.bin'
+  workflow_dispatch:
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y binwalk unyaffs
+
+      - name: Scan and extract with binwalk
+        run: |
+          echo "=== Binwalk Scan ==="
+          binwalk 146.bin | head -50
+          
+          # binwalk -e معمولاً فایل YAFFS را خودش استخراج می‌کند
+          binwalk -e 146.bin --run-as=root || true
+
+      - name: Find and extract YAFFS2 image
+        run: |
+          # پیدا کردن فایل استخراج شده توسط binwalk (معمولاً در پوشه _146.bin.extracted)
+          # و اجرای unyaffs روی آن
+          find _146.bin.extracted -type f \( -name "*.yaffs*" -o -name "*.img" \) | while read file; do
+            echo "Processing: $file"
+            # ساخت پوشه خروجی مخصوص هر فایل
+            output_dir="yaffs_out_$(basename $file)"
+            mkdir -p "$output_dir"
+            # اجرای unyaffs
+            unyaffs "$file" "$output_dir" || true
+            echo "Extracted to: $output_dir"
+          done
+
+      - name: List extracted files
+        run: |
+          echo "=== YAFFS Output ==="
+          find yaffs_out_* -type f 2>/dev/null | head -100
+          echo "Total files: $(find yaffs_out_* -type f 2>/dev/null | wc -l)"
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: extracted-146-yaffs
+          path: |
+            _146.bin.extracted/
+            yaffs_out_*/
+          if-no-files-found: warn
