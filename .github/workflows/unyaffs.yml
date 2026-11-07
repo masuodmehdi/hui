@@ -1,4 +1,4 @@
-name: Extract YAFFS from 146.bin
+name: Extract YAFFS2 from 146.bin (Corrected)
 
 on:
   push:
@@ -16,59 +16,56 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y binwalk build-essential git zlib1g-dev
+          sudo apt-get install -y binwalk build-essential git zlib1g-dev python3-pip
+          pip3 install --upgrade binwalk
 
       - name: Compile unyaffs from source
         run: |
-          # unyaffs در مخازن اوبونتو موجود نیست، از گیت‌هاب کلون و کامپایل می‌کنیم
           git clone https://github.com/ehlers/unyaffs.git
           cd unyaffs
-          # رفع خطای کامپایل مربوط به sysmacros در سیستم‌های جدید
-          sed -i '54i #if defined(__linux__)' unyaffs.c
-          sed -i '55i #include <sys/sysmacros.h>' unyaffs.c
-          sed -i '56i #endif' unyaffs.c
+          # رفع خطای کامپایل مربوط به sysmacros در سیستم‌های جدید اوبونتو
+          sed -i 's|#include <sys/types.h>|#include <sys/types.h>\n#include <sys/sysmacros.h>|' unyaffs.c
           make
           sudo cp unyaffs /usr/local/bin/
           cd ..
 
-      - name: Run binwalk scan (for reference)
+      - name: Find YAFFS2 offset with binwalk
         run: |
-          echo "=== Binwalk Scan (for reference only) ==="
-          binwalk 146.bin | head -50 || true
+          echo "=== Scanning for YAFFS2 signature (0x59414646) ==="
+          # جستجوی دقیق برای امضای YAFFS2
+          binwalk -R "\x59\x41\x46\x46" 146.bin | head -20 || true
+          
+          # همچنین جستجوی رشته YAFFS در فایل
+          echo "=== Searching for YAFFS strings ==="
+          strings 146.bin | grep -i "yaffs" | head -10 || true
 
-      - name: Find YAFFS signature and extract
+      - name: Extract YAFFS2 with binwalk (with root)
         run: |
-          # جستجوی نشانه YAFFS در فایل با strings
-          echo "=== Searching for YAFFS hints ==="
-          strings 146.bin | grep -i -E "yaffs|rootfs|system|userdata" | head -20 || true
-          
-          # یک آفست فرضی برای تست (باید بر اساس خروجی strings یا تحلیل دستی تنظیم شود)
-          # در اینجا ما فرض می‌کنیم که ممکن است YAFFS در یک آفست خاص باشد.
-          # اگر آفست را نمی‌دانید، می‌توانید از binwalk -E برای تحلیل آنتروپی استفاده کنید.
-          # برای تست، ما یک بازه بزرگ را برش می‌دهیم و unyaffs را اجرا می‌کنیم.
-          
-          # برش دادن یک بخش بزرگ از فایل (مثلاً از آفست 0 تا 50MB) به عنوان یک تلاش اولیه
-          dd if=146.bin of=potential_yaffs.img bs=1M count=50
-          
-          # تلاش برای استخراج با unyaffs (با تشخیص خودکار page size)
-          mkdir -p yaffs_output
-          unyaffs potential_yaffs.img yaffs_output || true
-          
-          # اگر تشخیص خودکار شکست خورد، با page size مشخص (مثلاً 2KB) تلاش می‌کنیم
-          # unyaffs -p 2048 potential_yaffs.img yaffs_output || true
+          # اجرای binwalk با دسترسی root برای استخراج خودکار
+          sudo binwalk -e --run-as=root 146.bin || true
+
+      - name: Find and extract YAFFS2 image manually
+        run: |
+          # پیدا کردن فایل YAFFS2 استخراج شده توسط binwalk
+          find _146.bin.extracted -type f -name "*.yaffs2" -o -name "*.yaffs" -o -name "*.img" 2>/dev/null | while read file; do
+            echo "Processing: $file"
+            output_dir="yaffs_out_$(basename $file)"
+            mkdir -p "$output_dir"
+            unyaffs "$file" "$output_dir" || true
+          done
 
       - name: List extracted files
         run: |
           echo "=== Extracted files ==="
-          find yaffs_output -type f 2>/dev/null | head -50 || true
-          echo "Total files: $(find yaffs_output -type f 2>/dev/null | wc -l)"
+          find yaffs_out_* -type f 2>/dev/null | head -100
+          echo "Total files: $(find yaffs_out_* -type f 2>/dev/null | wc -l)"
 
       - name: Upload artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: extracted-146-yaffs
+          name: extracted-146-yaffs2
           path: |
-            yaffs_output/
-            potential_yaffs.img
+            _146.bin.extracted/
+            yaffs_out_*/
           if-no-files-found: warn
