@@ -1,4 +1,4 @@
-name: Extract YAFFS2 from 146.bin (Final)
+name: Extract YAFFS2 from 146.bin (Debian Source)
 
 on:
   push:
@@ -16,17 +16,17 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential git zlib1g-dev
+          sudo apt-get install -y build-essential curl tar zlib1g-dev
 
-       - name: Download and compile unyaffs (from Debian)
-           run: |
-          # دانلود مستقیم فایل سورس از مخزن Debian (نیازی به Git ندارد)
+      - name: Download and compile unyaffs (from Debian)
+        run: |
+          # دانلود مستقیم سورس از مخزن رسمی Debian (بدون نیاز به Git)
           curl -L -o unyaffs.tar.gz https://deb.debian.org/debian/pool/main/u/unyaffs/unyaffs_0.9.7.orig.tar.gz
           
           # استخراج فایل فشرده
           tar -xzf unyaffs.tar.gz
           
-          # ورود به پوشه سورس (نام پوشه معمولاً unyaffs-0.9.7 است)
+          # ورود به پوشه سورس
           cd unyaffs-0.9.7
           
           # رفع خطای کامپایل مربوط به هدر sysmacros در اوبونتوهای جدید
@@ -45,7 +45,7 @@ jobs:
         id: find_yaffs
         run: |
           echo "=== Searching for YAFFS2 signature (59 41 46 46) ==="
-          # جستجوی مستقیم باینری برای رشته YAFF
+          # جستجوی مستقیم باینری برای رشته YAFF (امضای YAFFS2)
           OFFSET_HEX=$(grep -a -b -o $'\x59\x41\x46\x46' 146.bin | head -1 | cut -d: -f1 || true)
           
           if [ -n "$OFFSET_HEX" ]; then
@@ -73,7 +73,7 @@ jobs:
           echo "=== Running unyaffs (auto-detect) ==="
           unyaffs carved_yaffs.img yaffs_output || true
           
-          # اگر شکست خورد، با page size مشخص تلاش می‌کنیم
+          # اگر شکست خورد، با page size مشخص (2KB) تلاش می‌کنیم
           if [ ! -d "yaffs_output/bin" ] && [ ! -d "yaffs_output/system" ] && [ ! -d "yaffs_output/etc" ]; then
             echo "=== Retrying with page size 2048 ==="
             rm -rf yaffs_output
