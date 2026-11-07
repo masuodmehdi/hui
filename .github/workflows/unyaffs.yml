@@ -18,20 +18,27 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y build-essential git zlib1g-dev
 
-      - name: Clone and compile unyaffs
+            - name: Download and compile unyaffs (from Debian)
         run: |
-          # تنظیم git برای جلوگیری از درخواست نام کاربری در مخازن عمومی
-          git config --global url."https://github.com/".insteadOf "git@github.com:"
+          # دانلود مستقیم فایل سورس از مخزن Debian (نیازی به Git ندارد)
+          curl -L -o unyaffs.tar.gz https://deb.debian.org/debian/pool/main/u/unyaffs/unyaffs_0.9.7.orig.tar.gz
           
-          # استفاده از مخزن جایگزین و معتبر
-          git clone https://github.com/mesutkocaman/unyaffs.git
+          # استخراج فایل فشرده
+          tar -xzf unyaffs.tar.gz
           
-          cd unyaffs
-          # رفع خطای کامپایل sysmacros
+          # ورود به پوشه سورس (نام پوشه معمولاً unyaffs-0.9.7 است)
+          cd unyaffs-0.9.7
+          
+          # رفع خطای کامپایل مربوط به هدر sysmacros در اوبونتوهای جدید
           sed -i 's|#include <sys/types.h>|#include <sys/types.h>\n#include <sys/sysmacros.h>|' unyaffs.c
           
+          # کامپایل
           make
+          
+          # کپی فایل اجرایی به مسیر سیستم
           sudo cp unyaffs /usr/local/bin/
+          
+          # بازگشت به پوشه اصلی
           cd ..
 
       - name: Find YAFFS2 binary signature
