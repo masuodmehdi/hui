@@ -1,4 +1,4 @@
-name: Extract YAFFS2 from 146.bin
+name: Extract YAFFS2 from 146.bin (Binary Search)
 
 on:
   push:
@@ -16,61 +16,70 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y binwalk build-essential curl unzip zlib1g-dev
+          sudo apt-get install -y build-essential curl unzip zlib1g-dev
 
       - name: Download and compile unyaffs
         run: |
-          # دانلود مستقیم آرشیو مخزن به جای git clone برای دور زدن خطای احراز هویت
+          # دانلود مستقیم به جای git clone
           curl -L -o unyaffs.zip https://github.com/ehlers/unyaffs/archive/refs/heads/master.zip
           unzip unyaffs.zip
           cd unyaffs-master
-          
-          # رفع خطای کامپایل مربوط به هدر sysmacros در اوبونتوهای جدید
+          # رفع خطای کامپایل sysmacros
           sed -i 's|#include <sys/types.h>|#include <sys/types.h>\n#include <sys/sysmacros.h>|' unyaffs.c
-          
           make
           sudo cp unyaffs /usr/local/bin/
           cd ..
 
-      - name: Scan firmware with binwalk
+      - name: Find YAFFS2 binary signature
+        id: find_yaffs
         run: |
-          echo "=== binwalk signature scan ==="
-          binwalk 146.bin | head -100
-          echo "=== End of binwalk scan ==="
-
-      - name: Find YAFFS2 offset and extract
-        run: |
-          # جستجوی امضای YAFFS2 (معادل ASCII "YAFF")
-          echo "=== Searching for YAFFS2 signature ==="
-          binwalk -R "\x59\x41\x46\x46" 146.bin || true
+          echo "=== Searching for YAFFS2 signature (59 41 46 46) ==="
+          # جستجوی مستقیم باینری برای رشته YAFF
+          # -a: فایل را به عنوان متن در نظر بگیر
+          # -b: آفست بایت را نمایش بده
+          # -o: فقط بخش منطبق را نمایش بده
+          OFFSET_HEX=$(grep -a -b -o $'\x59\x41\x46\x46' 146.bin | head -1 | cut -d: -f1 || true)
           
-          # جستجوی رشته‌های مرتبط برای کمک به پیدا کردن آفست
-          echo "=== Searching for YAFFS strings ==="
-          strings 146.bin | grep -i "yaffs" | head -10 || true
+          if [ -n "$OFFSET_HEX" ]; then
+            # تبدیل آفست اعشاری به هگزادسیمال برای نمایش
+            OFFSET_DEC=$OFFSET_HEX
+            OFFSET_HEX_FMT=$(printf '0x%X' $OFFSET_DEC)
+            echo "Found YAFFS2 signature at decimal offset: $OFFSET_DEC ($OFFSET_HEX_FMT)"
+            echo "yaffs_offset=$OFFSET_DEC" >> $GITHUB_OUTPUT
+          else
+            echo "No YAFFS2 signature found with grep."
+            # اگر پیدا نشد، خروجی خالی می‌گذاریم
+            echo "yaffs_offset=" >> $GITHUB_OUTPUT
+          fi
 
-      - name: Attempt extraction with binwalk (with root)
+      - name: Carve and extract YAFFS2
+        if: steps.find_yaffs.outputs.yaffs_offset != ''
         run: |
-          # اجرای binwalk با دسترسی root برای استخراج خودکار (در صورت شناسایی)
-          sudo binwalk -e --run-as=root 146.bin || true
-
-      - name: Manual extraction with unyaffs
-        run: |
-          # پیدا کردن فایل‌های استخراج شده توسط binwalk و تلاش برای unyaffs
-          find _146.bin.extracted -type f \( -name "*.yaffs*" -o -name "*.img" \) 2>/dev/null | while read file; do
-            echo "Processing: $file"
-            output_dir="yaffs_out_$(basename $file)"
-            mkdir -p "$output_dir"
-            # تلاش برای استخراج (تشخیص خودکار page size)
-            unyaffs "$file" "$output_dir" || true
-            # اگر تشخیص خودکار شکست خورد، با page size 2KB (2048) تلاش می‌کنیم
-            # unyaffs -p 2048 "$file" "$output_dir" || true
-          done
+          OFFSET=${{ steps.find_yaffs.outputs.yaffs_offset }}
+          echo "=== Carving from offset $OFFSET ==="
+          
+          # برش دادن فایل از آفست پیدا شده تا انتها
+          dd if=146.bin of=carved_yaffs.img bs=1 skip=$OFFSET 2>/dev/null
+          ls -la carved_yaffs.img
+          
+          # تلاش برای استخراج
+          mkdir -p yaffs_output
+          echo "=== Running unyaffs ==="
+          unyaffs carved_yaffs.img yaffs_output || true
+          
+          # اگر شکست خورد، با page size مشخص تلاش می‌کنیم
+          if [ ! -d "yaffs_output/bin" ] && [ ! -d "yaffs_output/system" ]; then
+            echo "=== Retrying with page size 2048 ==="
+            rm -rf yaffs_output
+            mkdir -p yaffs_output
+            unyaffs -p 2048 carved_yaffs.img yaffs_output || true
+          fi
 
       - name: List extracted files
         run: |
           echo "=== Extracted files ==="
-          find yaffs_out_* -type f 2>/dev/null | head -100
-          echo "Total files: $(find yaffs_out_* -type f 2>/dev/null | wc -l)"
+          find yaffs_output -type f 2>/dev/null | head -100
+          echo "Total files: $(find yaffs_output -type f 2>/dev/null | wc -l)"
 
       - name: Upload artifacts
         if: always()
@@ -78,6 +87,6 @@ jobs:
         with:
           name: extracted-146-yaffs2-${{ github.run_id }}
           path: |
-            _146.bin.extracted/
-            yaffs_out_*/
+            carved_yaffs.img
+            yaffs_output/
           if-no-files-found: warn
