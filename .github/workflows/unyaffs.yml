@@ -1,4 +1,4 @@
-name: Extract YAFFS2 from 146.bin (Corrected)
+name: Extract YAFFS2 from 146.bin
 
 on:
   push:
@@ -13,45 +13,57 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install dependencies
+      - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y binwalk build-essential git zlib1g-dev python3-pip
-          pip3 install --upgrade binwalk
+          sudo apt-get install -y binwalk build-essential curl unzip zlib1g-dev
 
-      - name: Compile unyaffs from source
+      - name: Download and compile unyaffs
         run: |
-          git clone https://github.com/ehlers/unyaffs.git
-          cd unyaffs
-          # رفع خطای کامپایل مربوط به sysmacros در سیستم‌های جدید اوبونتو
+          # دانلود مستقیم آرشیو مخزن به جای git clone برای دور زدن خطای احراز هویت
+          curl -L -o unyaffs.zip https://github.com/ehlers/unyaffs/archive/refs/heads/master.zip
+          unzip unyaffs.zip
+          cd unyaffs-master
+          
+          # رفع خطای کامپایل مربوط به هدر sysmacros در اوبونتوهای جدید
           sed -i 's|#include <sys/types.h>|#include <sys/types.h>\n#include <sys/sysmacros.h>|' unyaffs.c
+          
           make
           sudo cp unyaffs /usr/local/bin/
           cd ..
 
-      - name: Find YAFFS2 offset with binwalk
+      - name: Scan firmware with binwalk
         run: |
-          echo "=== Scanning for YAFFS2 signature (0x59414646) ==="
-          # جستجوی دقیق برای امضای YAFFS2
-          binwalk -R "\x59\x41\x46\x46" 146.bin | head -20 || true
+          echo "=== binwalk signature scan ==="
+          binwalk 146.bin | head -100
+          echo "=== End of binwalk scan ==="
+
+      - name: Find YAFFS2 offset and extract
+        run: |
+          # جستجوی امضای YAFFS2 (معادل ASCII "YAFF")
+          echo "=== Searching for YAFFS2 signature ==="
+          binwalk -R "\x59\x41\x46\x46" 146.bin || true
           
-          # همچنین جستجوی رشته YAFFS در فایل
+          # جستجوی رشته‌های مرتبط برای کمک به پیدا کردن آفست
           echo "=== Searching for YAFFS strings ==="
           strings 146.bin | grep -i "yaffs" | head -10 || true
 
-      - name: Extract YAFFS2 with binwalk (with root)
+      - name: Attempt extraction with binwalk (with root)
         run: |
-          # اجرای binwalk با دسترسی root برای استخراج خودکار
+          # اجرای binwalk با دسترسی root برای استخراج خودکار (در صورت شناسایی)
           sudo binwalk -e --run-as=root 146.bin || true
 
-      - name: Find and extract YAFFS2 image manually
+      - name: Manual extraction with unyaffs
         run: |
-          # پیدا کردن فایل YAFFS2 استخراج شده توسط binwalk
-          find _146.bin.extracted -type f -name "*.yaffs2" -o -name "*.yaffs" -o -name "*.img" 2>/dev/null | while read file; do
+          # پیدا کردن فایل‌های استخراج شده توسط binwalk و تلاش برای unyaffs
+          find _146.bin.extracted -type f \( -name "*.yaffs*" -o -name "*.img" \) 2>/dev/null | while read file; do
             echo "Processing: $file"
             output_dir="yaffs_out_$(basename $file)"
             mkdir -p "$output_dir"
+            # تلاش برای استخراج (تشخیص خودکار page size)
             unyaffs "$file" "$output_dir" || true
+            # اگر تشخیص خودکار شکست خورد، با page size 2KB (2048) تلاش می‌کنیم
+            # unyaffs -p 2048 "$file" "$output_dir" || true
           done
 
       - name: List extracted files
@@ -64,7 +76,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: extracted-146-yaffs2
+          name: extracted-146-yaffs2-${{ github.run_id }}
           path: |
             _146.bin.extracted/
             yaffs_out_*/
