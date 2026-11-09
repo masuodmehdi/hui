@@ -1,2 +1,88 @@
+name: Extract & Analyze Firmware
 
-           
+on:
+  workflow_dispatch: # امکان اجرای دستی از تب Actions در گیت‌هاب
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential wget tar binwalk coreutils
+
+      - name: Download & Build unyaffs
+        run: |
+          echo "[*] Downloading unyaffs 0.9.7..."
+          wget -q https://deb.debian.org/debian/pool/main/u/unyaffs/unyaffs_0.9.7.orig.tar.gz -O unyaffs.tar.gz
+          tar -xzf unyaffs.tar.gz
+          cd unyaffs-*
+          
+          # افزودن هدر sysmacros برای جلوگیری از خطای کامپایل در توزیع‌های جدید اوبونتو
+          for f in *.c; do
+            sed -i '1i#include <sys/sysmacros.h>' "$f" 2>/dev/null || true
+          done
+          
+          make
+          sudo cp unyaffs /usr/local/bin/
+          cd ..
+          echo "[*] unyaffs installed successfully."
+
+      - name: Analyze & Carve Firmware
+        run: |
+          FIRMWARE="146.bin"
+          
+          if [ ! -f "$FIRMWARE" ]; then
+            echo "[!] Error: $FIRMWARE not found in repository root!"
+            exit 1
+          fi
+
+          echo "[*] Analyzing partitions & strings..."
+          grep -b -o "YAFF" "$FIRMWARE" | head -n 20 || echo "No 'YAFF' magic found via grep."
+          strings -t d "$FIRMWARE" | grep -E "(rootfs|system|userdata|boot|yaffs)" | head -n 30 || true
+
+          # آفست‌هایی که می‌خواهید تست کنید
+          OFFSETS=(45603473)
+
+          SUCCESS=0
+          for offset in "${OFFSETS[@]}"; do
+            echo "[*] Processing offset: $offset"
+            # برش فایل از آفست تا انتها
+            dd if="$FIRMWARE" of="chunk_$offset.bin" bs=1 skip="$offset" status=none
+
+            for c_val in 1 2 4; do
+              for s_val in 0 32 64 128; do
+                out_dir="extracted_${offset}_c${c_val}_s${s_val}"
+                mkdir -p "$out_dir"
+                echo "[->] Testing unyaffs -c $c_val -s $s_val on offset $offset..."
+                
+                if unyaffs -c "$c_val" -s "$s_val" "chunk_$offset.bin" "$out_dir" 2>/dev/null; then
+                  # بررسی اینکه آیا فایلی استخراج شده است یا خیر
+                  if [ "$(ls -A "$out_dir")" ]; then
+                    echo "[SUCCESS] Extracted successfully using -c $c_val -s $s_val at offset $offset!"
+                    SUCCESS=1
+                    break 2
+                  fi
+                fi
+                rm -rf "$out_dir"
+              done
+            done
+            rm -f "chunk_$offset.bin"
+          done
+
+          if [ $SUCCESS -eq 0 ]; then
+            echo "[!] Extraction failed with current combinations. Please check offsets."
+          fi
+
+      - name: Upload Extracted Files (Artifact)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: extracted-firmware
+          path: extracted_*/
+          if-no-files-found: warn
